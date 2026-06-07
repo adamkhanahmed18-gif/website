@@ -12,47 +12,11 @@
 </head>
 <body data-page="home" class="intro-active">
 
-  <!-- CINEMATIC INTRO SEQUENCE -->
+  <!-- CINEMATIC CANVAS INTRO -->
   <div id="intro-sequence">
-
-    <!-- Scene 1: mixing / prep -->
-    <div class="intro-scene" data-duration="2000">
-      <img src="images/dessert-spread-black-white.jpg" alt="" />
-      <div class="intro-scene__overlay"></div>
-      <div class="intro-scene__caption"><p>It starts with the finest ingredients…</p></div>
-    </div>
-
-    <!-- Scene 2: building layers -->
-    <div class="intro-scene" data-duration="2000">
-      <img src="images/dessert-spread-floral.jpg" alt="" />
-      <div class="intro-scene__overlay"></div>
-      <div class="intro-scene__caption"><p>Every layer placed with care.</p></div>
-    </div>
-
-    <!-- Scene 3: icing & detail -->
-    <div class="intro-scene" data-duration="2000">
-      <img src="images/ornate-cakes.jpg" alt="" />
-      <div class="intro-scene__overlay"></div>
-      <div class="intro-scene__caption"><p>Finished by hand, down to the last detail.</p></div>
-    </div>
-
-    <!-- Scene 4: bird's eye finished product -->
-    <div class="intro-scene" data-duration="1500">
-      <img src="images/wedding-cake-derie-hawa.jpg" alt="" />
-      <div class="intro-scene__overlay"></div>
-      <div class="intro-scene__caption"><p>A masterpiece, made for you.</p></div>
-    </div>
-
-    <!-- Brand reveal -->
-    <div class="intro-brand">
-      <div class="intro-brand__mark">✦</div>
-      <div class="intro-brand__name">Artisan Cakery</div>
-      <div class="intro-brand__line"></div>
-      <div class="intro-brand__sub">Bradford, West Yorkshire</div>
-    </div>
-
-    <!-- Progress bar -->
+    <canvas id="intro-canvas"></canvas>
     <div class="intro-progress"><div class="intro-progress__bar" id="intro-bar"></div></div>
+    <div class="intro-skip">tap to skip</div>
   </div>
 
   <!-- PAGE TRANSITION VEIL -->
@@ -321,6 +285,7 @@
     </div>
   </footer>
 
+  <script src="intro.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
