@@ -4,12 +4,75 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ---- Page transition veil: lift on load ---- */
+  /* ---- Cinematic intro sequence (home page only) ---- */
+  const introEl = document.getElementById('intro-sequence');
+  if (introEl) {
+    const scenes = Array.from(introEl.querySelectorAll('.intro-scene'));
+    const brand  = introEl.querySelector('.intro-brand');
+    const bar    = document.getElementById('intro-bar');
+
+    // Total duration of all scenes
+    const durations = scenes.map(s => parseInt(s.dataset.duration) || 2000);
+    const brandDuration = 1400;
+    const totalMs = durations.reduce((a, b) => a + b, 0) + brandDuration;
+
+    // Animate the progress bar across the full sequence
+    bar.style.transition = `width ${totalMs}ms linear`;
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      bar.style.width = '100%';
+    }));
+
+    // Play scenes sequentially
+    let current = 0;
+
+    function showScene(index) {
+      if (index >= scenes.length) {
+        // All scenes done — show brand panel
+        brand.classList.add('is-visible');
+        setTimeout(endIntro, brandDuration);
+        return;
+      }
+      const scene = scenes[index];
+      // Mark previous as leaving
+      if (index > 0) {
+        scenes[index - 1].classList.remove('is-active');
+        scenes[index - 1].classList.add('is-leaving');
+      }
+      scene.classList.add('is-active');
+      setTimeout(() => showScene(index + 1), durations[index]);
+    }
+
+    function endIntro() {
+      introEl.classList.add('is-done');
+      document.body.classList.remove('intro-active');
+      setTimeout(() => {
+        introEl.remove();
+        // Lift the page veil now
+        const veil = document.querySelector('.page-veil');
+        if (veil) {
+          requestAnimationFrame(() => setTimeout(() => veil.classList.add('lift'), 100));
+        }
+      }, 950);
+    }
+
+    // Kick off
+    showScene(0);
+
+    // Skip on click / tap
+    introEl.addEventListener('click', () => {
+      scenes.forEach(s => { s.classList.remove('is-active', 'is-leaving'); });
+      brand.classList.remove('is-visible');
+      endIntro();
+    }, { once: true });
+
+  } else {
+  /* ---- Page transition veil: lift on load (non-home pages) ---- */
   const veil = document.querySelector('.page-veil');
   if (veil) {
     requestAnimationFrame(() => {
       setTimeout(() => veil.classList.add('lift'), 250);
     });
+  }
   }
 
   /* ---- Animate links to other pages (drop veil before navigating) ---- */
