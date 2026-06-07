@@ -7,7 +7,7 @@
   <meta name="description" content="Bespoke wedding cakes, occasion cakes and dessert spreads handcrafted in Bradford, West Yorkshire. 5-star food hygiene rated & fully insured." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -15,13 +15,15 @@
   <!-- NAV -->
   <header class="nav" id="nav">
     <div class="nav__inner container">
-      <a href="#" class="nav__logo">Artisan Cakery</a>
+      <a href="#" class="nav__logo">
+        <span class="logo-icon">✦</span> Artisan Cakery
+      </a>
       <nav class="nav__links">
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#gallery">Gallery</a>
         <a href="#testimonials">Reviews</a>
-        <a href="#contact" class="btn btn--outline">Order Now</a>
+        <a href="#contact" class="btn btn--nav">Order Now</a>
       </nav>
       <button class="nav__burger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -32,62 +34,127 @@
       <a href="#services">Services</a>
       <a href="#gallery">Gallery</a>
       <a href="#testimonials">Reviews</a>
-      <a href="#contact">Order Now</a>
+      <a href="#contact">Order Now ✦</a>
     </div>
   </header>
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero__bg"></div>
+    <div class="hero__media">
+      <img
+        src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=1600&q=85&fit=crop"
+        alt="Beautiful tiered celebration cake"
+        class="hero__img"
+      />
+      <div class="hero__overlay"></div>
+    </div>
     <div class="hero__content container">
-      <span class="hero__eyebrow">Bradford, West Yorkshire</span>
-      <h1 class="hero__title">Cakes Crafted<br /><em>with Love</em></h1>
-      <p class="hero__sub">Bespoke wedding cakes, occasion cakes &amp; stunning dessert spreads — handmade to order in West Yorkshire.</p>
+      <div class="hero__pill">✦ Bradford, West Yorkshire</div>
+      <h1 class="hero__title">
+        Cakes That Make<br />
+        <em>Moments Magic</em>
+      </h1>
+      <p class="hero__sub">
+        Bespoke wedding cakes, occasion cakes &amp; show-stopping dessert spreads —
+        handcrafted to order with love in West Yorkshire.
+      </p>
       <div class="hero__actions">
         <a href="#contact" class="btn btn--primary">Get a Free Quote</a>
-        <a href="#gallery" class="btn btn--ghost">View Gallery</a>
+        <a href="#gallery" class="btn btn--ghost">
+          <span class="play-icon">▶</span> See Our Work
+        </a>
       </div>
-      <div class="hero__badges">
-        <div class="badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <span>5-Star Hygiene Rating</span>
+      <div class="hero__trust">
+        <div class="trust-item">
+          <span class="trust-icon">⭐</span>
+          <div>
+            <strong>5-Star</strong>
+            <span>Hygiene Rating</span>
+          </div>
         </div>
-        <div class="badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-          <span>Fully Insured</span>
+        <div class="trust-divider"></div>
+        <div class="trust-item">
+          <span class="trust-icon">🛡️</span>
+          <div>
+            <strong>Fully</strong>
+            <span>Insured</span>
+          </div>
         </div>
-        <div class="badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-          <span>10K+ Followers</span>
+        <div class="trust-divider"></div>
+        <div class="trust-item">
+          <span class="trust-icon">💖</span>
+          <div>
+            <strong>10K+</strong>
+            <span>Followers</span>
+          </div>
         </div>
       </div>
     </div>
-    <div class="hero__scroll">
-      <span>Scroll</span>
-      <div class="hero__scroll-line"></div>
+    <div class="hero__scroll-hint">
+      <div class="scroll-dot"></div>
     </div>
   </section>
+
+  <!-- MARQUEE STRIP -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>Wedding Cakes ✦</span>
+      <span>Birthday Cakes ✦</span>
+      <span>Dessert Spreads ✦</span>
+      <span>Anniversary Cakes ✦</span>
+      <span>Baby Shower Cakes ✦</span>
+      <span>Christening Cakes ✦</span>
+      <span>Custom Designs ✦</span>
+      <span>Wedding Cakes ✦</span>
+      <span>Birthday Cakes ✦</span>
+      <span>Dessert Spreads ✦</span>
+      <span>Anniversary Cakes ✦</span>
+      <span>Baby Shower Cakes ✦</span>
+      <span>Christening Cakes ✦</span>
+      <span>Custom Designs ✦</span>
+    </div>
+  </div>
 
   <!-- ABOUT -->
   <section class="about section" id="about">
     <div class="container about__grid">
-      <div class="about__images">
+      <div class="about__visuals">
         <div class="about__img-main">
-          <div class="img-placeholder img-placeholder--tall">
-            <span>Your cake photo here</span>
-          </div>
+          <img
+            src="https://images.unsplash.com/photo-1604413191066-4dd20bedf486?w=700&q=85&fit=crop"
+            alt="Beautiful pink floral cake"
+          />
         </div>
-        <div class="about__img-accent">
-          <div class="img-placeholder">
-            <span>Detail shot</span>
-          </div>
+        <div class="about__img-float">
+          <img
+            src="https://images.unsplash.com/photo-1577998474517-7eeeed4e448a?w=400&q=85&fit=crop"
+            alt="Celebration cake with sparkler"
+          />
+        </div>
+        <div class="about__stat-bubble">
+          <strong>544+</strong>
+          <span>Cakes Made</span>
         </div>
       </div>
       <div class="about__text">
-        <span class="section__eyebrow">Our Story</span>
-        <h2 class="section__title">Made with Passion,<br />Delivered with Pride</h2>
-        <p>Based in Bradford, West Yorkshire, Artisan Cakery is a home of beautifully handcrafted cakes built around your vision. Whether you're celebrating a wedding, birthday, anniversary or any other milestone, every cake is made from scratch with premium ingredients and finished with meticulous attention to detail.</p>
-        <p>With a 5-star food hygiene rating and full insurance, you can order with complete confidence. We take bookings for future dates so reach out early — our diaries fill fast!</p>
+        <span class="eyebrow">Our Story</span>
+        <h2 class="section-title">Made with Passion,<br /><em>Every Single Time</em></h2>
+        <p>Based in <strong>Bradford, West Yorkshire</strong>, Artisan Cakery creates stunningly beautiful cakes built entirely around your vision. From grand multi-tiered wedding masterpieces to intimate birthday treats — everything is made from scratch using premium ingredients.</p>
+        <p>With a <strong>5-star food hygiene rating</strong> and full insurance, you're in safe hands. Our diary fills up quickly, so get in touch early to secure your date!</p>
+        <div class="about__highlights">
+          <div class="highlight">
+            <span class="highlight__icon">🎂</span>
+            <span>Fully bespoke designs</span>
+          </div>
+          <div class="highlight">
+            <span class="highlight__icon">🌸</span>
+            <span>Premium ingredients</span>
+          </div>
+          <div class="highlight">
+            <span class="highlight__icon">📦</span>
+            <span>Collection & delivery</span>
+          </div>
+        </div>
         <a href="#contact" class="btn btn--primary">Start Your Order</a>
       </div>
     </div>
@@ -96,46 +163,41 @@
   <!-- SERVICES -->
   <section class="services section" id="services">
     <div class="container">
-      <div class="section__header">
-        <span class="section__eyebrow">What We Offer</span>
-        <h2 class="section__title">Our Specialities</h2>
-        <p class="section__sub">Every creation is bespoke — designed around you.</p>
+      <div class="section-header">
+        <span class="eyebrow">What We Create</span>
+        <h2 class="section-title">Something for Every<br /><em>Celebration</em></h2>
       </div>
       <div class="services__grid">
-        <div class="service-card">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M32 8c-4 0-7 3-7 7s3 7 7 7 7-3 7-7-3-7-7-7z" stroke="currentColor" stroke-width="2"/>
-              <path d="M10 48h44v8H10z" stroke="currentColor" stroke-width="2"/>
-              <path d="M16 32h32v16H16z" stroke="currentColor" stroke-width="2"/>
-              <path d="M22 22h20v10H22z" stroke="currentColor" stroke-width="2"/>
-            </svg>
+        <div class="service-card service-card--featured">
+          <div class="service-card__img">
+            <img src="https://images.unsplash.com/photo-1525257831700-183b9b8bf5c4?w=600&q=85&fit=crop" alt="Wedding cake" />
           </div>
-          <h3>Wedding Cakes</h3>
-          <p>Multi-tiered masterpieces tailored to your wedding theme, palette and taste. From classic elegance to modern sculpted designs.</p>
+          <div class="service-card__body">
+            <span class="service-card__tag">Most Popular</span>
+            <h3>Wedding Cakes</h3>
+            <p>Multi-tiered masterpieces designed around your wedding theme. From classic elegance to bold modern sculpture — we bring your dream to life.</p>
+            <a href="#contact" class="service-link">Enquire Now →</a>
+          </div>
         </div>
         <div class="service-card">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="32" cy="32" r="20" stroke="currentColor" stroke-width="2"/>
-              <path d="M32 20v12l8 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <path d="M24 12c0-4 4-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="2"/>
-            </svg>
+          <div class="service-card__img">
+            <img src="https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?w=600&q=85&fit=crop" alt="Birthday cake" />
           </div>
-          <h3>Occasion Cakes</h3>
-          <p>Birthdays, anniversaries, christenings, baby showers — fully custom cakes for every celebration, big or small.</p>
+          <div class="service-card__body">
+            <h3>Occasion Cakes</h3>
+            <p>Birthdays, anniversaries, christenings, baby showers — fully custom cakes for every milestone, made exactly how you imagined.</p>
+            <a href="#contact" class="service-link">Enquire Now →</a>
+          </div>
         </div>
         <div class="service-card">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="8" y="28" width="12" height="20" rx="2" stroke="currentColor" stroke-width="2"/>
-              <rect x="26" y="20" width="12" height="28" rx="2" stroke="currentColor" stroke-width="2"/>
-              <rect x="44" y="34" width="12" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
-              <path d="M8 52h48" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
+          <div class="service-card__img">
+            <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=600&q=85&fit=crop" alt="Dessert spread" />
           </div>
-          <h3>Dessert Spreads</h3>
-          <p>Stunning grazing-style dessert tables packed with handmade treats — the perfect centrepiece for any event or party.</p>
+          <div class="service-card__body">
+            <h3>Dessert Spreads</h3>
+            <p>Stunning handmade dessert tables packed with treats — the perfect showstopping centrepiece for any event or party.</p>
+            <a href="#contact" class="service-link">Enquire Now →</a>
+          </div>
         </div>
       </div>
     </div>
@@ -144,51 +206,94 @@
   <!-- GALLERY -->
   <section class="gallery section" id="gallery">
     <div class="container">
-      <div class="section__header">
-        <span class="section__eyebrow">Our Work</span>
-        <h2 class="section__title">A Taste of What We Do</h2>
-        <p class="section__sub">Every cake is one-of-a-kind. These are just a few of our recent creations.</p>
+      <div class="section-header">
+        <span class="eyebrow">Portfolio</span>
+        <h2 class="section-title">A Taste of<br /><em>Our Work</em></h2>
+        <p class="section-sub">Every cake is completely one-of-a-kind.</p>
       </div>
-      <div class="gallery__grid">
-        <div class="gallery__item gallery__item--tall"><div class="img-placeholder"><span>Wedding cake</span></div></div>
-        <div class="gallery__item"><div class="img-placeholder"><span>Birthday cake</span></div></div>
-        <div class="gallery__item"><div class="img-placeholder"><span>Dessert spread</span></div></div>
-        <div class="gallery__item gallery__item--wide"><div class="img-placeholder"><span>Occasion cake</span></div></div>
-        <div class="gallery__item"><div class="img-placeholder"><span>Detail shot</span></div></div>
-        <div class="gallery__item"><div class="img-placeholder"><span>Floral cake</span></div></div>
+    </div>
+    <div class="gallery__grid">
+      <div class="gallery__item g-tall">
+        <img src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=600&q=85&fit=crop&crop=center" alt="Tiered cake" />
+        <div class="gallery__label">Tiered Wedding Cake</div>
       </div>
-      <div class="gallery__cta">
-        <p>See more on Instagram</p>
-        <a href="https://www.instagram.com/artisancakeryy/" target="_blank" rel="noopener" class="btn btn--outline">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-          @artisancakeryy
-        </a>
+      <div class="gallery__item">
+        <img src="https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?w=600&q=85&fit=crop" alt="Birthday cake" />
+        <div class="gallery__label">Birthday Celebration</div>
       </div>
+      <div class="gallery__item">
+        <img src="https://images.unsplash.com/photo-1577998474517-7eeeed4e448a?w=600&q=85&fit=crop" alt="Sparkler cake" />
+        <div class="gallery__label">Sparkle Cake</div>
+      </div>
+      <div class="gallery__item g-wide">
+        <img src="https://images.unsplash.com/photo-1623428454614-abaf00244e52?w=900&q=85&fit=crop" alt="Wedding cake with flowers" />
+        <div class="gallery__label">Floral Wedding Cake</div>
+      </div>
+      <div class="gallery__item">
+        <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?w=600&q=85&fit=crop" alt="Celebration cake" />
+        <div class="gallery__label">Celebration Cake</div>
+      </div>
+      <div class="gallery__item">
+        <img src="https://images.unsplash.com/photo-1604413191066-4dd20bedf486?w=600&q=85&fit=crop" alt="Pink floral cake" />
+        <div class="gallery__label">Floral Design</div>
+      </div>
+    </div>
+    <div class="container gallery__footer">
+      <p>Follow us on Instagram for more</p>
+      <a href="https://www.instagram.com/artisancakeryy/" target="_blank" rel="noopener" class="btn btn--insta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+        </svg>
+        @artisancakeryy
+      </a>
     </div>
   </section>
 
   <!-- TESTIMONIALS -->
   <section class="testimonials section" id="testimonials">
     <div class="container">
-      <div class="section__header">
-        <span class="section__eyebrow">Happy Customers</span>
-        <h2 class="section__title">What People Are Saying</h2>
+      <div class="section-header">
+        <span class="eyebrow">Love Notes</span>
+        <h2 class="section-title">What Our Customers<br /><em>Are Saying</em></h2>
       </div>
       <div class="testimonials__grid">
         <div class="testimonial">
-          <div class="testimonial__stars">★★★★★</div>
-          <p>"Absolutely stunning wedding cake — everyone kept asking about it! The taste was incredible and the design was exactly what we wanted. Couldn't recommend more."</p>
-          <span class="testimonial__author">— Sarah &amp; James, Bradford</span>
+          <div class="testimonial__quote">"</div>
+          <p>Absolutely stunning wedding cake — everyone kept asking about it all night! The taste was incredible and the design was exactly what we'd envisioned. Cannot thank you enough.</p>
+          <div class="testimonial__footer">
+            <div class="testimonial__avatar">S</div>
+            <div>
+              <strong>Sarah &amp; James</strong>
+              <span>Wedding, Bradford</span>
+            </div>
+            <div class="testimonial__stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="testimonial testimonial--accent">
+          <div class="testimonial__quote">"</div>
+          <p>Ordered a birthday cake for my daughter and it completely blew everyone away. So beautifully decorated and it tasted even better than it looked. Will 100% be ordering again!</p>
+          <div class="testimonial__footer">
+            <div class="testimonial__avatar">E</div>
+            <div>
+              <strong>Emma Thompson</strong>
+              <span>Birthday Cake, Leeds</span>
+            </div>
+            <div class="testimonial__stars">★★★★★</div>
+          </div>
         </div>
         <div class="testimonial">
-          <div class="testimonial__stars">★★★★★</div>
-          <p>"Ordered a birthday cake for my daughter and it blew everyone away. So beautifully decorated and it tasted even better than it looked. Will definitely order again!"</p>
-          <span class="testimonial__author">— Emma T., Leeds</span>
-        </div>
-        <div class="testimonial">
-          <div class="testimonial__stars">★★★★★</div>
-          <p>"The dessert spread for our baby shower was the highlight of the whole event. Completely bespoke, arrived perfectly and tasted amazing. Thank you so much!"</p>
-          <span class="testimonial__author">— Priya M., West Yorkshire</span>
+          <div class="testimonial__quote">"</div>
+          <p>The dessert spread for our baby shower was the absolute highlight of the event. Completely bespoke, arrived perfectly and tasted incredible. Everyone was obsessed!</p>
+          <div class="testimonial__footer">
+            <div class="testimonial__avatar">P</div>
+            <div>
+              <strong>Priya Mehta</strong>
+              <span>Baby Shower, West Yorkshire</span>
+            </div>
+            <div class="testimonial__stars">★★★★★</div>
+          </div>
         </div>
       </div>
     </div>
@@ -197,29 +302,42 @@
   <!-- PROCESS -->
   <section class="process section">
     <div class="container">
-      <div class="section__header">
-        <span class="section__eyebrow">How It Works</span>
-        <h2 class="section__title">Simple as 1, 2, 3</h2>
+      <div class="section-header">
+        <span class="eyebrow">How It Works</span>
+        <h2 class="section-title">Ordering Is<br /><em>Simple</em></h2>
       </div>
       <div class="process__steps">
-        <div class="process__step">
-          <div class="process__num">01</div>
+        <div class="process__step" data-step="1">
+          <div class="process__icon">💌</div>
           <h3>Get in Touch</h3>
-          <p>Fill in the order form or message us on Instagram with your event date, style ideas and any inspo photos you have.</p>
+          <p>Fill in the form below or DM us on Instagram with your event date, ideas, and any inspo photos.</p>
         </div>
-        <div class="process__connector"></div>
-        <div class="process__step">
-          <div class="process__num">02</div>
+        <div class="process__arrow">→</div>
+        <div class="process__step" data-step="2">
+          <div class="process__icon">🎨</div>
           <h3>Design Together</h3>
-          <p>We'll discuss your vision, flavours and design, then provide a quote and confirm your booking with a deposit.</p>
+          <p>We'll discuss your vision, flavours and design, then send a quote and confirm with a deposit.</p>
         </div>
-        <div class="process__connector"></div>
-        <div class="process__step">
-          <div class="process__num">03</div>
+        <div class="process__arrow">→</div>
+        <div class="process__step" data-step="3">
+          <div class="process__icon">🎂</div>
           <h3>Enjoy Your Cake</h3>
-          <p>Your bespoke creation is freshly handmade and ready for collection or delivery in time for your celebration.</p>
+          <p>Your bespoke creation is freshly handmade and ready for collection or delivery.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div class="cta-banner__bg">
+      <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=1600&q=80&fit=crop" alt="Cake background" />
+      <div class="cta-banner__overlay"></div>
+    </div>
+    <div class="container cta-banner__content">
+      <h2>Diary Filling Fast<br /><em>Book Your Date Now</em></h2>
+      <p>Don't miss out — we take limited bookings each month to ensure every cake gets the care it deserves.</p>
+      <a href="#contact" class="btn btn--white">Reserve My Date</a>
     </div>
   </section>
 
@@ -227,19 +345,32 @@
   <section class="contact section" id="contact">
     <div class="container contact__grid">
       <div class="contact__info">
-        <span class="section__eyebrow">Get in Touch</span>
-        <h2 class="section__title">Ready to Order?</h2>
-        <p>Fill in the form and we'll get back to you as soon as possible. Please include your event date so we can check availability — our diary fills up quickly!</p>
-        <ul class="contact__details">
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Bradford, West Yorkshire, UK
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-            <a href="https://www.instagram.com/artisancakeryy/" target="_blank" rel="noopener">@artisancakeryy</a>
-          </li>
-        </ul>
+        <span class="eyebrow">Get in Touch</span>
+        <h2 class="section-title">Let's Create<br /><em>Something Beautiful</em></h2>
+        <p>Fill in the form and we'll get back to you as soon as possible. Please include your event date so we can check availability!</p>
+        <div class="contact__cards">
+          <div class="contact__card">
+            <span>📍</span>
+            <div>
+              <strong>Location</strong>
+              <span>Bradford, West Yorkshire, UK</span>
+            </div>
+          </div>
+          <div class="contact__card">
+            <span>📸</span>
+            <div>
+              <strong>Instagram</strong>
+              <a href="https://www.instagram.com/artisancakeryy/" target="_blank" rel="noopener">@artisancakeryy</a>
+            </div>
+          </div>
+          <div class="contact__card">
+            <span>⏰</span>
+            <div>
+              <strong>Response Time</strong>
+              <span>Usually within 24 hours</span>
+            </div>
+          </div>
+        </div>
       </div>
       <form class="contact__form" name="contact" netlify>
         <div class="form__row">
@@ -259,7 +390,9 @@
               <option value="" disabled selected>Select an option</option>
               <option>Wedding Cake</option>
               <option>Birthday Cake</option>
-              <option>Occasion Cake</option>
+              <option>Anniversary Cake</option>
+              <option>Baby Shower</option>
+              <option>Christening Cake</option>
               <option>Dessert Spread</option>
               <option>Other</option>
             </select>
@@ -270,35 +403,56 @@
           </div>
         </div>
         <div class="form__group">
-          <label for="message">Tell Us More</label>
-          <textarea id="message" name="message" rows="4" placeholder="Share your ideas, theme, flavour preferences, number of guests..."></textarea>
+          <label for="message">Tell Us Your Vision</label>
+          <textarea id="message" name="message" rows="4" placeholder="Flavours, theme, inspo, number of guests... the more detail the better!"></textarea>
         </div>
-        <button type="submit" class="btn btn--primary btn--full">Send Enquiry</button>
+        <button type="submit" class="btn btn--primary btn--full">
+          Send My Enquiry ✦
+        </button>
       </form>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="container footer__inner">
+    <div class="container footer__top">
       <div class="footer__brand">
-        <span class="nav__logo">Artisan Cakery</span>
-        <p>Handcrafted cakes with heart.<br />Bradford, West Yorkshire.</p>
+        <a href="#" class="nav__logo"><span class="logo-icon">✦</span> Artisan Cakery</a>
+        <p>Handcrafted cakes made with love.<br />Bradford, West Yorkshire.</p>
+        <a href="https://www.instagram.com/artisancakeryy/" target="_blank" rel="noopener" class="footer__insta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+          </svg>
+          @artisancakeryy
+        </a>
       </div>
-      <div class="footer__links">
-        <a href="#about">About</a>
+      <div class="footer__nav">
+        <h4>Quick Links</h4>
+        <a href="#about">About Us</a>
         <a href="#services">Services</a>
         <a href="#gallery">Gallery</a>
+        <a href="#testimonials">Reviews</a>
         <a href="#contact">Contact</a>
-        <a href="https://www.instagram.com/artisancakeryy/" target="_blank" rel="noopener">Instagram</a>
       </div>
-      <div class="footer__badges">
-        <span>⭐ 5-Star Hygiene Rating</span>
-        <span>✓ Fully Insured</span>
+      <div class="footer__services">
+        <h4>We Make</h4>
+        <span>Wedding Cakes</span>
+        <span>Birthday Cakes</span>
+        <span>Anniversary Cakes</span>
+        <span>Baby Shower Cakes</span>
+        <span>Dessert Spreads</span>
+      </div>
+      <div class="footer__trust">
+        <div class="footer__badge">⭐ 5-Star Hygiene Rating</div>
+        <div class="footer__badge">🛡️ Fully Insured</div>
+        <div class="footer__badge">🎂 Made to Order</div>
       </div>
     </div>
-    <div class="footer__bottom">
-      <p>&copy; 2026 Artisan Cakery. All rights reserved.</p>
+    <div class="footer__bottom container">
+      <p>&copy; 2026 Artisan Cakery, Bradford. All rights reserved.</p>
+      <p>Photos via <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></p>
     </div>
   </footer>
 
