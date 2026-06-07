@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order &amp; Contact | Artisan Cakery, Bradford</title>
+  <meta name="description" content="Order your bespoke cake from Artisan Cakery in Bradford, West Yorkshire. Fill in our enquiry form to get started." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="contact">
+
+  <div class="page-veil"><span class="veil-mark">✦</span></div>
+
+  <header class="nav nav--solid" id="nav">
+    <div class="nav__inner container">
+      <a href="index.html" class="nav__logo"><span class="logo-icon">✦</span> Artisan Cakery</a>
+      <nav class="nav__links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="cakes.html">Our Cakes</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html" class="btn btn--nav is-active">Order Now</a>
+      </nav>
+      <button class="nav__burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+    <div class="nav__mobile">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="cakes.html">Our Cakes</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Order Now ✦</a>
+    </div>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header page-header--short">
+    <div class="page-header__bg" data-parallax>
+      <img src="images/eid-cake-box.jpg" alt="Cake gift box" />
+      <div class="page-header__overlay"></div>
+    </div>
+    <div class="container page-header__content reveal">
+      <span class="eyebrow eyebrow--light">Get in Touch</span>
+      <h1 class="page-header__title">Let's Create<br /><em>Something Beautiful</em></h1>
+      <p>Tell us about your celebration — we can't wait to hear from you.</p>
+    </div>
+    <nav class="breadcrumb container"><a href="index.html">Home</a> <span>/</span> Contact</nav>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact">
+    <div class="container contact__grid">
+      <div class="contact__info reveal">
+        <span class="eyebrow">Order Enquiry</span>
+        <h2 class="section-title">We'd Love to<br /><em>Hear From You</em></h2>
+        <p>Fill in the form and we'll get back to you within 24 hours. Please include your event date so we can check availability — our diary fills up quickly!</p>
+        <div class="contact__cards">
+          <div class="contact__card"><span>📍</span><div><strong>Location</strong><span>Bradford, West Yorkshire, UK</span></div></div>
+          <a class="contact__card" href="https://www.instagram.com/artisancakeryy/" target="_blank" rel="noopener"><span>📸</span><div><strong>Instagram</strong><span class="link-accent">@artisancakeryy</span></div></a>
+          <div class="contact__card"><span>⏰</span><div><strong>Response Time</strong><span>Usually within 24 hours</span></div></div>
+          <div class="contact__card"><span>📅</span><div><strong>Lead Time</strong><span>Please order 2+ weeks ahead</span></div></div>
+        </div>
+      </div>
+      <form class="contact__form reveal" data-delay="120" name="contact" netlify>
+        <div class="form__row">
+          <div class="form__group"><label for="name">Your Name</label><input type="text" id="name" name="name" placeholder="Jane Smith" required /></div>
+          <div class="form__group"><label for="email">Email Address</label><input type="email" id="email" name="email" placeholder="jane@email.com" required /></div>
+        </div>
+        <div class="form__row">
+          <div class="form__group"><label for="phone">Phone (optional)</label><input type="tel" id="phone" name="phone" placeholder="07000 000000" /></div>
+          <div class="form__group"><label for="date">Event Date</label><input type="date" id="date" name="date" required /></div>
+        </div>
+        <div class="form__group">
+          <label for="event">Event Type</label>
+          <select id="event" name="event" required>
+            <option value="" disabled selected>Select an option</option>
+            <option>Wedding Cake</option><option>Birthday Cake</option><option>Anniversary Cake</option><option>Baby Shower</option><option>Christening Cake</option><option>Dessert Spread</option><option>Cake Boxes</option><option>Other</option>
+          </select>
+        </div>
+        <div class="form__group"><label for="message">Tell Us Your Vision</label><textarea id="message" name="message" rows="4" placeholder="Flavours, theme, colours, number of guests... the more detail the better!"></textarea></div>
+        <button type="submit" class="btn btn--primary btn--full">Send My Enquiry ✦</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Good to Know</span>
+        <h2 class="section-title">Frequently Asked<br /><em>Questions</em></h2>
+      </div>
+      <div class="faq__list">
+        <div class="faq__item reveal">
+          <button class="faq__q">How far in advance should I order?<span class="faq__icon">+</span></button>
+          <div class="faq__a"><p>We recommend ordering at least 2 weeks ahead for occasion cakes, and 1–2 months for weddings. That said, always ask — we sometimes have last-minute availability!</p></div>
+        </div>
+        <div class="faq__item reveal" data-delay="80">
+          <button class="faq__q">Do you deliver?<span class="faq__icon">+</span></button>
+          <div class="faq__a"><p>Yes! We offer both collection and delivery across Bradford and the wider West Yorkshire area. Delivery is recommended for tiered and larger cakes.</p></div>
+        </div>
+        <div class="faq__item reveal" data-delay="160">
+          <button class="faq__q">Can you cater to dietary requirements?<span class="faq__icon">+</span></button>
+          <div class="faq__a"><p>We're happy to discuss your needs. Get in touch with the details and we'll let you know what we can do for your celebration.</p></div>
+        </div>
+        <div class="faq__item reveal" data-delay="240">
+          <button class="faq__q">How do I secure my booking?<span class="faq__icon">+</span></button>
+          <div class="faq__a"><p>Once we've agreed your design and quote, a deposit confirms your date in our diary. Full details are shared during your enquiry.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__top">
+      <div class="footer__brand">
+        <a href="index.html" class="nav__logo"><span class="logo-icon">✦</span> Artisan Cakery</a>
+        <p>Handcrafted cakes made with love.<br />Bradford, West Yorkshire.</p>
+        <a href="https://www.instagram.com/artisancakeryy/" target="_blank" rel="noopener" class="footer__insta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg> @artisancakeryy</a>
+      </div>
+      <div class="footer__nav"><h4>Explore</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="cakes.html">Our Cakes</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div>
+      <div class="footer__services"><h4>We Make</h4><span>Wedding Cakes</span><span>Birthday Cakes</span><span>Anniversary Cakes</span><span>Baby Shower Cakes</span><span>Dessert Spreads</span></div>
+      <div class="footer__trust"><div class="footer__badge">⭐ 5-Star Hygiene Rating</div><div class="footer__badge">🛡️ Fully Insured</div><div class="footer__badge">🎂 Made to Order</div></div>
+    </div>
+    <div class="footer__bottom container"><p>&copy; 2026 Artisan Cakery, Bradford. All rights reserved.</p><p><a href="https://www.instagram.com/artisancakeryy/" target="_blank" rel="noopener">Follow us on Instagram</a></p></div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
