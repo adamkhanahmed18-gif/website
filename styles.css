@@ -1399,128 +1399,32 @@ a.contact__card { text-decoration: none; }
 }
 
 
+
 /* ============================================================
-   CINEMATIC VIDEO INTRO
+   HERO VIDEO BACKGROUND
    ============================================================ */
-body.intro-active { overflow: hidden; }
-
-#intro-sequence {
-  position: fixed; inset: 0; z-index: 100000;
-  background: #0d0608;
-  overflow: hidden;
-}
-
-/* Video scenes */
-.intro-scene {
+.hero-vid {
   position: absolute; inset: 0;
-  opacity: 0;
-  transition: opacity 0.85s ease;
-  z-index: 1;
-}
-.intro-scene.is-active  { opacity: 1; z-index: 2; }
-.intro-scene.is-leaving { opacity: 0; z-index: 1; }
-
-.intro-scene video {
   width: 100%; height: 100%;
   object-fit: cover;
-  display: block;
-}
-
-/* Dark cinematic overlay on videos */
-.intro-overlay {
-  position: absolute; inset: 0; z-index: 3;
-  background: linear-gradient(
-    to bottom,
-    rgba(13,6,8,0.28) 0%,
-    rgba(13,6,8,0.10) 35%,
-    rgba(13,6,8,0.10) 60%,
-    rgba(13,6,8,0.62) 100%
-  );
-  pointer-events: none;
-}
-
-/* Caption */
-.intro-caption {
-  position: absolute; bottom: 16%; left: 50%;
-  transform: translateX(-50%);
-  text-align: center; z-index: 4;
-  width: 80%; max-width: 700px;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(1.4rem, 3.8vw, 2.5rem);
-  font-style: italic; font-weight: 400;
-  color: #fff; letter-spacing: 0.02em; line-height: 1.3;
-  text-shadow: 0 2px 24px rgba(0,0,0,0.65);
   opacity: 0;
-  transition: opacity 0.6s ease;
-  pointer-events: none;
+  transition: opacity 1s ease;
+  z-index: 0;
 }
-.intro-caption.is-visible { opacity: 1; }
+.hero-vid.is-active { opacity: 1; }
 
-/* Brand reveal */
-.intro-brand {
-  position: absolute; inset: 0; z-index: 5;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  background: #0d0608;
-  opacity: 0; pointer-events: none;
-  transition: opacity 0.7s ease;
-}
-.intro-brand.is-visible {
-  opacity: 1; pointer-events: auto;
-}
-.intro-brand__mark {
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  color: var(--gold);
-  opacity: 0; transform: scale(0.5);
-  transition: opacity 0.5s ease 0.1s, transform 0.6s cubic-bezier(0.16,1,0.3,1) 0.1s;
-  text-shadow: 0 0 40px rgba(212,168,67,0.6);
-}
-.intro-brand.is-visible .intro-brand__mark { opacity: 1; transform: scale(1); }
-.intro-brand__name {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2.6rem, 7.5vw, 6rem);
-  font-weight: 700; color: #fff;
-  letter-spacing: 0.04em; margin: 14px 0 0;
-  opacity: 0; transform: translateY(22px);
-  transition: opacity 0.65s ease 0.28s, transform 0.65s cubic-bezier(0.16,1,0.3,1) 0.28s;
-}
-.intro-brand.is-visible .intro-brand__name { opacity: 1; transform: translateY(0); }
-.intro-brand__line {
-  width: 0; height: 1px;
-  background: var(--gold); margin: 18px auto 14px;
-  transition: width 0.75s cubic-bezier(0.16,1,0.3,1) 0.44s;
-}
-.intro-brand.is-visible .intro-brand__line { width: 90px; }
-.intro-brand__sub {
-  font-family: 'DM Sans', system-ui, sans-serif;
-  font-size: clamp(0.72rem, 1.6vw, 0.95rem);
-  letter-spacing: 0.32em; text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
-  opacity: 0;
-  transition: opacity 0.6s ease 0.58s;
-}
-.intro-brand.is-visible .intro-brand__sub { opacity: 1; }
-
-/* Progress bar */
-.intro-progress {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  height: 2px; z-index: 6; background: rgba(255,255,255,0.1);
-}
-.intro-progress__bar {
-  height: 100%; width: 0%;
-  background: linear-gradient(to right, var(--pink), var(--gold));
+/* Keep fallback image behind videos */
+.hero__img--fallback {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: -1;
 }
 
-/* Skip hint */
-.intro-skip {
-  position: absolute; bottom: 14px; right: 22px; z-index: 7;
-  font-family: var(--font-sans); font-size: 0.7rem;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: rgba(255,255,255,0.3); pointer-events: none;
+/* Hide videos on mobile/reduced-motion — show fallback image instead */
+@media (max-width: 640px) {
+  .hero-vid { display: none; }
 }
-
-/* Wipe-up exit */
-#intro-sequence.is-done {
-  transform: translateY(-100%);
-  transition: transform 0.95s cubic-bezier(0.76,0,0.24,1);
+@media (prefers-reduced-motion: reduce) {
+  .hero-vid { display: none; }
 }

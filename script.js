@@ -4,66 +4,30 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ---- Cinematic video intro (home page only) ---- */
-  const introEl = document.getElementById('intro-sequence');
-  if (introEl) {
-    const scenes    = Array.from(introEl.querySelectorAll('.intro-scene'));
-    const brand     = introEl.querySelector('#intro-brand');
-    const capEl     = introEl.querySelector('#intro-caption');
-    const bar       = document.getElementById('intro-bar');
-    const SCENE_DUR = 2800;
-    const BRAND_DUR = 2100;
-    const TOTAL     = scenes.length * SCENE_DUR + BRAND_DUR;
+  /* ---- Page transition veil ---- */
+  const veil = document.querySelector('.page-veil');
+  if (veil) requestAnimationFrame(() => setTimeout(() => veil.classList.add('lift'), 250));
 
-    bar.style.transition = `width ${TOTAL}ms linear`;
-    requestAnimationFrame(() => requestAnimationFrame(() => bar.style.width = '100%'));
+  /* ---- Hero video sequence (home page) ---- */
+  const heroVids = Array.from(document.querySelectorAll('.hero-vid'));
+  if (heroVids.length) {
+    let current = 0;
+    const DURATION = 4000; // ms per clip
 
-    let ended = false;
-
-    function endIntro() {
-      if (ended) return;
-      ended = true;
-      if (capEl) capEl.classList.remove('is-visible');
-      introEl.classList.add('is-done');
-      document.body.classList.remove('intro-active');
-      setTimeout(() => {
-        introEl.remove();
-        const veil = document.querySelector('.page-veil');
-        if (veil) requestAnimationFrame(() => setTimeout(() => veil.classList.add('lift'), 100));
-      }, 960);
+    function playNext() {
+      const prev = heroVids[current];
+      current = (current + 1) % heroVids.length;
+      const next = heroVids[current];
+      next.currentTime = 0;
+      next.play().catch(() => {});
+      next.classList.add('is-active');
+      // Fade previous out after cross-fade begins
+      setTimeout(() => prev.classList.remove('is-active'), 900);
     }
 
-    function showScene(idx) {
-      if (ended) return;
-      if (idx >= scenes.length) {
-        if (capEl) capEl.classList.remove('is-visible');
-        if (brand) brand.classList.add('is-visible');
-        setTimeout(endIntro, BRAND_DUR);
-        return;
-      }
-      const scene = scenes[idx];
-      const vid   = scene.querySelector('video');
-      if (idx > 0) {
-        scenes[idx - 1].classList.remove('is-active');
-        scenes[idx - 1].classList.add('is-leaving');
-      }
-      scene.classList.add('is-active');
-      if (vid) { vid.currentTime = 0; vid.play().catch(() => {}); }
-      if (capEl) {
-        capEl.classList.remove('is-visible');
-        capEl.textContent = scene.dataset.caption || '';
-        setTimeout(() => capEl.classList.add('is-visible'), 480);
-      }
-      setTimeout(() => showScene(idx + 1), SCENE_DUR);
-    }
-
-    showScene(0);
-    introEl.addEventListener('click', endIntro, { once: true });
-
-  } else {
-    /* ---- Page transition veil: lift on load (non-home pages) ---- */
-    const veil = document.querySelector('.page-veil');
-    if (veil) requestAnimationFrame(() => setTimeout(() => veil.classList.add('lift'), 250));
+    // Start first video
+    heroVids[0].play().catch(() => {});
+    setInterval(playNext, DURATION);
   }
 
   /* ---- Animate links to other pages (drop veil before navigating) ---- */
