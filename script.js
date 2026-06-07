@@ -161,4 +161,83 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ---- Custom cursor ---- */
+  const cursorWrap = document.createElement('div');
+  cursorWrap.className = 'cursor';
+  cursorWrap.innerHTML = '<div class="cursor__dot"></div><div class="cursor__ring"></div>';
+  document.body.appendChild(cursorWrap);
+
+  let mx = -100, my = -100, rx = -100, ry = -100;
+  document.addEventListener('mousemove', (e) => {
+    mx = e.clientX;
+    my = e.clientY;
+    cursorWrap.style.left = mx + 'px';
+    cursorWrap.style.top = my + 'px';
+    spawnSpark(mx, my);
+  });
+
+  document.querySelectorAll('a,button,.flavour-card,.masonry__item').forEach(el => {
+    el.addEventListener('mouseenter', () => cursorWrap.classList.add('cursor--hover'));
+    el.addEventListener('mouseleave', () => cursorWrap.classList.remove('cursor--hover'));
+  });
+
+  /* ---- Spark trail ---- */
+  function spawnSpark(x, y) {
+    const s = document.createElement('div');
+    s.className = 'spark';
+    const angle = Math.random() * Math.PI * 2;
+    const dist = 20 + Math.random() * 30;
+    s.style.cssText = `left:${x}px;top:${y}px;--tx:${Math.cos(angle)*dist}px;--ty:${Math.sin(angle)*dist}px`;
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 700);
+  }
+
+  /* ---- Animated counters ---- */
+  const counters = document.querySelectorAll('.count-up');
+  if (counters.length) {
+    const countObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseInt(el.dataset.target || el.textContent, 10);
+        const suffix = el.dataset.suffix || '';
+        const duration = 1800;
+        const start = performance.now();
+        const tick = (now) => {
+          const progress = Math.min((now - start) / duration, 1);
+          const ease = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.floor(ease * target) + suffix;
+          if (progress < 1) requestAnimationFrame(tick);
+          else el.textContent = target + suffix;
+        };
+        requestAnimationFrame(tick);
+        countObs.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(el => {
+      el.dataset.target = parseInt(el.textContent, 10);
+      el.textContent = '0';
+      countObs.observe(el);
+    });
+  }
+
+  /* ---- Testimonials carousel auto-scroll ---- */
+  const track = document.querySelector('.carousel__track');
+  if (track) {
+    let pos = 0;
+    const speed = 0.6;
+    let paused = false;
+    track.addEventListener('mouseenter', () => paused = true);
+    track.addEventListener('mouseleave', () => paused = false);
+    (function scroll() {
+      if (!paused) {
+        pos += speed;
+        const half = track.scrollWidth / 2;
+        if (pos >= half) pos = 0;
+        track.style.transform = `translateX(-${pos}px)`;
+      }
+      requestAnimationFrame(scroll);
+    })();
+  }
+
 });
