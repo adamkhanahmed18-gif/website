@@ -12,9 +12,40 @@
 </head>
 <body data-page="home" class="intro-active">
 
-  <!-- CINEMATIC CANVAS INTRO -->
+  <!-- CINEMATIC VIDEO INTRO -->
   <div id="intro-sequence">
-    <canvas id="intro-canvas"></canvas>
+
+    <div class="intro-scene" data-caption="It starts with the finest ingredients…">
+      <video src="https://videos.pexels.com/video-files/6093408/6093408-uhd_2732_1440_30fps.mp4"
+             muted playsinline preload="auto"></video>
+    </div>
+
+    <div class="intro-scene" data-caption="Every layer, placed with care.">
+      <video src="https://videos.pexels.com/video-files/37357585/15823417_2560_1440_24fps.mp4"
+             muted playsinline preload="auto"></video>
+    </div>
+
+    <div class="intro-scene" data-caption="Finished by hand, down to the last detail.">
+      <video src="https://videos.pexels.com/video-files/8477792/8477792-hd_1080_1920_24fps.mp4"
+             muted playsinline preload="auto"></video>
+    </div>
+
+    <div class="intro-scene" data-caption="A masterpiece, made for you.">
+      <video src="https://videos.pexels.com/video-files/7525302/7525302-hd_1920_1080_25fps.mp4"
+             muted playsinline preload="auto"></video>
+    </div>
+
+    <div class="intro-overlay"></div>
+
+    <div class="intro-caption" id="intro-caption"></div>
+
+    <div class="intro-brand" id="intro-brand">
+      <div class="intro-brand__mark">✦</div>
+      <div class="intro-brand__name">Artisan Cakery</div>
+      <div class="intro-brand__line"></div>
+      <div class="intro-brand__sub">Bradford, West Yorkshire</div>
+    </div>
+
     <div class="intro-progress"><div class="intro-progress__bar" id="intro-bar"></div></div>
     <div class="intro-skip">tap to skip</div>
   </div>
@@ -285,7 +316,6 @@
     </div>
   </footer>
 
-  <script src="intro.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

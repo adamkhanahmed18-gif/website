@@ -4,75 +4,66 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ---- Cinematic intro sequence (home page only) ---- */
+  /* ---- Cinematic video intro (home page only) ---- */
   const introEl = document.getElementById('intro-sequence');
   if (introEl) {
-    const scenes = Array.from(introEl.querySelectorAll('.intro-scene'));
-    const brand  = introEl.querySelector('.intro-brand');
-    const bar    = document.getElementById('intro-bar');
+    const scenes    = Array.from(introEl.querySelectorAll('.intro-scene'));
+    const brand     = introEl.querySelector('#intro-brand');
+    const capEl     = introEl.querySelector('#intro-caption');
+    const bar       = document.getElementById('intro-bar');
+    const SCENE_DUR = 2800;
+    const BRAND_DUR = 2100;
+    const TOTAL     = scenes.length * SCENE_DUR + BRAND_DUR;
 
-    // Total duration of all scenes
-    const durations = scenes.map(s => parseInt(s.dataset.duration) || 2000);
-    const brandDuration = 1400;
-    const totalMs = durations.reduce((a, b) => a + b, 0) + brandDuration;
+    bar.style.transition = `width ${TOTAL}ms linear`;
+    requestAnimationFrame(() => requestAnimationFrame(() => bar.style.width = '100%'));
 
-    // Animate the progress bar across the full sequence
-    bar.style.transition = `width ${totalMs}ms linear`;
-    requestAnimationFrame(() => requestAnimationFrame(() => {
-      bar.style.width = '100%';
-    }));
-
-    // Play scenes sequentially
-    let current = 0;
-
-    function showScene(index) {
-      if (index >= scenes.length) {
-        // All scenes done — show brand panel
-        brand.classList.add('is-visible');
-        setTimeout(endIntro, brandDuration);
-        return;
-      }
-      const scene = scenes[index];
-      // Mark previous as leaving
-      if (index > 0) {
-        scenes[index - 1].classList.remove('is-active');
-        scenes[index - 1].classList.add('is-leaving');
-      }
-      scene.classList.add('is-active');
-      setTimeout(() => showScene(index + 1), durations[index]);
-    }
+    let ended = false;
 
     function endIntro() {
+      if (ended) return;
+      ended = true;
+      if (capEl) capEl.classList.remove('is-visible');
       introEl.classList.add('is-done');
       document.body.classList.remove('intro-active');
       setTimeout(() => {
         introEl.remove();
-        // Lift the page veil now
         const veil = document.querySelector('.page-veil');
-        if (veil) {
-          requestAnimationFrame(() => setTimeout(() => veil.classList.add('lift'), 100));
-        }
-      }, 950);
+        if (veil) requestAnimationFrame(() => setTimeout(() => veil.classList.add('lift'), 100));
+      }, 960);
     }
 
-    // Kick off
-    showScene(0);
+    function showScene(idx) {
+      if (ended) return;
+      if (idx >= scenes.length) {
+        if (capEl) capEl.classList.remove('is-visible');
+        if (brand) brand.classList.add('is-visible');
+        setTimeout(endIntro, BRAND_DUR);
+        return;
+      }
+      const scene = scenes[idx];
+      const vid   = scene.querySelector('video');
+      if (idx > 0) {
+        scenes[idx - 1].classList.remove('is-active');
+        scenes[idx - 1].classList.add('is-leaving');
+      }
+      scene.classList.add('is-active');
+      if (vid) { vid.currentTime = 0; vid.play().catch(() => {}); }
+      if (capEl) {
+        capEl.classList.remove('is-visible');
+        capEl.textContent = scene.dataset.caption || '';
+        setTimeout(() => capEl.classList.add('is-visible'), 480);
+      }
+      setTimeout(() => showScene(idx + 1), SCENE_DUR);
+    }
 
-    // Skip on click / tap
-    introEl.addEventListener('click', () => {
-      scenes.forEach(s => { s.classList.remove('is-active', 'is-leaving'); });
-      brand.classList.remove('is-visible');
-      endIntro();
-    }, { once: true });
+    showScene(0);
+    introEl.addEventListener('click', endIntro, { once: true });
 
   } else {
-  /* ---- Page transition veil: lift on load (non-home pages) ---- */
-  const veil = document.querySelector('.page-veil');
-  if (veil) {
-    requestAnimationFrame(() => {
-      setTimeout(() => veil.classList.add('lift'), 250);
-    });
-  }
+    /* ---- Page transition veil: lift on load (non-home pages) ---- */
+    const veil = document.querySelector('.page-veil');
+    if (veil) requestAnimationFrame(() => setTimeout(() => veil.classList.add('lift'), 250));
   }
 
   /* ---- Animate links to other pages (drop veil before navigating) ---- */
