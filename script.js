@@ -161,36 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ---- Custom cursor ---- */
-  const cursorWrap = document.createElement('div');
-  cursorWrap.className = 'cursor';
-  cursorWrap.innerHTML = '<div class="cursor__dot"></div><div class="cursor__ring"></div>';
-  document.body.appendChild(cursorWrap);
-
-  let mx = -100, my = -100, rx = -100, ry = -100;
-  document.addEventListener('mousemove', (e) => {
-    mx = e.clientX;
-    my = e.clientY;
-    cursorWrap.style.left = mx + 'px';
-    cursorWrap.style.top = my + 'px';
-    spawnSpark(mx, my);
-  });
-
-  document.querySelectorAll('a,button,.flavour-card,.masonry__item').forEach(el => {
-    el.addEventListener('mouseenter', () => cursorWrap.classList.add('cursor--hover'));
-    el.addEventListener('mouseleave', () => cursorWrap.classList.remove('cursor--hover'));
-  });
-
-  /* ---- Spark trail ---- */
-  function spawnSpark(x, y) {
-    const s = document.createElement('div');
-    s.className = 'spark';
-    const angle = Math.random() * Math.PI * 2;
-    const dist = 20 + Math.random() * 30;
-    s.style.cssText = `left:${x}px;top:${y}px;--tx:${Math.cos(angle)*dist}px;--ty:${Math.sin(angle)*dist}px`;
-    document.body.appendChild(s);
-    setTimeout(() => s.remove(), 700);
-  }
 
   /* ---- Animated counters ---- */
   const counters = document.querySelectorAll('.count-up');
