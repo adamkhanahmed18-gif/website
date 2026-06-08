@@ -3,296 +3,558 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Artisan Cakery | Bespoke Cakes in Bradford, West Yorkshire</title>
-  <meta name="description" content="Bespoke wedding cakes, occasion cakes and dessert spreads handcrafted in Bradford, West Yorkshire. 5-star food hygiene rated & fully insured." />
+  <title>Ghafoors Immigration — Bradford's Trusted Immigration Consultants</title>
+  <meta name="description" content="OISC regulated immigration consultants based in Bradford, West Yorkshire. Expert advice on partner visas, skilled worker visas, ILR, British citizenship and more." />
+  <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
 </head>
-<body data-page="home">
+<body>
 
-  <!-- PAGE TRANSITION VEIL -->
-  <div class="page-veil"><span class="veil-mark">✦</span></div>
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Ghafoors Immigration Home">
+        <span class="nav-logo-main">GHAFOOR<span>S</span></span>
+        <span class="nav-logo-sub">IMMIGRATION</span>
+      </a>
 
-  <!-- NAV -->
-  <header class="nav" id="nav">
-    <div class="nav__inner container">
-      <a href="index.html" class="nav__logo"><span class="logo-icon">✦</span> Artisan Cakery</a>
-      <nav class="nav__links">
-        <a href="index.html" class="is-active">Home</a>
-        <a href="about.html">About</a>
-        <a href="cakes.html">Our Cakes</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="reviews.html">Reviews</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html" class="btn btn--nav">Order Now</a>
-      </nav>
-      <button class="nav__burger" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="nav__mobile">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="cakes.html">Our Cakes</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="reviews.html">Reviews</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Order Now ✦</a>
-    </div>
-  </header>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li class="nav-dropdown">
+          <a href="services.html" class="nav-link nav-dropdown-toggle" aria-haspopup="true">
+            Services
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+          <div class="nav-dropdown-menu" role="menu">
+            <a href="partner-visas.html" class="nav-dropdown-item" role="menuitem">Partner &amp; Family Visas</a>
+            <a href="skilled-worker.html" class="nav-dropdown-item" role="menuitem">Skilled Worker Visa</a>
+            <a href="citizenship.html" class="nav-dropdown-item" role="menuitem">British Citizenship</a>
+            <a href="ilr.html" class="nav-dropdown-item" role="menuitem">ILR &amp; Settlement</a>
+            <a href="services.html#student" class="nav-dropdown-item" role="menuitem">Student Visas</a>
+            <a href="services.html#sponsor" class="nav-dropdown-item" role="menuitem">Sponsor Licence</a>
+          </div>
+        </li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="fees.html" class="nav-link">Fees</a></li>
+        <li><a href="blog.html" class="nav-link">Insights</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero__media" data-parallax>
-
-      <!-- Cinematic video sequence plays as hero background -->
-      <video class="hero-vid is-active" src="https://videos.pexels.com/video-files/6093408/6093408-uhd_2732_1440_30fps.mp4"
-             muted playsinline preload="auto" loop></video>
-      <video class="hero-vid" src="https://videos.pexels.com/video-files/37357585/15823417_2560_1440_24fps.mp4"
-             muted playsinline preload="auto" loop></video>
-      <video class="hero-vid" src="https://videos.pexels.com/video-files/8477792/8477792-hd_1080_1920_24fps.mp4"
-             muted playsinline preload="auto" loop></video>
-      <video class="hero-vid" src="https://videos.pexels.com/video-files/7525302/7525302-hd_1920_1080_25fps.mp4"
-             muted playsinline preload="auto" loop></video>
-
-      <!-- Fallback static image (shown until video loads or on mobile) -->
-      <img src="images/wedding-cake-derie-hawa.jpg" alt="Beautiful tiered celebration cake" class="hero__img hero__img--fallback" />
-
-      <div class="hero__overlay"></div>
-    </div>
-    <div class="hero__content container">
-      <div class="hero__pill reveal">✦ Bradford, West Yorkshire</div>
-      <h1 class="hero__title reveal" data-delay="80">Cakes That Make<br /><em>Moments Magic</em></h1>
-      <p class="hero__sub reveal" data-delay="160">Bespoke wedding cakes, occasion cakes &amp; show-stopping dessert spreads — handcrafted to order with love in West Yorkshire.</p>
-      <div class="hero__actions reveal" data-delay="240">
-        <a href="contact.html" class="btn btn--primary">Get a Free Quote</a>
-        <a href="gallery.html" class="btn btn--ghost"><span class="play-icon">▶</span> See Our Work</a>
-      </div>
-      <div class="hero__trust reveal" data-delay="320">
-        <div class="trust-item"><span class="trust-icon">⭐</span><div><strong>5-Star</strong><span>Hygiene Rating</span></div></div>
-        <div class="trust-divider"></div>
-        <div class="trust-item"><span class="trust-icon">🛡️</span><div><strong>Fully</strong><span>Insured</span></div></div>
-        <div class="trust-divider"></div>
-        <div class="trust-item"><span class="trust-icon">💖</span><div><strong>10K+</strong><span>Followers</span></div></div>
+      <div class="nav-right">
+        <a href="tel:01274000000" class="nav-phone">&#128222; 01274 000000</a>
+        <a href="contact.html" class="btn btn-gold btn-sm">Book Free Assessment</a>
+        <button class="hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
-    <div class="hero__floating-badge"><strong class="count-up" data-target="1000">0</strong><span>Cakes & counting</span></div>
-    <div class="hero__scroll-hint"><div class="scroll-dot"></div></div>
-  </section>
+  </div>
+</nav>
 
-  <!-- MARQUEE -->
-  <div class="marquee-strip">
-    <div class="marquee-track">
-      <span>Wedding Cakes ✦</span><span>Birthday Cakes ✦</span><span>Dessert Spreads ✦</span><span>Anniversary Cakes ✦</span><span>Baby Shower Cakes ✦</span><span>Bespoke Designs ✦</span><span>Custom Designs ✦</span>
-      <span>Wedding Cakes ✦</span><span>Birthday Cakes ✦</span><span>Dessert Spreads ✦</span><span>Anniversary Cakes ✦</span><span>Baby Shower Cakes ✦</span><span>Bespoke Designs ✦</span><span>Custom Designs ✦</span>
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu" aria-hidden="true">
+  <nav class="mobile-nav-links" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="services.html" class="mobile-nav-link">Services</a>
+    <a href="partner-visas.html" class="mobile-nav-sub">&#8594; Partner &amp; Family Visas</a>
+    <a href="skilled-worker.html" class="mobile-nav-sub">&#8594; Skilled Worker Visa</a>
+    <a href="citizenship.html" class="mobile-nav-sub">&#8594; British Citizenship</a>
+    <a href="ilr.html" class="mobile-nav-sub">&#8594; ILR &amp; Settlement</a>
+    <a href="about.html" class="mobile-nav-link">About</a>
+    <a href="fees.html" class="mobile-nav-link">Fees</a>
+    <a href="blog.html" class="mobile-nav-link">Insights</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+  </nav>
+  <div class="mobile-nav-bottom">
+    <a href="contact.html" class="btn btn-gold btn-lg" style="width:100%;justify-content:center;">Book Free Assessment</a>
+    <p style="margin-top:16px;font-size:13px;color:var(--text-3);text-align:center;">
+      <a href="tel:01274000000" style="color:var(--text-2);">01274 000000</a>
+    </p>
+  </div>
+</div>
+
+<!-- ============================================================
+     HERO SECTION
+     ============================================================ -->
+<main>
+<section class="hero" aria-label="Hero">
+  <div class="hero-bg">
+    <div class="hero-gradient"></div>
+    <div class="hero-mesh"></div>
+    <div class="hero-grid"></div>
+  </div>
+
+  <div class="container hero-content">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      OISC Regulated Consultants
+    </div>
+
+    <h1 class="display-heading">
+      Your UK Immigration,<br>
+      <span class="line-accent">Handled with Precision.</span>
+    </h1>
+
+    <p class="hero-sub">
+      Trusted immigration consultants based in Bradford. We've helped hundreds of families, workers, and businesses navigate the UK immigration system — successfully.
+    </p>
+
+    <div class="hero-ctas">
+      <a href="contact.html" class="btn btn-gold btn-lg">Book Free Assessment</a>
+      <a href="tel:01274000000" class="btn btn-outline btn-lg">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.29h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.99 16.92z"></path></svg>
+        Call Us Now
+      </a>
+    </div>
+
+    <div class="hero-trust" role="list">
+      <div class="hero-trust-item" role="listitem">
+        <span class="hero-trust-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span class="value">5-Star Rated</span>
+        <span class="label">Google Reviews</span>
+      </div>
+      <div class="hero-trust-divider" aria-hidden="true"></div>
+      <div class="hero-trust-item" role="listitem">
+        <span class="value">500+</span>
+        <span class="label">Cases Handled</span>
+      </div>
+      <div class="hero-trust-divider" aria-hidden="true"></div>
+      <div class="hero-trust-item" role="listitem">
+        <span class="value">OISC Regulated</span>
+        <span class="label">Fully Certified</span>
+      </div>
+      <div class="hero-trust-divider" aria-hidden="true"></div>
+      <div class="hero-trust-item" role="listitem">
+        <span class="value">Bradford Based</span>
+        <span class="label">West Yorkshire</span>
+      </div>
     </div>
   </div>
 
-  <!-- INTRO -->
-  <section class="intro section">
-    <div class="container intro__grid">
-      <div class="intro__text reveal">
-        <span class="eyebrow">Welcome</span>
-        <h2 class="section-title">Handcrafted in Bradford,<br /><em>Loved Everywhere</em></h2>
-        <p>At Artisan Cakery, every creation begins with your story. From intimate birthday treats to grand multi-tiered wedding masterpieces, we pour passion into every detail — using premium ingredients and an artist's eye.</p>
-        <a href="about.html" class="text-link">Discover our story →</a>
-      </div>
-      <div class="intro__cards">
-        <div class="intro__card reveal" data-delay="80">
-          <span class="intro__card-num">1000+</span>
-          <span class="intro__card-label">Cakes Created</span>
-        </div>
-        <div class="intro__card reveal" data-delay="160">
-          <span class="intro__card-num">10K+</span>
-          <span class="intro__card-label">Happy Followers</span>
-        </div>
-        <div class="intro__card reveal" data-delay="240">
-          <span class="intro__card-num">5★</span>
-          <span class="intro__card-label">Hygiene Rating</span>
-        </div>
-        <div class="intro__card reveal" data-delay="320">
-          <span class="intro__card-num">100%</span>
-          <span class="intro__card-label">Bespoke Designs</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  <div class="scroll-indicator" aria-hidden="true">
+    <span>Scroll</span>
+    <svg class="scroll-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </div>
+</section>
 
-  <!-- FEATURED CATEGORIES -->
-  <section class="categories section">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="eyebrow">What We Create</span>
-        <h2 class="section-title">Explore Our<br /><em>Creations</em></h2>
-      </div>
-      <div class="categories__grid">
-        <a href="cakes.html#wedding" class="cat-tile reveal">
-          <img src="images/wedding-cake-ua.jpg" alt="Wedding cakes" />
-          <div class="cat-tile__veil"></div>
-          <div class="cat-tile__content">
-            <h3>Wedding Cakes</h3>
-            <span class="cat-tile__cta">Explore →</span>
+<!-- ============================================================
+     MARQUEE STRIP
+     ============================================================ -->
+<div class="marquee-section" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Partner Visa</span>
+    <span class="marquee-item">Spouse Visa</span>
+    <span class="marquee-item">Skilled Worker</span>
+    <span class="marquee-item">ILR</span>
+    <span class="marquee-item">British Citizenship</span>
+    <span class="marquee-item">Student Visa</span>
+    <span class="marquee-item">Sponsor Licence</span>
+    <span class="marquee-item">Family Reunification</span>
+    <span class="marquee-item">Fianc&eacute; Visa</span>
+    <span class="marquee-item">Civil Partnership</span>
+    <span class="marquee-item">Graduate Route</span>
+    <span class="marquee-item">Naturalisation</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     SERVICES GRID
+     ============================================================ -->
+<section class="section" aria-labelledby="services-heading">
+  <div class="container">
+    <div class="text-center mb-48 fade-in-up">
+      <span class="section-label">What We Do</span>
+      <h2 class="section-heading" id="services-heading">
+        Immigration Solutions<br>for Every Journey
+      </h2>
+      <p class="body-text mt-16" style="max-width:520px;margin-left:auto;margin-right:auto;">
+        From first-time applicants to complex appeals, we provide expert guidance across the full spectrum of UK immigration.
+      </p>
+    </div>
+
+    <div class="grid-3">
+      <a href="partner-visas.html" class="service-card fade-in-up delay-1">
+        <div class="service-icon">&#10084;</div>
+        <h3>Partner &amp; Family Visas</h3>
+        <p>Reunite with your loved ones. We handle spouse, fianc&eacute;, civil partnership and family visas with care and expertise.</p>
+        <span class="service-card-link">Learn more &#8594;</span>
+      </a>
+
+      <a href="skilled-worker.html" class="service-card fade-in-up delay-2">
+        <div class="service-icon">&#128188;</div>
+        <h3>Skilled Worker Visa</h3>
+        <p>Navigate UK work visas with expert guidance and maximum approval chances. We manage every step of the process.</p>
+        <span class="service-card-link">Learn more &#8594;</span>
+      </a>
+
+      <a href="citizenship.html" class="service-card fade-in-up delay-3">
+        <div class="service-icon">&#128737;</div>
+        <h3>British Citizenship</h3>
+        <p>The final step in your UK journey. We guide you through naturalisation, the Life in the UK test, and the application process.</p>
+        <span class="service-card-link">Learn more &#8594;</span>
+      </a>
+
+      <a href="ilr.html" class="service-card fade-in-up delay-1">
+        <div class="service-icon">&#127968;</div>
+        <h3>ILR &amp; Settlement</h3>
+        <p>Secure your permanent place in the UK. Multiple settlement pathways available — we find the right route for you.</p>
+        <span class="service-card-link">Learn more &#8594;</span>
+      </a>
+
+      <a href="services.html#student" class="service-card fade-in-up delay-2">
+        <div class="service-icon">&#127891;</div>
+        <h3>Student Visas</h3>
+        <p>From Student visas to the Graduate route, we support your academic journey in the UK from start to finish.</p>
+        <span class="service-card-link">Learn more &#8594;</span>
+      </a>
+
+      <a href="services.html#sponsor" class="service-card fade-in-up delay-3">
+        <div class="service-icon">&#127970;</div>
+        <h3>Sponsor Licence</h3>
+        <p>Help your business hire global talent. We manage the entire sponsor licence process, from application to compliance.</p>
+        <span class="service-card-link">Learn more &#8594;</span>
+      </a>
+    </div>
+
+    <div class="text-center mt-48 fade-in-up">
+      <a href="services.html" class="btn btn-outline btn-lg">View All Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHY GHAFOORS SECTION
+     ============================================================ -->
+<section class="section stats-section" aria-labelledby="why-heading">
+  <div class="container">
+    <div class="why-split">
+      <div class="fade-in-left">
+        <span class="section-label">Why Choose Us</span>
+        <h2 class="section-heading" id="why-heading">
+          Bradford's Most Trusted<br>Immigration Consultants
+        </h2>
+        <p class="body-text mt-24">
+          With over a decade of experience serving Bradford and the wider Yorkshire region, Ghafoors Immigration has built its reputation on results, transparency, and genuine care for every client we represent.
+        </p>
+        <p class="body-text mt-16">
+          As OISC regulated consultants, we operate to the highest professional standards. Every case is handled personally — no call centres, no generic advice. Just honest, expert guidance tailored to your unique situation.
+        </p>
+
+        <div class="trust-features mt-32">
+          <div class="trust-feature">
+            <div class="trust-feature-icon">&#9989;</div>
+            <span>OISC Regulated &amp; Certified — operating to the highest professional standards</span>
           </div>
-        </a>
-        <a href="cakes.html#occasion" class="cat-tile reveal" data-delay="100">
-          <img src="images/ornate-cakes.jpg" alt="Occasion cakes" />
-          <div class="cat-tile__veil"></div>
-          <div class="cat-tile__content">
-            <h3>Occasion Cakes</h3>
-            <span class="cat-tile__cta">Explore →</span>
+          <div class="trust-feature">
+            <div class="trust-feature-icon">&#128197;</div>
+            <span>Free Initial Assessment — understand your options before committing</span>
           </div>
-        </a>
-        <a href="cakes.html#desserts" class="cat-tile reveal" data-delay="200">
-          <img src="images/dessert-spread-pink.jpg" alt="Dessert spreads" />
-          <div class="cat-tile__veil"></div>
-          <div class="cat-tile__content">
-            <h3>Dessert Spreads</h3>
-            <span class="cat-tile__cta">Explore →</span>
+          <div class="trust-feature">
+            <div class="trust-feature-icon">&#128172;</div>
+            <span>No Jargon, Just Results — plain-English advice that actually helps</span>
           </div>
+        </div>
+
+        <div class="mt-40">
+          <a href="about.html" class="btn btn-gold">About Our Practice</a>
+        </div>
+      </div>
+
+      <div class="fade-in-right">
+        <div class="stat-grid">
+          <div class="stat-box">
+            <div class="stat-number" data-count="500" data-suffix="+">0+</div>
+            <div class="stat-label">Cases Successfully Handled</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number" data-count="10" data-suffix="+">0+</div>
+            <div class="stat-label">Years of Experience</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number" data-count="98" data-suffix="%">0%</div>
+            <div class="stat-label">Application Success Rate</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number" data-count="5" data-suffix="&#9733;">0</div>
+            <div class="stat-label">Average Client Rating</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     HOW IT WORKS
+     ============================================================ -->
+<section class="section" aria-labelledby="how-heading">
+  <div class="container">
+    <div class="text-center mb-48 fade-in-up">
+      <span class="section-label">The Process</span>
+      <h2 class="section-heading" id="how-heading">How It Works</h2>
+      <p class="body-text mt-16" style="max-width:440px;margin-left:auto;margin-right:auto;">
+        Three straightforward steps from your first call to a successful outcome.
+      </p>
+    </div>
+
+    <div class="steps-row fade-in-up">
+      <div class="step-item">
+        <div class="step-number">01</div>
+        <div class="step-title">Book Free Assessment</div>
+        <p class="step-text">Tell us about your situation. We review your case in full — no charge, no obligation. You'll leave with clarity on your options.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-number">02</div>
+        <div class="step-title">Receive Your Strategy</div>
+        <p class="step-text">We build a tailored immigration plan specific to your circumstances, timeline, and goals. No generic advice — just your roadmap.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-number">03</div>
+        <div class="step-title">We Handle Everything</div>
+        <p class="step-text">From document preparation to form completion, submission, and beyond — we manage the entire process so you don't have to worry.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TESTIMONIALS
+     ============================================================ -->
+<section class="section testimonials-section" aria-labelledby="testimonials-heading">
+  <div class="container">
+    <div class="text-center mb-48 fade-in-up">
+      <span class="section-label">Client Stories</span>
+      <h2 class="section-heading" id="testimonials-heading">Real People, Real Results</h2>
+    </div>
+
+    <div class="testimonials-grid">
+      <article class="testimonial-card fade-in-up delay-1">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-quote">Ghafoors made what seemed impossible feel simple. My spouse visa was approved first time. The team was professional, thorough, and kept me informed every step of the way.</p>
+        <div class="testimonial-meta">
+          <div class="testimonial-name">Aisha M.</div>
+          <div class="testimonial-type">Spouse Visa — Approved First Time</div>
+        </div>
+      </article>
+
+      <article class="testimonial-card fade-in-up delay-2">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-quote">Professional, honest and incredibly thorough. Got my ILR after what was a genuinely complex case. I cannot recommend Ghafoors highly enough — they truly go above and beyond.</p>
+        <div class="testimonial-meta">
+          <div class="testimonial-name">James T.</div>
+          <div class="testimonial-type">ILR — Complex Case Success</div>
+        </div>
+      </article>
+
+      <article class="testimonial-card fade-in-up delay-3">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-quote">From sponsor licence application to receiving the certificate — handled perfectly. Our business is now recruiting internationally with total confidence. Outstanding service.</p>
+        <div class="testimonial-meta">
+          <div class="testimonial-name">Raza K.</div>
+          <div class="testimonial-type">Sponsor Licence — Business Client</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     LATEST INSIGHTS
+     ============================================================ -->
+<section class="section" aria-labelledby="insights-heading">
+  <div class="container">
+    <div class="flex-between mb-48">
+      <div class="fade-in-left">
+        <span class="section-label">Insights</span>
+        <h2 class="section-heading" id="insights-heading">Stay Informed</h2>
+      </div>
+      <a href="blog.html" class="btn btn-outline fade-in-right" style="flex-shrink:0;">View All Insights</a>
+    </div>
+
+    <div class="grid-3">
+      <article class="blog-card fade-in-up delay-1">
+        <div class="blog-card-img">
+          <span class="blog-card-img-icon">&#128203;</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-tag">Family</span>
+            <span class="blog-date">15 Nov 2024</span>
+          </div>
+          <h3>Understanding the Financial Requirements for a Spouse Visa in 2024</h3>
+          <p class="blog-excerpt">The minimum income threshold for a spouse visa has changed. Here's everything you need to know about the updated financial requirements and how to meet them.</p>
+          <a href="blog.html" class="blog-read-more">Read More &#8594;</a>
+        </div>
+      </article>
+
+      <article class="blog-card fade-in-up delay-2">
+        <div class="blog-card-img">
+          <span class="blog-card-img-icon">&#128188;</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-tag">Work</span>
+            <span class="blog-date">08 Nov 2024</span>
+          </div>
+          <h3>Skilled Worker Visa: What Changed and What You Need to Know</h3>
+          <p class="blog-excerpt">Recent changes to the Skilled Worker route have impacted salary thresholds and eligible occupations. We break down exactly what's different and how it affects you.</p>
+          <a href="blog.html" class="blog-read-more">Read More &#8594;</a>
+        </div>
+      </article>
+
+      <article class="blog-card fade-in-up delay-3">
+        <div class="blog-card-img">
+          <span class="blog-card-img-icon">&#128218;</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-tag">Citizenship</span>
+            <span class="blog-date">01 Nov 2024</span>
+          </div>
+          <h3>The Life in the UK Test: Everything You Need to Prepare</h3>
+          <p class="blog-excerpt">The Life in the UK test is a key step for ILR and British citizenship. Our comprehensive guide covers what to study, how to book, and what to expect on the day.</p>
+          <a href="blog.html" class="blog-read-more">Read More &#8594;</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA BANNER
+     ============================================================ -->
+<section class="cta-banner" aria-labelledby="cta-heading">
+  <div class="cta-banner-bg"></div>
+  <div class="cta-banner-border-top" aria-hidden="true"></div>
+  <div class="cta-banner-border-bottom" aria-hidden="true"></div>
+  <div class="container">
+    <div class="cta-content fade-in-up">
+      <span class="section-label" style="justify-content:center;">Take The First Step</span>
+      <h2 class="section-heading" id="cta-heading">Ready to Start Your UK Immigration Journey?</h2>
+      <p>Book your free assessment today and speak with an expert who will give you honest, clear advice — no obligation.</p>
+      <div class="cta-buttons">
+        <a href="contact.html" class="btn btn-gold btn-lg">Book Free Assessment</a>
+        <a href="fees.html" class="btn btn-outline btn-lg">View Our Fees</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo" aria-label="Ghafoors Immigration Home">
+          <span class="footer-logo-main">GHAFOOR<span>S</span></span>
+          <span class="footer-logo-sub">IMMIGRATION</span>
         </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- AUTO-SCROLLING TESTIMONIALS CAROUSEL -->
-  <section class="carousel-section">
-    <div class="section-header container reveal">
-      <span class="eyebrow">What Customers Say</span>
-      <h2 class="section-title">Loved by<br /><em>Hundreds</em></h2>
-    </div>
-    <div class="carousel-track-wrap">
-      <div class="carousel-track">
-        <!-- set 1 -->
-        <div class="carousel-card"><div class="carousel-card__stars">★★★★★</div><p>"Absolutely stunning wedding cake — everyone kept asking about it all night. The design was exactly what we'd envisioned."</p><div class="carousel-card__author"><div class="carousel-card__avatar">S</div><div><strong>Sarah &amp; James</strong><span>Wedding Cake, Bradford</span></div></div></div>
-        <div class="carousel-card"><div class="carousel-card__stars">★★★★★</div><p>"Ordered a birthday cake for my daughter's 21st and it blew everyone away. Beautifully decorated and tasted even better than it looked!"</p><div class="carousel-card__author"><div class="carousel-card__avatar">E</div><div><strong>Emma T.</strong><span>Birthday Cake, Leeds</span></div></div></div>
-        <div class="carousel-card"><div class="carousel-card__stars">★★★★★</div><p>"The dessert spread for our baby shower was the highlight of the event. Completely bespoke, styled perfectly and tasted incredible."</p><div class="carousel-card__author"><div class="carousel-card__avatar">P</div><div><strong>Priya M.</strong><span>Baby Shower, West Yorkshire</span></div></div></div>
-        <div class="carousel-card"><div class="carousel-card__stars">★★★★★</div><p>"Our Eid cake box was stunning. The presentation was flawless, the cake was moist and the whole experience was seamless. Highly recommend!"</p><div class="carousel-card__author"><div class="carousel-card__avatar">F</div><div><strong>Fatima A.</strong><span>Eid Cake, Bradford</span></div></div></div>
-        <div class="carousel-card"><div class="carousel-card__stars">★★★★★</div><p>"I've ordered three times and every time they've outdone themselves. Unmatched attention to detail — my go-to for every celebration!"</p><div class="carousel-card__author"><div class="carousel-card__avatar">N</div><div><strong>Nadia K.</strong><span>Repeat Customer, Bradford</span></div></div></div>
-        <div class="carousel-card"><div class="carousel-card__stars">★★★★★</div><p>"The floral dessert table looked like something from a magazine. Colourful, fresh and absolutely delicious. Guests couldn't stop taking pictures!"</p><div class="carousel-card__author"><div class="carousel-card__avatar">R</div><div><strong>Rebecca &amp; Tom</strong><span>Anniversary, York</span></div></div></div>
-        <!-- set 2 (duplicate for seamless loop) -->
-        <div class="carousel-card"><div class="carousel-card__stars">★★★★★</div><p>"Absolutely stunning wedding cake — everyone kept asking about it all night. The design was exactly what we'd envisioned."</p><div class="carousel-card__author"><div class="carousel-card__avatar">S</div><div><strong>Sarah &amp; James</strong><span>Wedding Cake, Bradford</span></div></div></div>
-        <div class="carousel-card"><div class="carousel-card__stars">★★★★★</div><p>"Ordered a birthday cake for my daughter's 21st and it blew everyone away. Beautifully decorated and tasted even better than it looked!"</p><div class="carousel-card__author"><div class="carousel-card__avatar">E</div><div><strong>Emma T.</strong><span>Birthday Cake, Leeds</span></div></div></div>
-        <div class="carousel-card"><div class="carousel-card__stars">★★★★★</div><p>"The dessert spread for our baby shower was the highlight of the event. Completely bespoke, styled perfectly and tasted incredible."</p><div class="carousel-card__author"><div class="carousel-card__avatar">P</div><div><strong>Priya M.</strong><span>Baby Shower, West Yorkshire</span></div></div></div>
-        <div class="carousel-card"><div class="carousel-card__stars">★★★★★</div><p>"Our Eid cake box was stunning. The presentation was flawless, the cake was moist and the whole experience was seamless. Highly recommend!"</p><div class="carousel-card__author"><div class="carousel-card__avatar">F</div><div><strong>Fatima A.</strong><span>Eid Cake, Bradford</span></div></div></div>
-        <div class="carousel-card"><div class="carousel-card__stars">★★★★★</div><p>"I've ordered three times and every time they've outdone themselves. Unmatched attention to detail — my go-to for every celebration!"</p><div class="carousel-card__author"><div class="carousel-card__avatar">N</div><div><strong>Nadia K.</strong><span>Repeat Customer, Bradford</span></div></div></div>
-        <div class="carousel-card"><div class="carousel-card__stars">★★★★★</div><p>"The floral dessert table looked like something from a magazine. Colourful, fresh and absolutely delicious. Guests couldn't stop taking pictures!"</p><div class="carousel-card__author"><div class="carousel-card__avatar">R</div><div><strong>Rebecca &amp; Tom</strong><span>Anniversary, York</span></div></div></div>
-      </div>
-    </div>
-    <div class="container" style="text-align:center;margin-top:36px;">
-      <a href="reviews.html" class="text-link">Read all reviews →</a>
-    </div>
-  </section>
-
-  <!-- WHY US -->
-  <section class="section why-us">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="eyebrow">Why Choose Us</span>
-        <h2 class="section-title">Bradford's Most<br /><em>Loved Cakery</em></h2>
-      </div>
-      <div class="why-grid">
-        <div class="why-item reveal">
-          <div class="why-item__icon">🎂</div>
-          <h3>1,000+ Cakes Created</h3>
-          <p>Over a thousand bespoke cakes delivered — each one made entirely from scratch, for a very happy customer.</p>
-        </div>
-        <div class="why-item reveal" data-delay="80">
-          <div class="why-item__icon">⭐</div>
-          <h3>5-Star Rated</h3>
-          <p>Our food hygiene rating and customer reviews speak for themselves. We take quality seriously — always.</p>
-        </div>
-        <div class="why-item reveal" data-delay="160">
-          <div class="why-item__icon">🛡️</div>
-          <h3>Fully Insured</h3>
-          <p>Order with complete peace of mind. We're fully insured so every celebration is covered from start to finish.</p>
-        </div>
-        <div class="why-item reveal" data-delay="240">
-          <div class="why-item__icon">💌</div>
-          <h3>Personal Service</h3>
-          <p>From your first message to delivery day, you deal directly with us — not a call centre. Every order gets personal attention.</p>
+        <p class="footer-tagline">Expert immigration consultants based in Bradford, West Yorkshire. OISC regulated. Results focused.</p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" class="social-btn" aria-label="Facebook">f</a>
+          <a href="#" class="social-btn" aria-label="Instagram" style="font-size:13px;">&#9642;</a>
+          <a href="#" class="social-btn" aria-label="LinkedIn" style="font-size:11px;font-weight:700;">in</a>
+          <a href="#" class="social-btn" aria-label="X (Twitter)" style="font-size:13px;font-weight:700;">&#x2715;</a>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- FLAVOURS TEASER -->
-  <section class="flavours-teaser">
-    <div class="container flavours-teaser__grid reveal">
-      <div class="flavours-teaser__text">
-        <span class="eyebrow">Taste the Difference</span>
-        <h2 class="section-title">Flavours as Beautiful<br /><em>as the Design</em></h2>
-        <p>From classic vanilla sponge to indulgent salted caramel and delicate rose & lychee — every cake tastes as stunning as it looks. We use only premium ingredients, baked fresh to order.</p>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul class="footer-links" role="list">
+          <li><a href="partner-visas.html" class="footer-link">Partner &amp; Family Visas</a></li>
+          <li><a href="skilled-worker.html" class="footer-link">Skilled Worker Visa</a></li>
+          <li><a href="citizenship.html" class="footer-link">British Citizenship</a></li>
+          <li><a href="ilr.html" class="footer-link">ILR &amp; Settlement</a></li>
+          <li><a href="services.html#student" class="footer-link">Student Visas</a></li>
+          <li><a href="services.html#sponsor" class="footer-link">Sponsor Licence</a></li>
+        </ul>
+      </div>
 
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul class="footer-links" role="list">
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="about.html" class="footer-link">About Us</a></li>
+          <li><a href="fees.html" class="footer-link">Our Fees</a></li>
+          <li><a href="blog.html" class="footer-link">Insights</a></li>
+          <li><a href="contact.html" class="footer-link">Contact</a></li>
+        </ul>
       </div>
-      <div class="flavours-teaser__stack">
-        <img class="flavours-teaser__img flavours-teaser__img--back reveal" src="images/ornate-cakes.jpg" alt="Ornate cake" />
-        <img class="flavours-teaser__img flavours-teaser__img--front reveal" data-delay="150" src="images/eid-cake-box.jpg" alt="Cake close-up" />
-      </div>
-    </div>
-  </section>
 
-  <!-- QUOTE FEATURE -->
-  <section class="quote-feature">
-    <div class="container">
-      <div class="quote-feature__inner reveal">
-        <span class="quote-feature__mark">"</span>
-        <blockquote>Genuinely the best cake I've ever eaten. The combination of flavours was incredible and the design was spot on. Artisan Cakery are in a league of their own in West Yorkshire.</blockquote>
-        <div class="quote-feature__author">— Zahra I., Bradford</div>
-        <div class="quote-feature__stars">★★★★★</div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <address style="font-style:normal;">
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon">&#128205;</span>
+            <span>Bradford, West Yorkshire<br>BD1, United Kingdom</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon">&#128222;</span>
+            <a href="tel:01274000000">01274 000000</a>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon">&#9993;</span>
+            <a href="mailto:info@ghafoors.co.uk">info@ghafoors.co.uk</a>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon">&#128337;</span>
+            <span>Mon–Fri: 9:00am – 6:00pm<br>Sat: 10:00am – 3:00pm</span>
+          </div>
+        </address>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- CTA BANNER -->
-  <section class="cta-banner">
-    <div class="cta-banner__bg" data-parallax>
-      <img src="images/dessert-spread-black-white.jpg" alt="Dessert spread background" />
-      <div class="cta-banner__overlay"></div>
-    </div>
-    <div class="container cta-banner__content reveal">
-      <h2>Diary Filling Fast<br /><em>Book Your Date Now</em></h2>
-      <p>We take limited bookings each month to ensure every cake gets the care it deserves.</p>
-      <a href="contact.html" class="btn btn--white">Reserve My Date</a>
-    </div>
-  </section>
+  <div class="gold-divider"></div>
 
-  <!-- FOOTER (shared) -->
-  <footer class="footer">
-    <div class="container footer__top">
-      <div class="footer__brand">
-        <a href="index.html" class="nav__logo"><span class="logo-icon">✦</span> Artisan Cakery</a>
-        <p>Handcrafted cakes made with love.<br />Bradford, West Yorkshire.</p>
-        <a href="https://www.instagram.com/artisancakeryy/" target="_blank" rel="noopener" class="footer__insta">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
-          @artisancakeryy
-        </a>
-      </div>
-      <div class="footer__nav">
-        <h4>Explore</h4>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="cakes.html">Our Cakes</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div class="footer__services">
-        <h4>We Make</h4>
-        <span>Wedding Cakes</span><span>Birthday Cakes</span><span>Anniversary Cakes</span><span>Baby Shower Cakes</span><span>Dessert Spreads</span>
-      </div>
-      <div class="footer__trust">
-        <div class="footer__badge">⭐ 5-Star Hygiene Rating</div>
-        <div class="footer__badge">🛡️ Fully Insured</div>
-        <div class="footer__badge">🎂 Made to Order</div>
+  <div class="container">
+    <div class="footer-bottom">
+      <p class="footer-bottom-text">&copy; 2024 Ghafoors Immigration Ltd. All rights reserved. OISC Reg No: [TBC]</p>
+      <div class="footer-bottom-links">
+        <a href="#" class="footer-bottom-link">Privacy Policy</a>
+        <a href="#" class="footer-bottom-link">Cookie Policy</a>
+        <a href="#" class="footer-bottom-link">Terms of Service</a>
       </div>
     </div>
-    <div class="footer__bottom container">
-      <p>&copy; 2026 Artisan Cakery, Bradford. All rights reserved.</p>
-      <p><a href="https://www.instagram.com/artisancakeryy/" target="_blank" rel="noopener">Follow us on Instagram</a></p>
-    </div>
-  </footer>
+  </div>
+</footer>
 
-  <script src="script.js"></script>
+<!-- ============================================================
+     FLOATING ELEMENTS
+     ============================================================ -->
+<a href="https://wa.me/441274000000" class="whatsapp-float" aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+  <span>WhatsApp Us</span>
+</a>
+
+<button class="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <polyline points="18 15 12 9 6 15"></polyline>
+  </svg>
+</button>
+
+<!-- Cookie Banner -->
+<div class="cookie-banner" role="dialog" aria-label="Cookie consent">
+  <p class="cookie-text">
+    We use cookies to improve your experience on our website. By continuing to browse, you agree to our <a href="#">Cookie Policy</a>. We respect your privacy and are committed to protecting your personal data.
+  </p>
+  <div class="cookie-actions">
+    <button class="btn btn-sm btn-outline" data-cookie="decline">Decline</button>
+    <button class="btn btn-sm btn-gold" data-cookie="accept">Accept All</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
