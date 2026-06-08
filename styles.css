@@ -431,26 +431,24 @@ h1,h2,h3,h4,h5,h6 {
   z-index: 0;
 }
 
-/* Real blurred night skyline photo — London, UK (Unsplash free licence) */
+/* Real daytime London skyline photo (Unsplash, free licence) */
 .hero-gradient {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background-image: url('https://images.unsplash.com/photo-1696190570289-e29df2b8ba6a?auto=format&fit=crop&w=1920&q=85');
+  background-image: url('https://images.unsplash.com/photo-1602522393193-a89c52160dcd?auto=format&fit=crop&w=1920&q=85');
   background-size: cover;
   background-position: center;
-  filter: blur(3px);
-  transform: scale(1.06); /* prevent blurred-edge artefacts */
 }
 
-/* Dark vignette overlay — keeps text legible while photo shows through */
+/* Dark overlay — legible text while skyline shows through clearly */
 .hero-gradient::after {
   content: '';
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 22% 55%, rgba(30,80,168,0.16) 0%, transparent 48%),
-    linear-gradient(160deg, rgba(2,7,16,0.74) 0%, rgba(4,12,28,0.52) 45%, rgba(2,7,16,0.70) 100%);
+    radial-gradient(ellipse at 22% 55%, rgba(30,80,168,0.14) 0%, transparent 48%),
+    linear-gradient(160deg, rgba(2,7,16,0.72) 0%, rgba(4,12,28,0.50) 50%, rgba(2,7,16,0.68) 100%);
 }
 
 .hero-mesh { display: none; }
