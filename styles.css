@@ -431,25 +431,26 @@ h1,h2,h3,h4,h5,h6 {
   z-index: 0;
 }
 
-/* Cityscape SVG background image */
+/* Real blurred night skyline photo — London, UK (Unsplash free licence) */
 .hero-gradient {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background-image: url('images/hero-bg.svg');
+  background-image: url('https://images.unsplash.com/photo-1696190570289-e29df2b8ba6a?auto=format&fit=crop&w=1920&q=85');
   background-size: cover;
-  background-position: center bottom;
-  background-repeat: no-repeat;
+  background-position: center;
+  filter: blur(3px);
+  transform: scale(1.06); /* prevent blurred-edge artefacts */
 }
 
-/* Dark overlay — tints the cityscape for text legibility and mood */
+/* Dark vignette overlay — keeps text legible while photo shows through */
 .hero-gradient::after {
   content: '';
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 20% 60%, rgba(30,80,168,0.22) 0%, transparent 45%),
-    linear-gradient(160deg, rgba(2,7,16,0.72) 0%, rgba(5,14,30,0.55) 50%, rgba(2,7,16,0.68) 100%);
+    radial-gradient(ellipse at 22% 55%, rgba(30,80,168,0.16) 0%, transparent 48%),
+    linear-gradient(160deg, rgba(2,7,16,0.74) 0%, rgba(4,12,28,0.52) 45%, rgba(2,7,16,0.70) 100%);
 }
 
 .hero-mesh { display: none; }
