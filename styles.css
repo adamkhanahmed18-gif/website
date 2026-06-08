@@ -89,10 +89,24 @@ h1,h2,h3,h4,h5,h6 {
   display: inline-block;
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--blue);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  background: var(--blue-bg);
+  border: 1px solid var(--blue-br);
+  border-radius: 3px;
+  padding: 4px 10px;
+}
+
+/* Dark backgrounds: invert section label */
+.hero .section-label,
+.page-hero .section-label,
+.cta-content .section-label,
+.oisc-section .section-label {
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.7);
 }
 
 .body-text {
@@ -145,15 +159,27 @@ h1,h2,h3,h4,h5,h6 {
   cursor: pointer;
 }
 
-/* Primary — navy */
+/* Primary — blue */
 .btn-gold {
-  background: var(--navy);
+  background: var(--blue);
   color: #fff;
-  border: 2px solid var(--navy);
+  border: 2px solid var(--blue);
 }
 .btn-gold:hover {
-  background: var(--navy-2);
-  border-color: var(--navy-2);
+  background: #1a52b8;
+  border-color: #1a52b8;
+}
+
+/* Hero: white primary button for max contrast on dark navy */
+.hero .btn-gold {
+  background: #ffffff;
+  color: var(--navy);
+  border-color: #ffffff;
+}
+.hero .btn-gold:hover {
+  background: var(--bg-2);
+  border-color: var(--bg-2);
+  color: var(--navy);
 }
 
 /* Secondary — outlined */
@@ -236,6 +262,8 @@ h1,h2,h3,h4,h5,h6 {
   line-height: 1;
   text-decoration: none;
   flex-shrink: 0;
+  border-left: 3px solid var(--blue);
+  padding-left: 14px;
 }
 .nav-logo-main {
   font-size: 17px;
@@ -505,9 +533,10 @@ h1,h2,h3,h4,h5,h6 {
 .service-card {
   background: var(--white);
   border: 1px solid var(--border);
+  border-top: 3px solid var(--blue-br);
   border-radius: var(--radius-lg);
   padding: 28px 24px;
-  transition: border-color var(--t), box-shadow var(--t), transform var(--t);
+  transition: border-color var(--t), border-top-color var(--t), box-shadow var(--t), transform var(--t);
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -515,7 +544,8 @@ h1,h2,h3,h4,h5,h6 {
   color: var(--text);
 }
 .service-card:hover {
-  border-color: var(--blue);
+  border-color: var(--blue-br);
+  border-top-color: var(--blue);
   box-shadow: var(--shadow);
   transform: translateY(-2px);
 }
@@ -578,11 +608,14 @@ h1,h2,h3,h4,h5,h6 {
   text-align: center;
   transition: border-color var(--t), box-shadow var(--t);
 }
-.stat-box:hover { border-color: var(--blue); box-shadow: var(--shadow-sm); }
+.stat-box {
+  border-top: 3px solid var(--blue-br);
+}
+.stat-box:hover { border-color: var(--blue-br); border-top-color: var(--blue); box-shadow: var(--shadow-sm); }
 .stat-number {
-  font-size: 40px;
+  font-size: 44px;
   font-weight: 800;
-  color: var(--navy);
+  color: var(--blue);
   line-height: 1;
   letter-spacing: -0.03em;
   margin-bottom: 6px;
@@ -617,6 +650,7 @@ h1,h2,h3,h4,h5,h6 {
   grid-template-columns: repeat(3,1fr);
   gap: 0;
   border: 1px solid var(--border);
+  border-top: 3px solid var(--blue);
   border-radius: var(--radius-lg);
   overflow: hidden;
 }
@@ -631,7 +665,7 @@ h1,h2,h3,h4,h5,h6 {
 .step-number {
   font-size: 52px;
   font-weight: 800;
-  color: rgba(37,99,208,0.08);
+  color: rgba(37,99,208,0.15);
   line-height: 1;
   margin-bottom: 20px;
   letter-spacing: -0.04em;
@@ -642,7 +676,7 @@ h1,h2,h3,h4,h5,h6 {
 /* ============================================================
    TESTIMONIALS
    ============================================================ */
-.testimonials-section { background: var(--white); }
+.testimonials-section { background: var(--bg-2); }
 .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
 .testimonial-card {
   background: var(--bg-2);
@@ -741,7 +775,15 @@ h1,h2,h3,h4,h5,h6 {
   inset: 0;
   background: var(--navy);
 }
-.cta-banner-bg::before { display: none; }
+.cta-banner-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
 .cta-banner-border-top,
 .cta-banner-border-bottom { display: none; }
 .cta-content { position: relative; z-index: 1; text-align: center; }
