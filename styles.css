@@ -413,8 +413,8 @@ h1,h2,h3,h4,h5,h6 {
    ============================================================ */
 .hero {
   position: relative;
-  background: #060d1e;
-  min-height: 88vh;
+  background: #020710;
+  min-height: 90vh;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -431,15 +431,25 @@ h1,h2,h3,h4,h5,h6 {
   z-index: 0;
 }
 
-/* Rich fallback gradient — also acts as overlay tint when video is present */
+/* Cityscape SVG background image */
 .hero-gradient {
   position: absolute;
   inset: 0;
   z-index: 1;
+  background-image: url('images/hero-bg.svg');
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+
+/* Dark overlay — tints the cityscape for text legibility and mood */
+.hero-gradient::after {
+  content: '';
+  position: absolute;
+  inset: 0;
   background:
-    radial-gradient(ellipse at 15% 65%, rgba(37,99,208,0.22) 0%, transparent 50%),
-    radial-gradient(ellipse at 85% 25%, rgba(10,28,70,0.6) 0%, transparent 55%),
-    linear-gradient(130deg, #060d1e 0%, #0b1830 30%, #152a52 60%, #080f1c 100%);
+    radial-gradient(ellipse at 20% 60%, rgba(30,80,168,0.22) 0%, transparent 45%),
+    linear-gradient(160deg, rgba(2,7,16,0.72) 0%, rgba(5,14,30,0.55) 50%, rgba(2,7,16,0.68) 100%);
 }
 
 .hero-mesh { display: none; }
@@ -448,12 +458,12 @@ h1,h2,h3,h4,h5,h6 {
   inset: 0;
   z-index: 2;
   background-image:
-    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 
-.hero-content { position: relative; z-index: 3; padding: 100px 0 80px; }
+.hero-content { position: relative; z-index: 3; padding: 110px 0 90px; }
 
 .hero-badge {
   display: inline-flex;
