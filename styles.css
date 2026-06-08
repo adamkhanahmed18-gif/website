@@ -413,29 +413,47 @@ h1,h2,h3,h4,h5,h6 {
    ============================================================ */
 .hero {
   position: relative;
-  background: var(--navy);
+  background: #060d1e;
   min-height: 88vh;
   display: flex;
   align-items: center;
   overflow: hidden;
 }
 .hero-bg { position: absolute; inset: 0; z-index: 0; }
+
+/* Background video — drop images/hero.mp4 to activate */
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Rich fallback gradient — also acts as overlay tint when video is present */
 .hero-gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(110deg, #0f2347 0%, var(--navy) 55%, #1e4a7a 100%);
+  z-index: 1;
+  background:
+    radial-gradient(ellipse at 15% 65%, rgba(37,99,208,0.22) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 25%, rgba(10,28,70,0.6) 0%, transparent 55%),
+    linear-gradient(130deg, #060d1e 0%, #0b1830 30%, #152a52 60%, #080f1c 100%);
 }
-.hero-mesh   { display: none; }
+
+.hero-mesh { display: none; }
 .hero-grid {
   position: absolute;
   inset: 0;
+  z-index: 2;
   background-image:
-    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 
-.hero-content { position: relative; z-index: 1; padding: 100px 0 80px; }
+.hero-content { position: relative; z-index: 3; padding: 100px 0 80px; }
 
 .hero-badge {
   display: inline-flex;
@@ -709,21 +727,67 @@ h1,h2,h3,h4,h5,h6 {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  transition: border-color var(--t), box-shadow var(--t);
+  transition: border-color var(--t), box-shadow var(--t), transform var(--t);
   display: flex;
   flex-direction: column;
 }
-.blog-card:hover { border-color: var(--border-2); box-shadow: var(--shadow); }
+.blog-card:hover { border-color: var(--border-2); box-shadow: var(--shadow-md); transform: translateY(-3px); }
+
+/* Category gradient image headers */
 .blog-card-img {
-  height: 180px;
-  background: var(--bg-3);
-  border-bottom: 1px solid var(--border);
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+.blog-img-family     { background: linear-gradient(135deg, #0b1830 0%, #1B3865 55%, #2563D0 100%); }
+.blog-img-work       { background: linear-gradient(135deg, #070f20 0%, #1B3865 55%, #1e4a80 100%); }
+.blog-img-citizenship{ background: linear-gradient(135deg, #101f40 0%, #1b3a78 55%, #2563D0 100%); }
+.blog-img-settlement { background: linear-gradient(135deg, #0a1628 0%, #1B3865 60%, #264F8A 100%); }
+.blog-img-student    { background: linear-gradient(135deg, #0c1c3e 0%, #1B3865 55%, #1f58c8 100%); }
+.blog-img-business   { background: linear-gradient(135deg, #070f20 0%, #122547 55%, #1e4a80 100%); }
+
+/* Texture overlay per card */
+.blog-card-img::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 75% 25%, rgba(37,99,208,0.28) 0%, transparent 55%),
+    linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+  background-size: auto, 28px 28px, 28px 28px;
+}
+
+/* Large background icon — purely decorative */
+.blog-card-img-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0.1;
+  pointer-events: none;
 }
-.blog-card-img-icon { display: flex; align-items: center; justify-content: center; }
-.blog-card-img-icon svg { width: 32px; height: 32px; color: var(--blue-br); }
+.blog-card-img-icon svg { width: 80px; height: 80px; color: #ffffff; }
+
+/* Category label sitting at bottom of image */
+.blog-img-cat {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 3px;
+  padding: 3px 9px;
+  z-index: 1;
+}
 .blog-card-body {
   padding: 22px 22px 26px;
   display: flex;
