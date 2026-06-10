@@ -131,24 +131,17 @@
       border-radius: var(--radius-lg);
       padding: 56px 48px;
     }
-    .star-picker { display: flex; gap: 8px; margin-bottom: 4px; }
-    .star-picker input[type="radio"] { display: none; }
-    .star-picker label {
+    .star-picker { display: flex; gap: 6px; margin-bottom: 4px; }
+    .star-btn {
+      font-size: 38px;
       cursor: pointer;
-      font-size: 32px;
-      color: var(--border-2);
-      transition: color var(--t), transform var(--t);
+      color: #D1D5DB;
+      transition: color 0.12s, transform 0.1s;
       line-height: 1;
+      user-select: none;
     }
-    .star-picker label:hover,
-    .star-picker label:hover ~ label,
-    .star-picker input[type="radio"]:checked ~ label { color: var(--border-2); }
-    .star-picker label:hover,
-    .star-picker input[type="radio"]:checked + label { color: #F59E0B; }
-    /* JS handles active state — fallback pure CSS (RTL trick) */
-    .star-picker { flex-direction: row-reverse; justify-content: flex-end; }
-    .star-picker label:hover,
-    .star-picker label:hover ~ label { color: #F59E0B; }
+    .star-btn:hover { transform: scale(1.18); }
+    .star-btn.lit { color: #F59E0B; }
     .review-form-success { display: none; text-align: center; padding: 40px 0; }
     .review-form-success.visible { display: block; }
     .google-cta {
@@ -650,13 +643,14 @@
 
           <div class="form-group mt-16">
             <label class="form-label">Your Rating *</label>
-            <div class="star-picker" id="starPicker" role="radiogroup" aria-label="Rating">
-              <input type="radio" id="s5" name="rating" value="5"><label for="s5" title="5 stars">&#9733;</label>
-              <input type="radio" id="s4" name="rating" value="4"><label for="s4" title="4 stars">&#9733;</label>
-              <input type="radio" id="s3" name="rating" value="3"><label for="s3" title="3 stars">&#9733;</label>
-              <input type="radio" id="s2" name="rating" value="2"><label for="s2" title="2 stars">&#9733;</label>
-              <input type="radio" id="s1" name="rating" value="1"><label for="s1" title="1 star">&#9733;</label>
+            <div class="star-picker" id="starPicker" role="group" aria-label="Star rating">
+              <span class="star-btn" data-val="1" title="1 star">&#9733;</span>
+              <span class="star-btn" data-val="2" title="2 stars">&#9733;</span>
+              <span class="star-btn" data-val="3" title="3 stars">&#9733;</span>
+              <span class="star-btn" data-val="4" title="4 stars">&#9733;</span>
+              <span class="star-btn" data-val="5" title="5 stars">&#9733;</span>
             </div>
+            <input type="hidden" id="ratingValue" value="">
             <span id="ratingError" style="font-size:12px;color:var(--red);margin-top:4px;display:none;">Please select a rating.</span>
           </div>
 
@@ -682,8 +676,14 @@
           <div class="form-success-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:52px;height:52px;color:var(--blue);"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
           </div>
-          <h3>Thank You for Your Review!</h3>
-          <p>We really appreciate you taking the time to share your experience. Reviews like yours help others find the right immigration support.</p>
+          <h3>Thank You — One More Step!</h3>
+          <p style="margin-bottom:16px;">Your review has been received. To post it publicly on Google so more people can see it, click the button below — your review text has been copied to your clipboard, just paste it in.</p>
+          <div id="reviewPreview" style="background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;text-align:left;font-size:14px;color:var(--text-2);line-height:1.7;margin-bottom:20px;"></div>
+          <a id="googlePostBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-lg" style="display:inline-flex;align-items:center;gap:9px;margin-bottom:12px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            Post on Google
+          </a>
+          <p style="font-size:12px;color:var(--text-3);">Your review text is already copied — just paste it when Google opens.</p>
         </div>
       </div>
     </div>
@@ -789,33 +789,73 @@
 
 <script src="script.js"></script>
 <script>
-  // Review form submission
+  // ── Star picker ──────────────────────────────────────────────
+  const starBtns = document.querySelectorAll('.star-btn');
+  const ratingInput = document.getElementById('ratingValue');
+  let selectedRating = 0;
+
+  starBtns.forEach((btn, idx) => {
+    btn.addEventListener('mouseenter', () => {
+      starBtns.forEach((b, i) => {
+        b.classList.toggle('lit', i <= idx);
+      });
+    });
+    btn.addEventListener('mouseleave', () => {
+      starBtns.forEach((b, i) => {
+        b.classList.toggle('lit', i < selectedRating);
+      });
+    });
+    btn.addEventListener('click', () => {
+      selectedRating = idx + 1;
+      ratingInput.value = selectedRating;
+      starBtns.forEach((b, i) => b.classList.toggle('lit', i <= idx));
+    });
+  });
+
+  // ── Review form submission ───────────────────────────────────
+  // Replace this URL with your actual Google Business review link
+  const GOOGLE_REVIEW_URL = 'https://search.google.com/local/writereview?placeid=YOUR_GOOGLE_PLACE_ID';
+
   document.getElementById('reviewForm').addEventListener('submit', function(e) {
     e.preventDefault();
     let valid = true;
 
-    const name = document.getElementById('rev-name');
-    const service = document.getElementById('rev-service');
-    const review = document.getElementById('rev-review');
-    const consent = document.getElementById('rev-consent');
-    const rating = document.querySelector('input[name="rating"]:checked');
+    const nameEl    = document.getElementById('rev-name');
+    const serviceEl = document.getElementById('rev-service');
+    const reviewEl  = document.getElementById('rev-review');
+    const consentEl = document.getElementById('rev-consent');
 
-    [name, service, review].forEach(el => {
+    [nameEl, serviceEl, reviewEl].forEach(el => {
       const grp = el.closest('.form-group');
       if (!el.value.trim()) { grp.classList.add('has-error'); valid = false; }
       else grp.classList.remove('has-error');
     });
 
     const ratingErr = document.getElementById('ratingError');
-    if (!rating) { ratingErr.style.display = 'block'; valid = false; }
+    if (!selectedRating) { ratingErr.style.display = 'block'; valid = false; }
     else ratingErr.style.display = 'none';
 
-    if (!consent.checked) { valid = false; }
+    if (!consentEl.checked) { valid = false; }
 
-    if (valid) {
-      document.getElementById('reviewForm').style.display = 'none';
-      document.getElementById('reviewSuccess').classList.add('visible');
-    }
+    if (!valid) return;
+
+    // Build review text and copy to clipboard
+    const stars = '★'.repeat(selectedRating) + '☆'.repeat(5 - selectedRating);
+    const reviewText = reviewEl.value.trim();
+    navigator.clipboard.writeText(reviewText).catch(() => {});
+
+    // Show preview in success panel
+    document.getElementById('reviewPreview').textContent = '"' + reviewText + '"';
+
+    // Wire up Google button
+    document.getElementById('googlePostBtn').href = GOOGLE_REVIEW_URL;
+
+    // Swap form → success
+    this.style.display = 'none';
+    document.getElementById('reviewSuccess').classList.add('visible');
+
+    // Open Google in new tab after brief pause
+    setTimeout(() => { window.open(GOOGLE_REVIEW_URL, '_blank'); }, 800);
   });
 </script>
 </body>
