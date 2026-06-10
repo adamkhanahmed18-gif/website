@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ---- Testimonials carousel auto-scroll ---- */
-  const track = document.querySelector('.carousel__track');
+  const track = document.querySelector('.carousel-track');
   if (track) {
     let pos = 0;
     const speed = 0.6;

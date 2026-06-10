@@ -1263,6 +1263,8 @@ a.contact__card { text-decoration: none; }
 
 /* ---- Spark particles ---- */
 .spark {
+  --tx: 0px;
+  --ty: 0px;
   position: fixed; pointer-events: none; z-index: 99998;
   width: 6px; height: 6px; border-radius: 50%;
   background: var(--pink); animation: sparkFade 0.6s ease-out forwards;
@@ -1451,3 +1453,16 @@ a.contact__card { text-decoration: none; }
 @media (max-width: 860px) {
   .faq-page__grid { grid-template-columns: 1fr; gap: 40px; }
 }
+
+/* ---- Utility classes (replacing inline styles) ---- */
+.carousel-cta { text-align: center; margin-top: 36px; }
+.score-bar__fill--94 { width: 94%; }
+.score-bar__fill--6  { width: 6%; }
+.score-bar__fill--0  { width: 0%; }
+.faq-intro-section { background: var(--cream); padding-bottom: 0; }
+.faq-intro-section .container { max-width: 760px; text-align: center; }
+.faq-intro-section p { color: var(--muted); font-size: 1.05rem; line-height: 1.85; }
+.faq-body-section { background: var(--cream); }
+.faq-cta-section { background: var(--white); padding: 70px 0; }
+.faq-cta-section .container { max-width: 640px; text-align: center; }
+.faq-cta-section p { color: var(--muted); margin-bottom: 32px; font-size: 1.05rem; line-height: 1.8; }
