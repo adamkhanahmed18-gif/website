@@ -11,8 +11,8 @@
   --bg:       #FFFFFF;
   --bg-2:     #F4F6FA;
   --bg-3:     #EBEFFa;
-  --navy:     #1B3865;
-  --navy-2:   #264F8A;
+  --navy:     #1A3A25;
+  --navy-2:   #245C35;
   --blue:     #2A6B3A;
   --blue-bg:  #EAF5EC;
   --blue-br:  #A3D1AD;
@@ -751,12 +751,12 @@ h1,h2,h3,h4,h5,h6 {
   position: relative;
   overflow: hidden;
 }
-.blog-img-family     { background: linear-gradient(135deg, #0b1c10 0%, #1B3865 55%, #2A6B3A 100%); }
-.blog-img-work       { background: linear-gradient(135deg, #071408 0%, #1B3865 55%, #1d5028 100%); }
-.blog-img-citizenship{ background: linear-gradient(135deg, #0e2010 0%, #1b3a78 55%, #2A6B3A 100%); }
-.blog-img-settlement { background: linear-gradient(135deg, #0a1a0b 0%, #1B3865 60%, #245c30 100%); }
-.blog-img-student    { background: linear-gradient(135deg, #0c1c10 0%, #1B3865 55%, #2a6040 100%); }
-.blog-img-business   { background: linear-gradient(135deg, #071408 0%, #122547 55%, #1d5028 100%); }
+.blog-img-family     { background: linear-gradient(135deg, #0b1c10 0%, #1A3A25 55%, #2A6B3A 100%); }
+.blog-img-work       { background: linear-gradient(135deg, #071408 0%, #1A3A25 55%, #1d5028 100%); }
+.blog-img-citizenship{ background: linear-gradient(135deg, #0e2010 0%, #1A3A25 55%, #2A6B3A 100%); }
+.blog-img-settlement { background: linear-gradient(135deg, #0a1a0b 0%, #1A3A25 60%, #245c30 100%); }
+.blog-img-student    { background: linear-gradient(135deg, #0c1c10 0%, #1A3A25 55%, #2a6040 100%); }
+.blog-img-business   { background: linear-gradient(135deg, #071408 0%, #1A3A25 55%, #1d5028 100%); }
 
 /* Texture overlay per card */
 .blog-card-img::before {
