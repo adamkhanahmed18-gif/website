@@ -30,6 +30,9 @@
   --shadow:    0 2px 12px rgba(0,0,0,0.08);
   --shadow-md: 0 6px 24px rgba(0,0,0,0.10);
   --t: 0.2s ease;
+  --transition: 0.2s ease;
+  --gold:      #C9A84C;
+  --card:      #FFFFFF;
   --max-w: 1160px;
 }
 
