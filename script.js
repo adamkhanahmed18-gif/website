@@ -90,7 +90,9 @@
    4. INTERSECTION OBSERVER SCROLL ANIMATIONS
    ============================================================ */
 (function initScrollAnimations() {
-  const observer = new IntersectionObserver(function(entries) {
+  var animatedEls = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right');
+
+  var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
@@ -98,13 +100,20 @@
       }
     });
   }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -40px 0px'
+    threshold: 0.05,
+    rootMargin: '0px 0px 0px 0px'
   });
 
-  document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right').forEach(function(el) {
+  animatedEls.forEach(function(el) {
     observer.observe(el);
   });
+
+  // Fallback: ensure nothing stays hidden if observer misses elements (e.g. fast scroll)
+  setTimeout(function() {
+    animatedEls.forEach(function(el) {
+      el.classList.add('visible');
+    });
+  }, 3500);
 })();
 
 /* ============================================================

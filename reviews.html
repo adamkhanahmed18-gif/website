@@ -124,40 +124,6 @@
     .review-text { font-size: 14px; color: var(--text-2); line-height: 1.7; flex: 1; }
     .review-date { font-size: 12px; color: var(--text-3); margin-top: auto; }
 
-    /* ── SUBMIT FORM ─────────────────────────────────────── */
-    .submit-review-section {
-      background: var(--bg-2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 56px 48px;
-    }
-    .star-picker { display: flex; gap: 6px; margin-bottom: 4px; }
-    .star-btn {
-      font-size: 38px;
-      cursor: pointer;
-      color: #D1D5DB;
-      transition: color 0.12s, transform 0.1s;
-      line-height: 1;
-      user-select: none;
-    }
-    .star-btn:hover { transform: scale(1.18); }
-    .star-btn.lit { color: #F59E0B; }
-    .review-form-success { display: none; text-align: center; padding: 40px 0; }
-    .review-form-success.visible { display: block; }
-    .google-cta {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 28px 32px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-    .google-cta-text h3 { font-size: 17px; color: var(--navy); margin-bottom: 4px; }
-    .google-cta-text p { font-size: 14px; color: var(--text-2); }
-
     @media (max-width: 1024px) {
       .reviews-grid { grid-template-columns: repeat(2,1fr); }
       .rating-summary { gap: 32px; }
@@ -166,7 +132,6 @@
     @media (max-width: 768px) {
       .reviews-grid { grid-template-columns: 1fr; }
       .rating-summary { padding: 28px 24px; }
-      .submit-review-section { padding: 36px 24px; }
       .rating-score { font-size: 52px; }
     }
   </style>

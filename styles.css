@@ -751,6 +751,16 @@ h1,h2,h3,h4,h5,h6 {
   position: relative;
   overflow: hidden;
 }
+.blog-card-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  z-index: 0;
+}
 .blog-img-family     { background: linear-gradient(135deg, #0b1c10 0%, #1A5C35 55%, #2E9E56 100%); }
 .blog-img-work       { background: linear-gradient(135deg, #071408 0%, #1A5C35 55%, #1d5028 100%); }
 .blog-img-citizenship{ background: linear-gradient(135deg, #0e2010 0%, #1A5C35 55%, #2E9E56 100%); }
@@ -758,31 +768,14 @@ h1,h2,h3,h4,h5,h6 {
 .blog-img-student    { background: linear-gradient(135deg, #0c1c10 0%, #1A5C35 55%, #2a6040 100%); }
 .blog-img-business   { background: linear-gradient(135deg, #071408 0%, #1A5C35 55%, #1d5028 100%); }
 
-/* Texture overlay per card */
+/* Overlay on top of photo (darkens for legibility) */
 .blog-card-img::before {
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse at 75% 25%, rgba(46,158,86,0.28) 0%, transparent 55%),
-    linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
-  background-size: auto, 28px 28px, 28px 28px;
+  z-index: 1;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.45) 100%);
 }
-
-/* Large background icon — purely decorative */
-.blog-card-img-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0.1;
-  pointer-events: none;
-}
-.blog-card-img-icon svg { width: 80px; height: 80px; color: #ffffff; }
 
 /* Category label sitting at bottom of image */
 .blog-img-cat {
@@ -793,12 +786,12 @@ h1,h2,h3,h4,h5,h6 {
   font-weight: 700;
   letter-spacing: 0.11em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.85);
-  background: rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.92);
+  background: rgba(0,0,0,0.35);
   border: 1px solid rgba(255,255,255,0.22);
   border-radius: 3px;
   padding: 3px 9px;
-  z-index: 1;
+  z-index: 2;
 }
 .blog-card-body {
   padding: 22px 22px 26px;
