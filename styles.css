@@ -1476,6 +1476,8 @@ h1,h2,h3,h4,h5,h6 {
 /* ============================================================
    RESPONSIVE MOBILE (≤768px)
    ============================================================ */
+.page-img { width: 100%; height: 420px; object-fit: cover; display: block; }
+
 @media (max-width: 768px) {
   .container { padding: 0 18px; }
   .section { padding: 52px 0; }
@@ -1502,4 +1504,5 @@ h1,h2,h3,h4,h5,h6 {
   .oisc-section { padding: 24px; }
   .page-hero { padding: 110px 0 48px; }
   .form-layout { grid-template-columns: 1fr; gap: 40px; }
+  .page-img { height: 220px; }
 }
