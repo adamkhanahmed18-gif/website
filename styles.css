@@ -916,9 +916,10 @@ h1,h2,h3,h4,h5,h6 {
   margin-top: 3px;
 }
 .footer-logo-img {
-  height: 56px;
-  width: auto;
+  width: 160px;
+  height: auto;
   border-radius: 6px;
+  align-self: flex-start;
 }
 .footer-iaa-wrap {
   display: inline-flex;
