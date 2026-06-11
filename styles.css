@@ -129,6 +129,7 @@ h1,h2,h3,h4,h5,h6 {
 .grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 32px; }
 .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
 .grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+.form-layout { display: grid; grid-template-columns: 1.5fr 1fr; gap: 64px; align-items: start; }
 
 .flex         { display: flex; }
 .flex-center  { display: flex; align-items: center; justify-content: center; }
@@ -1502,4 +1503,5 @@ h1,h2,h3,h4,h5,h6 {
   .whatsapp-float span { display: none; }
   .oisc-section { padding: 24px; }
   .page-hero { padding: 110px 0 48px; }
+  .form-layout { grid-template-columns: 1fr; gap: 40px; }
 }
