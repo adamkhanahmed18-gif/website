@@ -918,7 +918,6 @@ h1,h2,h3,h4,h5,h6 {
 .footer-logo-img {
   width: 160px;
   height: auto;
-  border-radius: 6px;
   align-self: flex-start;
 }
 .footer-iaa-wrap {
