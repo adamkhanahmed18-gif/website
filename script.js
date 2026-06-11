@@ -351,12 +351,39 @@
     }
 
     if (valid) {
-      // Show success
-      form.style.display = 'none';
-      if (successMsg) {
-        successMsg.classList.add('visible');
-        successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      const submitBtn = form.querySelector('[type="submit"]');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
       }
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      })
+      .then(function(res) {
+        if (res.ok) {
+          form.style.display = 'none';
+          if (successMsg) {
+            successMsg.classList.add('visible');
+            successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        } else {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = 'Send Message <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>';
+          }
+          alert('There was a problem sending your message. Please try again or call us on 033 0133 3687.');
+        }
+      })
+      .catch(function() {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = 'Send Message <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>';
+        }
+        alert('There was a problem sending your message. Please try again or call us on 033 0133 3687.');
+      });
     }
   });
 })();
