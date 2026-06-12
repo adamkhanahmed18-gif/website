@@ -1005,7 +1005,7 @@ h1,h2,h3,h4,h5,h6 {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: var(--page-hero-bg, url('images/blog-business.jpg'));
+  background-image: url('images/blog-business.jpg');
   background-size: cover;
   background-position: center;
   filter: blur(3px);
@@ -1013,6 +1013,11 @@ h1,h2,h3,h4,h5,h6 {
   opacity: 0.35;
   z-index: 0;
 }
+.page-hero.hero-family::before    { background-image: url('images/blog-family.jpg'); }
+.page-hero.hero-work::before      { background-image: url('images/blog-work.jpg'); }
+.page-hero.hero-citizenship::before { background-image: url('images/blog-citizenship.jpg'); }
+.page-hero.hero-settlement::before { background-image: url('images/blog-settlement.jpg'); }
+.page-hero.hero-business::before  { background-image: url('images/blog-business.jpg'); }
 .page-hero::after {
   content: '';
   position: absolute;
