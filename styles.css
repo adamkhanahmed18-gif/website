@@ -994,7 +994,8 @@ h1,h2,h3,h4,h5,h6 {
    PAGE HERO (INNER PAGES)
    ============================================================ */
 .page-hero {
-  padding: 140px 0 64px;
+  padding: 200px 0 120px;
+  min-height: 420px;
   background: #020710;
   border-bottom: 1px solid rgba(255,255,255,0.06);
   position: relative;
@@ -1004,12 +1005,12 @@ h1,h2,h3,h4,h5,h6 {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('https://images.unsplash.com/photo-1694114018513-2b1eac3aab79?auto=format&fit=crop&w=1920&q=85');
+  background-image: var(--page-hero-bg, url('images/blog-business.jpg'));
   background-size: cover;
   background-position: center;
   filter: blur(3px);
   transform: scale(1.06);
-  opacity: 0.28;
+  opacity: 0.35;
   z-index: 0;
 }
 .page-hero::after {
@@ -1519,7 +1520,7 @@ h1,h2,h3,h4,h5,h6 {
   .whatsapp-float { bottom: 68px; }
   .whatsapp-float span { display: none; }
   .oisc-section { padding: 24px; }
-  .page-hero { padding: 110px 0 48px; }
+  .page-hero { padding: 140px 0 72px; min-height: 320px; }
   .form-layout { grid-template-columns: 1fr; gap: 40px; }
   .page-img { height: 220px; }
 }
