@@ -1024,6 +1024,19 @@ h1,h2,h3,h4,h5,h6 {
 .footer-bottom-link:hover { color: rgba(255,255,255,0.65); }
 .ico-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(0,49,137,0.35); border: 1px solid rgba(0,49,137,0.55); border-radius: 4px; padding: 4px 10px; font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.5); text-decoration: none; transition: background var(--t), color var(--t); }
 .ico-badge:hover { background: rgba(0,49,137,0.6); color: rgba(255,255,255,0.85); }
+.footer-disclaimer {
+  background: #020710;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 18px 0;
+}
+.footer-disclaimer p {
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  line-height: 1.7;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
 
 /* ============================================================
    PAGE HERO (INNER PAGES)
