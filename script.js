@@ -37,6 +37,7 @@
     isOpen = !isOpen;
     hamburger.classList.toggle('open', isOpen);
     mobileMenu.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
     document.body.style.overflow = isOpen ? 'hidden' : '';
   }
 
