@@ -944,6 +944,41 @@ h1,h2,h3,h4,h5,h6 {
   color: rgba(255,255,255,0.55);
   text-transform: uppercase;
 }
+.footer-trust-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+.footer-trust-badges .footer-iaa-wrap {
+  margin-top: 0;
+}
+.footer-ico-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0,49,137,0.2);
+  border: 1px solid rgba(0,49,137,0.45);
+  border-radius: 4px;
+  padding: 7px 12px;
+  text-decoration: none;
+  transition: background var(--t), border-color var(--t);
+}
+.footer-ico-wrap:hover {
+  background: rgba(0,49,137,0.35);
+  border-color: rgba(0,49,137,0.65);
+}
+.footer-ico-icon {
+  color: rgba(100,160,255,0.85);
+  flex-shrink: 0;
+}
+.footer-ico-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  color: rgba(255,255,255,0.55);
+  text-transform: uppercase;
+}
 .footer-tagline { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.65; max-width: 240px; }
 .footer-social { display: flex; gap: 8px; }
 .social-btn {
