@@ -1,219 +1,202 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
-  <meta charset="UTF-8" >
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-  <title>Gallery | Artisan Cakery, Bradford</title>
-  <meta name="description" content="Browse our portfolio of bespoke wedding cakes, occasion cakes and dessert spreads handcrafted in Bradford, West Yorkshire." >
-  <link rel="preconnect" href="https://fonts.googleapis.com" >
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin >
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" >
-  <link rel="stylesheet" href="styles.css" >
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Work | JPS Plastering, Leeds</title>
+  <meta name="description" content="Past projects by JPS Plastering — skimming, rendering, Venetian polished plaster, boarding and renovations across Leeds and West Yorkshire.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Archivo:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body data-page="gallery">
 
-  <div class="page-veil"><span class="veil-mark">✦</span></div>
+  <div class="veil" aria-hidden="true"></div>
 
-  <header class="nav nav--solid" id="nav">
-    <div class="nav__inner container">
-      <a href="index.html" class="nav__logo"><span class="logo-icon">✦</span> Artisan Cakery</a>
-      <nav class="nav__links" aria-label="Main navigation">
+  <header class="nav">
+    <div class="container--wide nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="JPS Plastering — home">
+        <span class="l1">JPS</span>
+        <span class="l2">Plastering</span>
+      </a>
+      <nav class="nav__links" aria-label="Main">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="cakes.html">Our Cakes</a>
-        <a href="gallery.html" class="is-active">Gallery</a>
+        <a href="services.html">Services</a>
+        <a href="gallery.html" class="is-active">Our Work</a>
         <a href="reviews.html">Reviews</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html" class="btn btn--nav">Order Now</a>
+        <a href="contact.html" class="btn nav__cta">Get a Quote</a>
       </nav>
-      <button type="button" class="nav__burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <button type="button" class="nav__burger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <nav class="nav__mobile" aria-label="Mobile navigation">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="cakes.html">Our Cakes</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="reviews.html">Reviews</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Order Now ✦</a>
-    </nav>
   </header>
 
-  <!-- PAGE HEADER -->
-  <section class="page-header">
-    <div class="page-header__bg" data-parallax>
-      <img src="images/dessert-spread-floral.jpg" alt="Colourful dessert spread" >
-      <div class="page-header__overlay"></div>
+  <nav class="menu" aria-label="Mobile">
+    <a class="menu__link" href="index.html">Home <span class="n">01</span></a>
+    <a class="menu__link" href="about.html">About <span class="n">02</span></a>
+    <a class="menu__link" href="services.html">Services <span class="n">03</span></a>
+    <a class="menu__link" href="gallery.html">Our Work <span class="n">04</span></a>
+    <a class="menu__link" href="reviews.html">Reviews <span class="n">05</span></a>
+    <a class="menu__link" href="contact.html">Get a Quote <span class="n">06</span></a>
+    <div class="menu__foot">
+      <a href="tel:+447557448059">07557 448059</a>
+      <a href="mailto:info@jps-plastering.com">info@jps-plastering.com</a>
     </div>
-    <div class="container page-header__content reveal">
-      <span class="eyebrow eyebrow--light">Our Portfolio</span>
-      <h1 class="page-header__title">A Taste of<br ><em>Our Work</em></h1>
-      <p>Every cake is completely one-of-a-kind. Tap any image to take a closer look.</p>
-    </div>
-    <nav class="breadcrumb container" aria-label="Breadcrumb"><a href="index.html">Home</a> <span>/</span> Gallery</nav>
-  </section>
+  </nav>
 
-  <!-- FILTERS + GRID -->
-  <section class="section gallery-page">
-    <div class="container">
-      <div class="filter-bar reveal">
-        <button type="button" class="filter-btn is-active" data-filter="all">All</button>
-        <button type="button" class="filter-btn" data-filter="wedding">Wedding</button>
-        <button type="button" class="filter-btn" data-filter="occasion">Occasion</button>
-        <button type="button" class="filter-btn" data-filter="dessert">Dessert Spreads</button>
-        <button type="button" class="filter-btn" data-filter="boxes">Cake Boxes</button>
+  <main>
+    <section class="page-hero hero--short">
+      <div class="page-hero__bg"><img src="images/venetian-stairwell.jpg" alt="" aria-hidden="true" fetchpriority="high"></div>
+      <div class="container">
+        <div class="crumbs"><a href="index.html">Home</a> <span>/</span> <span>Our Work</span></div>
+        <span class="eyebrow">Past projects</span>
+        <h1>The work speaks <em>for itself</em></h1>
+        <p class="lede">Real jobs, photographed on site — no staging, no stock photos. Tap any image for a closer look.</p>
       </div>
+    </section>
 
-      <div class="masonry">
+    <section class="section">
+      <div class="container">
+        <div class="filters rv" role="group" aria-label="Filter gallery">
+          <button type="button" class="is-active" data-filter="all">All</button>
+          <button type="button" data-filter="internal">Internal</button>
+          <button type="button" data-filter="boarding">Boarding &amp; Renovation</button>
+          <button type="button" data-filter="external">External</button>
+          <button type="button" data-filter="venetian">Venetian</button>
+          <button type="button" data-filter="finished">Finished rooms</button>
+        </div>
 
-        <!-- WEDDING -->
-        <figure class="masonry__item reveal" data-category="wedding">
-          <img src="images/wedding-cake-derie-hawa.jpg" alt="Tiered wedding cake with florals" >
-          <figcaption>Tiered Wedding Cake</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="wedding">
-          <img src="images/wedding-cake-ua.jpg" alt="Four-tier wedding cake" >
-          <figcaption>Grand Four-Tier Cake</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="wedding">
-          <img src="images/wedding-an-white.jpg" alt="Two-tier A&N wedding cake with white flowers" >
-          <figcaption>A &amp; N — Wedding Cake</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="wedding">
-          <img src="images/wedding-li-roses.jpg" alt="Two-tier L&I wedding cake with red roses" >
-          <figcaption>L &amp; I — Red Rose Wedding</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="wedding">
-          <img src="images/wedding-nikah-mubarak.jpg" alt="Nikah Mubarak two-tier cake with ruffles and flowers" >
-          <figcaption>Nikah Mubarak Celebration</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="wedding">
-          <img src="images/wedding-ts-venue.jpg" alt="Three-tier T&S wedding cake at venue" >
-          <figcaption>T &amp; S — Venue Wedding Cake</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="wedding">
-          <img src="images/wedding-ts-display.jpg" alt="Wedding cake display with T|S monogram" >
-          <figcaption>Wedding Cake Table Display</figcaption>
-        </figure>
+        <div class="masonry rv" data-d="1">
+          <figure class="g-item" data-cat="venetian" data-cap="Polished Venetian plaster — stairwell feature wall">
+            <img src="images/venetian-stairwell.jpg" alt="Polished Venetian plaster stairwell beside a steel and oak staircase" loading="lazy">
+            <figcaption class="cap">Venetian &middot; Stairwell</figcaption>
+          </figure>
+          <figure class="g-item" data-cat="internal" data-cap="Vaulted ceiling with skylights — fresh multi-finish drying out">
+            <img src="images/vaulted-skylights.jpg" alt="Vaulted ceiling with skylights, freshly plastered and drying" loading="lazy">
+            <figcaption class="cap">Internal &middot; Vaulted ceiling</figcaption>
+          </figure>
+          <figure class="g-item" data-cat="external" data-cap="Porch in cream silicone render over a brick plinth">
+            <img src="images/render-porch.jpg" alt="Porch finished in cream silicone render with dark green door" loading="lazy">
+            <figcaption class="cap">External &middot; Silicone render</figcaption>
+          </figure>
+          <figure class="g-item" data-cat="finished" data-cap="Hallway handed over — set ceiling against white panelling">
+            <img src="images/hallway-finished.jpg" alt="Finished hallway with set ceiling and white panelled walls" loading="lazy">
+            <figcaption class="cap">Finished &middot; Hallway</figcaption>
+          </figure>
+          <figure class="g-item" data-cat="boarding" data-cap="Loft conversion boarded around skylights, ready for skim">
+            <img src="images/loft-boarding.jpg" alt="Loft conversion boarded out with plasterboard and skylights" loading="lazy">
+            <figcaption class="cap">Boarding &middot; Loft conversion</figcaption>
+          </figure>
+          <figure class="g-item" data-cat="internal" data-cap="New build hallway — long walls, dead flat">
+            <img src="images/newbuild-hallway.jpg" alt="Long freshly skimmed hallway in a new build" loading="lazy">
+            <figcaption class="cap">Internal &middot; New build</figcaption>
+          </figure>
+          <figure class="g-item" data-cat="internal" data-cap="Bedroom skim drying under the site light">
+            <img src="images/skim-bedroom.jpg" alt="Freshly skimmed bedroom with site light" loading="lazy">
+            <figcaption class="cap">Internal &middot; Re-skim</figcaption>
+          </figure>
+          <figure class="g-item" data-cat="boarding" data-cap="Barn renovation — stripped back to brick and joists before boarding">
+            <img src="images/barn-renovation.jpg" alt="Barn renovation stripped to brick walls and timber joists" loading="lazy">
+            <figcaption class="cap">Renovation &middot; Barn</figcaption>
+          </figure>
+          <figure class="g-item" data-cat="internal" data-cap="Room skimmed around new bifold doors">
+            <img src="images/skim-bifold-room.jpg" alt="Freshly plastered room with bifold doors to the garden" loading="lazy">
+            <figcaption class="cap">Internal &middot; Extension</figcaption>
+          </figure>
+          <figure class="g-item" data-cat="internal" data-cap="Vaulted ceiling at dusk — skylights cut in clean">
+            <img src="images/vaulted-dusk.jpg" alt="Vaulted plastered ceiling with skylights at dusk" loading="lazy">
+            <figcaption class="cap">Internal &middot; Vaulted ceiling</figcaption>
+          </figure>
+          <figure class="g-item" data-cat="internal" data-cap="Detail: skim finished tight around socket boxes">
+            <img src="images/skim-detail-sockets.jpg" alt="Close-up of plaster finished neatly around socket back boxes" loading="lazy">
+            <figcaption class="cap">Internal &middot; Detail</figcaption>
+          </figure>
+          <figure class="g-item" data-cat="internal" data-cap="Bedroom walls and ceiling skimmed in one visit">
+            <img src="images/skim-window-room.jpg" alt="Freshly skimmed bedroom with window" loading="lazy">
+            <figcaption class="cap">Internal &middot; Bedroom</figcaption>
+          </figure>
+          <figure class="g-item" data-cat="finished" data-cap="Living room set, spotlights in, carpet down — job done">
+            <img src="images/finished-living-room.jpg" alt="Finished living room with smooth set walls and ceiling spotlights" loading="lazy">
+            <figcaption class="cap">Finished &middot; Living room</figcaption>
+          </figure>
+        </div>
 
-        <!-- OCCASION -->
-        <figure class="masonry__item reveal" data-category="occasion">
-          <img src="images/occasion-40th-floral.jpg" alt="Happy 40th Sara ornate birthday cake with flowers" >
-          <figcaption>Happy 40th — Floral Celebration</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="occasion">
-          <img src="images/occasion-birthday-set.jpg" alt="Set of four ornate birthday cakes with flowers" >
-          <figcaption>Birthday Cake Collection</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="occasion">
-          <img src="images/occasion-vintage-ornate.jpg" alt="Two vintage ornate birthday cakes" >
-          <figcaption>Vintage Ornate Birthday Cakes</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="occasion">
-          <img src="images/occasion-berry-floral.jpg" alt="Birthday cakes with berries and flowers" >
-          <figcaption>Berry &amp; Floral Birthday Cakes</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="occasion">
-          <img src="images/occasion-berry-fig.jpg" alt="Rectangular birthday cakes with figs and berries" >
-          <figcaption>Fig &amp; Berry Birthday Cakes</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="occasion">
-          <img src="images/occasion-fairy-pink.jpg" alt="Pink fairy and butterfly themed birthday cakes" >
-          <figcaption>Fairy Garden Birthday Cakes</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="occasion">
-          <img src="images/occasion-novelty-kids.jpg" alt="Novelty kids birthday cakes including Cocomelon and Winnie the Pooh" >
-          <figcaption>Novelty &amp; Character Cakes</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="occasion">
-          <img src="images/ornate-cakes.jpg" alt="Ornate cakes with berries" >
-          <figcaption>Ornate Celebration Cakes</figcaption>
-        </figure>
-
-        <!-- DESSERT SPREADS -->
-        <figure class="masonry__item reveal" data-category="dessert">
-          <img src="images/dessert-baby-shower-wide.jpg" alt="Baby shower dessert table setup" >
-          <figcaption>Baby Shower Dessert Table</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="dessert">
-          <img src="images/dessert-baby-shower-close.jpg" alt="Baby shower dessert table close up" >
-          <figcaption>Baby Shower — Full Spread</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="dessert">
-          <img src="images/dessert-baby-blooms.jpg" alt="Baby Blooms cake with dessert table" >
-          <figcaption>Baby Blooms Celebration</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="dessert">
-          <img src="images/dessert-spread-pink.jpg" alt="Pink dessert table" >
-          <figcaption>Pink Dessert Spread</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="dessert">
-          <img src="images/dessert-spread-floral.jpg" alt="Colourful floral dessert spread" >
-          <figcaption>Floral Dessert Spread</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="dessert">
-          <img src="images/dessert-spread-black-white.jpg" alt="Candlelit dessert spread" >
-          <figcaption>Candlelit Dessert Spread</figcaption>
-        </figure>
-
-        <!-- CAKE BOXES -->
-        <figure class="masonry__item reveal" data-category="boxes">
-          <img src="images/boxes-mothers-day.jpg" alt="Mother's Day flower and cake boxes" >
-          <figcaption>Mother's Day Gift Boxes</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="boxes">
-          <img src="images/boxes-balloon-pink.jpg" alt="Pink balloon cake gift boxes" >
-          <figcaption>Balloon Gift Box Collection</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="boxes">
-          <img src="images/boxes-pink-bows.jpg" alt="Mini cake boxes with pink satin bows" >
-          <figcaption>Pink Bow Mini Cake Boxes</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="boxes">
-          <img src="images/boxed-cupcakes.jpg" alt="Luxury boxed cupcakes" >
-          <figcaption>Luxury Boxed Cupcakes</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="boxes occasion">
-          <img src="images/eid-cake-box.jpg" alt="Eid celebration cake box" >
-          <figcaption>Celebration Gift Box</figcaption>
-        </figure>
-
+        <p style="margin-top:3rem; text-align:center; color:var(--muted); font-size:0.85rem;" class="rv">More recent work goes up on <a href="https://www.instagram.com/jpsplastering9/" target="_blank" rel="noopener" style="color:var(--bronze-soft); border-bottom:1px solid var(--line);">Instagram @jpsplastering9</a> first.</p>
       </div>
+    </section>
 
-      <div class="gallery-page__cta reveal">
-        <p>Want to see more of our latest creations?</p>
-        <a href="https://www.instagram.com/artisancakeryy/" target="_blank" rel="noopener" class="btn btn--insta">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
-          Follow @artisancakeryy
-        </a>
+    <section class="cta">
+      <div class="cta__bg"><img src="images/skim-window-room.jpg" alt="" loading="lazy" aria-hidden="true"></div>
+      <div class="container">
+        <span class="eyebrow eyebrow--center rv">Free quotation</span>
+        <h2 class="rv" data-d="1">Want your walls <em>up here next?</em></h2>
+        <div class="cta__actions rv" data-d="2" style="margin-top:2.4rem;">
+          <a class="cta__phone" href="tel:+447557448059">07557 448059</a>
+          <a class="btn btn--solid" href="contact.html">Request a quote <span class="arr">&rarr;</span></a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- LIGHTBOX -->
-  <div class="lightbox" id="lightbox">
-    <button type="button" class="lightbox__close" aria-label="Close">&times;</button>
-    <button type="button" class="lightbox__nav lightbox__prev" aria-label="Previous">&#8249;</button>
-    <figure class="lightbox__figure">
-      <img src="images/wedding-cake-derie-hawa.jpg" alt="" id="lightbox-img" >
-      <figcaption id="lightbox-caption"></figcaption>
-    </figure>
-    <button type="button" class="lightbox__nav lightbox__next" aria-label="Next">&#8250;</button>
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button type="button" class="lb-close" aria-label="Close">&times;</button>
+    <button type="button" class="lb-prev" aria-label="Previous">&larr;</button>
+    <img src="" alt="">
+    <button type="button" class="lb-next" aria-label="Next">&rarr;</button>
+    <div class="lb-cap"></div>
   </div>
 
-  <!-- FOOTER -->
   <footer class="footer">
-    <div class="container footer__top">
-      <div class="footer__brand">
-        <a href="index.html" class="nav__logo"><span class="logo-icon">✦</span> Artisan Cakery</a>
-        <p>Handcrafted cakes made with love.<br >Bradford, West Yorkshire.</p>
-        <a href="https://www.instagram.com/artisancakeryy/" target="_blank" rel="noopener" class="footer__insta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg> @artisancakeryy</a>
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="mark">JPS</div>
+          <div class="sub">Plastering</div>
+          <p>Plastering, rendering and polished finishes. Commercial, domestic and industrial — covering the whole of Leeds and surrounding areas.</p>
+          <svg class="trowel" viewBox="0 0 240 40" fill="none" stroke="#c39a66" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 8 H236 M150 8 V23 H124 M124 23 H64" stroke-width="3"/>
+          </svg>
+        </div>
+        <div>
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="gallery.html">Our Work</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html#plastering">Internal Plastering</a></li>
+            <li><a href="services.html#boarding">Dry Lining &amp; Boarding</a></li>
+            <li><a href="services.html#rendering">External Rendering</a></li>
+            <li><a href="services.html#venetian">Venetian Plaster</a></li>
+            <li><a href="services.html#lime">Traditional Lime</a></li>
+            <li><a href="services.html#repairs">Repairs &amp; Small Works</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul class="footer__contact">
+            <li><a class="big" href="tel:+447557448059">07557 448059</a></li>
+            <li><a href="mailto:info@jps-plastering.com">info@jps-plastering.com</a></li>
+            <li>Winker Green Lodge, Armley,<br>Leeds, West Yorkshire LS12 3DH</li>
+            <li><a href="https://www.instagram.com/jpsplastering9/" target="_blank" rel="noopener">Instagram @jpsplastering9</a></li>
+            <li><a href="https://www.facebook.com/jpsplastering9/" target="_blank" rel="noopener">Facebook /jpsplastering9</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="footer__nav"><h4>Explore</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="cakes.html">Our Cakes</a><a href="gallery.html">Gallery</a><a href="reviews.html">Reviews</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></div>
-      <div class="footer__services"><h4>We Make</h4><span>Wedding Cakes</span><span>Birthday Cakes</span><span>Anniversary Cakes</span><span>Baby Shower Cakes</span><span>Dessert Spreads</span></div>
-      <div class="footer__trust"><div class="footer__badge">⭐ 5-Star Hygiene Rating</div><div class="footer__badge">🛡️ Fully Insured</div><div class="footer__badge">🎂 Made to Order</div></div>
+      <div class="footer__bottom">
+        <span>&copy; <span id="year">2026</span> JPS Plastering, Leeds. All rights reserved.</span>
+        <span>Free quotations &middot; Domestic &amp; commercial</span>
+      </div>
     </div>
-    <div class="footer__bottom container"><p>&copy; 2026 Artisan Cakery, Bradford. All rights reserved.</p><p><a href="https://www.instagram.com/artisancakeryy/" target="_blank" rel="noopener">Follow us on Instagram</a></p></div>
   </footer>
 
   <script src="script.js"></script>

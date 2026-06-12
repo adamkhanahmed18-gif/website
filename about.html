@@ -1,146 +1,211 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
-  <meta charset="UTF-8" >
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-  <title>About | Artisan Cakery, Bradford</title>
-  <meta name="description" content="The story behind Artisan Cakery — bespoke cakes handcrafted in Bradford, West Yorkshire with a 5-star hygiene rating." >
-  <link rel="preconnect" href="https://fonts.googleapis.com" >
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin >
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" >
-  <link rel="stylesheet" href="styles.css" >
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | JPS Plastering, Leeds</title>
+  <meta name="description" content="JPS Plastering is run by James — 18 years on commercial, domestic and industrial sites, with plastering in the family for generations. Based in Armley, Leeds.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Archivo:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body data-page="about">
 
-  <div class="page-veil"><span class="veil-mark">✦</span></div>
+  <div class="veil" aria-hidden="true"></div>
 
-  <header class="nav nav--solid" id="nav">
-    <div class="nav__inner container">
-      <a href="index.html" class="nav__logo"><span class="logo-icon">✦</span> Artisan Cakery</a>
-      <nav class="nav__links" aria-label="Main navigation">
+  <header class="nav">
+    <div class="container--wide nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="JPS Plastering — home">
+        <span class="l1">JPS</span>
+        <span class="l2">Plastering</span>
+      </a>
+      <nav class="nav__links" aria-label="Main">
         <a href="index.html">Home</a>
         <a href="about.html" class="is-active">About</a>
-        <a href="cakes.html">Our Cakes</a>
-        <a href="gallery.html">Gallery</a>
+        <a href="services.html">Services</a>
+        <a href="gallery.html">Our Work</a>
         <a href="reviews.html">Reviews</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html" class="btn btn--nav">Order Now</a>
+        <a href="contact.html" class="btn nav__cta">Get a Quote</a>
       </nav>
-      <button type="button" class="nav__burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <button type="button" class="nav__burger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <nav class="nav__mobile" aria-label="Mobile navigation">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="cakes.html">Our Cakes</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="reviews.html">Reviews</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Order Now ✦</a>
-    </nav>
   </header>
 
-  <!-- PAGE HEADER -->
-  <section class="page-header">
-    <div class="page-header__bg" data-parallax>
-      <img src="images/wedding-cake-ua.jpg" alt="Elegant wedding cake" >
-      <div class="page-header__overlay"></div>
+  <nav class="menu" aria-label="Mobile">
+    <a class="menu__link" href="index.html">Home <span class="n">01</span></a>
+    <a class="menu__link" href="about.html">About <span class="n">02</span></a>
+    <a class="menu__link" href="services.html">Services <span class="n">03</span></a>
+    <a class="menu__link" href="gallery.html">Our Work <span class="n">04</span></a>
+    <a class="menu__link" href="reviews.html">Reviews <span class="n">05</span></a>
+    <a class="menu__link" href="contact.html">Get a Quote <span class="n">06</span></a>
+    <div class="menu__foot">
+      <a href="tel:+447557448059">07557 448059</a>
+      <a href="mailto:info@jps-plastering.com">info@jps-plastering.com</a>
     </div>
-    <div class="container page-header__content reveal">
-      <span class="eyebrow eyebrow--light">Our Story</span>
-      <h1 class="page-header__title">Baked with Heart<br ><em>Since Day One</em></h1>
-      <p>A little family kitchen in Bradford with a big love for beautiful cakes.</p>
-    </div>
-    <nav class="breadcrumb container" aria-label="Breadcrumb"><a href="index.html">Home</a> <span>/</span> About</nav>
-  </section>
+  </nav>
 
-  <!-- STORY -->
-  <section class="section about-story">
-    <div class="container about-story__grid">
-      <div class="about-story__visual reveal">
-        <div class="about-story__img"><img src="images/ornate-cakes.jpg" alt="Hand-decorated cakes" ></div>
-        <div class="about-story__badge"><strong>1000+</strong><span>Cakes Made</span></div>
+  <main>
+    <section class="page-hero hero--short">
+      <div class="page-hero__bg"><img src="images/barn-renovation.jpg" alt="" aria-hidden="true" fetchpriority="high"></div>
+      <div class="container">
+        <div class="crumbs"><a href="index.html">Home</a> <span>/</span> <span>About</span></div>
+        <span class="eyebrow">About JPS</span>
+        <h1>Plastering is <em>in the family</em></h1>
+        <p class="lede">Eighteen years on the tools, a trade passed down through generations, and a simple rule: if it wouldn&rsquo;t be good enough in our own house, it&rsquo;s not good enough in yours.</p>
       </div>
-      <div class="about-story__text reveal" data-delay="120">
-        <span class="eyebrow">Who We Are</span>
-        <h2 class="section-title">A Passion for<br ><em>Perfect Detail</em></h2>
-        <p>Artisan Cakery began with a simple belief: that every celebration deserves a centrepiece as special as the moment itself. Based in <strong>Bradford, West Yorkshire</strong>, we've grown into a much-loved name with a community of over 10,000 followers — but our heart remains exactly the same.</p>
-        <p>Each cake is made entirely from scratch, by hand, using premium ingredients and finished with meticulous care. Whether it's an intimate birthday or a grand wedding, we treat every order as our most important.</p>
-        <p>With a <strong>5-star food hygiene rating</strong> and full insurance, you can order with complete peace of mind.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- VALUES -->
-  <section class="section values">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="eyebrow">What We Stand For</span>
-        <h2 class="section-title">Our Promise<br ><em>to You</em></h2>
-      </div>
-      <div class="values__grid">
-        <div class="value-card reveal"><div class="value-card__icon">🎨</div><h3>Truly Bespoke</h3><p>No two cakes are ever the same. Every design is created uniquely around your vision, theme and taste.</p></div>
-        <div class="value-card reveal" data-delay="100"><div class="value-card__icon">🌸</div><h3>Premium Ingredients</h3><p>We never cut corners. Only the finest ingredients make it into our kitchen — because taste matters as much as looks.</p></div>
-        <div class="value-card reveal" data-delay="200"><div class="value-card__icon">✨</div><h3>Artist's Detail</h3><p>From hand-piped lace to fresh florals, every finishing touch is applied with patience and precision.</p></div>
-        <div class="value-card reveal" data-delay="300"><div class="value-card__icon">💝</div><h3>Made with Love</h3><p>We pour genuine care into every order, treating your celebration as if it were our own.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESS TIMELINE -->
-  <section class="section process-timeline">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="eyebrow">How It Works</span>
-        <h2 class="section-title">From Idea to<br ><em>Showstopper</em></h2>
-      </div>
-      <div class="timeline">
-        <div class="timeline__line"></div>
-        <div class="timeline__step reveal">
-          <div class="timeline__dot">01</div>
-          <div class="timeline__card"><h3>💌 Get in Touch</h3><p>Send us your event date, ideas and any inspiration photos through our order form or Instagram.</p></div>
+    <section class="section">
+      <div class="container split">
+        <div class="split__media rv">
+          <div class="frame">
+            <img src="images/vaulted-skylights.jpg" alt="Large vaulted ceiling with skylights, plastered by JPS" loading="lazy">
+          </div>
+          <span class="tag">Vaulted ceiling &middot; mid-dry</span>
         </div>
-        <div class="timeline__step reveal" data-delay="120">
-          <div class="timeline__dot">02</div>
-          <div class="timeline__card"><h3>🎨 Design Together</h3><p>We'll discuss your vision, flavours and design in detail, then send a tailored quote.</p></div>
-        </div>
-        <div class="timeline__step reveal" data-delay="240">
-          <div class="timeline__dot">03</div>
-          <div class="timeline__card"><h3>🤝 Confirm &amp; Book</h3><p>Secure your date with a deposit. Your spot in our diary is reserved just for you.</p></div>
-        </div>
-        <div class="timeline__step reveal" data-delay="360">
-          <div class="timeline__dot">04</div>
-          <div class="timeline__card"><h3>🎂 Enjoy Your Cake</h3><p>Your bespoke creation is freshly handmade and ready for collection or delivery.</p></div>
+        <div class="split__body">
+          <span class="eyebrow rv">The story</span>
+          <h2 class="rv" data-d="1">From labouring for family to <em>running the job</em></h2>
+          <p class="rv" data-d="2">James didn&rsquo;t learn plastering on a six-week course. He learned it the way the trade has always been passed on — mixing, carrying boards and watching trowel work up close, in a family where plastering goes back generations.</p>
+          <p class="rv" data-d="2">Eighteen years later, that apprenticeship has covered commercial sites, domestic renovations and industrial units across Leeds and West Yorkshire. JPS Plastering was set up to do one thing: bring site-level standards into people&rsquo;s homes.</p>
+          <p class="rv" data-d="3">These days the work runs from full new build properties and renovation projects all the way down to small repair works — and the small jobs get the same treatment as the big ones, because every wall ends up with our name on it whether it&rsquo;s signed or not.</p>
+          <div class="sig rv" data-d="3">
+            <div>
+              <div class="sig__name">James</div>
+              <div class="sig__role">Founder, JPS Plastering</div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA -->
-  <section class="cta-banner">
-    <div class="cta-banner__bg" data-parallax>
-      <img src="images/dessert-spread-floral.jpg" alt="Dessert spread" >
-      <div class="cta-banner__overlay"></div>
-    </div>
-    <div class="container cta-banner__content reveal">
-      <h2>Ready to Begin?<br ><em>Let's Talk Cake</em></h2>
-      <p>Tell us about your celebration and we'll help bring it to life.</p>
-      <a href="contact.html" class="btn btn--white">Start Your Order</a>
-    </div>
-  </section>
+    <section class="section section--tint">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow rv">How we work</span>
+          <h2 class="rv" data-d="1">The standards <em>behind the finish</em></h2>
+        </div>
+        <div class="values">
+          <div class="value rv">
+            <h3><span class="n">i.</span> Turn up. Every time.</h3>
+            <p>If we say Tuesday at eight, it&rsquo;s Tuesday at eight. Customers mention reliability in reviews almost as often as the plastering itself — and we take that personally.</p>
+          </div>
+          <div class="value rv" data-d="1">
+            <h3><span class="n">ii.</span> Leave it cleaner than we found it</h3>
+            <p>Plastering is a wet, messy trade. Your house shouldn&rsquo;t show it. Floors get sheeted, the mixing happens outside where possible, and the mess leaves when we do.</p>
+          </div>
+          <div class="value rv" data-d="2">
+            <h3><span class="n">iii.</span> Price it straight</h3>
+            <p>One fair price, quoted free, before any work starts. No call-out fees, no &ldquo;while we&rsquo;re here&rdquo; extras invented halfway through the job.</p>
+          </div>
+          <div class="value rv" data-d="3">
+            <h3><span class="n">iv.</span> Right material, right job</h3>
+            <p>Gypsum where gypsum belongs, lime on buildings that need to breathe, silicone render where the weather demands it. The material gets chosen for the wall — not for convenience.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- FOOTER -->
+    <section class="section">
+      <div class="container">
+        <p class="bigquote rv">&ldquo;We offer a full range of plastering services — from new build properties and renovations, <em>all the way down to small repair works</em>.&rdquo;</p>
+        <div class="hero__strip rv" data-d="1" style="max-width:760px; margin-inline:auto; justify-content:center;">
+          <div class="hero__stat"><span class="v"><span data-count="18">0</span><sup>+</sup></span><span class="k">Years experience</span></div>
+          <div class="hero__stat"><span class="v"><span data-count="3">0</span></span><span class="k">Sectors — commercial, domestic, industrial</span></div>
+          <div class="hero__stat"><span class="v"><span data-count="100">0</span><sup>%</sup></span><span class="k">Positive feedback online</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tint">
+      <div class="container split split--rev">
+        <div class="split__media rv">
+          <div class="frame">
+            <img src="images/finished-living-room.jpg" alt="Finished living room with smooth set walls and ceiling" loading="lazy">
+          </div>
+          <span class="tag">Handover day</span>
+        </div>
+        <div class="split__body">
+          <span class="eyebrow rv">Where we work</span>
+          <h2 class="rv" data-d="1">Leeds based, <em>West Yorkshire wide</em></h2>
+          <p class="rv" data-d="2">JPS Plastering works out of Winker Green Lodge in Armley, covering the whole of Leeds and surrounding areas. Recent jobs have taken us across LS8, LS10, LS14, LS25 and over to WF17 — if you&rsquo;re nearby and unsure, it costs nothing to ask.</p>
+          <ul class="checklist rv" data-d="3">
+            <li>Domestic — rooms, renovations, extensions, lofts</li>
+            <li>Commercial — shops, offices, sites on programme</li>
+            <li>Industrial — units and large-area work</li>
+          </ul>
+          <div style="margin-top:2.2rem;" class="rv" data-d="3">
+            <a href="contact.html" class="btn">Check we cover you <span class="arr">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="cta__bg"><img src="images/vaulted-dusk.jpg" alt="" loading="lazy" aria-hidden="true"></div>
+      <div class="container">
+        <span class="eyebrow eyebrow--center rv">Free quotation</span>
+        <h2 class="rv" data-d="1">Talk to the person who&rsquo;ll <em>actually do the work</em></h2>
+        <p class="rv" data-d="2">No sales team, no subcontracting roulette. You speak to James, James prices it, James plasters it.</p>
+        <div class="cta__actions rv" data-d="3">
+          <a class="cta__phone" href="tel:+447557448059">07557 448059</a>
+          <a class="btn btn--solid" href="contact.html">Request a quote <span class="arr">&rarr;</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <footer class="footer">
-    <div class="container footer__top">
-      <div class="footer__brand">
-        <a href="index.html" class="nav__logo"><span class="logo-icon">✦</span> Artisan Cakery</a>
-        <p>Handcrafted cakes made with love.<br >Bradford, West Yorkshire.</p>
-        <a href="https://www.instagram.com/artisancakeryy/" target="_blank" rel="noopener" class="footer__insta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg> @artisancakeryy</a>
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="mark">JPS</div>
+          <div class="sub">Plastering</div>
+          <p>Plastering, rendering and polished finishes. Commercial, domestic and industrial — covering the whole of Leeds and surrounding areas.</p>
+          <svg class="trowel" viewBox="0 0 240 40" fill="none" stroke="#c39a66" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 8 H236 M150 8 V23 H124 M124 23 H64" stroke-width="3"/>
+          </svg>
+        </div>
+        <div>
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="gallery.html">Our Work</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html#plastering">Internal Plastering</a></li>
+            <li><a href="services.html#boarding">Dry Lining &amp; Boarding</a></li>
+            <li><a href="services.html#rendering">External Rendering</a></li>
+            <li><a href="services.html#venetian">Venetian Plaster</a></li>
+            <li><a href="services.html#lime">Traditional Lime</a></li>
+            <li><a href="services.html#repairs">Repairs &amp; Small Works</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul class="footer__contact">
+            <li><a class="big" href="tel:+447557448059">07557 448059</a></li>
+            <li><a href="mailto:info@jps-plastering.com">info@jps-plastering.com</a></li>
+            <li>Winker Green Lodge, Armley,<br>Leeds, West Yorkshire LS12 3DH</li>
+            <li><a href="https://www.instagram.com/jpsplastering9/" target="_blank" rel="noopener">Instagram @jpsplastering9</a></li>
+            <li><a href="https://www.facebook.com/jpsplastering9/" target="_blank" rel="noopener">Facebook /jpsplastering9</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="footer__nav"><h4>Explore</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="cakes.html">Our Cakes</a><a href="gallery.html">Gallery</a><a href="reviews.html">Reviews</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></div>
-      <div class="footer__services"><h4>We Make</h4><span>Wedding Cakes</span><span>Birthday Cakes</span><span>Anniversary Cakes</span><span>Baby Shower Cakes</span><span>Dessert Spreads</span></div>
-      <div class="footer__trust"><div class="footer__badge">⭐ 5-Star Hygiene Rating</div><div class="footer__badge">🛡️ Fully Insured</div><div class="footer__badge">🎂 Made to Order</div></div>
+      <div class="footer__bottom">
+        <span>&copy; <span id="year">2026</span> JPS Plastering, Leeds. All rights reserved.</span>
+        <span>Free quotations &middot; Domestic &amp; commercial</span>
+      </div>
     </div>
-    <div class="footer__bottom container"><p>&copy; 2026 Artisan Cakery, Bradford. All rights reserved.</p><p><a href="https://www.instagram.com/artisancakeryy/" target="_blank" rel="noopener">Follow us on Instagram</a></p></div>
   </footer>
 
   <script src="script.js"></script>
