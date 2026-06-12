@@ -357,7 +357,7 @@
         submitBtn.textContent = 'Sending...';
       }
 
-      fetch('https://api.web3forms.com/submit', {
+      fetch('submit.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(new FormData(form)).toString()
