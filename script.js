@@ -357,13 +357,14 @@
         submitBtn.textContent = 'Sending...';
       }
 
-      fetch('/', {
+      fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(new FormData(form)).toString()
       })
-      .then(function(res) {
-        if (res.ok) {
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        if (data.success) {
           form.style.display = 'none';
           if (successMsg) {
             successMsg.classList.add('visible');
