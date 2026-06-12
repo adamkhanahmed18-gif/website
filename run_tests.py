@@ -234,11 +234,12 @@ if grid:
 else:
     check(False, "[index.html] could not locate homepage services grid")
 
-# ---------- 16. Netlify form wiring on contact page ----------
+# ---------- 16. PHP form wiring on contact page ----------
 con = read("contact.html")
-check("netlify" in con, "[contact.html] form missing netlify attribute")
-check('name="contact"' in con, "[contact.html] form missing name=contact")
-check('name="form-name"' in con, "[contact.html] missing hidden form-name input")
+check('id="contact-form"' in con, "[contact.html] form missing id=contact-form")
+check('name="botcheck"' in con, "[contact.html] form missing honeypot botcheck field")
+js = read("script.js")
+check("submit.php" in js, "[script.js] fetch not pointing to submit.php")
 
 # ---------- 17. No raw stray TODO/lorem/placeholder text ----------
 for f in HTML_FILES:
