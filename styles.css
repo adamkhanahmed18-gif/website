@@ -230,7 +230,7 @@ a { color: inherit; text-decoration: none; }
 }
 .hero__media {
   position: absolute;
-  inset: 0;
+  inset: -6%;
   z-index: 0;
 }
 .hero__img {
