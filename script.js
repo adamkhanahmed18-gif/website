@@ -4,53 +4,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ---- Page transition veil ---- */
-  const veil = document.querySelector('.page-veil');
-  if (veil) requestAnimationFrame(() => setTimeout(() => veil.classList.add('lift'), 250));
-
-  /* ---- Hero video sequence (home page) ---- */
-  const heroVids = Array.from(document.querySelectorAll('.hero-vid'));
-  if (heroVids.length) {
-    let current = 0;
-    const DURATION = 4000; // ms per clip
-
-    function playNext() {
-      const prev = heroVids[current];
-      current = (current + 1) % heroVids.length;
-      const next = heroVids[current];
-      next.currentTime = 0;
-      next.play().catch(() => {});
-      next.classList.add('is-active');
-      // Fade previous out after cross-fade begins
-      setTimeout(() => prev.classList.remove('is-active'), 900);
-    }
-
-    // Start first video
-    heroVids[0].play().catch(() => {});
-    setInterval(playNext, DURATION);
-  }
-
-  /* ---- Animate links to other pages (drop veil before navigating) ---- */
-  document.querySelectorAll('a[href]').forEach(link => {
-    const href = link.getAttribute('href');
-    const isInternal = href &&
-      !href.startsWith('#') &&
-      !href.startsWith('http') &&
-      !href.startsWith('mailto') &&
-      !link.target;
-    if (isInternal) {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (veil) {
-          veil.classList.remove('lift');
-          veil.classList.add('drop');
-          setTimeout(() => { window.location.href = href; }, 600);
-        } else {
-          window.location.href = href;
-        }
-      });
-    }
-  });
 
   /* ---- Nav: solid on scroll (home only) ---- */
   const nav = document.getElementById('nav');
