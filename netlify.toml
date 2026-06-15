@@ -1,0 +1,20 @@
+# Netlify configuration for JPS Plastering (static site, no build step)
+[build]
+  publish = "."
+  command = ""
+
+# Long-cache the static assets, always revalidate HTML
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
