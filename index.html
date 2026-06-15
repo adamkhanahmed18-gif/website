@@ -13,24 +13,6 @@
 </head>
 <body data-page="home">
 
-  <!-- CINEMATIC INTRO -->
-  <div id="intro">
-    <canvas id="intro-canvas"></canvas>
-    <button id="intro-skip" class="intro__skip">Skip intro</button>
-  </div>
-
-  <!-- SCROLL PROGRESS -->
-  <div class="progress"><div class="progress__bar" id="progress"></div></div>
-
-  <!-- DUST FIELD -->
-  <canvas id="dust"></canvas>
-
-  <!-- GRAIN -->
-  <svg class="grain" xmlns="http://www.w3.org/2000/svg">
-    <filter id="grain-f"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3"/></filter>
-    <rect width="100%" height="100%" filter="url(#grain-f)"/>
-  </svg>
-
   <!-- NAV -->
   <header class="nav" id="nav">
     <div class="nav__inner container">
@@ -58,123 +40,73 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero__layers">
-      <div class="hero__layer hero__wall" data-speed="0.18"></div>
-      <div class="hero__layer hero__glow" data-speed="0.34"></div>
-      <div class="hero__layer hero__streak" data-speed="0.08"></div>
-    </div>
-    <div class="hero__vignette"></div>
+    <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="">
+      <source src="videos/hero-plastering.mp4" type="video/mp4">
+    </video>
+    <div class="hero__overlay"></div>
     <div class="hero__content container">
-      <span class="hero__pill reveal"><span class="dot"></span> Covering all of Yorkshire</span>
-      <h1 class="hero__title reveal" data-d="1">Flawless walls.<em>Crafted by hand.</em></h1>
-      <p class="hero__sub reveal" data-d="2">From mirror-smooth skim finishes to bespoke Venetian polished plaster, JPS Plastering brings eighteen years of master craftsmanship to homes and businesses across Yorkshire.</p>
-      <div class="hero__actions reveal" data-d="3">
-        <a href="contact.html" class="btn btn--primary btn--lg">Get a Free Quote →</a>
-        <a href="gallery.html" class="btn btn--ghost btn--lg">View Our Work</a>
+      <span class="hero__pill">Plastering &amp; rendering · Leeds, Yorkshire</span>
+      <h1 class="hero__title">Flawless walls,<br>finished by hand.</h1>
+      <p class="hero__sub">Internal plastering, rendering, lime and Venetian finishes — a family trade since 2015, covering Leeds and the surrounding areas.</p>
+      <div class="hero__actions">
+        <a href="contact.html" class="btn btn--primary btn--lg">Get a free quote</a>
+        <a href="tel:07557448059" class="btn btn--ghost btn--lg">📞 07557 448059</a>
       </div>
-      <div class="hero__trust reveal" data-d="4">
-        <div class="trust"><span class="trust__ic">★</span><div><strong>4.9 / 5</strong><span>200+ reviews</span></div></div>
-        <div class="trust"><span class="trust__ic">🛡</span><div><strong>Fully Insured</strong><span>£5m public liability</span></div></div>
+      <div class="hero__trust">
+        <div class="trust"><span class="trust__ic">🛡</span><div><strong>Fully insured</strong><span>£5m public liability</span></div></div>
         <div class="trust"><span class="trust__ic">✓</span><div><strong>Guaranteed</strong><span>Workmanship warranty</span></div></div>
+        <div class="trust"><span class="trust__ic">👪</span><div><strong>Family trade</strong><span>Four generations</span></div></div>
       </div>
     </div>
-    <div class="scroll-cue"><span>Scroll</span><span class="scroll-cue__rail"></span></div>
   </section>
-
-  <!-- TICKER -->
-  <div class="ticker">
-    <div class="ticker__track">
-      <span>Internal Plastering</span><span>Skimming</span><span>External Rendering</span><span>Lime Plastering</span><span>Venetian Plaster</span><span>Renovations</span><span>New Builds</span><span>Repairs</span>
-      <span>Internal Plastering</span><span>Skimming</span><span>External Rendering</span><span>Lime Plastering</span><span>Venetian Plaster</span><span>Renovations</span><span>New Builds</span><span>Repairs</span>
-    </div>
-  </div>
 
   <!-- STATS -->
   <section class="stats" aria-label="By the numbers">
     <div class="stat"><div class="stat__num"><span data-count="18">0</span><em>+</em></div><div class="stat__label">Years' Experience</div></div>
-    <div class="stat"><div class="stat__num"><span data-count="2400">0</span><em>+</em></div><div class="stat__label">Rooms Plastered</div></div>
-    <div class="stat"><div class="stat__num"><span data-count="4.9">0</span></div><div class="stat__label">Average Rating</div></div>
+    <div class="stat"><div class="stat__num">20<em>15</em></div><div class="stat__label">Established</div></div>
+    <div class="stat"><div class="stat__num"><span data-count="4">0</span></div><div class="stat__label">Generations of the Trade</div></div>
     <div class="stat"><div class="stat__num"><span data-count="100">0</span><em>%</em></div><div class="stat__label">Insured & Guaranteed</div></div>
   </section>
 
-  <!-- SERVICES — PINNED HORIZONTAL -->
-  <section class="pin" id="pin">
-    <div class="pin__stage">
-      <div class="pin__head">
-        <div>
-          <span class="eyebrow">What we do</span>
-          <h2>A finish for every surface.</h2>
-        </div>
-        <div class="pin__count"><em id="pin-count">01</em> / 06</div>
+  <!-- SERVICES -->
+  <section class="section services">
+    <div class="container">
+      <div class="reveal"><span class="eyebrow">What we do</span></div>
+      <h2 class="section__title reveal" data-d="1">A finish for every surface.</h2>
+      <div class="svc-grid">
+        <article class="svc reveal">
+          <div class="svc__media"><div class="tex" data-tex="fine"></div></div>
+          <h3>Internal Plastering</h3>
+          <p>Glass-smooth skims and re-skims over tired or patched walls and ceilings — the perfect canvas for paint.</p>
+        </article>
+        <article class="svc reveal" data-d="1">
+          <div class="svc__media"><div class="tex" data-tex="coarse"></div></div>
+          <h3>External Rendering</h3>
+          <p>Weatherproof sand &amp; cement, monocouche and silicone renders that protect and transform façades.</p>
+        </article>
+        <article class="svc reveal" data-d="2">
+          <div class="svc__media"><div class="tex"></div></div>
+          <h3>Lime Plastering</h3>
+          <p>Breathable lime plaster and render for period and traditional buildings — the right finish for older walls.</p>
+        </article>
+        <article class="svc reveal">
+          <div class="svc__media"><div class="tex"></div></div>
+          <h3>Venetian Polished Plaster</h3>
+          <p>Marble-effect Italian finishes, hand-burnished to a deep lustre for standout feature walls.</p>
+        </article>
+        <article class="svc reveal" data-d="1">
+          <div class="svc__media"><div class="tex" data-tex="coarse"></div></div>
+          <h3>New Builds &amp; Renovations</h3>
+          <p>Full plastering for new build properties and whole-house renovations — start to finish, every wall and ceiling.</p>
+        </article>
+        <article class="svc reveal" data-d="2">
+          <div class="svc__media"><div class="tex" data-tex="fine"></div></div>
+          <h3>Repairs &amp; Small Works</h3>
+          <p>Cracks, holes, water damage and patch repairs put right and blended in — no job too small.</p>
+        </article>
       </div>
-      <div class="pin__track-wrap">
-        <div class="pin__track" id="pin-track">
-          <article class="card-svc">
-            <div class="card-svc__tex tex" data-tex="fine"></div>
-            <div class="card-svc__shade"></div>
-            <div class="card-svc__body">
-              <span class="card-svc__no">01</span>
-              <h3 class="card-svc__title">Plaster Skimming</h3>
-              <p class="card-svc__desc">Glass-smooth re-skims over tired or patched walls and ceilings — the perfect canvas for paint.</p>
-              <div class="card-svc__tags"><span>Walls</span><span>Ceilings</span><span>Over Artex</span></div>
-            </div>
-          </article>
-          <article class="card-svc">
-            <div class="card-svc__tex tex" data-tex="coarse"></div>
-            <div class="card-svc__shade"></div>
-            <div class="card-svc__body">
-              <span class="card-svc__no">02</span>
-              <h3 class="card-svc__title">External Rendering</h3>
-              <p class="card-svc__desc">Weatherproof sand & cement, monocouche and silicone renders that protect and transform façades.</p>
-              <div class="card-svc__tags"><span>K-Rend</span><span>Monocouche</span><span>Pebbledash</span></div>
-            </div>
-          </article>
-          <article class="card-svc">
-            <div class="card-svc__tex tex"></div>
-            <div class="card-svc__shade"></div>
-            <div class="card-svc__body">
-              <span class="card-svc__no">03</span>
-              <h3 class="card-svc__title">Venetian Polished Plaster</h3>
-              <p class="card-svc__desc">Luxurious marble-effect Italian finishes, hand-burnished to a deep lustre for feature walls.</p>
-              <div class="card-svc__tags"><span>Marmorino</span><span>Microcement</span><span>Bespoke</span></div>
-            </div>
-          </article>
-          <article class="card-svc">
-            <div class="card-svc__tex tex" data-tex="fine"></div>
-            <div class="card-svc__shade"></div>
-            <div class="card-svc__body">
-              <span class="card-svc__no">04</span>
-              <h3 class="card-svc__title">Lime Plastering</h3>
-              <p class="card-svc__desc">Breathable lime plaster and render for period and traditional buildings — the right finish for older walls.</p>
-              <div class="card-svc__tags"><span>Heritage</span><span>Breathable</span><span>Traditional</span></div>
-            </div>
-          </article>
-          <article class="card-svc">
-            <div class="card-svc__tex tex" data-tex="coarse"></div>
-            <div class="card-svc__shade"></div>
-            <div class="card-svc__body">
-              <span class="card-svc__no">05</span>
-              <h3 class="card-svc__title">New Builds & Renovations</h3>
-              <p class="card-svc__desc">Full plastering for new build properties and full-house renovations — start to finish, every wall and ceiling.</p>
-              <div class="card-svc__tags"><span>New Build</span><span>Renovation</span><span>Full House</span></div>
-            </div>
-          </article>
-          <article class="card-svc">
-            <div class="card-svc__tex tex"></div>
-            <div class="card-svc__shade"></div>
-            <div class="card-svc__body">
-              <span class="card-svc__no">06</span>
-              <h3 class="card-svc__title">Repairs & Small Works</h3>
-              <p class="card-svc__desc">Cracks, holes, water damage and patch repairs put right and blended in — no job too small.</p>
-              <div class="card-svc__tags"><span>Patching</span><span>Crack Repair</span><span>Made Good</span></div>
-            </div>
-          </article>
-        </div>
-      </div>
-      <div class="pin__hint">
-        <span>Keep scrolling</span>
-        <span class="bar"><i id="pin-fill"></i></span>
-        <span>06 services</span>
+      <div class="reveal" data-d="2" style="margin-top:2.5rem">
+        <a href="services.html" class="btn btn--ghost">See all services &amp; pricing</a>
       </div>
     </div>
   </section>
@@ -262,7 +194,6 @@
         <svg viewBox="0 0 300 320" role="img" aria-label="Map of Yorkshire coverage">
           <path class="region" d="M70,40 L150,25 L230,55 L255,120 L240,200 L200,275 L120,295 L55,250 L35,160 L45,90 Z"/>
           <path class="region" d="M120,90 L185,100 L200,160 L160,210 L100,190 L95,130 Z" opacity=".5"/>
-          <circle class="pinpoint--pulse" cx="120" cy="150" r="4"/>
           <circle class="pinpoint" cx="120" cy="150" r="5"/>
           <circle class="pinpoint" cx="175" cy="110" r="4"/>
           <circle class="pinpoint" cx="200" cy="185" r="4"/>
@@ -277,24 +208,14 @@
   <section class="section quotes">
     <div class="container">
       <div class="reveal"><span class="eyebrow">Reviews</span></div>
-      <h2 class="section__title reveal" data-d="1">Yorkshire homeowners love us.</h2>
-    </div>
-    <div style="margin-top:3rem">
-      <div class="quotes__row quotes__row--a">
-        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Re-skimmed our whole living room and hallway — absolutely mint finish, you'd never know there were cracks. Spotless too."</p><div class="quote__by"><span class="quote__av">SH</span><div><strong>Sarah H.</strong><span>Leeds</span></div></div></div>
-        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Had the Venetian polished plaster done on a feature wall. Honestly stunning, looks like marble. Worth every penny."</p><div class="quote__by"><span class="quote__av">MD</span><div><strong>Mark D.</strong><span>Harrogate</span></div></div></div>
-        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Rendered the front of the house in K-Rend. Tidy, professional, on time. Neighbours have all asked who did it!"</p><div class="quote__by"><span class="quote__av">PA</span><div><strong>Priya A.</strong><span>Bradford</span></div></div></div>
-        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Quick, clean and fairly priced. Skimmed two bedrooms in a day and left the place immaculate. Highly recommend."</p><div class="quote__by"><span class="quote__av">TG</span><div><strong>Tom G.</strong><span>Wakefield</span></div></div></div>
-        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Re-skimmed our whole living room and hallway — absolutely mint finish, you'd never know there were cracks. Spotless too."</p><div class="quote__by"><span class="quote__av">SH</span><div><strong>Sarah H.</strong><span>Leeds</span></div></div></div>
-        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Had the Venetian polished plaster done on a feature wall. Honestly stunning, looks like marble. Worth every penny."</p><div class="quote__by"><span class="quote__av">MD</span><div><strong>Mark D.</strong><span>Harrogate</span></div></div></div>
-      </div>
-      <div class="quotes__row quotes__row--b">
-        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Used lime plaster on our period cottage as it needed to breathe. Proper old-school craftsmanship — you can tell it runs in the family."</p><div class="quote__by"><span class="quote__av">JL</span><div><strong>James L.</strong><span>Otley</span></div></div></div>
-        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Plastered our whole loft conversion. Flawless ceilings, lovely lads, cleared up every day. Top job."</p><div class="quote__by"><span class="quote__av">EC</span><div><strong>Emma C.</strong><span>Horsforth</span></div></div></div>
-        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Skimmed every wall and ceiling in our new build. Dead flat, beautifully smooth and finished bang on schedule. Real craftsmen."</p><div class="quote__by"><span class="quote__av">RB</span><div><strong>Rachel B.</strong><span>Pudsey</span></div></div></div>
-        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Got three quotes — JPS were fair, friendly and the only ones who explained everything. Brilliant from start to finish."</p><div class="quote__by"><span class="quote__av">AK</span><div><strong>Adam K.</strong><span>Skipton</span></div></div></div>
-        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Used lime plaster on our period cottage as it needed to breathe. Proper old-school craftsmanship — you can tell it runs in the family."</p><div class="quote__by"><span class="quote__av">JL</span><div><strong>James L.</strong><span>Otley</span></div></div></div>
-        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Plastered our whole loft conversion. Flawless ceilings, lovely lads, cleared up every day. Top job."</p><div class="quote__by"><span class="quote__av">EC</span><div><strong>Emma C.</strong><span>Horsforth</span></div></div></div>
+      <h2 class="section__title reveal" data-d="1">What our customers say.</h2>
+      <div class="quotes__grid">
+        <div class="quote reveal"><div class="quote__stars">★★★★★</div><p>"Re-skimmed our whole living room and hallway — absolutely mint finish, you'd never know there were cracks. Spotless too."</p><div class="quote__by"><span class="quote__av">SH</span><div><strong>Sarah H.</strong><span>Leeds</span></div></div></div>
+        <div class="quote reveal" data-d="1"><div class="quote__stars">★★★★★</div><p>"Had the Venetian polished plaster done on a feature wall. Honestly stunning, looks like marble. Worth every penny."</p><div class="quote__by"><span class="quote__av">MD</span><div><strong>Mark D.</strong><span>Harrogate</span></div></div></div>
+        <div class="quote reveal" data-d="2"><div class="quote__stars">★★★★★</div><p>"Rendered the front of the house in K-Rend. Tidy, professional, on time. Neighbours have all asked who did it!"</p><div class="quote__by"><span class="quote__av">PA</span><div><strong>Priya A.</strong><span>Bradford</span></div></div></div>
+        <div class="quote reveal"><div class="quote__stars">★★★★★</div><p>"Used lime plaster on our period cottage as it needed to breathe. Proper old-school craftsmanship — you can tell it runs in the family."</p><div class="quote__by"><span class="quote__av">JL</span><div><strong>James L.</strong><span>Otley</span></div></div></div>
+        <div class="quote reveal" data-d="1"><div class="quote__stars">★★★★★</div><p>"Plastered our whole loft conversion. Flawless ceilings, lovely lads, cleared up every day. Top job."</p><div class="quote__by"><span class="quote__av">EC</span><div><strong>Emma C.</strong><span>Horsforth</span></div></div></div>
+        <div class="quote reveal" data-d="2"><div class="quote__stars">★★★★★</div><p>"Got three quotes — JPS were fair, friendly and the only ones who explained everything. Brilliant from start to finish."</p><div class="quote__by"><span class="quote__av">AK</span><div><strong>Adam K.</strong><span>Pudsey</span></div></div></div>
       </div>
     </div>
   </section>
@@ -352,7 +273,6 @@
     </div>
   </footer>
 
-  <script src="intro.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

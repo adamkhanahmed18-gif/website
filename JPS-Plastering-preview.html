@@ -213,14 +213,14 @@ h1,h2,h3,h4 { font-family: var(--ff-display); font-weight: 700; line-height: 1.0
    SECTION SCAFFOLD
    ============================================================ */
 section { position: relative; }
-.section { padding-block: clamp(5rem, 12vw, 11rem); }
+.section { padding-block: clamp(3.5rem, 7vw, 6.5rem); }
 .eyebrow {
   display: inline-flex; align-items: center; gap: .6rem;
   font-size: .72rem; font-weight: 600; letter-spacing: .32em; text-transform: uppercase;
   color: var(--brass); margin-bottom: 1.3rem;
 }
 .eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--brass); }
-.section__title { font-size: clamp(2.1rem, 5.5vw, 4.4rem); }
+.section__title { font-size: clamp(1.8rem, 3.6vw, 2.9rem); }
 .section__lead { color: var(--ink-dim); font-size: clamp(1rem, 1.3vw, 1.18rem); max-width: 52ch; margin-top: 1.3rem; }
 
 /* reveal */
@@ -238,115 +238,66 @@ section { position: relative; }
 }
 
 /* ============================================================
-   HERO  (multi-layer parallax = "double scroll")
+   HERO  (background video)
    ============================================================ */
-.hero { min-height: 100vh; display: grid; place-items: center; overflow: hidden; padding-top: 90px; }
-.hero__layers { position: absolute; inset: -10% 0; z-index: 0; }
-.hero__layer { position: absolute; inset: 0; will-change: transform; }
-/* wall texture layer (SVG turbulence injected via .wall) */
-.hero__wall {
-  position: absolute; inset: -15%;
+.hero {
+  min-height: 88vh; display: grid; place-items: center; overflow: hidden; padding-top: 90px;
+  /* fallback shown before/if the video is unavailable */
   background:
-    radial-gradient(120% 90% at 70% 10%, rgba(201,162,75,.18), transparent 55%),
-    radial-gradient(90% 80% at 10% 90%, rgba(185,142,114,.22), transparent 60%),
+    radial-gradient(90% 70% at 70% 15%, rgba(185,142,114,.18), transparent 60%),
     linear-gradient(180deg, #1a1512, #0c0a09);
 }
-.hero__glow {
-  position: absolute; width: 60vw; height: 60vw; left: 55%; top: 8%;
-  background: radial-gradient(circle, rgba(231,200,120,.16), transparent 65%);
-  filter: blur(20px); border-radius: 50%;
+.hero__video {
+  position: absolute; inset: 0; z-index: 0;
+  width: 100%; height: 100%; object-fit: cover;
 }
-.hero__streak {
-  position: absolute; inset: 0;
-  background: repeating-linear-gradient(115deg, transparent 0 38px, rgba(239,231,217,.018) 38px 39px);
-  mix-blend-mode: overlay;
-}
-.hero__vignette {
+.hero__overlay {
   position: absolute; inset: 0; z-index: 1;
-  background: radial-gradient(120% 80% at 50% 35%, transparent 40%, rgba(8,7,6,.85) 100%);
+  background:
+    linear-gradient(180deg, rgba(8,7,6,.45) 0%, rgba(8,7,6,.35) 45%, rgba(8,7,6,.85) 100%),
+    radial-gradient(120% 90% at 50% 30%, transparent 35%, rgba(8,7,6,.7) 100%);
 }
 .hero__content { position: relative; z-index: 3; text-align: center; }
 .hero__pill {
   display: inline-flex; align-items: center; gap: .55rem;
-  font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; color: var(--ink-dim);
-  border: 1px solid var(--line); padding: .55rem 1.1rem; border-radius: 99px;
-  background: rgba(239,231,217,.03); backdrop-filter: blur(6px); margin-bottom: 1.8rem;
+  font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-dim);
+  border: 1px solid var(--line); padding: .5rem 1.05rem; border-radius: 99px;
+  background: rgba(14,12,11,.4); backdrop-filter: blur(6px); margin-bottom: 1.5rem;
 }
-.hero__pill .dot { width: 7px; height: 7px; border-radius: 50%; background: #5fd07a; box-shadow: 0 0 10px #5fd07a; }
-.hero__title { font-size: clamp(2.9rem, 9vw, 8rem); line-height: .94; }
-.hero__title em { font-style: normal; display: block; color: transparent;
-  background: linear-gradient(110deg, var(--wet-2), var(--brass-2), var(--plaster));
-  -webkit-background-clip: text; background-clip: text;
-}
-.hero__sub { max-width: 56ch; margin: 1.8rem auto 0; color: var(--ink-dim); font-size: clamp(1rem,1.4vw,1.25rem); }
-.hero__actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2.4rem; }
-.hero__trust { display: flex; gap: clamp(1.4rem,4vw,3.4rem); justify-content: center; flex-wrap: wrap; margin-top: 3.4rem; }
-.trust { display: flex; align-items: center; gap: .7rem; text-align: left; }
-.trust__ic { font-size: 1.5rem; filter: saturate(1.2); }
-.trust strong { display: block; font-family: var(--ff-display); font-size: 1.02rem; }
-.trust span { font-size: .74rem; color: var(--ink-mut); letter-spacing: .03em; }
-
-.scroll-cue {
-  position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%); z-index: 4;
-  display: flex; flex-direction: column; align-items: center; gap: .5rem;
-  font-size: .64rem; letter-spacing: .3em; text-transform: uppercase; color: var(--ink-mut);
-}
-.scroll-cue__rail { width: 1px; height: 46px; background: linear-gradient(var(--brass), transparent); position: relative; overflow: hidden; }
-.scroll-cue__rail::after { content:""; position:absolute; top:-50%; left:0; width:100%; height:50%; background: var(--brass); animation: cue 1.8s var(--ease) infinite; }
-@keyframes cue { to { top: 100%; } }
-
-/* marquee strip under hero */
-.ticker { border-block: 1px solid var(--line-2); background: var(--char-2); overflow: hidden; }
-.ticker__track { display: flex; gap: 3.5rem; padding-block: 1.1rem; white-space: nowrap; width: max-content; animation: ticker 32s linear infinite; }
-.ticker__track span { font-family: var(--ff-display); font-size: 1.3rem; color: var(--ink-mut); display: inline-flex; align-items: center; gap: 3.5rem; }
-.ticker__track span::after { content: "✦"; color: var(--brass); }
-@keyframes ticker { to { transform: translateX(-50%); } }
+.hero__title { font-size: clamp(2.4rem, 6vw, 5rem); line-height: 1.02; }
+.hero__sub { max-width: 50ch; margin: 1.4rem auto 0; color: var(--ink-dim); font-size: clamp(1rem,1.2vw,1.15rem); }
+.hero__actions { display: flex; gap: .9rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
+.hero__trust { display: flex; gap: clamp(1.2rem,3.5vw,2.8rem); justify-content: center; flex-wrap: wrap; margin-top: 2.8rem; }
+.trust { display: flex; align-items: center; gap: .65rem; text-align: left; }
+.trust__ic { font-size: 1.35rem; }
+.trust strong { display: block; font-family: var(--ff-display); font-size: .98rem; }
+.trust span { font-size: .72rem; color: var(--ink-mut); letter-spacing: .02em; }
 
 /* ============================================================
    STATS
    ============================================================ */
 .stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--line-2); border-block: 1px solid var(--line-2); }
-.stat { background: var(--char); padding: clamp(2rem,4vw,3.4rem) clamp(1rem,3vw,2.2rem); text-align: center; position: relative; overflow: hidden; }
-.stat::before { content:""; position:absolute; left:0; top:0; height:2px; width:0; background: var(--brass); transition: width .9s var(--ease); }
-.stat.in::before { width: 100%; }
-.stat__num { font-family: var(--ff-display); font-size: clamp(2.4rem,5vw,3.8rem); line-height: 1; color: var(--plaster); }
+.stat { background: var(--char); padding: clamp(1.8rem,3.5vw,3rem) clamp(1rem,3vw,2.2rem); text-align: center; position: relative; overflow: hidden; }
+.stat__num { font-family: var(--ff-display); font-size: clamp(2.1rem,4vw,3.2rem); line-height: 1; color: var(--plaster); }
 .stat__num em { font-style: normal; color: var(--brass); }
-.stat__label { font-size: .76rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-mut); margin-top: .7rem; }
+.stat__label { font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-mut); margin-top: .7rem; }
 
 /* ============================================================
-   SERVICES — pinned horizontal scroll (double-scroll wow)
+   SERVICES — simple responsive grid (user scrolls)
    ============================================================ */
-.pin { position: relative; height: 420vh; background: var(--char); }
-.pin__stage { position: sticky; top: 0; height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
-.pin__head { padding: clamp(2.5rem,6vw,4rem) var(--pad) 0; display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
-.pin__head h2 { font-size: clamp(2rem,5vw,3.6rem); }
-.pin__count { font-family: var(--ff-display); font-size: clamp(2rem,5vw,3.6rem); color: var(--ink-mut); }
-.pin__count em { color: var(--brass); font-style: normal; }
-.pin__track-wrap { flex: 1; display: flex; align-items: center; overflow: hidden; }
-.pin__track { display: flex; gap: clamp(1.2rem,2.5vw,2.2rem); padding-inline: var(--pad); will-change: transform; }
-.card-svc {
-  flex: none; width: clamp(280px, 38vw, 460px); height: min(64vh, 540px);
-  border-radius: var(--r-lg); overflow: hidden; position: relative;
-  border: 1px solid var(--line); background: var(--char-2);
-  display: flex; flex-direction: column; justify-content: flex-end;
-  transition: transform .5s var(--ease), border-color .5s;
+.svc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.4rem; margin-top: 3rem; }
+.svc {
+  border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; background: var(--char-2);
+  transition: transform .35s var(--ease), border-color .35s;
 }
-.card-svc:hover { border-color: rgba(201,162,75,.5); }
-.card-svc__tex { position: absolute; inset: 0; z-index: 0; opacity: .9; transition: transform 1s var(--ease); }
-.card-svc:hover .card-svc__tex { transform: scale(1.06); }
-.card-svc__shade { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(8,7,6,.15) 0%, rgba(8,7,6,.55) 55%, rgba(8,7,6,.92) 100%); }
-.card-svc__body { position: relative; z-index: 2; padding: clamp(1.4rem,2.5vw,2.2rem); }
-.card-svc__no { font-family: var(--ff-display); font-size: .82rem; letter-spacing: .2em; color: var(--brass); }
-.card-svc__title { font-size: clamp(1.5rem,2.6vw,2.1rem); margin: .5rem 0 .7rem; }
-.card-svc__desc { color: var(--ink-dim); font-size: .92rem; max-width: 36ch; }
-.card-svc__tags { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: 1.1rem; }
-.card-svc__tags span { font-size: .68rem; letter-spacing: .04em; padding: .35rem .75rem; border: 1px solid var(--line); border-radius: 99px; color: var(--ink-dim); }
-.pin__hint { padding: 0 var(--pad) clamp(2rem,4vw,3rem); display: flex; align-items: center; gap: 1rem; color: var(--ink-mut); font-size: .74rem; letter-spacing: .2em; text-transform: uppercase; }
-.pin__hint .bar { flex: 1; max-width: 260px; height: 2px; background: var(--line); position: relative; border-radius: 9px; overflow: hidden; }
-.pin__hint .bar i { position: absolute; inset: 0; width: 0%; background: var(--brass); }
+.svc:hover { transform: translateY(-5px); border-color: rgba(201,162,75,.4); }
+.svc__media { position: relative; aspect-ratio: 16/10; overflow: hidden; }
+.svc__media .tex { position: absolute; inset: 0; }
+.svc h3 { font-size: 1.3rem; margin: 1.3rem clamp(1.3rem,2vw,1.7rem) .6rem; }
+.svc p { color: var(--ink-dim); font-size: .92rem; margin: 0 clamp(1.3rem,2vw,1.7rem) 1.5rem; }
 
 /* ============================================================
-   PROCESS — vertical parallax steps
+   PROCESS
    ============================================================ */
 .process { background: linear-gradient(180deg, var(--char), var(--char-2)); }
 .process__grid { display: grid; grid-template-columns: repeat(2,1fr); gap: clamp(1.5rem,3vw,3rem); margin-top: 4rem; }
@@ -394,29 +345,22 @@ section { position: relative; }
 .region { fill: rgba(239,231,217,.04); stroke: var(--line); stroke-width: 1; transition: fill .4s; }
 .region:hover { fill: rgba(201,162,75,.18); }
 .pinpoint { fill: var(--brass); }
-.pinpoint--pulse { transform-box: fill-box; transform-origin: center; animation: pulse 2.4s ease-out infinite; }
-@keyframes pulse { 0%{ r: 4; opacity: 1; } 100%{ r: 22; opacity: 0; } }
 .cover__towns { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 2rem; }
 .cover__towns span { font-size: .8rem; padding: .5rem 1rem; border: 1px solid var(--line); border-radius: 99px; color: var(--ink-dim); transition: .3s; }
 .cover__towns span:hover { border-color: var(--brass); color: var(--brass); }
 
 /* ============================================================
-   TESTIMONIALS marquee
+   TESTIMONIALS
    ============================================================ */
-.quotes { background: var(--char-2); overflow: hidden; }
-.quotes__row { display: flex; gap: 1.5rem; width: max-content; }
-.quotes__row--a { animation: slideL 46s linear infinite; }
-.quotes__row--b { animation: slideR 52s linear infinite; margin-top: 1.5rem; }
-@keyframes slideL { to { transform: translateX(-50%); } }
-@keyframes slideR { from { transform: translateX(-50%); } to { transform: translateX(0); } }
-.quote { flex: none; width: clamp(300px, 30vw, 400px); border: 1px solid var(--line); border-radius: var(--r); padding: 1.8rem; background: var(--char); }
+.quotes { background: var(--char-2); }
+.quotes__grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.4rem; margin-top: 3rem; }
+.quote { border: 1px solid var(--line); border-radius: var(--r); padding: 1.7rem; background: var(--char); }
 .quote__stars { color: var(--brass); letter-spacing: .15em; margin-bottom: .9rem; }
-.quote p { font-size: 1rem; color: var(--ink); }
+.quote p { font-size: .98rem; color: var(--ink); }
 .quote__by { margin-top: 1.2rem; display: flex; align-items: center; gap: .8rem; }
 .quote__av { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--wet), var(--brass)); display: grid; place-items: center; font-family: var(--ff-display); color: var(--char); font-size: .95rem; }
 .quote__by strong { font-size: .9rem; display: block; }
 .quote__by span { font-size: .74rem; color: var(--ink-mut); }
-.quotes:hover .quotes__row { animation-play-state: paused; }
 
 /* ============================================================
    CTA + CONTACT
@@ -426,7 +370,7 @@ section { position: relative; }
   radial-gradient(60% 80% at 50% 0%, rgba(201,162,75,.22), transparent 60%),
   linear-gradient(180deg, var(--char-2), var(--char)); }
 .cta__inner { position: relative; z-index: 2; }
-.cta h2 { font-size: clamp(2.4rem,7vw,5.5rem); }
+.cta h2 { font-size: clamp(2rem,4.5vw,3.6rem); }
 .cta p { color: var(--ink-dim); max-width: 50ch; margin: 1.5rem auto 2.5rem; font-size: 1.1rem; }
 
 .contact { background: var(--char); }
@@ -520,7 +464,7 @@ section { position: relative; }
    ============================================================ */
 @media (max-width: 1024px) {
   .stats { grid-template-columns: repeat(2,1fr); }
-  .why__grid { grid-template-columns: 1fr 1fr; }
+  .why__grid, .svc-grid, .quotes__grid { grid-template-columns: 1fr 1fr; }
   .price__grid { grid-template-columns: 1fr; max-width: 480px; margin-inline: auto; }
   .footer__top { grid-template-columns: 1fr 1fr; }
   .gal { columns: 2; }
@@ -531,14 +475,10 @@ section { position: relative; }
   .process__grid { grid-template-columns: 1fr; }
   .cover__grid, .contact__grid, .split { grid-template-columns: 1fr; }
   .contact__order { order: 2; }
-  .why__grid { grid-template-columns: 1fr; }
+  .why__grid, .svc-grid, .quotes__grid { grid-template-columns: 1fr; }
   .form__row { grid-template-columns: 1fr; }
   .footer__top { grid-template-columns: 1fr 1fr; }
   .gal { columns: 1; }
-  .pin { height: auto; }
-  .pin__stage { position: relative; height: auto; }
-  .pin__track-wrap { overflow-x: auto; padding-bottom: 1.5rem; -webkit-overflow-scrolling: touch; }
-  .pin__track { transform: none !important; }
   .ba__frame { aspect-ratio: 4/3; }
 }
 @media (max-width: 480px) {
@@ -549,24 +489,6 @@ section { position: relative; }
 </style>
 </head>
 <body data-page="home">
-
-  <!-- CINEMATIC INTRO -->
-  <div id="intro">
-    <canvas id="intro-canvas"></canvas>
-    <button id="intro-skip" class="intro__skip">Skip intro</button>
-  </div>
-
-  <!-- SCROLL PROGRESS -->
-  <div class="progress"><div class="progress__bar" id="progress"></div></div>
-
-  <!-- DUST FIELD -->
-  <canvas id="dust"></canvas>
-
-  <!-- GRAIN -->
-  <svg class="grain" xmlns="http://www.w3.org/2000/svg">
-    <filter id="grain-f"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3"/></filter>
-    <rect width="100%" height="100%" filter="url(#grain-f)"/>
-  </svg>
 
   <!-- NAV -->
   <header class="nav" id="nav">
@@ -595,123 +517,73 @@ section { position: relative; }
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero__layers">
-      <div class="hero__layer hero__wall" data-speed="0.18"></div>
-      <div class="hero__layer hero__glow" data-speed="0.34"></div>
-      <div class="hero__layer hero__streak" data-speed="0.08"></div>
-    </div>
-    <div class="hero__vignette"></div>
+    <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="">
+      <source src="videos/hero-plastering.mp4" type="video/mp4">
+    </video>
+    <div class="hero__overlay"></div>
     <div class="hero__content container">
-      <span class="hero__pill reveal"><span class="dot"></span> Covering all of Yorkshire</span>
-      <h1 class="hero__title reveal" data-d="1">Flawless walls.<em>Crafted by hand.</em></h1>
-      <p class="hero__sub reveal" data-d="2">From mirror-smooth skim finishes to bespoke Venetian polished plaster, JPS Plastering brings eighteen years of master craftsmanship to homes and businesses across Yorkshire.</p>
-      <div class="hero__actions reveal" data-d="3">
-        <a href="contact.html" class="btn btn--primary btn--lg">Get a Free Quote →</a>
-        <a href="gallery.html" class="btn btn--ghost btn--lg">View Our Work</a>
+      <span class="hero__pill">Plastering &amp; rendering · Leeds, Yorkshire</span>
+      <h1 class="hero__title">Flawless walls,<br>finished by hand.</h1>
+      <p class="hero__sub">Internal plastering, rendering, lime and Venetian finishes — a family trade since 2015, covering Leeds and the surrounding areas.</p>
+      <div class="hero__actions">
+        <a href="contact.html" class="btn btn--primary btn--lg">Get a free quote</a>
+        <a href="tel:07557448059" class="btn btn--ghost btn--lg">📞 07557 448059</a>
       </div>
-      <div class="hero__trust reveal" data-d="4">
-        <div class="trust"><span class="trust__ic">★</span><div><strong>4.9 / 5</strong><span>200+ reviews</span></div></div>
-        <div class="trust"><span class="trust__ic">🛡</span><div><strong>Fully Insured</strong><span>£5m public liability</span></div></div>
+      <div class="hero__trust">
+        <div class="trust"><span class="trust__ic">🛡</span><div><strong>Fully insured</strong><span>£5m public liability</span></div></div>
         <div class="trust"><span class="trust__ic">✓</span><div><strong>Guaranteed</strong><span>Workmanship warranty</span></div></div>
+        <div class="trust"><span class="trust__ic">👪</span><div><strong>Family trade</strong><span>Four generations</span></div></div>
       </div>
     </div>
-    <div class="scroll-cue"><span>Scroll</span><span class="scroll-cue__rail"></span></div>
   </section>
-
-  <!-- TICKER -->
-  <div class="ticker">
-    <div class="ticker__track">
-      <span>Internal Plastering</span><span>Skimming</span><span>External Rendering</span><span>Lime Plastering</span><span>Venetian Plaster</span><span>Renovations</span><span>New Builds</span><span>Repairs</span>
-      <span>Internal Plastering</span><span>Skimming</span><span>External Rendering</span><span>Lime Plastering</span><span>Venetian Plaster</span><span>Renovations</span><span>New Builds</span><span>Repairs</span>
-    </div>
-  </div>
 
   <!-- STATS -->
   <section class="stats" aria-label="By the numbers">
     <div class="stat"><div class="stat__num"><span data-count="18">0</span><em>+</em></div><div class="stat__label">Years' Experience</div></div>
-    <div class="stat"><div class="stat__num"><span data-count="2400">0</span><em>+</em></div><div class="stat__label">Rooms Plastered</div></div>
-    <div class="stat"><div class="stat__num"><span data-count="4.9">0</span></div><div class="stat__label">Average Rating</div></div>
+    <div class="stat"><div class="stat__num">20<em>15</em></div><div class="stat__label">Established</div></div>
+    <div class="stat"><div class="stat__num"><span data-count="4">0</span></div><div class="stat__label">Generations of the Trade</div></div>
     <div class="stat"><div class="stat__num"><span data-count="100">0</span><em>%</em></div><div class="stat__label">Insured & Guaranteed</div></div>
   </section>
 
-  <!-- SERVICES — PINNED HORIZONTAL -->
-  <section class="pin" id="pin">
-    <div class="pin__stage">
-      <div class="pin__head">
-        <div>
-          <span class="eyebrow">What we do</span>
-          <h2>A finish for every surface.</h2>
-        </div>
-        <div class="pin__count"><em id="pin-count">01</em> / 06</div>
+  <!-- SERVICES -->
+  <section class="section services">
+    <div class="container">
+      <div class="reveal"><span class="eyebrow">What we do</span></div>
+      <h2 class="section__title reveal" data-d="1">A finish for every surface.</h2>
+      <div class="svc-grid">
+        <article class="svc reveal">
+          <div class="svc__media"><div class="tex" data-tex="fine"></div></div>
+          <h3>Internal Plastering</h3>
+          <p>Glass-smooth skims and re-skims over tired or patched walls and ceilings — the perfect canvas for paint.</p>
+        </article>
+        <article class="svc reveal" data-d="1">
+          <div class="svc__media"><div class="tex" data-tex="coarse"></div></div>
+          <h3>External Rendering</h3>
+          <p>Weatherproof sand &amp; cement, monocouche and silicone renders that protect and transform façades.</p>
+        </article>
+        <article class="svc reveal" data-d="2">
+          <div class="svc__media"><div class="tex"></div></div>
+          <h3>Lime Plastering</h3>
+          <p>Breathable lime plaster and render for period and traditional buildings — the right finish for older walls.</p>
+        </article>
+        <article class="svc reveal">
+          <div class="svc__media"><div class="tex"></div></div>
+          <h3>Venetian Polished Plaster</h3>
+          <p>Marble-effect Italian finishes, hand-burnished to a deep lustre for standout feature walls.</p>
+        </article>
+        <article class="svc reveal" data-d="1">
+          <div class="svc__media"><div class="tex" data-tex="coarse"></div></div>
+          <h3>New Builds &amp; Renovations</h3>
+          <p>Full plastering for new build properties and whole-house renovations — start to finish, every wall and ceiling.</p>
+        </article>
+        <article class="svc reveal" data-d="2">
+          <div class="svc__media"><div class="tex" data-tex="fine"></div></div>
+          <h3>Repairs &amp; Small Works</h3>
+          <p>Cracks, holes, water damage and patch repairs put right and blended in — no job too small.</p>
+        </article>
       </div>
-      <div class="pin__track-wrap">
-        <div class="pin__track" id="pin-track">
-          <article class="card-svc">
-            <div class="card-svc__tex tex" data-tex="fine"></div>
-            <div class="card-svc__shade"></div>
-            <div class="card-svc__body">
-              <span class="card-svc__no">01</span>
-              <h3 class="card-svc__title">Plaster Skimming</h3>
-              <p class="card-svc__desc">Glass-smooth re-skims over tired or patched walls and ceilings — the perfect canvas for paint.</p>
-              <div class="card-svc__tags"><span>Walls</span><span>Ceilings</span><span>Over Artex</span></div>
-            </div>
-          </article>
-          <article class="card-svc">
-            <div class="card-svc__tex tex" data-tex="coarse"></div>
-            <div class="card-svc__shade"></div>
-            <div class="card-svc__body">
-              <span class="card-svc__no">02</span>
-              <h3 class="card-svc__title">External Rendering</h3>
-              <p class="card-svc__desc">Weatherproof sand & cement, monocouche and silicone renders that protect and transform façades.</p>
-              <div class="card-svc__tags"><span>K-Rend</span><span>Monocouche</span><span>Pebbledash</span></div>
-            </div>
-          </article>
-          <article class="card-svc">
-            <div class="card-svc__tex tex"></div>
-            <div class="card-svc__shade"></div>
-            <div class="card-svc__body">
-              <span class="card-svc__no">03</span>
-              <h3 class="card-svc__title">Venetian Polished Plaster</h3>
-              <p class="card-svc__desc">Luxurious marble-effect Italian finishes, hand-burnished to a deep lustre for feature walls.</p>
-              <div class="card-svc__tags"><span>Marmorino</span><span>Microcement</span><span>Bespoke</span></div>
-            </div>
-          </article>
-          <article class="card-svc">
-            <div class="card-svc__tex tex" data-tex="fine"></div>
-            <div class="card-svc__shade"></div>
-            <div class="card-svc__body">
-              <span class="card-svc__no">04</span>
-              <h3 class="card-svc__title">Lime Plastering</h3>
-              <p class="card-svc__desc">Breathable lime plaster and render for period and traditional buildings — the right finish for older walls.</p>
-              <div class="card-svc__tags"><span>Heritage</span><span>Breathable</span><span>Traditional</span></div>
-            </div>
-          </article>
-          <article class="card-svc">
-            <div class="card-svc__tex tex" data-tex="coarse"></div>
-            <div class="card-svc__shade"></div>
-            <div class="card-svc__body">
-              <span class="card-svc__no">05</span>
-              <h3 class="card-svc__title">New Builds & Renovations</h3>
-              <p class="card-svc__desc">Full plastering for new build properties and full-house renovations — start to finish, every wall and ceiling.</p>
-              <div class="card-svc__tags"><span>New Build</span><span>Renovation</span><span>Full House</span></div>
-            </div>
-          </article>
-          <article class="card-svc">
-            <div class="card-svc__tex tex"></div>
-            <div class="card-svc__shade"></div>
-            <div class="card-svc__body">
-              <span class="card-svc__no">06</span>
-              <h3 class="card-svc__title">Repairs & Small Works</h3>
-              <p class="card-svc__desc">Cracks, holes, water damage and patch repairs put right and blended in — no job too small.</p>
-              <div class="card-svc__tags"><span>Patching</span><span>Crack Repair</span><span>Made Good</span></div>
-            </div>
-          </article>
-        </div>
-      </div>
-      <div class="pin__hint">
-        <span>Keep scrolling</span>
-        <span class="bar"><i id="pin-fill"></i></span>
-        <span>06 services</span>
+      <div class="reveal" data-d="2" style="margin-top:2.5rem">
+        <a href="services.html" class="btn btn--ghost">See all services &amp; pricing</a>
       </div>
     </div>
   </section>
@@ -799,7 +671,6 @@ section { position: relative; }
         <svg viewBox="0 0 300 320" role="img" aria-label="Map of Yorkshire coverage">
           <path class="region" d="M70,40 L150,25 L230,55 L255,120 L240,200 L200,275 L120,295 L55,250 L35,160 L45,90 Z"/>
           <path class="region" d="M120,90 L185,100 L200,160 L160,210 L100,190 L95,130 Z" opacity=".5"/>
-          <circle class="pinpoint--pulse" cx="120" cy="150" r="4"/>
           <circle class="pinpoint" cx="120" cy="150" r="5"/>
           <circle class="pinpoint" cx="175" cy="110" r="4"/>
           <circle class="pinpoint" cx="200" cy="185" r="4"/>
@@ -814,24 +685,14 @@ section { position: relative; }
   <section class="section quotes">
     <div class="container">
       <div class="reveal"><span class="eyebrow">Reviews</span></div>
-      <h2 class="section__title reveal" data-d="1">Yorkshire homeowners love us.</h2>
-    </div>
-    <div style="margin-top:3rem">
-      <div class="quotes__row quotes__row--a">
-        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Re-skimmed our whole living room and hallway — absolutely mint finish, you'd never know there were cracks. Spotless too."</p><div class="quote__by"><span class="quote__av">SH</span><div><strong>Sarah H.</strong><span>Leeds</span></div></div></div>
-        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Had the Venetian polished plaster done on a feature wall. Honestly stunning, looks like marble. Worth every penny."</p><div class="quote__by"><span class="quote__av">MD</span><div><strong>Mark D.</strong><span>Harrogate</span></div></div></div>
-        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Rendered the front of the house in K-Rend. Tidy, professional, on time. Neighbours have all asked who did it!"</p><div class="quote__by"><span class="quote__av">PA</span><div><strong>Priya A.</strong><span>Bradford</span></div></div></div>
-        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Quick, clean and fairly priced. Skimmed two bedrooms in a day and left the place immaculate. Highly recommend."</p><div class="quote__by"><span class="quote__av">TG</span><div><strong>Tom G.</strong><span>Wakefield</span></div></div></div>
-        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Re-skimmed our whole living room and hallway — absolutely mint finish, you'd never know there were cracks. Spotless too."</p><div class="quote__by"><span class="quote__av">SH</span><div><strong>Sarah H.</strong><span>Leeds</span></div></div></div>
-        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Had the Venetian polished plaster done on a feature wall. Honestly stunning, looks like marble. Worth every penny."</p><div class="quote__by"><span class="quote__av">MD</span><div><strong>Mark D.</strong><span>Harrogate</span></div></div></div>
-      </div>
-      <div class="quotes__row quotes__row--b">
-        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Used lime plaster on our period cottage as it needed to breathe. Proper old-school craftsmanship — you can tell it runs in the family."</p><div class="quote__by"><span class="quote__av">JL</span><div><strong>James L.</strong><span>Otley</span></div></div></div>
-        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Plastered our whole loft conversion. Flawless ceilings, lovely lads, cleared up every day. Top job."</p><div class="quote__by"><span class="quote__av">EC</span><div><strong>Emma C.</strong><span>Horsforth</span></div></div></div>
-        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Skimmed every wall and ceiling in our new build. Dead flat, beautifully smooth and finished bang on schedule. Real craftsmen."</p><div class="quote__by"><span class="quote__av">RB</span><div><strong>Rachel B.</strong><span>Pudsey</span></div></div></div>
-        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Got three quotes — JPS were fair, friendly and the only ones who explained everything. Brilliant from start to finish."</p><div class="quote__by"><span class="quote__av">AK</span><div><strong>Adam K.</strong><span>Skipton</span></div></div></div>
-        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Used lime plaster on our period cottage as it needed to breathe. Proper old-school craftsmanship — you can tell it runs in the family."</p><div class="quote__by"><span class="quote__av">JL</span><div><strong>James L.</strong><span>Otley</span></div></div></div>
-        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Plastered our whole loft conversion. Flawless ceilings, lovely lads, cleared up every day. Top job."</p><div class="quote__by"><span class="quote__av">EC</span><div><strong>Emma C.</strong><span>Horsforth</span></div></div></div>
+      <h2 class="section__title reveal" data-d="1">What our customers say.</h2>
+      <div class="quotes__grid">
+        <div class="quote reveal"><div class="quote__stars">★★★★★</div><p>"Re-skimmed our whole living room and hallway — absolutely mint finish, you'd never know there were cracks. Spotless too."</p><div class="quote__by"><span class="quote__av">SH</span><div><strong>Sarah H.</strong><span>Leeds</span></div></div></div>
+        <div class="quote reveal" data-d="1"><div class="quote__stars">★★★★★</div><p>"Had the Venetian polished plaster done on a feature wall. Honestly stunning, looks like marble. Worth every penny."</p><div class="quote__by"><span class="quote__av">MD</span><div><strong>Mark D.</strong><span>Harrogate</span></div></div></div>
+        <div class="quote reveal" data-d="2"><div class="quote__stars">★★★★★</div><p>"Rendered the front of the house in K-Rend. Tidy, professional, on time. Neighbours have all asked who did it!"</p><div class="quote__by"><span class="quote__av">PA</span><div><strong>Priya A.</strong><span>Bradford</span></div></div></div>
+        <div class="quote reveal"><div class="quote__stars">★★★★★</div><p>"Used lime plaster on our period cottage as it needed to breathe. Proper old-school craftsmanship — you can tell it runs in the family."</p><div class="quote__by"><span class="quote__av">JL</span><div><strong>James L.</strong><span>Otley</span></div></div></div>
+        <div class="quote reveal" data-d="1"><div class="quote__stars">★★★★★</div><p>"Plastered our whole loft conversion. Flawless ceilings, lovely lads, cleared up every day. Top job."</p><div class="quote__by"><span class="quote__av">EC</span><div><strong>Emma C.</strong><span>Horsforth</span></div></div></div>
+        <div class="quote reveal" data-d="2"><div class="quote__stars">★★★★★</div><p>"Got three quotes — JPS were fair, friendly and the only ones who explained everything. Brilliant from start to finish."</p><div class="quote__by"><span class="quote__av">AK</span><div><strong>Adam K.</strong><span>Pudsey</span></div></div></div>
       </div>
     </div>
   </section>
@@ -891,384 +752,86 @@ section { position: relative; }
 
   <script>
 /* ============================================================
-   JPS PLASTERING — Cinematic intro
-   A trowel sweeps across the screen, smoothing fresh plaster to
-   reveal the brand. Pure canvas, no assets.
-   ============================================================ */
-(() => {
-  const intro = document.getElementById('intro');
-  if (!intro) return;
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  const finish = () => {
-    intro.classList.add('done');
-    document.body.style.overflow = '';
-    setTimeout(() => intro.remove(), 1000);
-  };
-
-  // session: only show intro once per tab
-  if (reduce || sessionStorage.getItem('jps_intro')) { intro.remove(); return; }
-  sessionStorage.setItem('jps_intro', '1');
-  document.body.style.overflow = 'hidden';
-
-  const canvas = document.getElementById('intro-canvas');
-  const ctx = canvas.getContext('2d');
-  let W, H, dpr = Math.min(devicePixelRatio || 1, 2);
-  function resize() {
-    W = canvas.width = innerWidth * dpr;
-    H = canvas.height = innerHeight * dpr;
-    canvas.style.width = innerWidth + 'px';
-    canvas.style.height = innerHeight + 'px';
-  }
-  resize(); addEventListener('resize', resize);
-
-  const skip = document.getElementById('intro-skip');
-  if (skip) skip.addEventListener('click', finish);
-
-  const CHAR = '#0e0c0b';
-  const easeInOut = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-  const eOut = t => 1 - Math.pow(1 - t, 3);
-
-  const DURATION = 3200;
-  let t0;
-
-  // pre-rendered swirl noise for the wet-plaster band
-  function noiseDab(x, y, r, hue) {
-    const g = ctx.createRadialGradient(x, y, 0, x, y, r);
-    g.addColorStop(0, hue);
-    g.addColorStop(1, 'rgba(185,142,114,0)');
-    ctx.fillStyle = g;
-    ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill();
-  }
-
-  function frame(t) {
-    t0 = t0 || t;
-    const k = Math.min((t - t0) / DURATION, 1);
-
-    ctx.clearRect(0, 0, W, H);
-    ctx.fillStyle = CHAR;
-    ctx.fillRect(0, 0, W, H);
-
-    // diagonal sweep progress of the trowel (left->right, slight rise)
-    const sweep = easeInOut(Math.min(k / 0.72, 1));
-    const edgeX = -0.15 * W + sweep * 1.3 * W;
-
-    // ---- smoothed plaster already laid down (left of trowel) ----
-    ctx.save();
-    ctx.beginPath();
-    ctx.rect(0, 0, edgeX, H);
-    ctx.clip();
-    // base wet plaster gradient
-    const grad = ctx.createLinearGradient(0, 0, W, H);
-    grad.addColorStop(0, '#caa98e');
-    grad.addColorStop(0.5, '#b98e72');
-    grad.addColorStop(1, '#8a6f5a');
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, W, H);
-    // tooled streaks
-    ctx.globalAlpha = 0.12;
-    for (let i = 0; i < 26; i++) {
-      ctx.strokeStyle = i % 2 ? '#efe7d9' : '#5a4636';
-      ctx.lineWidth = 2 * dpr;
-      ctx.beginPath();
-      const yy = (i / 26) * H + Math.sin(i) * 8 * dpr;
-      ctx.moveTo(0, yy);
-      ctx.bezierCurveTo(W * .3, yy - 14 * dpr, W * .6, yy + 14 * dpr, edgeX, yy);
-      ctx.stroke();
-    }
-    ctx.globalAlpha = 1;
-    ctx.restore();
-
-    // ---- raw rough plaster ahead of trowel (right) ----
-    ctx.save();
-    ctx.beginPath();
-    ctx.rect(edgeX, 0, W - edgeX, H);
-    ctx.clip();
-    for (let i = 0; i < 60; i++) {
-      const x = edgeX + Math.random() * (W - edgeX);
-      const y = Math.random() * H;
-      noiseDab(x, y, (Math.random() * 60 + 20) * dpr, 'rgba(140,111,90,0.18)');
-    }
-    ctx.restore();
-
-    // ---- the trowel ----
-    if (k < 0.78) {
-      const tw = 34 * dpr, th = H * 0.62;
-      ctx.save();
-      ctx.translate(edgeX, H / 2);
-      ctx.rotate(-0.06);
-      // blade
-      const bg = ctx.createLinearGradient(-tw, 0, tw, 0);
-      bg.addColorStop(0, '#e9e4dc');
-      bg.addColorStop(.5, '#b9b3a8');
-      bg.addColorStop(1, '#76706613');
-      ctx.fillStyle = bg;
-      ctx.fillRect(-4 * dpr, -th / 2, tw, th);
-      // leading bright edge
-      ctx.fillStyle = 'rgba(255,255,255,.85)';
-      ctx.fillRect(tw - 4 * dpr, -th / 2, 4 * dpr, th);
-      // handle nub
-      ctx.fillStyle = '#2a211b';
-      ctx.fillRect(-22 * dpr, -34 * dpr, 18 * dpr, 68 * dpr);
-      ctx.restore();
-      // dust kicked up at the edge
-      for (let i = 0; i < 10; i++) {
-        noiseDab(edgeX + (Math.random() - .2) * 60 * dpr, H / 2 + (Math.random() - .5) * th,
-          (Math.random() * 8 + 2) * dpr, 'rgba(231,200,120,0.10)');
-      }
-    }
-
-    // ---- brand reveal carved into the smoothed plaster ----
-    const reveal = eOut(Math.max(0, (k - 0.32) / 0.5));
-    if (reveal > 0) {
-      ctx.save();
-      ctx.globalAlpha = Math.min(reveal, 1);
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      const cx = W / 2, cy = H / 2;
-
-      ctx.font = `700 ${Math.min(W * 0.13, 150 * dpr)}px "Bricolage Grotesque", sans-serif`;
-      // emboss shadow
-      ctx.fillStyle = 'rgba(0,0,0,.35)';
-      ctx.fillText('JPS', cx + 3 * dpr, cy - 26 * dpr + 3 * dpr);
-      ctx.fillStyle = '#1f1813';
-      ctx.fillText('JPS', cx, cy - 26 * dpr);
-
-      ctx.font = `600 ${Math.min(W * 0.035, 34 * dpr)}px "Bricolage Grotesque", sans-serif`;
-      ctx.fillStyle = 'rgba(20,17,15,.85)';
-      ctx.fillText('P L A S T E R I N G', cx, cy + 64 * dpr);
-
-      ctx.font = `500 ${Math.min(W * 0.018, 16 * dpr)}px Inter, sans-serif`;
-      ctx.fillStyle = 'rgba(20,17,15,.6)';
-      ctx.fillText('LEEDS  ·  EST. 2015', cx, cy + 104 * dpr);
-      ctx.restore();
-    }
-
-    if (k < 1) requestAnimationFrame(frame);
-    else setTimeout(finish, 420);
-  }
-  requestAnimationFrame(frame);
-})();
-
-</script>
-  <script>
-/* ============================================================
-   JPS PLASTERING — Immersive interactions
-   - procedural plaster textures (SVG feTurbulence -> data URI)
-   - plaster-dust particle field (canvas)
-   - parallax "double scroll" + pinned horizontal services
-   - counters, before/after, accordion, nav, form
+   JPS PLASTERING — Interactions (calm, user in control)
+   - procedural plaster textures (placeholders until real photos)
+   - gentle reveal on scroll, counters, before/after, nav, FAQ, form
+   No scroll-hijacking, no parallax engine, no particle field.
    ============================================================ */
 (() => {
   'use strict';
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const $  = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
-  const lerp = (a, b, t) => a + (b - a) * t;
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
 
-  /* ----------------------------------------------------------
-     PROCEDURAL PLASTER TEXTURES
-     Build an SVG with feTurbulence + lighting, tinted, encode as
-     a data URI, and drop it onto every [data-tex] element. This
-     gives realistic, varied wall surfaces with zero image files.
-  ---------------------------------------------------------- */
+  /* ---- procedural plaster textures (stand-ins for photos) ---- */
   function plasterTexture(opts = {}) {
-    const {
-      seed = (Math.random() * 100) | 0,
-      base = 0.012,            // turbulence frequency (lower = broader swirls)
-      oct  = 4,
-      tint = '#b98e72',
-      tint2 = '#1a1512',
-      surface = 7              // lighting depth
-    } = opts;
+    const { seed = (Math.random() * 100) | 0, base = 0.012, oct = 4,
+            tint = '#b98e72', tint2 = '#1a1512', surface = 7 } = opts;
     const id = 's' + seed + ((Math.random() * 1e4) | 0);
     const svg = `
 <svg xmlns='http://www.w3.org/2000/svg' width='640' height='800' viewBox='0 0 640 800'>
   <defs>
     <filter id='f${id}'>
-      <feTurbulence type='fractalNoise' baseFrequency='${base} ${base * 1.4}'
-        numOctaves='${oct}' seed='${seed}' stitchTiles='stitch' result='n'/>
+      <feTurbulence type='fractalNoise' baseFrequency='${base} ${base * 1.4}' numOctaves='${oct}' seed='${seed}' stitchTiles='stitch' result='n'/>
       <feDiffuseLighting in='n' lighting-color='#ffffff' surfaceScale='${surface}' result='l'>
         <feDistantLight azimuth='235' elevation='55'/>
       </feDiffuseLighting>
-      <feColorMatrix in='l' type='matrix'
-        values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.34 0.5 0.16 0 0' result='a'/>
-      <feComponentTransfer in='a' result='m'>
-        <feFuncA type='gamma' amplitude='1' exponent='1.3' offset='0'/>
-      </feComponentTransfer>
+      <feColorMatrix in='l' type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.34 0.5 0.16 0 0' result='a'/>
+      <feComponentTransfer in='a' result='m'><feFuncA type='gamma' amplitude='1' exponent='1.3' offset='0'/></feComponentTransfer>
     </filter>
     <linearGradient id='g${id}' x1='0' y1='0' x2='1' y2='1'>
-      <stop offset='0' stop-color='${tint}'/>
-      <stop offset='1' stop-color='${tint2}'/>
+      <stop offset='0' stop-color='${tint}'/><stop offset='1' stop-color='${tint2}'/>
     </linearGradient>
   </defs>
   <rect width='640' height='800' fill='url(#g${id})'/>
-  <rect width='640' height='800' filter='url(#f${id})' opacity='0.9'/>
-  <rect width='640' height='800' fill='${tint}' opacity='0.10'/>
+  <rect width='640' height='800' filter='url(#f${id})' opacity='0.85'/>
+  <rect width='640' height='800' fill='${tint}' opacity='0.08'/>
 </svg>`.trim();
     return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
   }
-
   const palettes = [
-    { tint: '#c9a98e', tint2: '#1a1512' },   // wet plaster
-    { tint: '#8a7f70', tint2: '#14110f' },   // set grey
-    { tint: '#c9a24b', tint2: '#221c18' },   // brass render
-    { tint: '#3c4a57', tint2: '#0e0c0b' },   // tooled steel
-    { tint: '#b98e72', tint2: '#100d0b' },   // warm skim
-    { tint: '#efe7d9', tint2: '#221c18' },   // fresh cream
+    { tint: '#c9a98e', tint2: '#1a1512' }, { tint: '#8a7f70', tint2: '#14110f' },
+    { tint: '#a99a86', tint2: '#221c18' }, { tint: '#3c4a57', tint2: '#0e0c0b' },
+    { tint: '#b98e72', tint2: '#100d0b' }, { tint: '#cdbfa9', tint2: '#221c18' },
   ];
-
   $$('[data-tex]').forEach((el, i) => {
     const p = palettes[i % palettes.length];
     const v = el.dataset.tex;
-    const variant = v === 'fine' ? { base: 0.03, surface: 4 }
-                  : v === 'coarse' ? { base: 0.006, surface: 11 }
-                  : {};
+    const variant = v === 'fine' ? { base: 0.03, surface: 4 } : v === 'coarse' ? { base: 0.006, surface: 11 } : {};
     el.style.backgroundImage = plasterTexture({ ...p, ...variant });
     el.style.backgroundSize = 'cover';
     el.style.backgroundPosition = `${(Math.random() * 100) | 0}% ${(Math.random() * 100) | 0}%`;
   });
 
-  /* ----------------------------------------------------------
-     PLASTER-DUST PARTICLE FIELD
-  ---------------------------------------------------------- */
-  const dust = $('#dust');
-  if (dust && !reduce) {
-    const ctx = dust.getContext('2d');
-    let W, H, parts = [], dpr = Math.min(devicePixelRatio || 1, 2);
-    function size() {
-      W = dust.width = innerWidth * dpr;
-      H = dust.height = innerHeight * dpr;
-      dust.style.width = innerWidth + 'px';
-      dust.style.height = innerHeight + 'px';
-      const n = Math.round((innerWidth * innerHeight) / 14000);
-      parts = Array.from({ length: n }, () => spawn());
-    }
-    function spawn() {
-      return {
-        x: Math.random() * W, y: Math.random() * H,
-        r: (Math.random() * 1.8 + 0.3) * dpr,
-        vx: (Math.random() - 0.5) * 0.18 * dpr,
-        vy: (Math.random() * 0.3 + 0.06) * dpr,
-        a: Math.random() * 0.5 + 0.1,
-        tw: Math.random() * Math.PI * 2
-      };
-    }
-    let mx = 0, my = 0;
-    addEventListener('mousemove', e => { mx = (e.clientX / innerWidth - .5); my = (e.clientY / innerHeight - .5); }, { passive: true });
-    function draw() {
-      ctx.clearRect(0, 0, W, H);
-      for (const p of parts) {
-        p.x += p.vx + mx * 0.4 * dpr;
-        p.y += p.vy;
-        p.tw += 0.02;
-        if (p.y > H + 5) { p.y = -5; p.x = Math.random() * W; }
-        if (p.x > W + 5) p.x = -5; if (p.x < -5) p.x = W + 5;
-        const a = p.a * (0.6 + 0.4 * Math.sin(p.tw));
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(231,200,120,${a})`;
-        ctx.fill();
-      }
-      requestAnimationFrame(draw);
-    }
-    size(); addEventListener('resize', size); draw();
-  }
-
-  /* ----------------------------------------------------------
-     SCROLL PROGRESS + PARALLAX (double-scroll layers)
-  ---------------------------------------------------------- */
-  const bar = $('#progress');
-  const parallax = $$('[data-speed]');
-  let sy = scrollY, target = scrollY;
-
-  function onFrame() {
-    sy = lerp(sy, target, 0.12);
-    if (Math.abs(sy - target) < 0.1) sy = target;
-
-    // parallax layers move relative to viewport center -> two visible
-    // scroll speeds at once (the "double scroll" feel)
-    const vh = innerHeight;
-    for (const el of parallax) {
-      const speed = parseFloat(el.dataset.speed);
-      const rect = el.getBoundingClientRect();
-      const center = rect.top + rect.height / 2 - vh / 2;
-      el.style.transform = `translate3d(0, ${(-center * speed).toFixed(2)}px, 0)`;
-    }
-    if (!reduce) requestAnimationFrame(onFrame);
-  }
-  addEventListener('scroll', () => { target = scrollY; updateProgress(); }, { passive: true });
-
-  function updateProgress() {
-    const max = document.documentElement.scrollHeight - innerHeight;
-    const p = max > 0 ? scrollY / max : 0;
-    if (bar) bar.style.width = (p * 100) + '%';
-  }
-  updateProgress();
-  if (!reduce && parallax.length) requestAnimationFrame(onFrame);
-  else parallax.forEach(el => el.style.transform = 'none');
-
-  /* ----------------------------------------------------------
-     REVEAL ON SCROLL
-  ---------------------------------------------------------- */
+  /* ---- reveal on scroll (gentle) ---- */
   const io = new IntersectionObserver((ents) => {
     ents.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.14 });
+  }, { threshold: 0.12 });
   $$('.reveal, .stat').forEach(el => io.observe(el));
 
-  /* ----------------------------------------------------------
-     COUNTERS
-  ---------------------------------------------------------- */
+  /* ---- counters ---- */
   const cio = new IntersectionObserver((ents) => {
     ents.forEach(e => {
       if (!e.isIntersecting) return;
-      const el = e.target, to = parseFloat(el.dataset.count), dur = 1600;
+      const el = e.target, to = parseFloat(el.dataset.count), dur = 1400;
       const dec = (el.dataset.count.split('.')[1] || '').length;
       let t0;
       const tick = (t) => {
         t0 = t0 || t;
         const k = clamp((t - t0) / dur, 0, 1);
-        const eased = 1 - Math.pow(1 - k, 3);
-        el.textContent = (to * eased).toFixed(dec);
-        if (k < 1) requestAnimationFrame(tick);
-        else el.textContent = to.toFixed(dec);
+        el.textContent = (to * (1 - Math.pow(1 - k, 3))).toFixed(dec);
+        if (k < 1) requestAnimationFrame(tick); else el.textContent = to.toFixed(dec);
       };
-      requestAnimationFrame(tick);
+      if (reduce) el.textContent = to.toFixed(dec); else requestAnimationFrame(tick);
       cio.unobserve(el);
     });
   }, { threshold: 0.6 });
   $$('[data-count]').forEach(el => cio.observe(el));
 
-  /* ----------------------------------------------------------
-     PINNED HORIZONTAL SERVICES (scroll-driven translateX)
-  ---------------------------------------------------------- */
-  const pin = $('#pin');
-  if (pin && innerWidth > 760) {
-    const track = $('#pin-track', pin);
-    const fill = $('#pin-fill', pin);
-    const count = $('#pin-count', pin);
-    const total = track ? track.children.length : 0;
-    function pinScroll() {
-      const rect = pin.getBoundingClientRect();
-      const scrollable = pin.offsetHeight - innerHeight;
-      const prog = clamp(-rect.top / scrollable, 0, 1);
-      const maxX = track.scrollWidth - innerWidth + parseFloat(getComputedStyle(track).paddingLeft) * 0.0;
-      const shift = Math.max(0, track.scrollWidth - innerWidth + 64);
-      track.style.transform = `translate3d(${-prog * shift}px,0,0)`;
-      if (fill) fill.style.width = (prog * 100) + '%';
-      if (count) count.textContent = String(Math.min(total, Math.floor(prog * total) + 1)).padStart(2, '0');
-      requestAnimationFrame(pinScroll);
-    }
-    requestAnimationFrame(pinScroll);
-  }
-
-  /* ----------------------------------------------------------
-     BEFORE / AFTER SLIDER
-  ---------------------------------------------------------- */
+  /* ---- before / after slider ---- */
   $$('.ba__frame').forEach(frame => {
-    const after = $('.ba__after', frame);
-    const handle = $('.ba__handle', frame);
+    const after = $('.ba__after', frame), handle = $('.ba__handle', frame);
     let dragging = false;
     const setPos = (clientX) => {
       const r = frame.getBoundingClientRect();
@@ -1276,19 +839,16 @@ section { position: relative; }
       after.style.clipPath = `inset(0 0 0 ${p * 100}%)`;
       handle.style.left = (p * 100) + '%';
     };
-    const start = () => dragging = true;
-    const end = () => dragging = false;
     const move = (e) => { if (dragging) setPos((e.touches ? e.touches[0] : e).clientX); };
-    frame.addEventListener('mousedown', e => { start(); setPos(e.clientX); });
-    frame.addEventListener('touchstart', e => { start(); setPos(e.touches[0].clientX); }, { passive: true });
+    frame.addEventListener('mousedown', e => { dragging = true; setPos(e.clientX); });
+    frame.addEventListener('touchstart', e => { dragging = true; setPos(e.touches[0].clientX); }, { passive: true });
     addEventListener('mousemove', move);
     addEventListener('touchmove', move, { passive: true });
-    addEventListener('mouseup', end); addEventListener('touchend', end);
+    addEventListener('mouseup', () => dragging = false);
+    addEventListener('touchend', () => dragging = false);
   });
 
-  /* ----------------------------------------------------------
-     NAV: scrolled state + mobile + active link
-  ---------------------------------------------------------- */
+  /* ---- nav: solid on scroll + mobile menu ---- */
   const nav = $('#nav');
   const setNav = () => nav && nav.classList.toggle('scrolled', scrollY > 40);
   addEventListener('scroll', setNav, { passive: true }); setNav();
@@ -1305,9 +865,7 @@ section { position: relative; }
     }));
   }
 
-  /* ----------------------------------------------------------
-     ACCORDION (FAQ)
-  ---------------------------------------------------------- */
+  /* ---- FAQ accordion ---- */
   $$('.acc__item').forEach(item => {
     const q = $('.acc__q', item), a = $('.acc__a', item);
     q.addEventListener('click', () => {
@@ -1316,23 +874,16 @@ section { position: relative; }
     });
   });
 
-  /* ----------------------------------------------------------
-     QUOTE FORM (front-end only)
-  ---------------------------------------------------------- */
+  /* ---- quote form (front-end only) ---- */
   const form = $('#quote-form');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const ok = $('#form-ok', form);
-      if (ok) ok.classList.add('show');
-      form.reset();
-      if (ok) ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    });
-  }
+  if (form) form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const ok = $('#form-ok', form);
+    if (ok) { ok.classList.add('show'); ok.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+    form.reset();
+  });
 
-  /* ----------------------------------------------------------
-     YEAR
-  ---------------------------------------------------------- */
+  /* ---- year ---- */
   $$('[data-year]').forEach(el => el.textContent = new Date().getFullYear());
 })();
 
