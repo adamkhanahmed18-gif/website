@@ -52,9 +52,8 @@
       <div class="page-hero__bg"><img src="images/newbuild-hallway.jpg" alt="" aria-hidden="true" fetchpriority="high"></div>
       <div class="container">
         <div class="crumbs"><a href="index.html">Home</a> <span>/</span> <span>Contact</span></div>
-        <span class="label">Free quotation</span>
-        <h1>Tell us about <em>the job</em></h1>
-        <p class="lede">Call for the quickest answer, or send the form and we&rsquo;ll come back to you. A couple of photos and rough room sizes are usually enough to price most jobs.</p>
+        <h1>Get in touch</h1>
+        <p class="lede">Call for the quickest answer. Or fill in the form — James will come back to you, usually same day.</p>
       </div>
     </section>
 
@@ -64,46 +63,56 @@
           <div class="item rv">
             <div class="k">Call or text</div>
             <div class="v"><a href="tel:+447557448059">07557 448059</a></div>
-            <small>On the tools most of the day — if it rings out, leave a message or text and we&rsquo;ll get back to you the same evening.</small>
+            <small>On the tools most of the day — leave a message or text if it rings out and we&rsquo;ll get back same evening.</small>
           </div>
           <div class="item rv" data-d="1">
-            <div class="k">Email</div>
-            <div class="v"><a href="mailto:info@jps-plastering.com">info@jps-plastering.com</a></div>
-            <small>Attach photos of the job if you can — it makes quoting much faster.</small>
+            <div class="k">WhatsApp</div>
+            <div class="v" style="margin-top:0.5rem;">
+              <a href="https://wa.me/447557448059?text=Hi%20James%2C%20I%27d%20like%20to%20get%20a%20plastering%20quote%20please." target="_blank" rel="noopener" class="btn btn--fill" style="font-size:0.78rem; padding:0.7rem 1.4rem;">Message on WhatsApp &nbsp;&rarr;</a>
+            </div>
           </div>
           <div class="item rv" data-d="2">
-            <div class="k">Based at</div>
-            <div class="v">Winker Green Lodge</div>
-            <small>Eyres Mill Side, Armley, Leeds, West Yorkshire LS12 3DH<br>Covering the whole of Leeds &amp; surrounding areas.</small>
+            <div class="k">Email</div>
+            <div class="v"><a href="mailto:info@jps-plastering.com">info@jps-plastering.com</a></div>
+            <small>Attach photos if you can — it speeds up quoting.</small>
           </div>
           <div class="item rv" data-d="3">
+            <div class="k">Based at</div>
+            <div class="v">Armley, Leeds LS12</div>
+            <small>Covering all of Leeds &amp; surrounding areas. Recent jobs across LS8, LS10, LS14, LS25 and WF17.</small>
+          </div>
+          <div class="item rv" data-d="4">
             <div class="k">Follow the work</div>
-            <div class="v" style="font-size:1.1rem; font-family:var(--sans);">
-              <a href="https://www.instagram.com/jpsplastering9/" target="_blank" rel="noopener" style="display:block; padding:0.2rem 0;">Instagram &mdash; @jpsplastering9</a>
-              <a href="https://www.facebook.com/jpsplastering9/" target="_blank" rel="noopener" style="display:block; padding:0.2rem 0;">Facebook &mdash; /jpsplastering9</a>
+            <div class="v" style="font-size:0.95rem; display:grid; gap:0.35rem; margin-top:0.4rem;">
+              <a href="https://www.instagram.com/jpsplastering9/" target="_blank" rel="noopener">Instagram &mdash; @jpsplastering9</a>
+              <a href="https://www.facebook.com/jpsplastering9/" target="_blank" rel="noopener">Facebook &mdash; /jpsplastering9</a>
             </div>
           </div>
         </div>
 
-        <form class="form rv" data-d="1" id="quote-form">
+        <form class="form rv" data-d="1" action="https://formsubmit.co/info@jps-plastering.com" method="POST">
+          <input type="hidden" name="_subject" value="New quote request — jps-plastering.com">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
           <div class="row2">
             <div class="field">
               <label for="f-name">Your name</label>
-              <input id="f-name" name="name" type="text" autocomplete="name" required>
+              <input id="f-name" name="Name" type="text" autocomplete="name" required>
             </div>
             <div class="field">
               <label for="f-phone">Phone</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" required>
+              <input id="f-phone" name="Phone" type="tel" autocomplete="tel" required>
             </div>
           </div>
           <div class="row2">
             <div class="field">
               <label for="f-postcode">Postcode</label>
-              <input id="f-postcode" name="postcode" type="text" autocomplete="postal-code" placeholder="e.g. LS12" required>
+              <input id="f-postcode" name="Postcode" type="text" autocomplete="postal-code" placeholder="e.g. LS12" required>
             </div>
             <div class="field">
               <label for="f-service">Work needed</label>
-              <select id="f-service" name="service" required>
+              <select id="f-service" name="Work needed" required>
                 <option value="" disabled selected>Choose one</option>
                 <option>Internal plastering / skimming</option>
                 <option>Dry lining &amp; boarding</option>
@@ -118,11 +127,10 @@
           </div>
           <div class="field">
             <label for="f-message">Tell us about the job</label>
-            <textarea id="f-message" name="message" placeholder="Rooms, rough sizes, current state of the walls — whatever you know." required></textarea>
+            <textarea id="f-message" name="Message" placeholder="Rooms, rough sizes, current state of the walls — whatever you know." required></textarea>
           </div>
-          <p class="form__hint">Sending opens your email app with everything filled in, addressed to info@jps-plastering.com — photos can be attached there before you hit send.</p>
-          <button type="submit" class="btn btn--fill" style="justify-content:center;">Send quote request <span class="arr">&rarr;</span></button>
-          <p class="form__status" role="status" aria-live="polite"></p>
+          <p class="form__hint">We&rsquo;ll reply directly. You can attach photos to your reply — it speeds up quoting.</p>
+          <button type="submit" class="btn btn--fill" style="justify-content:center;">Send message &nbsp;&rarr;</button>
         </form>
       </div>
 
@@ -137,8 +145,7 @@
     <section class="section section--tint">
       <div class="container">
         <div class="section__head section__head--center">
-          <span class="label label--center rv">Before you ask</span>
-          <h2 class="rv" data-d="1">Questions we hear <em>every week</em></h2>
+          <h2 class="rv">Common questions</h2>
         </div>
         <div class="faq rv" data-d="2">
           <div class="faq__item">

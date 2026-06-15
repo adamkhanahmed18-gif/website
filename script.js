@@ -309,27 +309,6 @@
     secs.forEach(function (s) { sio.observe(s); });
   }
 
-  /* ---------- quote form -> opens email, pre-filled ---------- */
-  var form = document.getElementById("quote-form");
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var v = function (n) { return (form.elements[n] && form.elements[n].value.trim()) || "-"; };
-      var subject = "Quote request - " + v("service") + " (" + v("postcode") + ")";
-      var body =
-        "Name: " + v("name") +
-        "\nPhone: " + v("phone") +
-        "\nPostcode: " + v("postcode") +
-        "\nWork needed: " + v("service") +
-        "\n\nDetails:\n" + v("message") +
-        "\n\n(Sent from the JPS Plastering website)";
-      location.href = "mailto:info@jps-plastering.com?subject=" +
-        encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-      var st = form.querySelector(".form__status");
-      if (st) st.textContent = "Your email app should open now - if not, email us at info@jps-plastering.com or just call.";
-    });
-  }
-
   /* ---------- footer year ---------- */
   var yr = document.getElementById("year");
   if (yr) yr.textContent = new Date().getFullYear();
