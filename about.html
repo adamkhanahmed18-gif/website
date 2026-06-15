@@ -1,147 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" >
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-  <title>About | Artisan Cakery, Bradford</title>
-  <meta name="description" content="The story behind Artisan Cakery — bespoke cakes handcrafted in Bradford, West Yorkshire with a 5-star hygiene rating." >
-  <link rel="preconnect" href="https://fonts.googleapis.com" >
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin >
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" >
-  <link rel="stylesheet" href="styles.css" >
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | JPS Plastering Yorkshire</title>
+  <meta name="description" content="JPS Plastering — a family-run team of time-served plasterers serving Yorkshire since 2009. Meet the team and our craftsmanship values.">
+  <meta name="theme-color" content="#0e0c0b">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body data-page="about">
+  <div class="progress"><div class="progress__bar" id="progress"></div></div>
+  <canvas id="dust"></canvas>
+  <svg class="grain" xmlns="http://www.w3.org/2000/svg"><filter id="grain-f"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3"/></filter><rect width="100%" height="100%" filter="url(#grain-f)"/></svg>
 
-
-  <header class="nav nav--solid" id="nav">
+  <header class="nav scrolled" id="nav">
     <div class="nav__inner container">
-      <a href="index.html" class="nav__logo"><img src="images/logo.jpg" alt="Artisan Cakery" class="nav__logo-img"></a>
-      <nav class="nav__links" aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="about.html" class="is-active">About</a>
-        <a href="cakes.html">Our Cakes</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="reviews.html">Reviews</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html" class="btn btn--nav">Order Now</a>
-      </nav>
-      <button type="button" class="nav__burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <a href="index.html" class="brand"><span class="brand__mark">JPS</span><span><span class="brand__name">JPS <span>Plastering</span></span><span class="brand__tag">Yorkshire · Est. 2009</span></span></a>
+      <nav class="nav__links"><a href="index.html">Home</a><a href="services.html">Services</a><a href="gallery.html">Our Work</a><a href="about.html" class="active">About</a><a href="contact.html" class="btn btn--nav">Free Quote</a></nav>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
-    <nav class="nav__mobile" aria-label="Mobile navigation">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="cakes.html">Our Cakes</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="reviews.html">Reviews</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Order Now ✦</a>
-    </nav>
   </header>
+  <nav class="mobile-nav" id="mobile-nav"><a href="index.html">Home</a><a href="services.html">Services</a><a href="gallery.html">Our Work</a><a href="about.html">About</a><a href="contact.html">Free Quote ✦</a></nav>
 
-  <!-- PAGE HEADER -->
-  <section class="page-header">
-    <div class="page-header__bg" data-parallax>
-      <img src="images/wedding-cake-ua.jpg" alt="Elegant wedding cake" >
-      <div class="page-header__overlay"></div>
-    </div>
-    <div class="container page-header__content reveal">
-      <span class="eyebrow eyebrow--light">Our Story</span>
-      <h1 class="page-header__title">Baked with Heart<br ><em>Since Day One</em></h1>
-      <p>A little family kitchen in Bradford with a big love for beautiful cakes.</p>
-    </div>
-    <nav class="breadcrumb container" aria-label="Breadcrumb"><a href="index.html">Home</a> <span>/</span> About</nav>
-  </section>
-
-  <!-- STORY -->
-  <section class="section about-story">
-    <div class="container about-story__grid">
-      <div class="about-story__visual reveal">
-        <div class="about-story__img"><img src="images/ornate-cakes.jpg" alt="Hand-decorated cakes" ></div>
-        <div class="about-story__badge"><strong>1000+</strong><span>Cakes Made</span></div>
-      </div>
-      <div class="about-story__text reveal" data-delay="120">
-        <span class="eyebrow">Who We Are</span>
-        <h2 class="section-title">A Passion for<br ><em>Perfect Detail</em></h2>
-        <p>Artisan Cakery began with a simple belief: that every celebration deserves a centrepiece as special as the moment itself. Based in <strong>Bradford, West Yorkshire</strong>, we've grown into a much-loved name with a community of over 10,000 followers — but our heart remains exactly the same.</p>
-        <p>Each cake is made entirely from scratch, by hand, using premium ingredients and finished with meticulous care. Whether it's an intimate birthday or a grand wedding, we treat every order as our most important.</p>
-        <p>With a <strong>5-star food hygiene rating</strong> and full insurance, you can order with complete peace of mind.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- VALUES -->
-  <section class="section values">
+  <section class="page-head">
+    <div class="page-head__bg tex" data-speed="0.1"></div>
+    <div class="hero__vignette"></div>
     <div class="container">
-      <div class="section-header reveal">
-        <span class="eyebrow">What We Stand For</span>
-        <h2 class="section-title">Our Promise<br ><em>to You</em></h2>
-      </div>
-      <div class="values__grid">
-        <div class="value-card reveal"><div class="value-card__icon">🎨</div><h3>Truly Bespoke</h3><p>No two cakes are ever the same. Every design is created uniquely around your vision, theme and taste.</p></div>
-        <div class="value-card reveal" data-delay="100"><div class="value-card__icon">🌸</div><h3>Premium Ingredients</h3><p>We never cut corners. Only the finest ingredients make it into our kitchen — because taste matters as much as looks.</p></div>
-        <div class="value-card reveal" data-delay="200"><div class="value-card__icon">✨</div><h3>Artist's Detail</h3><p>From hand-piped lace to fresh florals, every finishing touch is applied with patience and precision.</p></div>
-        <div class="value-card reveal" data-delay="300"><div class="value-card__icon">💝</div><h3>Made with Love</h3><p>We pour genuine care into every order, treating your celebration as if it were our own.</p></div>
+      <p class="crumbs reveal"><a href="index.html">Home</a> / About</p>
+      <h1 class="reveal" data-d="1">Craftsmen at heart.</h1>
+      <p class="section__lead reveal" data-d="2">A family-run team who genuinely care about the finish — and about leaving every customer delighted.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container split">
+      <div class="split__media reveal"><div class="tex" data-tex="fine" style="position:absolute;inset:0" data-speed="0.05"></div></div>
+      <div class="reveal" data-d="1">
+        <span class="eyebrow">Our story</span>
+        <h2>Fifteen years, one obsession: the perfect finish.</h2>
+        <p>JPS Plastering started in 2009 with a single van, a trowel and a simple belief — that a properly plastered wall is the foundation of every beautiful room. What began as one tradesman taking on local jobs in Bradford has grown into a trusted team working right across Yorkshire.</p>
+        <p>We've never lost that hands-on approach. The person who quotes your job is the person who plasters it. We don't subcontract, we don't cut corners, and we don't leave until you're genuinely happy.</p>
+        <p>From a single feature wall to a full new-build fit-out, every job gets the same care and the same flawless standard.</p>
       </div>
     </div>
   </section>
 
-  <!-- PROCESS TIMELINE -->
-  <section class="section process-timeline">
+  <section class="section" style="background:var(--char-2)">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="eyebrow">How It Works</span>
-        <h2 class="section-title">From Idea to<br ><em>Showstopper</em></h2>
+      <div class="reveal"><span class="eyebrow">What we stand for</span></div>
+      <h2 class="section__title reveal" data-d="1">Values you can build on.</h2>
+      <div class="why__grid">
+        <div class="feat reveal"><div class="feat__ic">🤝</div><h3>Honesty first</h3><p>Straight talk, fair prices and no nasty surprises. If something isn't right, we'll tell you.</p></div>
+        <div class="feat reveal" data-d="1"><div class="feat__ic">🎯</div><h3>Pride in the finish</h3><p>We're not happy until the wall is dead flat and mirror smooth. Good enough never is.</p></div>
+        <div class="feat reveal" data-d="2"><div class="feat__ic">🏡</div><h3>Respect for your home</h3><p>We protect, we tidy, and we treat your space exactly as we'd want ours treated.</p></div>
       </div>
-      <div class="timeline">
-        <div class="timeline__line"></div>
-        <div class="timeline__step reveal">
-          <div class="timeline__dot">01</div>
-          <div class="timeline__card"><h3>💌 Get in Touch</h3><p>Send us your event date, ideas and any inspiration photos through our order form or Instagram.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="reveal"><span class="eyebrow">The team</span></div>
+      <h2 class="section__title reveal" data-d="1">Time-served &amp; trusted.</h2>
+      <div class="why__grid">
+        <div class="feat reveal">
+          <div class="split__media" style="aspect-ratio:1/1;margin-bottom:1.2rem"><div class="tex" data-tex="fine" style="position:absolute;inset:0"></div></div>
+          <h3>James P. — Founder</h3><p>Master plasterer with 20+ years on the trowel. Specialist in Venetian and polished finishes.</p>
         </div>
-        <div class="timeline__step reveal" data-delay="120">
-          <div class="timeline__dot">02</div>
-          <div class="timeline__card"><h3>🎨 Design Together</h3><p>We'll discuss your vision, flavours and design in detail, then send a tailored quote.</p></div>
+        <div class="feat reveal" data-d="1">
+          <div class="split__media" style="aspect-ratio:1/1;margin-bottom:1.2rem"><div class="tex" data-tex="coarse" style="position:absolute;inset:0"></div></div>
+          <h3>Danny S. — Lead Plasterer</h3><p>Skimming and rendering expert. The man behind countless flawless Yorkshire ceilings.</p>
         </div>
-        <div class="timeline__step reveal" data-delay="240">
-          <div class="timeline__dot">03</div>
-          <div class="timeline__card"><h3>🤝 Confirm &amp; Book</h3><p>Secure your date with a deposit. Your spot in our diary is reserved just for you.</p></div>
-        </div>
-        <div class="timeline__step reveal" data-delay="360">
-          <div class="timeline__dot">04</div>
-          <div class="timeline__card"><h3>🎂 Enjoy Your Cake</h3><p>Your bespoke creation is freshly handmade and ready for collection or delivery.</p></div>
+        <div class="feat reveal" data-d="2">
+          <div class="split__media" style="aspect-ratio:1/1;margin-bottom:1.2rem"><div class="tex" style="position:absolute;inset:0"></div></div>
+          <h3>Connor W. — Plasterer</h3><p>Dry lining and damp-proofing specialist. Meticulous prep and an immaculate work ethic.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta-banner">
-    <div class="cta-banner__bg" data-parallax>
-      <img src="images/dessert-spread-floral.jpg" alt="Dessert spread" >
-      <div class="cta-banner__overlay"></div>
-    </div>
-    <div class="container cta-banner__content reveal">
-      <h2>Ready to Begin?<br ><em>Let's Talk Cake</em></h2>
-      <p>Tell us about your celebration and we'll help bring it to life.</p>
-      <a href="contact.html" class="btn btn--white">Start Your Order</a>
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stat"><div class="stat__num"><span data-count="15">0</span><em>+</em></div><div class="stat__label">Years' Experience</div></div>
+    <div class="stat"><div class="stat__num"><span data-count="2400">0</span><em>+</em></div><div class="stat__label">Rooms Plastered</div></div>
+    <div class="stat"><div class="stat__num"><span data-count="98">0</span><em>%</em></div><div class="stat__label">Repeat & Referral</div></div>
+    <div class="stat"><div class="stat__num"><span data-count="4.9">0</span></div><div class="stat__label">Average Rating</div></div>
+  </section>
+
+  <section class="section cta">
+    <div class="cta__bg"></div>
+    <div class="cta__inner container">
+      <h2 class="reveal">Let's work together.</h2>
+      <p class="reveal" data-d="1">Friendly advice and free quotes across Yorkshire.</p>
+      <div class="reveal" data-d="2"><a href="contact.html" class="btn btn--primary btn--lg">Get In Touch →</a></div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer__top">
-      <div class="footer__brand">
-        <a href="index.html" class="nav__logo"><img src="images/logo.jpg" alt="Artisan Cakery" class="nav__logo-img"></a>
-        <p>Handcrafted cakes made with love.<br >Bradford, West Yorkshire.</p>
-        <a href="https://www.instagram.com/artisancakeryy/" target="_blank" rel="noopener" class="footer__insta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg> @artisancakeryy</a>
-      </div>
-      <div class="footer__nav"><h4>Explore</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="cakes.html">Our Cakes</a><a href="gallery.html">Gallery</a><a href="reviews.html">Reviews</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></div>
-      <div class="footer__services"><h4>We Make</h4><span>Wedding Cakes</span><span>Birthday Cakes</span><span>Anniversary Cakes</span><span>Baby Shower Cakes</span><span>Dessert Spreads</span></div>
-      <div class="footer__trust"><div class="footer__badge">⭐ 5-Star Hygiene Rating</div><div class="footer__badge">🛡️ Fully Insured</div><div class="footer__badge">🎂 Made to Order</div></div>
+      <div class="footer__col footer__about"><a href="index.html" class="brand" style="margin-bottom:1.2rem"><span class="brand__mark">JPS</span><span class="brand__name">JPS <span>Plastering</span></span></a><p>Master plasterers serving Yorkshire since 2009.</p></div>
+      <div class="footer__col"><h4>Services</h4><a href="services.html">Skimming</a><a href="services.html">Rendering</a><a href="services.html">Venetian Plaster</a><a href="services.html">Dry Lining</a></div>
+      <div class="footer__col"><h4>Company</h4><a href="about.html">About Us</a><a href="gallery.html">Our Work</a><a href="contact.html">Free Quote</a></div>
+      <div class="footer__col"><h4>Get in touch</h4><a href="tel:01274000000">01274 000 000</a><a href="mailto:hello@jpsplastering.co.uk">hello@jpsplastering.co.uk</a><p>Bradford, West Yorkshire</p></div>
     </div>
-    <div class="footer__bottom container"><p>&copy; 2026 Artisan Cakery, Bradford. All rights reserved.</p><p><a href="https://www.instagram.com/artisancakeryy/" target="_blank" rel="noopener">Follow us on Instagram</a></p></div>
+    <div class="container footer__bottom"><span>© <span data-year></span> JPS Plastering. All rights reserved.</span><span>Fully insured · Workmanship guaranteed</span></div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

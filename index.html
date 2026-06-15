@@ -1,286 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" >
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-  <title>Artisan Cakery | Bespoke Cakes in Bradford, West Yorkshire</title>
-  <meta name="description" content="Bespoke wedding cakes, occasion cakes and dessert spreads handcrafted in Bradford, West Yorkshire. 5-star food hygiene rated &amp; fully insured." >
-  <link rel="preconnect" href="https://fonts.googleapis.com" >
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin >
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" >
-  <link rel="stylesheet" href="styles.css" >
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JPS Plastering | Master Plasterers in Yorkshire</title>
+  <meta name="description" content="JPS Plastering — Yorkshire's master plasterers. Skimming, rendering, Venetian polished plaster, damp proofing & dry lining across West, North & South Yorkshire. Free quotes, fully insured.">
+  <meta name="theme-color" content="#0e0c0b">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body data-page="home">
 
+  <!-- CINEMATIC INTRO -->
+  <div id="intro">
+    <canvas id="intro-canvas"></canvas>
+    <button id="intro-skip" class="intro__skip">Skip intro</button>
+  </div>
+
+  <!-- SCROLL PROGRESS -->
+  <div class="progress"><div class="progress__bar" id="progress"></div></div>
+
+  <!-- DUST FIELD -->
+  <canvas id="dust"></canvas>
+
+  <!-- GRAIN -->
+  <svg class="grain" xmlns="http://www.w3.org/2000/svg">
+    <filter id="grain-f"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3"/></filter>
+    <rect width="100%" height="100%" filter="url(#grain-f)"/>
+  </svg>
 
   <!-- NAV -->
   <header class="nav" id="nav">
     <div class="nav__inner container">
-      <a href="index.html" class="nav__logo"><img src="images/logo.jpg" alt="Artisan Cakery" class="nav__logo-img"></a>
-      <nav class="nav__links" aria-label="Main navigation">
-        <a href="index.html" class="is-active">Home</a>
+      <a href="index.html" class="brand">
+        <span class="brand__mark">JPS</span>
+        <span><span class="brand__name">JPS <span>Plastering</span></span><span class="brand__tag">Yorkshire · Est. 2009</span></span>
+      </a>
+      <nav class="nav__links">
+        <a href="index.html" class="active">Home</a>
+        <a href="services.html">Services</a>
+        <a href="gallery.html">Our Work</a>
         <a href="about.html">About</a>
-        <a href="cakes.html">Our Cakes</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="reviews.html">Reviews</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html" class="btn btn--nav">Order Now</a>
+        <a href="contact.html" class="btn btn--nav">Free Quote</a>
       </nav>
-      <button type="button" class="nav__burger" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
-    <nav class="nav__mobile" aria-label="Mobile navigation">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="cakes.html">Our Cakes</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="reviews.html">Reviews</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Order Now ✦</a>
-    </nav>
   </header>
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Our Work</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Free Quote ✦</a>
+  </nav>
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero__media" data-parallax>
-      <img src="images/wedding-ts-chandelier.jpg" alt="Grand wedding cake display" class="hero__img hero__img--fallback" >
-
-      <div class="hero__overlay"></div>
+    <div class="hero__layers">
+      <div class="hero__layer hero__wall" data-speed="0.18"></div>
+      <div class="hero__layer hero__glow" data-speed="0.34"></div>
+      <div class="hero__layer hero__streak" data-speed="0.08"></div>
     </div>
+    <div class="hero__vignette"></div>
     <div class="hero__content container">
-      <div class="hero__pill reveal">✦ Bradford, West Yorkshire</div>
-      <h1 class="hero__title reveal" data-delay="80">Cakes That Make<br ><em>Moments Magic</em></h1>
-      <p class="hero__sub reveal" data-delay="160">Bespoke wedding cakes, occasion cakes &amp; show-stopping dessert spreads — handcrafted to order with love in West Yorkshire.</p>
-      <div class="hero__actions reveal" data-delay="240">
-        <a href="contact.html" class="btn btn--primary">Get a Free Quote</a>
-        <a href="gallery.html" class="btn btn--ghost"><span class="play-icon">▶</span> See Our Work</a>
+      <span class="hero__pill reveal"><span class="dot"></span> Covering all of Yorkshire</span>
+      <h1 class="hero__title reveal" data-d="1">Flawless walls.<em>Crafted by hand.</em></h1>
+      <p class="hero__sub reveal" data-d="2">From mirror-smooth skim finishes to bespoke Venetian polished plaster, JPS Plastering brings fifteen years of master craftsmanship to homes and businesses across Yorkshire.</p>
+      <div class="hero__actions reveal" data-d="3">
+        <a href="contact.html" class="btn btn--primary btn--lg">Get a Free Quote →</a>
+        <a href="gallery.html" class="btn btn--ghost btn--lg">View Our Work</a>
       </div>
-      <div class="hero__trust reveal" data-delay="320">
-        <div class="trust-item"><span class="trust-icon">⭐</span><div><strong>5-Star</strong><span>Hygiene Rating</span></div></div>
-        <div class="trust-divider"></div>
-        <div class="trust-item"><span class="trust-icon">🛡️</span><div><strong>Fully</strong><span>Insured</span></div></div>
-        <div class="trust-divider"></div>
-        <div class="trust-item"><span class="trust-icon">💖</span><div><strong>10K+</strong><span>Followers</span></div></div>
+      <div class="hero__trust reveal" data-d="4">
+        <div class="trust"><span class="trust__ic">★</span><div><strong>4.9 / 5</strong><span>200+ reviews</span></div></div>
+        <div class="trust"><span class="trust__ic">🛡</span><div><strong>Fully Insured</strong><span>£5m public liability</span></div></div>
+        <div class="trust"><span class="trust__ic">✓</span><div><strong>Guaranteed</strong><span>Workmanship warranty</span></div></div>
       </div>
     </div>
-    <div class="hero__floating-badge"><strong class="count-up" data-target="1000">0</strong><span>Cakes &amp; counting</span></div>
-    <div class="hero__scroll-hint"><div class="scroll-dot"></div></div>
+    <div class="scroll-cue"><span>Scroll</span><span class="scroll-cue__rail"></span></div>
   </section>
 
-  <!-- MARQUEE -->
-  <div class="marquee-strip">
-    <div class="marquee-track">
-      <span>Wedding Cakes ✦</span><span>Birthday Cakes ✦</span><span>Dessert Spreads ✦</span><span>Anniversary Cakes ✦</span><span>Baby Shower Cakes ✦</span><span>Bespoke Designs ✦</span><span>Custom Designs ✦</span>
-      <span>Wedding Cakes ✦</span><span>Birthday Cakes ✦</span><span>Dessert Spreads ✦</span><span>Anniversary Cakes ✦</span><span>Baby Shower Cakes ✦</span><span>Bespoke Designs ✦</span><span>Custom Designs ✦</span>
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker__track">
+      <span>Skimming</span><span>Rendering</span><span>Venetian Plaster</span><span>Dry Lining</span><span>Damp Proofing</span><span>Coving</span><span>Floor Screeding</span><span>External Render</span>
+      <span>Skimming</span><span>Rendering</span><span>Venetian Plaster</span><span>Dry Lining</span><span>Damp Proofing</span><span>Coving</span><span>Floor Screeding</span><span>External Render</span>
     </div>
   </div>
 
-  <!-- INTRO -->
-  <section class="intro section">
-    <div class="container intro__grid">
-      <div class="intro__text reveal">
-        <span class="eyebrow">Welcome</span>
-        <h2 class="section-title">Handcrafted in Bradford,<br ><em>Loved Everywhere</em></h2>
-        <p>At Artisan Cakery, every creation begins with your story. From intimate birthday treats to grand multi-tiered wedding masterpieces, we pour passion into every detail — using premium ingredients and an artist's eye.</p>
-        <a href="about.html" class="text-link">Discover our story →</a>
+  <!-- STATS -->
+  <section class="stats" aria-label="By the numbers">
+    <div class="stat"><div class="stat__num"><span data-count="15">0</span><em>+</em></div><div class="stat__label">Years' Experience</div></div>
+    <div class="stat"><div class="stat__num"><span data-count="2400">0</span><em>+</em></div><div class="stat__label">Rooms Plastered</div></div>
+    <div class="stat"><div class="stat__num"><span data-count="4.9">0</span></div><div class="stat__label">Average Rating</div></div>
+    <div class="stat"><div class="stat__num"><span data-count="100">0</span><em>%</em></div><div class="stat__label">Insured & Guaranteed</div></div>
+  </section>
+
+  <!-- SERVICES — PINNED HORIZONTAL -->
+  <section class="pin" id="pin">
+    <div class="pin__stage">
+      <div class="pin__head">
+        <div>
+          <span class="eyebrow">What we do</span>
+          <h2>A finish for every surface.</h2>
+        </div>
+        <div class="pin__count"><em id="pin-count">01</em> / 06</div>
       </div>
-      <div class="intro__cards">
-        <div class="intro__card reveal" data-delay="80">
-          <span class="intro__card-num">1000+</span>
-          <span class="intro__card-label">Cakes Created</span>
+      <div class="pin__track-wrap">
+        <div class="pin__track" id="pin-track">
+          <article class="card-svc">
+            <div class="card-svc__tex tex" data-tex="fine"></div>
+            <div class="card-svc__shade"></div>
+            <div class="card-svc__body">
+              <span class="card-svc__no">01</span>
+              <h3 class="card-svc__title">Plaster Skimming</h3>
+              <p class="card-svc__desc">Glass-smooth re-skims over tired or patched walls and ceilings — the perfect canvas for paint.</p>
+              <div class="card-svc__tags"><span>Walls</span><span>Ceilings</span><span>Over Artex</span></div>
+            </div>
+          </article>
+          <article class="card-svc">
+            <div class="card-svc__tex tex" data-tex="coarse"></div>
+            <div class="card-svc__shade"></div>
+            <div class="card-svc__body">
+              <span class="card-svc__no">02</span>
+              <h3 class="card-svc__title">External Rendering</h3>
+              <p class="card-svc__desc">Weatherproof sand & cement, monocouche and silicone renders that protect and transform façades.</p>
+              <div class="card-svc__tags"><span>K-Rend</span><span>Monocouche</span><span>Pebbledash</span></div>
+            </div>
+          </article>
+          <article class="card-svc">
+            <div class="card-svc__tex tex"></div>
+            <div class="card-svc__shade"></div>
+            <div class="card-svc__body">
+              <span class="card-svc__no">03</span>
+              <h3 class="card-svc__title">Venetian Polished Plaster</h3>
+              <p class="card-svc__desc">Luxurious marble-effect Italian finishes, hand-burnished to a deep lustre for feature walls.</p>
+              <div class="card-svc__tags"><span>Marmorino</span><span>Microcement</span><span>Bespoke</span></div>
+            </div>
+          </article>
+          <article class="card-svc">
+            <div class="card-svc__tex tex" data-tex="fine"></div>
+            <div class="card-svc__shade"></div>
+            <div class="card-svc__body">
+              <span class="card-svc__no">04</span>
+              <h3 class="card-svc__title">Dry Lining & Boarding</h3>
+              <p class="card-svc__desc">Plasterboarding, tacking and tape-and-jointing for new builds, extensions and conversions.</p>
+              <div class="card-svc__tags"><span>Stud Walls</span><span>Insulated Board</span><span>Lofts</span></div>
+            </div>
+          </article>
+          <article class="card-svc">
+            <div class="card-svc__tex tex" data-tex="coarse"></div>
+            <div class="card-svc__shade"></div>
+            <div class="card-svc__body">
+              <span class="card-svc__no">05</span>
+              <h3 class="card-svc__title">Damp Proofing</h3>
+              <p class="card-svc__desc">Tanking, waterproof renders and damp remediation to keep walls dry and healthy for years.</p>
+              <div class="card-svc__tags"><span>Tanking</span><span>Cellars</span><span>Salt Neutral</span></div>
+            </div>
+          </article>
+          <article class="card-svc">
+            <div class="card-svc__tex tex"></div>
+            <div class="card-svc__shade"></div>
+            <div class="card-svc__body">
+              <span class="card-svc__no">06</span>
+              <h3 class="card-svc__title">Coving & Mouldings</h3>
+              <p class="card-svc__desc">Traditional coving, ceiling roses and ornate cornices fitted with a craftsman's precision.</p>
+              <div class="card-svc__tags"><span>Coving</span><span>Cornice</span><span>Roses</span></div>
+            </div>
+          </article>
         </div>
-        <div class="intro__card reveal" data-delay="160">
-          <span class="intro__card-num">10K+</span>
-          <span class="intro__card-label">Happy Followers</span>
-        </div>
-        <div class="intro__card reveal" data-delay="240">
-          <span class="intro__card-num">5★</span>
-          <span class="intro__card-label">Hygiene Rating</span>
-        </div>
-        <div class="intro__card reveal" data-delay="320">
-          <span class="intro__card-num">100%</span>
-          <span class="intro__card-label">Bespoke Designs</span>
-        </div>
+      </div>
+      <div class="pin__hint">
+        <span>Keep scrolling</span>
+        <span class="bar"><i id="pin-fill"></i></span>
+        <span>06 services</span>
       </div>
     </div>
   </section>
 
-  <!-- FEATURED CATEGORIES -->
-  <section class="categories section">
+  <!-- PROCESS -->
+  <section class="section process">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="eyebrow">What We Create</span>
-        <h2 class="section-title">Explore Our<br ><em>Creations</em></h2>
-      </div>
-      <div class="categories__grid">
-        <a href="cakes.html#wedding" class="cat-tile reveal">
-          <img src="images/wedding-cake-ua.jpg" alt="Wedding cakes" >
-          <div class="cat-tile__veil"></div>
-          <div class="cat-tile__content">
-            <h3>Wedding Cakes</h3>
-            <span class="cat-tile__cta">Explore →</span>
-          </div>
-        </a>
-        <a href="cakes.html#occasion" class="cat-tile reveal" data-delay="100">
-          <img src="images/ornate-cakes.jpg" alt="Occasion cakes" >
-          <div class="cat-tile__veil"></div>
-          <div class="cat-tile__content">
-            <h3>Occasion Cakes</h3>
-            <span class="cat-tile__cta">Explore →</span>
-          </div>
-        </a>
-        <a href="cakes.html#desserts" class="cat-tile reveal" data-delay="200">
-          <img src="images/dessert-spread-pink.jpg" alt="Dessert spreads" >
-          <div class="cat-tile__veil"></div>
-          <div class="cat-tile__content">
-            <h3>Dessert Spreads</h3>
-            <span class="cat-tile__cta">Explore →</span>
-          </div>
-        </a>
+      <div class="reveal"><span class="eyebrow">How we work</span></div>
+      <h2 class="section__title reveal" data-d="1">From bare brick to<br>perfect finish.</h2>
+      <p class="section__lead reveal" data-d="2">A tidy, reliable process — we treat your home like our own and leave it cleaner than we found it.</p>
+      <div class="process__grid">
+        <div class="step reveal" data-no="1" data-speed="0.04">
+          <div class="step__ic">📋</div>
+          <h3>Free site survey</h3>
+          <p>We visit, measure up and talk through your finish, timescale and budget — then send a clear, fixed written quote within 48 hours.</p>
+        </div>
+        <div class="step reveal" data-no="2" data-speed="-0.04" data-d="1">
+          <div class="step__ic">🧱</div>
+          <h3>Prep & protection</h3>
+          <p>Furniture sheeted, floors covered, edges beaded and surfaces PVA'd. Proper preparation is where a flawless finish really begins.</p>
+        </div>
+        <div class="step reveal" data-no="3" data-speed="0.04" data-d="1">
+          <div class="step__ic">🪮</div>
+          <h3>Skill & graft</h3>
+          <p>Multiple coats applied and trowelled to a mirror finish by time-served plasterers — never rushed, never subcontracted out.</p>
+        </div>
+        <div class="step reveal" data-no="4" data-speed="-0.04" data-d="2">
+          <div class="step__ic">✨</div>
+          <h3>Clean & sign-off</h3>
+          <p>We clear away every speck, walk you round the work and back it with our written workmanship guarantee. Job done, properly.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- AUTO-SCROLLING TESTIMONIALS CAROUSEL -->
-  <section class="carousel-section">
-    <div class="section-header container reveal">
-      <span class="eyebrow">What Customers Say</span>
-      <h2 class="section-title">Loved by<br ><em>Hundreds</em></h2>
-    </div>
-    <div class="carousel-track-wrap">
-      <div class="carousel-track">
-        <!-- set 1 -->
-        <div class="carousel-card"><div class="carousel-card__stars">★★★★★</div><p>"Absolutely stunning wedding cake — everyone kept asking about it all night. The design was exactly what we'd envisioned."</p><div class="carousel-card__author"><div class="carousel-card__avatar">S</div><div><strong>Sarah &amp; James</strong><span>Wedding Cake, Bradford</span></div></div></div>
-        <div class="carousel-card"><div class="carousel-card__stars">★★★★★</div><p>"Ordered a birthday cake for my daughter's 21st and it blew everyone away. Beautifully decorated and tasted even better than it looked!"</p><div class="carousel-card__author"><div class="carousel-card__avatar">E</div><div><strong>Emma T.</strong><span>Birthday Cake, Leeds</span></div></div></div>
-        <div class="carousel-card"><div class="carousel-card__stars">★★★★★</div><p>"The dessert spread for our baby shower was the highlight of the event. Completely bespoke, styled perfectly and tasted incredible."</p><div class="carousel-card__author"><div class="carousel-card__avatar">P</div><div><strong>Priya M.</strong><span>Baby Shower, West Yorkshire</span></div></div></div>
-        <div class="carousel-card"><div class="carousel-card__stars">★★★★★</div><p>"Our Eid cake box was stunning. The presentation was flawless, the cake was moist and the whole experience was seamless. Highly recommend!"</p><div class="carousel-card__author"><div class="carousel-card__avatar">F</div><div><strong>Fatima A.</strong><span>Eid Cake, Bradford</span></div></div></div>
-        <div class="carousel-card"><div class="carousel-card__stars">★★★★★</div><p>"I've ordered three times and every time they've outdone themselves. Unmatched attention to detail — my go-to for every celebration!"</p><div class="carousel-card__author"><div class="carousel-card__avatar">N</div><div><strong>Nadia K.</strong><span>Repeat Customer, Bradford</span></div></div></div>
-        <div class="carousel-card"><div class="carousel-card__stars">★★★★★</div><p>"The floral dessert table looked like something from a magazine. Colourful, fresh and absolutely delicious. Guests couldn't stop taking pictures!"</p><div class="carousel-card__author"><div class="carousel-card__avatar">R</div><div><strong>Rebecca &amp; Tom</strong><span>Anniversary, York</span></div></div></div>
-        <!-- set 2 (duplicate for seamless loop) -->
-        <div class="carousel-card"><div class="carousel-card__stars">★★★★★</div><p>"Absolutely stunning wedding cake — everyone kept asking about it all night. The design was exactly what we'd envisioned."</p><div class="carousel-card__author"><div class="carousel-card__avatar">S</div><div><strong>Sarah &amp; James</strong><span>Wedding Cake, Bradford</span></div></div></div>
-        <div class="carousel-card"><div class="carousel-card__stars">★★★★★</div><p>"Ordered a birthday cake for my daughter's 21st and it blew everyone away. Beautifully decorated and tasted even better than it looked!"</p><div class="carousel-card__author"><div class="carousel-card__avatar">E</div><div><strong>Emma T.</strong><span>Birthday Cake, Leeds</span></div></div></div>
-        <div class="carousel-card"><div class="carousel-card__stars">★★★★★</div><p>"The dessert spread for our baby shower was the highlight of the event. Completely bespoke, styled perfectly and tasted incredible."</p><div class="carousel-card__author"><div class="carousel-card__avatar">P</div><div><strong>Priya M.</strong><span>Baby Shower, West Yorkshire</span></div></div></div>
-        <div class="carousel-card"><div class="carousel-card__stars">★★★★★</div><p>"Our Eid cake box was stunning. The presentation was flawless, the cake was moist and the whole experience was seamless. Highly recommend!"</p><div class="carousel-card__author"><div class="carousel-card__avatar">F</div><div><strong>Fatima A.</strong><span>Eid Cake, Bradford</span></div></div></div>
-        <div class="carousel-card"><div class="carousel-card__stars">★★★★★</div><p>"I've ordered three times and every time they've outdone themselves. Unmatched attention to detail — my go-to for every celebration!"</p><div class="carousel-card__author"><div class="carousel-card__avatar">N</div><div><strong>Nadia K.</strong><span>Repeat Customer, Bradford</span></div></div></div>
-        <div class="carousel-card"><div class="carousel-card__stars">★★★★★</div><p>"The floral dessert table looked like something from a magazine. Colourful, fresh and absolutely delicious. Guests couldn't stop taking pictures!"</p><div class="carousel-card__author"><div class="carousel-card__avatar">R</div><div><strong>Rebecca &amp; Tom</strong><span>Anniversary, York</span></div></div></div>
-      </div>
-    </div>
-    <div class="container carousel-cta">
-      <a href="reviews.html" class="text-link">Read all reviews →</a>
-    </div>
-  </section>
-
-  <!-- WHY US -->
-  <section class="section why-us">
+  <!-- BEFORE / AFTER -->
+  <section class="section ba">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="eyebrow">Why Choose Us</span>
-        <h2 class="section-title">Bradford's Most<br ><em>Loved Cakery</em></h2>
-      </div>
-      <div class="why-grid">
-        <div class="why-item reveal">
-          <div class="why-item__icon">🎂</div>
-          <h3>1,000+ Cakes Created</h3>
-          <p>Over a thousand bespoke cakes delivered — each one made entirely from scratch, for a very happy customer.</p>
-        </div>
-        <div class="why-item reveal" data-delay="80">
-          <div class="why-item__icon">⭐</div>
-          <h3>5-Star Rated</h3>
-          <p>Our food hygiene rating and customer reviews speak for themselves. We take quality seriously — always.</p>
-        </div>
-        <div class="why-item reveal" data-delay="160">
-          <div class="why-item__icon">🛡️</div>
-          <h3>Fully Insured</h3>
-          <p>Order with complete peace of mind. We're fully insured so every celebration is covered from start to finish.</p>
-        </div>
-        <div class="why-item reveal" data-delay="240">
-          <div class="why-item__icon">💌</div>
-          <h3>Personal Service</h3>
-          <p>From your first message to delivery day, you deal directly with us — not a call centre. Every order gets personal attention.</p>
+      <div class="reveal"><span class="eyebrow">See the difference</span></div>
+      <h2 class="section__title reveal" data-d="1">Drag to reveal the transformation.</h2>
+      <div class="ba__wrap reveal" data-d="2">
+        <div class="ba__frame">
+          <div class="ba__pane ba__before">
+            <div class="tex" data-tex="coarse" style="position:absolute;inset:0"></div>
+            <h4>Before</h4>
+          </div>
+          <div class="ba__pane ba__after" id="ba-after">
+            <div class="tex" data-tex="fine" style="position:absolute;inset:0"></div>
+            <h4>After</h4>
+          </div>
+          <div class="ba__handle"><span class="ba__grip">⇄</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FLAVOURS TEASER -->
-  <section class="flavours-teaser">
-    <div class="container flavours-teaser__grid reveal">
-      <div class="flavours-teaser__text">
-        <span class="eyebrow">Taste the Difference</span>
-        <h2 class="section-title">Flavours as Beautiful<br ><em>as the Design</em></h2>
-        <p>From classic vanilla sponge to indulgent salted caramel and delicate rose &amp; lychee — every cake tastes as stunning as it looks. We use only premium ingredients, baked fresh to order.</p>
-
-      </div>
-      <div class="flavours-teaser__stack">
-        <img class="flavours-teaser__img flavours-teaser__img--back reveal" src="images/ornate-cakes.jpg" alt="Ornate cake" >
-        <img class="flavours-teaser__img flavours-teaser__img--front reveal" data-delay="150" src="images/eid-cake-box.jpg" alt="Cake close-up" >
-      </div>
-    </div>
-  </section>
-
-  <!-- QUOTE FEATURE -->
-  <section class="quote-feature">
+  <!-- WHY -->
+  <section class="section why">
     <div class="container">
-      <div class="quote-feature__inner reveal">
-        <span class="quote-feature__mark">"</span>
-        <blockquote>Genuinely the best cake I've ever eaten. The combination of flavours was incredible and the design was spot on. Artisan Cakery are in a league of their own in West Yorkshire.</blockquote>
-        <div class="quote-feature__author">— Zahra I., Bradford</div>
-        <div class="quote-feature__stars">★★★★★</div>
+      <div class="reveal"><span class="eyebrow">Why JPS</span></div>
+      <h2 class="section__title reveal" data-d="1">Craftsmen you can trust<br>in your home.</h2>
+      <div class="why__grid">
+        <div class="feat reveal"><div class="feat__ic">⏱</div><h3>On time, every time</h3><p>We turn up when we say we will and finish when we promise. Your time matters as much as ours.</p></div>
+        <div class="feat reveal" data-d="1"><div class="feat__ic">💷</div><h3>Fixed, fair quotes</h3><p>No hidden extras, no day-rate surprises. The price we quote is the price you pay.</p></div>
+        <div class="feat reveal" data-d="2"><div class="feat__ic">🧹</div><h3>Spotless finish</h3><p>Dust sheets down, everything cleared away. We leave your space ready to live in.</p></div>
+        <div class="feat reveal" data-d="3"><div class="feat__ic">👷</div><h3>Time-served team</h3><p>Fully qualified, CSCS-carded plasterers — never untrained labour or rushed subcontractors.</p></div>
+        <div class="feat reveal" data-d="4"><div class="feat__ic">🛡</div><h3>Insured & guaranteed</h3><p>£5m public liability and a written workmanship guarantee on every single job.</p></div>
+        <div class="feat reveal" data-d="5"><div class="feat__ic">📞</div><h3>Real people answer</h3><p>Talk to the plasterer doing your job, not a call centre. Friendly advice, always free.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- CTA BANNER -->
-  <section class="cta-banner">
-    <div class="cta-banner__bg" data-parallax>
-      <img src="images/dessert-spread-black-white.jpg" alt="Dessert spread background" >
-      <div class="cta-banner__overlay"></div>
-    </div>
-    <div class="container cta-banner__content reveal">
-      <h2>Diary Filling Fast<br ><em>Book Your Date Now</em></h2>
-      <p>We take limited bookings each month to ensure every cake gets the care it deserves.</p>
-      <a href="contact.html" class="btn btn--white">Reserve My Date</a>
+  <!-- COVERAGE -->
+  <section class="section cover">
+    <div class="container cover__grid">
+      <div class="reveal">
+        <span class="eyebrow">Where we work</span>
+        <h2 class="section__title">All across Yorkshire.</h2>
+        <p class="section__lead">Based in the heart of West Yorkshire and covering the whole county — from the Dales to the coast, towns to villages.</p>
+        <div class="cover__towns">
+          <span>Leeds</span><span>Bradford</span><span>Halifax</span><span>Huddersfield</span><span>Wakefield</span><span>Harrogate</span><span>York</span><span>Sheffield</span><span>Doncaster</span><span>Skipton</span><span>Keighley</span><span>Dewsbury</span>
+        </div>
+      </div>
+      <div class="cover__map reveal" data-d="1">
+        <svg viewBox="0 0 300 320" role="img" aria-label="Map of Yorkshire coverage">
+          <path class="region" d="M70,40 L150,25 L230,55 L255,120 L240,200 L200,275 L120,295 L55,250 L35,160 L45,90 Z"/>
+          <path class="region" d="M120,90 L185,100 L200,160 L160,210 L100,190 L95,130 Z" opacity=".5"/>
+          <circle class="pinpoint--pulse" cx="120" cy="150" r="4"/>
+          <circle class="pinpoint" cx="120" cy="150" r="5"/>
+          <circle class="pinpoint" cx="175" cy="110" r="4"/>
+          <circle class="pinpoint" cx="200" cy="185" r="4"/>
+          <circle class="pinpoint" cx="95" cy="200" r="4"/>
+          <text x="128" y="153" fill="#efe7d9" font-size="10" font-family="Inter">Bradford HQ</text>
+        </svg>
+      </div>
     </div>
   </section>
 
-  <!-- FOOTER (shared) -->
+  <!-- QUOTES -->
+  <section class="section quotes">
+    <div class="container">
+      <div class="reveal"><span class="eyebrow">Reviews</span></div>
+      <h2 class="section__title reveal" data-d="1">Yorkshire homeowners love us.</h2>
+    </div>
+    <div style="margin-top:3rem">
+      <div class="quotes__row quotes__row--a">
+        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Re-skimmed our whole living room and hallway — absolutely mint finish, you'd never know there were cracks. Spotless too."</p><div class="quote__by"><span class="quote__av">SH</span><div><strong>Sarah H.</strong><span>Leeds</span></div></div></div>
+        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Had the Venetian polished plaster done on a feature wall. Honestly stunning, looks like marble. Worth every penny."</p><div class="quote__by"><span class="quote__av">MD</span><div><strong>Mark D.</strong><span>Harrogate</span></div></div></div>
+        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Rendered the front of the house in K-Rend. Tidy, professional, on time. Neighbours have all asked who did it!"</p><div class="quote__by"><span class="quote__av">PA</span><div><strong>Priya A.</strong><span>Bradford</span></div></div></div>
+        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Quick, clean and fairly priced. Skimmed two bedrooms in a day and left the place immaculate. Highly recommend."</p><div class="quote__by"><span class="quote__av">TG</span><div><strong>Tom G.</strong><span>Wakefield</span></div></div></div>
+        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Re-skimmed our whole living room and hallway — absolutely mint finish, you'd never know there were cracks. Spotless too."</p><div class="quote__by"><span class="quote__av">SH</span><div><strong>Sarah H.</strong><span>Leeds</span></div></div></div>
+        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Had the Venetian polished plaster done on a feature wall. Honestly stunning, looks like marble. Worth every penny."</p><div class="quote__by"><span class="quote__av">MD</span><div><strong>Mark D.</strong><span>Harrogate</span></div></div></div>
+      </div>
+      <div class="quotes__row quotes__row--b">
+        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Damp-proofed and tanked our cellar — completely dry now after years of trouble. Knew exactly what they were doing."</p><div class="quote__by"><span class="quote__av">JL</span><div><strong>James L.</strong><span>Huddersfield</span></div></div></div>
+        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Boarded and skimmed our loft conversion. Flawless ceilings, lovely lads, cleared up every day. Top job."</p><div class="quote__by"><span class="quote__av">EC</span><div><strong>Emma C.</strong><span>York</span></div></div></div>
+        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Fitted ornate coving and a ceiling rose in our Victorian terrace. Beautiful detail, real craftsmen."</p><div class="quote__by"><span class="quote__av">RB</span><div><strong>Rachel B.</strong><span>Halifax</span></div></div></div>
+        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Got three quotes — JPS were fair, friendly and the only ones who explained everything. Brilliant from start to finish."</p><div class="quote__by"><span class="quote__av">AK</span><div><strong>Adam K.</strong><span>Skipton</span></div></div></div>
+        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Damp-proofed and tanked our cellar — completely dry now after years of trouble. Knew exactly what they were doing."</p><div class="quote__by"><span class="quote__av">JL</span><div><strong>James L.</strong><span>Huddersfield</span></div></div></div>
+        <div class="quote"><div class="quote__stars">★★★★★</div><p>"Boarded and skimmed our loft conversion. Flawless ceilings, lovely lads, cleared up every day. Top job."</p><div class="quote__by"><span class="quote__av">EC</span><div><strong>Emma C.</strong><span>York</span></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta">
+    <div class="cta__bg"></div>
+    <div class="cta__inner container">
+      <span class="eyebrow reveal" style="justify-content:center">Ready when you are</span>
+      <h2 class="reveal" data-d="1">Let's get your walls<br>looking flawless.</h2>
+      <p class="reveal" data-d="2">Free, no-obligation quotes across Yorkshire. Tell us about your project and we'll get back to you within 48 hours.</p>
+      <div class="reveal" data-d="3" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+        <a href="contact.html" class="btn btn--primary btn--lg">Get My Free Quote →</a>
+        <a href="tel:01274000000" class="btn btn--ghost btn--lg">📞 01274 000 000</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer__top">
-      <div class="footer__brand">
-        <a href="index.html" class="nav__logo"><img src="images/logo.jpg" alt="Artisan Cakery" class="nav__logo-img"></a>
-        <p>Handcrafted cakes made with love.<br >Bradford, West Yorkshire.</p>
-        <a href="https://www.instagram.com/artisancakeryy/" target="_blank" rel="noopener" class="footer__insta">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
-          @artisancakeryy
+      <div class="footer__col footer__about">
+        <a href="index.html" class="brand" style="margin-bottom:1.2rem">
+          <span class="brand__mark">JPS</span>
+          <span class="brand__name">JPS <span>Plastering</span></span>
         </a>
+        <p>Master plasterers serving homes and businesses across Yorkshire since 2009. Flawless finishes, fair prices, fully guaranteed.</p>
       </div>
-      <div class="footer__nav">
-        <h4>Explore</h4>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="cakes.html">Our Cakes</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="reviews.html">Reviews</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
+      <div class="footer__col">
+        <h4>Services</h4>
+        <a href="services.html">Plaster Skimming</a>
+        <a href="services.html">External Rendering</a>
+        <a href="services.html">Venetian Plaster</a>
+        <a href="services.html">Dry Lining</a>
+        <a href="services.html">Damp Proofing</a>
       </div>
-      <div class="footer__services">
-        <h4>We Make</h4>
-        <span>Wedding Cakes</span><span>Birthday Cakes</span><span>Anniversary Cakes</span><span>Baby Shower Cakes</span><span>Dessert Spreads</span>
+      <div class="footer__col">
+        <h4>Company</h4>
+        <a href="about.html">About Us</a>
+        <a href="gallery.html">Our Work</a>
+        <a href="contact.html">Free Quote</a>
+        <a href="services.html#faq">FAQs</a>
       </div>
-      <div class="footer__trust">
-        <div class="footer__badge">⭐ 5-Star Hygiene Rating</div>
-        <div class="footer__badge">🛡️ Fully Insured</div>
-        <div class="footer__badge">🎂 Made to Order</div>
+      <div class="footer__col">
+        <h4>Get in touch</h4>
+        <a href="tel:01274000000">01274 000 000</a>
+        <a href="mailto:hello@jpsplastering.co.uk">hello@jpsplastering.co.uk</a>
+        <p>Mon–Sat, 7am–6pm</p>
+        <p>Bradford, West Yorkshire</p>
       </div>
     </div>
-    <div class="footer__bottom container">
-      <p>&copy; 2026 Artisan Cakery, Bradford. All rights reserved.</p>
-      <p><a href="https://www.instagram.com/artisancakeryy/" target="_blank" rel="noopener">Follow us on Instagram</a></p>
+    <div class="container footer__bottom">
+      <span>© <span data-year></span> JPS Plastering. All rights reserved.</span>
+      <span>Fully insured · £5m public liability · Workmanship guaranteed</span>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="intro.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

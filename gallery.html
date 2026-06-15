@@ -1,338 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" >
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-  <title>Gallery | Artisan Cakery, Bradford</title>
-  <meta name="description" content="Browse our portfolio of bespoke wedding cakes, occasion cakes and dessert spreads handcrafted in Bradford, West Yorkshire." >
-  <link rel="preconnect" href="https://fonts.googleapis.com" >
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin >
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" >
-  <link rel="stylesheet" href="styles.css" >
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Work | JPS Plastering Yorkshire</title>
+  <meta name="description" content="A gallery of recent plastering, rendering and Venetian polished plaster projects completed across Yorkshire by JPS Plastering.">
+  <meta name="theme-color" content="#0e0c0b">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body data-page="gallery">
+  <div class="progress"><div class="progress__bar" id="progress"></div></div>
+  <canvas id="dust"></canvas>
+  <svg class="grain" xmlns="http://www.w3.org/2000/svg"><filter id="grain-f"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3"/></filter><rect width="100%" height="100%" filter="url(#grain-f)"/></svg>
 
-
-  <header class="nav nav--solid" id="nav">
+  <header class="nav scrolled" id="nav">
     <div class="nav__inner container">
-      <a href="index.html" class="nav__logo"><img src="images/logo.jpg" alt="Artisan Cakery" class="nav__logo-img"></a>
-      <nav class="nav__links" aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="cakes.html">Our Cakes</a>
-        <a href="gallery.html" class="is-active">Gallery</a>
-        <a href="reviews.html">Reviews</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html" class="btn btn--nav">Order Now</a>
+      <a href="index.html" class="brand"><span class="brand__mark">JPS</span><span><span class="brand__name">JPS <span>Plastering</span></span><span class="brand__tag">Yorkshire · Est. 2009</span></span></a>
+      <nav class="nav__links">
+        <a href="index.html">Home</a><a href="services.html">Services</a><a href="gallery.html" class="active">Our Work</a><a href="about.html">About</a><a href="contact.html" class="btn btn--nav">Free Quote</a>
       </nav>
-      <button type="button" class="nav__burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
-    <nav class="nav__mobile" aria-label="Mobile navigation">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="cakes.html">Our Cakes</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="reviews.html">Reviews</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Order Now ✦</a>
-    </nav>
   </header>
+  <nav class="mobile-nav" id="mobile-nav"><a href="index.html">Home</a><a href="services.html">Services</a><a href="gallery.html">Our Work</a><a href="about.html">About</a><a href="contact.html">Free Quote ✦</a></nav>
 
-  <!-- PAGE HEADER -->
-  <section class="page-header">
-    <div class="page-header__bg" data-parallax>
-      <img src="images/dessert-spread-floral.jpg" alt="Colourful dessert spread" >
-      <div class="page-header__overlay"></div>
-    </div>
-    <div class="container page-header__content reveal">
-      <span class="eyebrow eyebrow--light">Our Portfolio</span>
-      <h1 class="page-header__title">A Taste of<br ><em>Our Work</em></h1>
-      <p>Every cake is completely one-of-a-kind. Tap any image to take a closer look.</p>
-    </div>
-    <nav class="breadcrumb container" aria-label="Breadcrumb"><a href="index.html">Home</a> <span>/</span> Gallery</nav>
-  </section>
-
-  <!-- FILTERS + GRID -->
-  <section class="section gallery-page">
+  <section class="page-head">
+    <div class="page-head__bg tex" data-tex="fine" data-speed="0.1"></div>
+    <div class="hero__vignette"></div>
     <div class="container">
-      <div class="filter-bar reveal">
-        <button type="button" class="filter-btn is-active" data-filter="all">All</button>
-        <button type="button" class="filter-btn" data-filter="wedding">Wedding</button>
-        <button type="button" class="filter-btn" data-filter="occasion">Occasion</button>
-        <button type="button" class="filter-btn" data-filter="dessert">Dessert Spreads</button>
-        <button type="button" class="filter-btn" data-filter="boxes">Cake Boxes</button>
-      </div>
+      <p class="crumbs reveal"><a href="index.html">Home</a> / Our Work</p>
+      <h1 class="reveal" data-d="1">Our Work</h1>
+      <p class="section__lead reveal" data-d="2">A selection of recent projects from across Yorkshire. Drag the slider on the homepage to see a true before &amp; after.</p>
+    </div>
+  </section>
 
-      <div class="masonry">
-
-        <!-- WEDDING -->
-        <figure class="masonry__item reveal" data-category="wedding">
-          <img src="images/wedding-cake-derie-hawa.jpg" alt="Tiered wedding cake with florals" >
-          <figcaption>Tiered Wedding Cake</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="wedding">
-          <img src="images/wedding-cake-ua.jpg" alt="Four-tier wedding cake" >
-          <figcaption>Grand Four-Tier Cake</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="wedding">
-          <img src="images/wedding-an-white.jpg" alt="Two-tier A&N wedding cake with white flowers" >
-          <figcaption>A &amp; N — Wedding Cake</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="wedding">
-          <img src="images/wedding-li-roses.jpg" alt="Two-tier L&I wedding cake with red roses" >
-          <figcaption>L &amp; I — Red Rose Wedding</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="wedding">
-          <img src="images/wedding-nikah-mubarak.jpg" alt="Nikah Mubarak two-tier cake with ruffles and flowers" >
-          <figcaption>Nikah Mubarak Celebration</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="wedding">
-          <img src="images/wedding-ts-venue.jpg" alt="Three-tier T&S wedding cake at venue" >
-          <figcaption>T &amp; S — Venue Wedding Cake</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="wedding">
-          <img src="images/wedding-ts-display.jpg" alt="Wedding cake display with T|S monogram" >
-          <figcaption>Wedding Cake Table Display</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="wedding">
-          <img src="images/wedding-an-monogram-white.jpg" alt="Two-tier A&N monogram wedding cake with white flowers" >
-          <figcaption>A &amp; N — Monogram Wedding Cake</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="wedding">
-          <img src="images/wedding-li-red-roses.jpg" alt="Two-tier L&I wedding cake with red roses" >
-          <figcaption>L &amp; I — Red Rose Wedding Cake</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="wedding">
-          <img src="images/wedding-nikah-ruffles.jpg" alt="Nikah Mubarak cake with gold Arabic lettering and ruffles" >
-          <figcaption>Nikah Mubarak — Gold &amp; Ruffles</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="wedding">
-          <img src="images/wedding-ts-chandelier.jpg" alt="Grand wedding cake display under chandelier" >
-          <figcaption>T &amp; S — Grand Venue Display</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="wedding">
-          <img src="images/wedding-ts-tiered-venue.jpg" alt="Three-tier T&S wedding cake at venue with arch backdrop" >
-          <figcaption>T &amp; S — Three-Tier Venue Cake</figcaption>
-        </figure>
-
-        <!-- OCCASION -->
-        <figure class="masonry__item reveal" data-category="occasion">
-          <img src="images/hero-floral-cakes.jpg" alt="Ornate floral birthday cake set with mini cakes" >
-          <figcaption>Floral Ornate Cake Collection</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="occasion">
-          <img src="images/occasion-berry-trio.jpg" alt="Three ornate cakes including berry and floral" >
-          <figcaption>Ornate Trio — Berry &amp; Florals</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="occasion">
-          <img src="images/occasion-novelty-display.jpg" alt="Novelty kids cakes and tiered pink bow cake" >
-          <figcaption>Novelty &amp; Kids Cake Display</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="occasion">
-          <img src="images/occasion-berry-fig-duo.jpg" alt="Two ornate birthday cakes with berries and figs" >
-          <figcaption>Berry &amp; Fig Birthday Duo</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="occasion">
-          <img src="images/occasion-fairy-butterfly.jpg" alt="Pink fairy and butterfly themed birthday cakes" >
-          <figcaption>Fairy &amp; Butterfly Birthday Cakes</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="occasion">
-          <img src="images/occasion-birthday-quartet.jpg" alt="Four ornate floral birthday cakes" >
-          <figcaption>Birthday Quartet — Floral Ornate</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="occasion">
-          <img src="images/occasion-peach-ornate.jpg" alt="Two peach ornate birthday cakes with flowers and berries" >
-          <figcaption>Peach Ornate Birthday Cakes</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="occasion">
-          <img src="images/occasion-40th-floral.jpg" alt="Happy 40th Sara ornate birthday cake with flowers" >
-          <figcaption>Happy 40th — Floral Celebration</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="occasion">
-          <img src="images/occasion-birthday-set.jpg" alt="Set of four ornate birthday cakes with flowers" >
-          <figcaption>Birthday Cake Collection</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="occasion">
-          <img src="images/occasion-vintage-ornate.jpg" alt="Two vintage ornate birthday cakes" >
-          <figcaption>Vintage Ornate Birthday Cakes</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="occasion">
-          <img src="images/occasion-berry-floral.jpg" alt="Birthday cakes with berries and flowers" >
-          <figcaption>Berry &amp; Floral Birthday Cakes</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="occasion">
-          <img src="images/occasion-berry-fig.jpg" alt="Rectangular birthday cakes with figs and berries" >
-          <figcaption>Fig &amp; Berry Birthday Cakes</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="occasion">
-          <img src="images/occasion-fairy-pink.jpg" alt="Pink fairy and butterfly themed birthday cakes" >
-          <figcaption>Fairy Garden Birthday Cakes</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="occasion">
-          <img src="images/occasion-novelty-kids.jpg" alt="Novelty kids birthday cakes including Cocomelon and Winnie the Pooh" >
-          <figcaption>Novelty &amp; Character Cakes</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="occasion">
-          <img src="images/ornate-cakes.jpg" alt="Ornate cakes with berries" >
-          <figcaption>Ornate Celebration Cakes</figcaption>
-        </figure>
-
-        <!-- DESSERT SPREADS -->
-        <figure class="masonry__item reveal" data-category="dessert">
-          <img src="images/dessert-baby-shower-wide.jpg" alt="Baby shower dessert table setup" >
-          <figcaption>Baby Shower Dessert Table</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="dessert">
-          <img src="images/dessert-baby-shower-close.jpg" alt="Baby shower dessert table close up" >
-          <figcaption>Baby Shower — Full Spread</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="dessert">
-          <img src="images/dessert-baby-blooms.jpg" alt="Baby Blooms cake with dessert table" >
-          <figcaption>Baby Blooms Celebration</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="dessert">
-          <img src="images/dessert-spread-pink.jpg" alt="Pink dessert table" >
-          <figcaption>Pink Dessert Spread</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="dessert">
-          <img src="images/dessert-spread-floral.jpg" alt="Colourful floral dessert spread" >
-          <figcaption>Floral Dessert Spread</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="dessert">
-          <img src="images/dessert-spread-black-white.jpg" alt="Candlelit dessert spread" >
-          <figcaption>Candlelit Dessert Spread</figcaption>
-        </figure>
-
-        <!-- CAKE BOXES -->
-        <figure class="masonry__item reveal" data-category="boxes">
-          <img src="images/boxes-mothers-day.jpg" alt="Mother's Day flower and cake boxes" >
-          <figcaption>Mother's Day Gift Boxes</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="boxes">
-          <img src="images/boxes-balloon-pink.jpg" alt="Pink balloon cake gift boxes" >
-          <figcaption>Balloon Gift Box Collection</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="boxes">
-          <img src="images/boxes-pink-bows.jpg" alt="Mini cake boxes with pink satin bows" >
-          <figcaption>Pink Bow Mini Cake Boxes</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="boxes">
-          <img src="images/boxes-pink-ribbon-table.jpg" alt="Table full of pink ribbon cake boxes" >
-          <figcaption>Pink Ribbon Favour Boxes</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="boxes">
-          <img src="images/boxes-pink-balloons-wide.jpg" alt="Pink balloon cake gift boxes with flowers" >
-          <figcaption>Balloon Flower Gift Boxes</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="boxes">
-          <img src="images/boxed-cupcakes.jpg" alt="Luxury boxed cupcakes" >
-          <figcaption>Luxury Boxed Cupcakes</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="boxes occasion">
-          <img src="images/eid-cake-box.jpg" alt="Eid celebration cake box" >
-          <figcaption>Celebration Gift Box</figcaption>
-        </figure>
-
-        <!-- NEW WEDDING -->
-        <figure class="masonry__item reveal" data-category="wedding">
-          <img src="images/wedding-an-monogram-white.jpg" alt="Two-tier A&N monogram wedding cake with white flowers" >
-          <figcaption>A &amp; N Monogram Wedding Cake</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="wedding">
-          <img src="images/wedding-li-red-roses.jpg" alt="Two-tier L&I wedding cake with red roses" >
-          <figcaption>L &amp; I Wedding Cake — Red Roses</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="wedding">
-          <img src="images/wedding-nikah-ruffles.jpg" alt="Nikah Mubarak ruffle wedding cake with florals" >
-          <figcaption>Nikah Mubarak Ruffle Cake</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="wedding">
-          <img src="images/wedding-ts-chandelier.jpg" alt="Grand wedding cake display under chandelier" >
-          <figcaption>Grand Wedding Display — T &amp; S</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="wedding">
-          <img src="images/wedding-ts-tiered-venue.jpg" alt="Five-tier T&S wedding cake at venue" >
-          <figcaption>Five-Tier Wedding Cake at Venue</figcaption>
-        </figure>
-
-        <!-- NEW OCCASION -->
-        <figure class="masonry__item reveal" data-category="occasion">
-          <img src="images/hero-floral-cakes.jpg" alt="40th birthday ornate floral cake with mini cakes" >
-          <figcaption>Happy 40th — Ornate Floral Display</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="occasion">
-          <img src="images/occasion-berry-trio.jpg" alt="Three birthday cakes including berry and floral" >
-          <figcaption>Birthday Cake Trio</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="occasion">
-          <img src="images/occasion-berry-fig-duo.jpg" alt="Two ornate berry and fig birthday cakes" >
-          <figcaption>Berry &amp; Fig Birthday Cakes</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="occasion">
-          <img src="images/occasion-fairy-butterfly.jpg" alt="Pink fairy and butterfly themed birthday cakes" >
-          <figcaption>Fairy &amp; Butterfly Birthday Cakes</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="occasion">
-          <img src="images/occasion-birthday-quartet.jpg" alt="Four ornate floral birthday cakes" >
-          <figcaption>Birthday Cake Quartet</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="occasion">
-          <img src="images/occasion-peach-ornate.jpg" alt="Two peach ornate birthday cakes with flowers and berries" >
-          <figcaption>Peach Ornate Birthday Cakes</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="occasion">
-          <img src="images/occasion-novelty-display.jpg" alt="Novelty kids cakes and tiered pink bow cake" >
-          <figcaption>Novelty &amp; Character Cake Display</figcaption>
-        </figure>
-
-        <!-- NEW BOXES -->
-        <figure class="masonry__item reveal" data-category="boxes">
-          <img src="images/boxes-pink-ribbon-table.jpg" alt="Table full of pink ribbon cake boxes" >
-          <figcaption>Pink Ribbon Cake Box Favours</figcaption>
-        </figure>
-        <figure class="masonry__item reveal" data-category="boxes">
-          <img src="images/boxes-pink-balloons-wide.jpg" alt="Pink balloon gift boxes display" >
-          <figcaption>Balloon Gift Box Display</figcaption>
-        </figure>
-
-      </div>
-
-      <div class="gallery-page__cta reveal">
-        <p>Want to see more of our latest creations?</p>
-        <a href="https://www.instagram.com/artisancakeryy/" target="_blank" rel="noopener" class="btn btn--insta">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
-          Follow @artisancakeryy
-        </a>
+  <!-- BEFORE/AFTER feature -->
+  <section class="section ba" style="padding-top:0">
+    <div class="container">
+      <div class="ba__wrap reveal">
+        <div class="ba__frame">
+          <div class="ba__pane ba__before"><div class="tex" data-tex="coarse" style="position:absolute;inset:0"></div><h4>Before</h4></div>
+          <div class="ba__pane ba__after"><div class="tex" data-tex="fine" style="position:absolute;inset:0"></div><h4>After</h4></div>
+          <div class="ba__handle"><span class="ba__grip">⇄</span></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- LIGHTBOX -->
-  <div class="lightbox" id="lightbox">
-    <button type="button" class="lightbox__close" aria-label="Close">&times;</button>
-    <button type="button" class="lightbox__nav lightbox__prev" aria-label="Previous">&#8249;</button>
-    <figure class="lightbox__figure">
-      <img src="images/wedding-cake-derie-hawa.jpg" alt="" id="lightbox-img" >
-      <figcaption id="lightbox-caption"></figcaption>
-    </figure>
-    <button type="button" class="lightbox__nav lightbox__next" aria-label="Next">&#8250;</button>
-  </div>
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="gal">
+        <div class="gal__item reveal"><div class="tex" data-tex="fine" style="--ar:4/5"></div><div class="gal__cap"><span>Skimming</span><strong>Living room re-skim — Leeds</strong></div></div>
+        <div class="gal__item reveal" data-d="1"><div class="tex" data-tex="coarse" style="--ar:4/3"></div><div class="gal__cap"><span>Rendering</span><strong>K-Rend façade — Bradford</strong></div></div>
+        <div class="gal__item reveal" data-d="2"><div class="tex" style="--ar:1/1"></div><div class="gal__cap"><span>Venetian</span><strong>Marble feature wall — Harrogate</strong></div></div>
+        <div class="gal__item reveal"><div class="tex" style="--ar:4/3"></div><div class="gal__cap"><span>Microcement</span><strong>Wet room walls — York</strong></div></div>
+        <div class="gal__item reveal" data-d="1"><div class="tex" data-tex="fine" style="--ar:4/5"></div><div class="gal__cap"><span>Ceilings</span><strong>Loft conversion — Huddersfield</strong></div></div>
+        <div class="gal__item reveal" data-d="2"><div class="tex" data-tex="coarse" style="--ar:1/1"></div><div class="gal__cap"><span>Damp Proofing</span><strong>Cellar tanking — Halifax</strong></div></div>
+        <div class="gal__item reveal"><div class="tex" data-tex="coarse" style="--ar:4/3"></div><div class="gal__cap"><span>Coving</span><strong>Victorian cornice — Saltaire</strong></div></div>
+        <div class="gal__item reveal" data-d="1"><div class="tex" style="--ar:4/5"></div><div class="gal__cap"><span>Skimming</span><strong>Full house — Wakefield</strong></div></div>
+        <div class="gal__item reveal" data-d="2"><div class="tex" data-tex="fine" style="--ar:4/3"></div><div class="gal__cap"><span>Dry Lining</span><strong>Extension — Skipton</strong></div></div>
+        <div class="gal__item reveal"><div class="tex" style="--ar:1/1"></div><div class="gal__cap"><span>Venetian</span><strong>Hallway panels — Ilkley</strong></div></div>
+        <div class="gal__item reveal" data-d="1"><div class="tex" data-tex="coarse" style="--ar:4/5"></div><div class="gal__cap"><span>External Render</span><strong>Bungalow — Keighley</strong></div></div>
+        <div class="gal__item reveal" data-d="2"><div class="tex" data-tex="fine" style="--ar:4/3"></div><div class="gal__cap"><span>Skimming</span><strong>Kitchen ceiling — Dewsbury</strong></div></div>
+      </div>
+    </div>
+  </section>
 
-  <!-- FOOTER -->
+  <section class="section cta">
+    <div class="cta__bg"></div>
+    <div class="cta__inner container">
+      <h2 class="reveal">Your project could be next.</h2>
+      <p class="reveal" data-d="1">Free quotes across Yorkshire. Let's talk about your walls.</p>
+      <div class="reveal" data-d="2"><a href="contact.html" class="btn btn--primary btn--lg">Get My Free Quote →</a></div>
+    </div>
+  </section>
+
   <footer class="footer">
     <div class="container footer__top">
-      <div class="footer__brand">
-        <a href="index.html" class="nav__logo"><img src="images/logo.jpg" alt="Artisan Cakery" class="nav__logo-img"></a>
-        <p>Handcrafted cakes made with love.<br >Bradford, West Yorkshire.</p>
-        <a href="https://www.instagram.com/artisancakeryy/" target="_blank" rel="noopener" class="footer__insta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg> @artisancakeryy</a>
-      </div>
-      <div class="footer__nav"><h4>Explore</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="cakes.html">Our Cakes</a><a href="gallery.html">Gallery</a><a href="reviews.html">Reviews</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></div>
-      <div class="footer__services"><h4>We Make</h4><span>Wedding Cakes</span><span>Birthday Cakes</span><span>Anniversary Cakes</span><span>Baby Shower Cakes</span><span>Dessert Spreads</span></div>
-      <div class="footer__trust"><div class="footer__badge">⭐ 5-Star Hygiene Rating</div><div class="footer__badge">🛡️ Fully Insured</div><div class="footer__badge">🎂 Made to Order</div></div>
+      <div class="footer__col footer__about"><a href="index.html" class="brand" style="margin-bottom:1.2rem"><span class="brand__mark">JPS</span><span class="brand__name">JPS <span>Plastering</span></span></a><p>Master plasterers serving Yorkshire since 2009.</p></div>
+      <div class="footer__col"><h4>Services</h4><a href="services.html">Skimming</a><a href="services.html">Rendering</a><a href="services.html">Venetian Plaster</a><a href="services.html">Dry Lining</a></div>
+      <div class="footer__col"><h4>Company</h4><a href="about.html">About Us</a><a href="gallery.html">Our Work</a><a href="contact.html">Free Quote</a></div>
+      <div class="footer__col"><h4>Get in touch</h4><a href="tel:01274000000">01274 000 000</a><a href="mailto:hello@jpsplastering.co.uk">hello@jpsplastering.co.uk</a><p>Bradford, West Yorkshire</p></div>
     </div>
-    <div class="footer__bottom container"><p>&copy; 2026 Artisan Cakery, Bradford. All rights reserved.</p><p><a href="https://www.instagram.com/artisancakeryy/" target="_blank" rel="noopener">Follow us on Instagram</a></p></div>
+    <div class="container footer__bottom"><span>© <span data-year></span> JPS Plastering. All rights reserved.</span><span>Fully insured · Workmanship guaranteed</span></div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

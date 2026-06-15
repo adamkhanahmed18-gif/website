@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services & Pricing | JPS Plastering Yorkshire</title>
+  <meta name="description" content="Plastering services across Yorkshire: skimming, rendering, Venetian polished plaster, dry lining, damp proofing and coving. Transparent pricing and free quotes.">
+  <meta name="theme-color" content="#0e0c0b">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="services">
+  <div class="progress"><div class="progress__bar" id="progress"></div></div>
+  <canvas id="dust"></canvas>
+  <svg class="grain" xmlns="http://www.w3.org/2000/svg"><filter id="grain-f"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3"/></filter><rect width="100%" height="100%" filter="url(#grain-f)"/></svg>
+
+  <header class="nav scrolled" id="nav">
+    <div class="nav__inner container">
+      <a href="index.html" class="brand"><span class="brand__mark">JPS</span><span><span class="brand__name">JPS <span>Plastering</span></span><span class="brand__tag">Yorkshire · Est. 2009</span></span></a>
+      <nav class="nav__links">
+        <a href="index.html">Home</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="gallery.html">Our Work</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="btn btn--nav">Free Quote</a>
+      </nav>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Home</a><a href="services.html">Services</a><a href="gallery.html">Our Work</a><a href="about.html">About</a><a href="contact.html">Free Quote ✦</a>
+  </nav>
+
+  <!-- PAGE HEAD -->
+  <section class="page-head">
+    <div class="page-head__bg tex" data-tex="coarse" data-speed="0.1"></div>
+    <div class="hero__vignette"></div>
+    <div class="container">
+      <p class="crumbs reveal"><a href="index.html">Home</a> / Services</p>
+      <h1 class="reveal" data-d="1">Services &amp; Pricing</h1>
+      <p class="section__lead reveal" data-d="2">Whatever the surface, we have a finish for it — delivered by time-served plasterers and backed by our workmanship guarantee.</p>
+    </div>
+  </section>
+
+  <!-- SERVICE BLOCKS -->
+  <section class="section" style="padding-top:0">
+    <div class="container">
+
+      <div class="split reveal" style="margin-bottom:5rem">
+        <div class="split__media"><div class="tex" data-tex="fine" style="position:absolute;inset:0" data-speed="0.05"></div></div>
+        <div>
+          <span class="eyebrow">01 — Skimming</span>
+          <h2>Plaster Skimming &amp; Re-skims</h2>
+          <p>The bread and butter of great interiors. We skim over tired, cracked or artexed walls and ceilings to leave a dead-flat, mirror-smooth surface ready for decoration.</p>
+          <div class="split__list">
+            <div><span class="ic">✓</span><p>Full re-skims and patch repairs</p></div>
+            <div><span class="ic">✓</span><p>Skimming over artex &amp; old plaster</p></div>
+            <div><span class="ic">✓</span><p>Ceilings, walls and reveals</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="split reveal" style="margin-bottom:5rem">
+        <div>
+          <span class="eyebrow">02 — Rendering</span>
+          <h2>Internal &amp; External Rendering</h2>
+          <p>Hard-wearing, weatherproof renders that protect your property and lift its kerb appeal — from traditional sand &amp; cement to modern through-coloured silicone systems.</p>
+          <div class="split__list">
+            <div><span class="ic">✓</span><p>K-Rend &amp; monocouche systems</p></div>
+            <div><span class="ic">✓</span><p>Pebbledash &amp; render repairs</p></div>
+            <div><span class="ic">✓</span><p>Bonding &amp; backing coats</p></div>
+          </div>
+        </div>
+        <div class="split__media"><div class="tex" data-tex="coarse" style="position:absolute;inset:0" data-speed="0.05"></div></div>
+      </div>
+
+      <div class="split reveal" style="margin-bottom:5rem">
+        <div class="split__media"><div class="tex" style="position:absolute;inset:0" data-speed="0.05"></div></div>
+        <div>
+          <span class="eyebrow">03 — Specialist</span>
+          <h2>Venetian &amp; Polished Plaster</h2>
+          <p>Bring genuine Italian luxury to feature walls and bathrooms. Marmorino, Marrakech and microcement finishes, hand-burnished and sealed for a deep, tactile lustre.</p>
+          <div class="split__list">
+            <div><span class="ic">✓</span><p>Marble-effect Venetian plaster</p></div>
+            <div><span class="ic">✓</span><p>Seamless microcement surfaces</p></div>
+            <div><span class="ic">✓</span><p>Bespoke colours &amp; sheens</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="split reveal">
+        <div>
+          <span class="eyebrow">04 — Structural</span>
+          <h2>Dry Lining, Damp Proofing &amp; Coving</h2>
+          <p>The full fit-out. Plasterboarding for new builds and conversions, tanking and damp remediation for healthy walls, plus traditional coving and ornate mouldings.</p>
+          <div class="split__list">
+            <div><span class="ic">✓</span><p>Plasterboarding &amp; tape-and-joint</p></div>
+            <div><span class="ic">✓</span><p>Cellar tanking &amp; damp courses</p></div>
+            <div><span class="ic">✓</span><p>Coving, cornice &amp; ceiling roses</p></div>
+          </div>
+        </div>
+        <div class="split__media"><div class="tex" data-tex="fine" style="position:absolute;inset:0" data-speed="0.05"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section" style="background:var(--char-2)">
+    <div class="container">
+      <div class="reveal" style="text-align:center"><span class="eyebrow" style="justify-content:center">Guide pricing</span></div>
+      <h2 class="section__title reveal" data-d="1" style="text-align:center">Honest, upfront prices.</h2>
+      <p class="section__lead reveal" data-d="2" style="text-align:center;margin-inline:auto">Every job is quoted individually after a free survey — but here's a guide to typical Yorkshire pricing to help you plan.</p>
+      <div class="price__grid">
+        <div class="plan reveal">
+          <h3>Skimming</h3>
+          <div class="plan__price">£180<span> / wall</span></div>
+          <ul>
+            <li>Single wall re-skim</li>
+            <li>Small ceilings from £200</li>
+            <li>Full rooms from £450</li>
+            <li>Includes prep &amp; PVA</li>
+          </ul>
+          <a href="contact.html" class="btn btn--ghost" style="width:100%;justify-content:center">Get exact quote</a>
+        </div>
+        <div class="plan plan--feat reveal" data-d="1">
+          <span class="plan__badge">Most popular</span>
+          <h3>Full Room</h3>
+          <div class="plan__price">£650<span> typical</span></div>
+          <ul>
+            <li>Walls &amp; ceiling skimmed</li>
+            <li>All cracks &amp; holes made good</li>
+            <li>Beading &amp; corners</li>
+            <li>Tidy clean-up included</li>
+            <li>Workmanship guarantee</li>
+          </ul>
+          <a href="contact.html" class="btn btn--primary" style="width:100%;justify-content:center">Get exact quote</a>
+        </div>
+        <div class="plan reveal" data-d="2">
+          <h3>Rendering</h3>
+          <div class="plan__price">£45<span> / m²</span></div>
+          <ul>
+            <li>External silicone render</li>
+            <li>Sand &amp; cement from £35/m²</li>
+            <li>Scaffold arranged</li>
+            <li>Through-coloured options</li>
+          </ul>
+          <a href="contact.html" class="btn btn--ghost" style="width:100%;justify-content:center">Get exact quote</a>
+        </div>
+      </div>
+      <p class="form__note reveal" style="text-align:center;margin-top:1.5rem">Prices are indicative guides only and exclude VAT. Your written quote is fixed and includes everything.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="reveal"><span class="eyebrow">Good to know</span></div>
+      <h2 class="section__title reveal" data-d="1">Frequently asked questions.</h2>
+      <div class="acc reveal" data-d="2">
+        <div class="acc__item"><button class="acc__q">How long does plaster take to dry?<span class="pm">+</span></button><div class="acc__a"><p>Fresh plaster typically dries in 3–7 days depending on the number of coats, room temperature and ventilation. It goes from dark brown to a pale, even pink when ready. We'll advise you on the exact timing and when it's safe to decorate.</p></div></div>
+        <div class="acc__item"><button class="acc__q">Can you skim over artex?<span class="pm">+</span></button><div class="acc__a"><p>Yes — in most cases we can skim straight over artex to give you a smooth, modern finish without the mess of removal. If the artex is loose or contains certain materials we'll assess it during the survey and recommend the safest approach.</p></div></div>
+        <div class="acc__item"><button class="acc__q">Do you cover my area?<span class="pm">+</span></button><div class="acc__a"><p>We cover the whole of Yorkshire — West, North and South — including Leeds, Bradford, Halifax, Huddersfield, Harrogate, York, Wakefield and Sheffield, plus surrounding towns and villages. If you're nearby, just ask.</p></div></div>
+        <div class="acc__item"><button class="acc__q">How much mess does plastering make?<span class="pm">+</span></button><div class="acc__a"><p>Less than you'd think. We sheet and protect everything before we start, bag our waste, and clean up thoroughly at the end of every day. We pride ourselves on leaving your home tidier than we found it.</p></div></div>
+        <div class="acc__item"><button class="acc__q">Are you insured and guaranteed?<span class="pm">+</span></button><div class="acc__a"><p>Absolutely. We carry £5m public liability insurance and back every job with a written workmanship guarantee, so you're fully protected.</p></div></div>
+        <div class="acc__item"><button class="acc__q">How do I get a quote?<span class="pm">+</span></button><div class="acc__a"><p>Just fill in the quote form or give us a call. We'll arrange a free, no-obligation site survey and send you a clear, fixed written quote — usually within 48 hours.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta">
+    <div class="cta__bg"></div>
+    <div class="cta__inner container">
+      <h2 class="reveal">Ready for a flawless finish?</h2>
+      <p class="reveal" data-d="1">Free quotes across Yorkshire, usually back within 48 hours.</p>
+      <div class="reveal" data-d="2"><a href="contact.html" class="btn btn--primary btn--lg">Get My Free Quote →</a></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer__top">
+      <div class="footer__col footer__about">
+        <a href="index.html" class="brand" style="margin-bottom:1.2rem"><span class="brand__mark">JPS</span><span class="brand__name">JPS <span>Plastering</span></span></a>
+        <p>Master plasterers serving homes and businesses across Yorkshire since 2009.</p>
+      </div>
+      <div class="footer__col"><h4>Services</h4><a href="services.html">Skimming</a><a href="services.html">Rendering</a><a href="services.html">Venetian Plaster</a><a href="services.html">Dry Lining</a><a href="services.html">Damp Proofing</a></div>
+      <div class="footer__col"><h4>Company</h4><a href="about.html">About Us</a><a href="gallery.html">Our Work</a><a href="contact.html">Free Quote</a><a href="services.html#faq">FAQs</a></div>
+      <div class="footer__col"><h4>Get in touch</h4><a href="tel:01274000000">01274 000 000</a><a href="mailto:hello@jpsplastering.co.uk">hello@jpsplastering.co.uk</a><p>Mon–Sat, 7am–6pm</p></div>
+    </div>
+    <div class="container footer__bottom"><span>© <span data-year></span> JPS Plastering. All rights reserved.</span><span>Fully insured · Workmanship guaranteed</span></div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
