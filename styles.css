@@ -146,7 +146,6 @@ h3 { font-size: clamp(1.2rem, 2.2vw, 1.6rem); font-weight: 400; }
 
 .hero__content { padding: 8rem 0 5rem clamp(0rem, 8vw, 9rem); width: 100%; }
 .hero__content .label { margin-bottom: 1.6rem; display: block; }
-.hero__content .label::before { content: ""; display: inline-block; width: 28px; height: 1px; background: var(--amber); vertical-align: middle; margin-right: 0.9rem; }
 .hero h1 { max-width: 14ch; margin-bottom: 1.6rem; font-size: clamp(2.6rem, 6.5vw, 5.2rem); }
 .hero__sub { max-width: 46ch; color: var(--mid); margin-bottom: 2.4rem; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 0.9rem; }
@@ -186,7 +185,7 @@ body.is-ready .hero__scroll { animation-delay: 0.5s; }
 
 .section__head { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
 .section__head .label { display: block; margin-bottom: 1rem; }
-.section__head--row { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+.section__head--row { display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
 .section__head--center { text-align: center; max-width: 640px; margin-inline: auto; }
 .section__head--center .label { display: inline-block; }
 
