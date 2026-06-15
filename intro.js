@@ -148,7 +148,7 @@
 
       ctx.font = `500 ${Math.min(W * 0.018, 16 * dpr)}px Inter, sans-serif`;
       ctx.fillStyle = 'rgba(20,17,15,.6)';
-      ctx.fillText('YORKSHIRE  ·  EST. 2009', cx, cy + 104 * dpr);
+      ctx.fillText('LEEDS  ·  EST. 2015', cx, cy + 104 * dpr);
       ctx.restore();
     }
 
