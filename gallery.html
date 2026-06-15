@@ -7,7 +7,7 @@
   <meta name="description" content="Past projects by JPS Plastering — skimming, rendering, Venetian polished plaster, boarding and renovations across Leeds and West Yorkshire.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body data-page="gallery">
@@ -26,8 +26,8 @@
         <a href="services.html">Services</a>
         <a href="gallery.html" class="is-active">Our Work</a>
         <a href="reviews.html">Reviews</a>
-        <a href="contact.html" class="btn nav__cta">Get a Quote</a>
       </nav>
+      <a href="tel:+447557448059" class="nav__phone">07557 448059</a>
       <button type="button" class="nav__burger" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -35,12 +35,12 @@
   </header>
 
   <nav class="menu" aria-label="Mobile">
-    <a class="menu__link" href="index.html">Home <span class="n">01</span></a>
-    <a class="menu__link" href="about.html">About <span class="n">02</span></a>
-    <a class="menu__link" href="services.html">Services <span class="n">03</span></a>
-    <a class="menu__link" href="gallery.html">Our Work <span class="n">04</span></a>
-    <a class="menu__link" href="reviews.html">Reviews <span class="n">05</span></a>
-    <a class="menu__link" href="contact.html">Get a Quote <span class="n">06</span></a>
+    <a class="menu__link" href="index.html">Home</a>
+    <a class="menu__link" href="about.html">About</a>
+    <a class="menu__link" href="services.html">Services</a>
+    <a class="menu__link" href="gallery.html">Our Work</a>
+    <a class="menu__link" href="reviews.html">Reviews</a>
+    <a class="menu__link" href="contact.html">Get a quote</a>
     <div class="menu__foot">
       <a href="tel:+447557448059">07557 448059</a>
       <a href="mailto:info@jps-plastering.com">info@jps-plastering.com</a>
@@ -48,18 +48,19 @@
   </nav>
 
   <main>
-    <section class="page-hero hero--short">
-      <div class="page-hero__bg"><img src="images/venetian-stairwell.jpg" alt="" aria-hidden="true" fetchpriority="high"></div>
-      <div class="container">
-        <div class="crumbs"><a href="index.html">Home</a> <span>/</span> <span>Our Work</span></div>
-        <span class="label">Past projects</span>
-        <h1>The work speaks <em>for itself</em></h1>
-        <p class="lede">Real jobs, photographed on site — no staging, no stock photos. Tap any image for a closer look.</p>
-      </div>
-    </section>
 
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <div class="container">
+        <h1 class="rv">Our Work</h1>
+        <p class="rv" data-d="1">Real jobs, photographed on site. No staging, no stock photos. Click any image for a closer look.</p>
+      </div>
+    </div>
+
+    <!-- GALLERY -->
     <section class="section">
       <div class="container">
+
         <div class="filters rv" role="group" aria-label="Filter gallery">
           <button type="button" class="is-active" data-filter="all">All</button>
           <button type="button" data-filter="internal">Internal</button>
@@ -124,23 +125,27 @@
           </figure>
         </div>
 
-        <p style="margin-top:3rem; text-align:center; color:var(--mid); font-size:0.85rem;" class="rv">More recent work goes up on <a href="https://www.instagram.com/jpsplastering9/" target="_blank" rel="noopener" style="color:var(--amber); border-bottom:1px solid var(--faint);">Instagram @jpsplastering9</a> first.</p>
+        <p class="rv" style="margin-top: 2.5rem; text-align: center; font-size: 0.88rem;">
+          More recent work goes up on <a href="https://www.instagram.com/jpsplastering9/" target="_blank" rel="noopener" style="color: var(--text); font-weight: 500; border-bottom: 1px solid var(--line); padding-bottom: 0.1rem;">Instagram @jpsplastering9</a> first.
+        </p>
+
       </div>
     </section>
 
-    <section class="cta">
-      <div class="cta__bg"><img src="images/skim-window-room.jpg" alt="" loading="lazy" aria-hidden="true"></div>
+    <!-- CTA -->
+    <section class="cta-band">
       <div class="container">
-        <span class="label label--center rv">Free quotation</span>
-        <h2 class="rv" data-d="1">Want your walls <em>up here next?</em></h2>
-        <div class="cta__actions rv" data-d="2" style="margin-top:2.4rem;">
-          <a class="cta__phone" href="tel:+447557448059">07557 448059</a>
-          <a class="btn btn--fill" href="contact.html">Request a quote <span class="arr">&rarr;</span></a>
+        <h2 class="rv">Get a free quote</h2>
+        <a href="tel:+447557448059" class="cta-band__phone rv" data-d="1">07557 448059</a>
+        <div class="cta-band__actions rv" data-d="2">
+          <a href="contact.html" class="btn">Send a message &rarr;</a>
         </div>
       </div>
     </section>
+
   </main>
 
+  <!-- LIGHTBOX -->
   <div class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
     <button type="button" class="lb-close" aria-label="Close">&times;</button>
     <button type="button" class="lb-prev" aria-label="Previous">&larr;</button>
@@ -183,15 +188,15 @@
           <ul class="footer__contact">
             <li><a class="big" href="tel:+447557448059">07557 448059</a></li>
             <li><a href="mailto:info@jps-plastering.com">info@jps-plastering.com</a></li>
-            <li>Winker Green Lodge, Armley,<br>Leeds, West Yorkshire LS12 3DH</li>
+            <li>Winker Green Lodge, Eyres Mill Side,<br>Armley, Leeds LS12 3DH</li>
             <li><a href="https://www.instagram.com/jpsplastering9/" target="_blank" rel="noopener">Instagram @jpsplastering9</a></li>
             <li><a href="https://www.facebook.com/jpsplastering9/" target="_blank" rel="noopener">Facebook /jpsplastering9</a></li>
           </ul>
         </div>
       </div>
       <div class="footer__bottom">
-        <span>&copy; <span id="year">2026</span> JPS Plastering, Leeds. All rights reserved.</span>
-        <span>Free quotations &middot; Domestic &amp; commercial</span>
+        <span>&copy; <span id="year">2026</span> JPS Plastering, Leeds.</span>
+        <span>Free quotes &middot; Domestic, commercial &amp; industrial</span>
       </div>
     </div>
   </footer>

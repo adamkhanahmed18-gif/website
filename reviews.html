@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reviews | JPS Plastering, Leeds</title>
-  <meta name="description" content="Verified customer reviews of JPS Plastering — 5 stars on Rated People, 100% positive on MyBuilder. Leeds plasterer James.">
+  <meta name="description" content="Verified customer reviews of JPS Plastering — 5 stars on Rated People, 100% positive on MyBuilder. Leeds plasterer James. Call 07557 448059.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body data-page="reviews">
@@ -16,7 +16,7 @@
 
   <header class="nav">
     <div class="container--wide nav__inner">
-      <a href="index.html" class="nav__logo">
+      <a href="index.html" class="nav__logo" aria-label="JPS Plastering — home">
         <span class="l1">JPS</span>
         <span class="l2">Plastering</span>
       </a>
@@ -26,8 +26,8 @@
         <a href="services.html">Services</a>
         <a href="gallery.html">Our Work</a>
         <a href="reviews.html" class="is-active">Reviews</a>
-        <a href="contact.html" class="btn nav__cta">Get a Quote</a>
       </nav>
+      <a href="tel:+447557448059" class="nav__phone">07557 448059</a>
       <button type="button" class="nav__burger" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -35,12 +35,12 @@
   </header>
 
   <nav class="menu" aria-label="Mobile">
-    <a class="menu__link" href="index.html">Home <span class="n">01</span></a>
-    <a class="menu__link" href="about.html">About <span class="n">02</span></a>
-    <a class="menu__link" href="services.html">Services <span class="n">03</span></a>
-    <a class="menu__link" href="gallery.html">Our Work <span class="n">04</span></a>
-    <a class="menu__link" href="reviews.html">Reviews <span class="n">05</span></a>
-    <a class="menu__link" href="contact.html">Get a Quote <span class="n">06</span></a>
+    <a class="menu__link" href="index.html">Home</a>
+    <a class="menu__link" href="about.html">About</a>
+    <a class="menu__link" href="services.html">Services</a>
+    <a class="menu__link" href="gallery.html">Our Work</a>
+    <a class="menu__link" href="reviews.html">Reviews</a>
+    <a class="menu__link" href="contact.html">Get a quote</a>
     <div class="menu__foot">
       <a href="tel:+447557448059">07557 448059</a>
       <a href="mailto:info@jps-plastering.com">info@jps-plastering.com</a>
@@ -48,23 +48,23 @@
   </nav>
 
   <main>
-    <section class="page-hero hero--short">
-      <div class="page-hero__bg"><img src="images/hallway-finished.jpg" alt="" aria-hidden="true" fetchpriority="high"></div>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
       <div class="container">
-        <div class="crumbs"><a href="index.html">Home</a> / Reviews</div>
-        <span class="label">Verified reviews</span>
-        <h1>Straight from the customer.</h1>
-        <p class="lede">Every review below is taken from a public profile on Rated People, MyBuilder or Facebook — word for word, nothing edited.</p>
+        <h1 class="rv">Reviews</h1>
+        <p class="rv" data-d="1">Every review below is taken from a public profile on Rated People, MyBuilder or Facebook — word for word, nothing edited.</p>
       </div>
-    </section>
+    </div>
 
     <section class="section">
       <div class="container">
 
+        <!-- RATINGS SUMMARY -->
         <div class="ratings-row rv">
           <div>
             <div class="v">5.0 &#9733;</div>
-            <div class="k">Rated People &middot; 23 reviews</div>
+            <div class="k">Rated People</div>
           </div>
           <div>
             <div class="v">100%</div>
@@ -72,62 +72,85 @@
           </div>
           <div>
             <div class="v">100%</div>
-            <div class="k">Recommended &middot; Facebook (16 reviews)</div>
+            <div class="k">Recommended &middot; Facebook</div>
           </div>
         </div>
 
+        <!-- ALL REVIEWS -->
         <div class="review-grid">
           <article class="review-card rv">
             <div class="stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p>We used JPS Plastering (James) to have our refurb property&rsquo;s artex walls prepared &amp; skimmed over. James did an amazing job, the finished walls are faultless and look amazing now they&rsquo;re dry and painted. James was well priced, very polite, arrived on time every day, worked hard all day, and he even cleaned up before leaving. We will certainly be using James again on our next property refurb.</p>
-            <footer><span class="who">Gary &mdash; LS8</span><span class="date">Sep 2016</span><span class="src">Rated People</span></footer>
+            <footer>
+              <span class="who">Gary &mdash; LS8</span>
+              <span class="date">Sep 2016</span>
+              <span class="src">Rated People</span>
+            </footer>
           </article>
 
           <article class="review-card rv" data-d="1">
             <div class="stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p>I am really reluctant to give the generous feedback that James truly deserves! I have stacks of work for him and if people get to know just how good he is at his job he may become too busy and therefore not be able to carry on doing my work! He came on time, he was very competitively priced, nothing was too much trouble for him, he was clean &amp; tidy. Simply put, he is an excellent plasterer and I cannot fault his workmanship.</p>
-            <footer><span class="who">Tony &mdash; WF17</span><span class="date">Aug 2016</span><span class="src">Rated People</span></footer>
+            <footer>
+              <span class="who">Tony &mdash; WF17</span>
+              <span class="date">Aug 2016</span>
+              <span class="src">Rated People</span>
+            </footer>
           </article>
 
           <article class="review-card rv" data-d="2">
             <div class="stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p>I found James through Rated People and went with him based on his reviews and I am so glad we did. James did a fantastic job of boarding and skimming our bathroom. The finish is perfect and couldn&rsquo;t have asked for better really. He was fast to reply to emails and was very professional. James was very tidy too, no mess left. I would use again and would recommend to others.</p>
-            <footer><span class="who">Natalie &mdash; LS25</span><span class="date">Apr 2016</span><span class="src">Rated People</span></footer>
+            <footer>
+              <span class="who">Natalie &mdash; LS25</span>
+              <span class="date">Apr 2016</span>
+              <span class="src">Rated People</span>
+            </footer>
           </article>
 
           <article class="review-card rv">
             <div class="stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p>Great quality of work, all completed as required in a timely fashion. Highly recommend.</p>
-            <footer><span class="who">Anthony &mdash; LS14</span><span class="date">Mar 2016</span><span class="src">Rated People</span></footer>
+            <footer>
+              <span class="who">Anthony &mdash; LS14</span>
+              <span class="date">Mar 2016</span>
+              <span class="src">Rated People</span>
+            </footer>
           </article>
 
           <article class="review-card rv" data-d="1">
             <div class="stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p>James is a lovely guy and did a great job — we have brought him back for other works doing, highly recommended!!</p>
-            <footer><span class="who">Sarah &mdash; LS10</span><span class="date">Mar 2016</span><span class="src">Rated People</span></footer>
+            <footer>
+              <span class="who">Sarah &mdash; LS10</span>
+              <span class="date">Mar 2016</span>
+              <span class="src">Rated People</span>
+            </footer>
           </article>
         </div>
 
-        <p style="margin-top:2.4rem; color:var(--mid); font-size:0.82rem;" class="rv">
+        <p class="rv" style="margin-top: 2rem; font-size: 0.85rem;">
           Read and verify every review on
-          <a href="https://www.ratedpeople.com/profile/jps-plastering-leeds" target="_blank" rel="noopener" style="color:var(--white);">Rated People</a>,
-          <a href="https://www.mybuilder.com/profile/view/jps_plastering" target="_blank" rel="noopener" style="color:var(--white);">MyBuilder</a> and
-          <a href="https://www.facebook.com/jpsplastering9/" target="_blank" rel="noopener" style="color:var(--white);">Facebook</a>.
+          <a href="https://www.ratedpeople.com/profile/jps-plastering-leeds" target="_blank" rel="noopener" style="color: var(--text); font-weight: 500; border-bottom: 1px solid var(--line); padding-bottom: 0.1rem;">Rated People</a>,
+          <a href="https://www.mybuilder.com/profile/view/jps_plastering" target="_blank" rel="noopener" style="color: var(--text); font-weight: 500; border-bottom: 1px solid var(--line); padding-bottom: 0.1rem;">MyBuilder</a> and
+          <a href="https://www.facebook.com/jpsplastering9/" target="_blank" rel="noopener" style="color: var(--text); font-weight: 500; border-bottom: 1px solid var(--line); padding-bottom: 0.1rem;">Facebook</a>.
         </p>
+
       </div>
     </section>
 
-    <section class="cta">
-      <div class="cta__bg"><img src="images/skim-bedroom.jpg" alt="" loading="lazy" aria-hidden="true"></div>
+    <!-- CTA -->
+    <section class="cta-band">
       <div class="container">
-        <span class="label rv">Free quotation</span>
-        <h2 class="rv" data-d="1">Want your name on here next?</h2>
-        <div class="cta__actions rv" data-d="2" style="margin-top:2.2rem;">
-          <a class="cta__phone" href="tel:+447557448059">07557 448059</a>
-          <a class="btn btn--fill" href="contact.html">Get a quote &nbsp;&rarr;</a>
+        <h2 class="rv">Get a free quote</h2>
+        <a href="tel:+447557448059" class="cta-band__phone rv" data-d="1">07557 448059</a>
+        <div class="cta-band__actions rv" data-d="2">
+          <a href="https://wa.me/447557448059?text=Hi%20James%2C%20I%27d%20like%20to%20get%20a%20plastering%20quote%20please." target="_blank" rel="noopener" class="btn btn--outline">WhatsApp James</a>
+          <a href="contact.html" class="btn">Send a message &rarr;</a>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="footer">
@@ -138,11 +161,42 @@
           <div class="sub">Plastering</div>
           <p>Plastering, rendering and polished finishes — covering Leeds and surrounding areas for 18 years.</p>
         </div>
-        <div><h4>Pages</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="gallery.html">Our Work</a></li><li><a href="reviews.html">Reviews</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-        <div><h4>Services</h4><ul><li><a href="services.html#plastering">Internal Plastering</a></li><li><a href="services.html#boarding">Dry Lining &amp; Boarding</a></li><li><a href="services.html#rendering">External Rendering</a></li><li><a href="services.html#venetian">Venetian Plaster</a></li><li><a href="services.html#lime">Traditional Lime</a></li><li><a href="services.html#repairs">Repairs &amp; Small Works</a></li></ul></div>
-        <div><h4>Contact</h4><ul class="footer__contact"><li><a class="big" href="tel:+447557448059">07557 448059</a></li><li><a href="mailto:info@jps-plastering.com">info@jps-plastering.com</a></li><li>Winker Green Lodge, Armley, Leeds LS12 3DH</li><li><a href="https://www.instagram.com/jpsplastering9/" target="_blank" rel="noopener">Instagram @jpsplastering9</a></li><li><a href="https://www.facebook.com/jpsplastering9/" target="_blank" rel="noopener">Facebook /jpsplastering9</a></li></ul></div>
+        <div>
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="gallery.html">Our Work</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html#plastering">Internal Plastering</a></li>
+            <li><a href="services.html#boarding">Dry Lining &amp; Boarding</a></li>
+            <li><a href="services.html#rendering">External Rendering</a></li>
+            <li><a href="services.html#venetian">Venetian Plaster</a></li>
+            <li><a href="services.html#lime">Traditional Lime</a></li>
+            <li><a href="services.html#repairs">Repairs &amp; Small Works</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul class="footer__contact">
+            <li><a class="big" href="tel:+447557448059">07557 448059</a></li>
+            <li><a href="mailto:info@jps-plastering.com">info@jps-plastering.com</a></li>
+            <li>Winker Green Lodge, Eyres Mill Side,<br>Armley, Leeds LS12 3DH</li>
+            <li><a href="https://www.instagram.com/jpsplastering9/" target="_blank" rel="noopener">Instagram @jpsplastering9</a></li>
+            <li><a href="https://www.facebook.com/jpsplastering9/" target="_blank" rel="noopener">Facebook /jpsplastering9</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="footer__bottom"><span>&copy; <span id="year">2026</span> JPS Plastering, Leeds.</span><span>Free quotes &middot; Domestic &amp; commercial</span></div>
+      <div class="footer__bottom">
+        <span>&copy; <span id="year">2026</span> JPS Plastering, Leeds.</span>
+        <span>Free quotes &middot; Domestic, commercial &amp; industrial</span>
+      </div>
     </div>
   </footer>
 

@@ -120,7 +120,7 @@
     counters.forEach(function (el) { cio.observe(el); });
   }
 
-  /* ---------- horizontal scroller: drag + progress ---------- */
+  /* ---------- horizontal scroller: drag ---------- */
   document.querySelectorAll(".scroller").forEach(function (sc) {
     var isDown = false, startX = 0, startLeft = 0, moved = false;
     sc.addEventListener("pointerdown", function (e) {
@@ -141,81 +141,7 @@
     sc.addEventListener("click", function (e) {
       if (moved) { e.preventDefault(); e.stopPropagation(); }
     }, true);
-
-    var bar = document.querySelector('.scroller-hint .bar i[data-for="' + (sc.id || "") + '"]');
-    if (bar) {
-      var upd = function () {
-        var max = sc.scrollWidth - sc.clientWidth;
-        bar.style.transform = "scaleX(" + (max > 0 ? sc.scrollLeft / max : 0) + ")";
-      };
-      sc.addEventListener("scroll", upd, { passive: true });
-      upd();
-    }
   });
-
-  /* ---------- services rows: floating image preview ---------- */
-  var thumb = document.querySelector(".svc-row__thumb");
-  if (thumb && matchMedia("(hover:hover) and (pointer:fine)").matches) {
-    var rows = document.querySelectorAll(".svc-row[data-img]");
-    var raf = null;
-    rows.forEach(function (row) {
-      row.addEventListener("mouseenter", function () {
-        thumb.src = row.getAttribute("data-img");
-        thumb.classList.add("is-on");
-      });
-      row.addEventListener("mouseleave", function () { thumb.classList.remove("is-on"); });
-      row.addEventListener("mousemove", function (e) {
-        if (raf) return;
-        raf = requestAnimationFrame(function () {
-          thumb.style.left = Math.min(e.clientX + 28, window.innerWidth - 310) + "px";
-          thumb.style.top = (e.clientY - 90) + "px";
-          raf = null;
-        });
-      });
-    });
-  }
-
-  /* ---------- quote slider ---------- */
-  var slider = document.querySelector(".quote-slider");
-  if (slider) {
-    var slides = slider.querySelectorAll(".quote-slide");
-    var dotsWrap = slider.querySelector(".quote-dots");
-    var idx = 0, timer = null;
-
-    slides.forEach(function (_, i) {
-      var d = document.createElement("i");
-      if (i === 0) d.classList.add("is-active");
-      d.addEventListener("click", function () { go(i, true); });
-      dotsWrap.appendChild(d);
-    });
-    var dots = dotsWrap.querySelectorAll("i");
-
-    function go(n, manual) {
-      slides[idx].classList.remove("is-active");
-      dots[idx].classList.remove("is-active");
-      idx = (n + slides.length) % slides.length;
-      slides[idx].classList.add("is-active");
-      dots[idx].classList.add("is-active");
-      if (manual) restart();
-    }
-    function restart() {
-      if (timer) clearInterval(timer);
-      if (!prefersReduced) timer = setInterval(function () { go(idx + 1); }, 6500);
-    }
-    slider.querySelector(".q-prev").addEventListener("click", function () { go(idx - 1, true); });
-    slider.querySelector(".q-next").addEventListener("click", function () { go(idx + 1, true); });
-    slider.addEventListener("mouseenter", function () { if (timer) clearInterval(timer); });
-    slider.addEventListener("mouseleave", restart);
-
-    var tx = 0;
-    slider.addEventListener("touchstart", function (e) { tx = e.touches[0].clientX; }, { passive: true });
-    slider.addEventListener("touchend", function (e) {
-      var dx = e.changedTouches[0].clientX - tx;
-      if (Math.abs(dx) > 45) go(idx + (dx < 0 ? 1 : -1), true);
-    }, { passive: true });
-
-    restart();
-  }
 
   /* ---------- gallery: filters + lightbox ---------- */
   var grid = document.querySelector(".masonry");
