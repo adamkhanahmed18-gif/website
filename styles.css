@@ -12,7 +12,7 @@
   --acc-deep: #8f5836;
   --pad: clamp(1.25rem, 5vw, 4rem);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --serif: "Playfair Display", Georgia, "Times New Roman", serif;
   --body: "Inter", system-ui, sans-serif;
   --label: "Inter", system-ui, sans-serif;
 }
