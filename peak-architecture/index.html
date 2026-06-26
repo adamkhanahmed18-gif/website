@@ -3,1468 +3,318 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Peak Architecture Ltd - Planning and architectural design services in Burnley, Lancashire. Residential extensions, loft conversions, new builds, planning permission and building regulations.">
-  <title>Peak Architecture Ltd - Planning & Architectural Design, Burnley</title>
+  <title>Peak Architecture Ltd - Architectural Design Services, Burnley</title>
+  <meta name="description" content="Peak Architecture Ltd provides planning and architectural design services for residential and commercial projects across Lancashire. Extensions, loft conversions, new builds and more.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
-  <style>
-    /* ===== TOKENS ===== */
-    :root {
-      --bg:           #0D0D0B;
-      --bg-surface:   #131311;
-      --bg-card:      #181816;
-      --bg-card-h:    #1D1D1A;
-      --accent:       #B8955A;
-      --accent-dim:   rgba(184,149,90,0.12);
-      --accent-h:     #C8A560;
-      --text:         #F0EAE0;
-      --text-2:       #8A8480;
-      --text-3:       #5A5856;
-      --border:       rgba(255,255,255,0.07);
-      --border-a:     rgba(184,149,90,0.28);
-
-      --ff-disp:  'Cormorant Garamond', Georgia, serif;
-      --ff-body:  'DM Sans', system-ui, sans-serif;
-      --ff-mono:  'DM Mono', 'Courier New', monospace;
-
-      --nav-h:    72px;
-      --mw:       1400px;
-      --gut:      clamp(1.5rem, 5vw, 5rem);
-      --ease:     cubic-bezier(0.16,1,0.3,1);
-    }
-
-    /* ===== RESET ===== */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--ff-body);
-      font-size: 1rem;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    img   { display: block; max-width: 100%; }
-    a     { color: inherit; text-decoration: none; }
-    button, input, select, textarea { font-family: inherit; }
-
-    /* ===== GRAIN ===== */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      z-index: 9000;
-      pointer-events: none;
-      opacity: 0.035;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-size: 200px 200px;
-    }
-
-    /* ===== LAYOUT ===== */
-    .wrap {
-      width: 100%;
-      max-width: var(--mw);
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: var(--gut);
-      padding-right: var(--gut);
-    }
-
-    /* ===== SCROLL REVEALS ===== */
-    .r  { opacity:0; transform:translateY(28px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
-    .rl { opacity:0; transform:translateX(-36px); transition: opacity .85s var(--ease), transform .85s var(--ease); }
-    .rr { opacity:0; transform:translateX(36px);  transition: opacity .85s var(--ease), transform .85s var(--ease); }
-    .r.on, .rl.on, .rr.on { opacity:1; transform:none; }
-    .d1 { transition-delay:.08s; }
-    .d2 { transition-delay:.16s; }
-    .d3 { transition-delay:.24s; }
-    .d4 { transition-delay:.32s; }
-    .d5 { transition-delay:.40s; }
-    .d6 { transition-delay:.48s; }
-    @media (prefers-reduced-motion:reduce) {
-      .r,.rl,.rr { opacity:1; transform:none; transition:none; }
-    }
-
-    /* ===== NAV ===== */
-    #nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 800;
-      height: var(--nav-h);
-      display: flex;
-      align-items: center;
-      transition: background .4s var(--ease), border-color .4s var(--ease), backdrop-filter .4s;
-      border-bottom: 1px solid transparent;
-    }
-    #nav.scrolled {
-      background: rgba(13,13,11,.9);
-      border-bottom-color: var(--border);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-    }
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-    }
-    .nav-logo {
-      display: flex;
-      flex-direction: column;
-    }
-    .nav-logo-peak {
-      font-family: var(--ff-disp);
-      font-size: 1.25rem;
-      font-weight: 400;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      line-height: 1;
-      color: var(--text);
-    }
-    .nav-logo-sub {
-      font-family: var(--ff-mono);
-      font-size: .56rem;
-      font-weight: 300;
-      letter-spacing: .28em;
-      text-transform: uppercase;
-      color: var(--text-3);
-      margin-top: 3px;
-    }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 2.25rem;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: .75rem;
-      font-weight: 400;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--text-2);
-      transition: color .2s;
-    }
-    .nav-links a:hover { color: var(--text); }
-    .nav-cta {
-      font-family: var(--ff-mono);
-      font-size: .7rem;
-      font-weight: 400;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--bg);
-      background: var(--accent);
-      padding: .6rem 1.4rem;
-      border-radius: 2px;
-      transition: background .2s, transform .1s;
-      white-space: nowrap;
-    }
-    .nav-cta:hover { background: var(--accent-h); }
-    .nav-cta:active { transform: scale(.98) translateY(1px); }
-
-    /* hamburger */
-    .nav-ham {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 4px;
-      background: none;
-      border: none;
-    }
-    .nav-ham span {
-      display: block;
-      width: 24px;
-      height: 1px;
-      background: var(--text);
-      transition: all .3s;
-    }
-    .nav-ham.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-    .nav-ham.open span:nth-child(2) { opacity: 0; }
-    .nav-ham.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
-
-    /* mobile overlay menu */
-    .nav-mob {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 790;
-      background: var(--bg);
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1.75rem;
-    }
-    .nav-mob.open { display: flex; }
-    .nav-mob a {
-      font-family: var(--ff-disp);
-      font-size: clamp(2rem,6vw,3.5rem);
-      font-weight: 300;
-      color: var(--text);
-      transition: color .2s;
-    }
-    .nav-mob a:hover { color: var(--accent); }
-    .nav-mob .mob-cta {
-      font-family: var(--ff-mono);
-      font-size: .8rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--bg);
-      background: var(--accent);
-      padding: .8rem 2rem;
-      border-radius: 2px;
-      margin-top: .75rem;
-    }
-
-    /* ===== HERO ===== */
-    #hero {
-      position: relative;
-      min-height: 100dvh;
-      display: flex;
-      align-items: flex-end;
-      padding-bottom: clamp(4rem,8vh,7rem);
-      overflow: hidden;
-    }
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-    .hero-bg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 40%;
-    }
-    .hero-veil {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background: linear-gradient(
-        100deg,
-        rgba(13,13,11,.92) 0%,
-        rgba(13,13,11,.65) 55%,
-        rgba(13,13,11,.25) 100%
-      );
-    }
-    .hero-veil::after {
-      content:'';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 45%;
-      background: linear-gradient(to top, rgba(13,13,11,.75), transparent);
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 800px;
-    }
-    .hero-tag {
-      font-family: var(--ff-mono);
-      font-size: .65rem;
-      font-weight: 300;
-      letter-spacing: .28em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
-      display: block;
-    }
-    .hero-h1 {
-      font-family: var(--ff-disp);
-      font-size: clamp(3.5rem,8vw,7.5rem);
-      font-weight: 300;
-      line-height: 1.0;
-      letter-spacing: -.02em;
-      color: var(--text);
-      margin-bottom: 1.75rem;
-    }
-    .hero-h1 em {
-      font-style: italic;
-      font-weight: 300;
-    }
-    .hero-sub {
-      font-size: clamp(.9rem,1.4vw,1.05rem);
-      font-weight: 300;
-      color: rgba(240,234,224,.6);
-      line-height: 1.7;
-      max-width: 460px;
-      margin-bottom: 2.5rem;
-    }
-    .hero-btns {
-      display: flex;
-      align-items: center;
-      gap: 1.1rem;
-      flex-wrap: wrap;
-    }
-    .btn-p {
-      display: inline-block;
-      font-family: var(--ff-mono);
-      font-size: .7rem;
-      font-weight: 400;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--bg);
-      background: var(--accent);
-      padding: .85rem 1.75rem;
-      border-radius: 2px;
-      transition: background .2s, transform .1s;
-      white-space: nowrap;
-    }
-    .btn-p:hover { background: var(--accent-h); }
-    .btn-p:active { transform: scale(.98) translateY(1px); }
-    .btn-o {
-      display: inline-block;
-      font-family: var(--ff-mono);
-      font-size: .7rem;
-      font-weight: 400;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--text);
-      border: 1px solid rgba(255,255,255,.18);
-      padding: .85rem 1.75rem;
-      border-radius: 2px;
-      transition: border-color .2s, color .2s, transform .1s;
-      white-space: nowrap;
-    }
-    .btn-o:hover { border-color: var(--accent); color: var(--accent); }
-    .btn-o:active { transform: scale(.98) translateY(1px); }
-
-    /* ===== INTRO STATEMENT ===== */
-    #intro {
-      padding: clamp(5rem,10vh,9rem) 0;
-      background: var(--bg-surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .intro-text {
-      font-family: var(--ff-disp);
-      font-size: clamp(1.7rem,3.2vw,3rem);
-      font-weight: 300;
-      line-height: 1.35;
-      letter-spacing: -.01em;
-      color: var(--text);
-      max-width: 860px;
-    }
-    .intro-text .hi { color: var(--accent); font-style: italic; }
-    .intro-pills {
-      margin-top: 2.75rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      gap: 2.5rem;
-      flex-wrap: wrap;
-    }
-    .intro-pill-item {
-      display: flex;
-      flex-direction: column;
-      gap: .25rem;
-    }
-    .intro-pill-val {
-      font-family: var(--ff-mono);
-      font-size: 1.4rem;
-      font-weight: 300;
-      color: var(--accent);
-      line-height: 1;
-    }
-    .intro-pill-lbl {
-      font-size: .7rem;
-      font-weight: 400;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--text-3);
-    }
-    .intro-sep {
-      width: 1px;
-      height: 36px;
-      background: var(--border);
-    }
-
-    /* ===== SERVICES ===== */
-    #services {
-      padding: clamp(5rem,10vh,9rem) 0;
-      background: var(--bg);
-    }
-    .sec-eyebrow {
-      font-family: var(--ff-mono);
-      font-size: .62rem;
-      font-weight: 300;
-      letter-spacing: .28em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1rem;
-      display: block;
-    }
-    .sec-title {
-      font-family: var(--ff-disp);
-      font-size: clamp(2rem,4vw,3.5rem);
-      font-weight: 300;
-      line-height: 1.1;
-      letter-spacing: -.01em;
-      color: var(--text);
-    }
-    .sec-hd { margin-bottom: clamp(3rem,6vh,5rem); }
-    .services-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      border: 1px solid var(--border);
-    }
-    .svc {
-      background: var(--bg-card);
-      padding: clamp(2rem,3.5vw,3rem);
-      position: relative;
-      overflow: hidden;
-      transition: background .3s var(--ease);
-    }
-    .svc::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: var(--accent);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform .4s var(--ease);
-    }
-    .svc:hover { background: var(--bg-card-h); }
-    .svc:hover::before { transform: scaleX(1); }
-    .svc-num {
-      font-family: var(--ff-mono);
-      font-size: .6rem;
-      font-weight: 300;
-      letter-spacing: .22em;
-      color: var(--accent);
-      display: block;
-      margin-bottom: 2rem;
-    }
-    .svc-title {
-      font-size: clamp(1.05rem,1.8vw,1.2rem);
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: .85rem;
-      line-height: 1.3;
-    }
-    .svc-desc {
-      font-size: .875rem;
-      font-weight: 300;
-      color: var(--text-2);
-      line-height: 1.75;
-      padding-right: 2.5rem;
-    }
-    .svc-arr {
-      position: absolute;
-      bottom: clamp(1.5rem,3vw,2.5rem);
-      right: clamp(1.5rem,3vw,2.5rem);
-      width: 30px;
-      height: 30px;
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: border-color .3s, background .3s;
-    }
-    .svc:hover .svc-arr { border-color: var(--accent); background: var(--accent-dim); }
-    .svc-arr svg { width: 11px; height: 11px; stroke: var(--text-2); stroke-width: 1.5; fill: none; transition: stroke .3s; }
-    .svc:hover .svc-arr svg { stroke: var(--accent); }
-
-    /* ===== ABOUT ===== */
-    #about {
-      padding: clamp(5rem,10vh,9rem) 0;
-      background: var(--bg-surface);
-    }
-    .about-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(3rem,6vw,7rem);
-      align-items: center;
-    }
-    .about-text { max-width: 540px; }
-    .about-body {
-      font-size: clamp(.9rem,1.2vw,1rem);
-      font-weight: 300;
-      color: var(--text-2);
-      line-height: 1.85;
-      margin-top: 1.5rem;
-      margin-bottom: 2.5rem;
-    }
-    .about-deets {
-      border-top: 1px solid var(--border);
-      padding-top: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: .85rem;
-    }
-    .about-row {
-      display: flex;
-      align-items: baseline;
-      gap: 1.5rem;
-    }
-    .about-lbl {
-      font-family: var(--ff-mono);
-      font-size: .6rem;
-      font-weight: 300;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--text-3);
-      min-width: 90px;
-      flex-shrink: 0;
-    }
-    .about-val {
-      font-size: .875rem;
-      font-weight: 400;
-      color: var(--text);
-    }
-    .about-img-col { position: relative; }
-    .about-img-wrap {
-      position: relative;
-      aspect-ratio: 3/4;
-      overflow: hidden;
-    }
-    .about-img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .65s var(--ease);
-    }
-    .about-img-wrap:hover img { transform: scale(1.04); }
-    .about-img-wrap::after {
-      content: '';
-      position: absolute;
-      top: -1rem;
-      right: -1rem;
-      width: 55%;
-      height: 55%;
-      border-top: 1px solid var(--border-a);
-      border-right: 1px solid var(--border-a);
-      pointer-events: none;
-    }
-
-    /* ===== PROCESS ===== */
-    #process {
-      padding: clamp(5rem,10vh,9rem) 0;
-      background: var(--bg);
-      border-top: 1px solid var(--border);
-    }
-    .process-hd { max-width: 560px; margin-bottom: clamp(3.5rem,7vh,6rem); }
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-      border: 1px solid var(--border);
-    }
-    .step {
-      padding: clamp(1.75rem,3vw,2.75rem) clamp(1.25rem,2.5vw,2.25rem);
-      border-right: 1px solid var(--border);
-      transition: background .3s var(--ease);
-    }
-    .step:last-child { border-right: none; }
-    .step:hover { background: var(--bg-card); }
-    .step-n {
-      font-family: var(--ff-mono);
-      font-size: .58rem;
-      font-weight: 300;
-      letter-spacing: .25em;
-      color: var(--accent);
-      display: block;
-      margin-bottom: 2rem;
-    }
-    .step-title {
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: .85rem;
-    }
-    .step-desc {
-      font-size: .82rem;
-      font-weight: 300;
-      color: var(--text-2);
-      line-height: 1.75;
-    }
-
-    /* ===== PROJECTS ===== */
-    #projects {
-      padding: clamp(5rem,10vh,9rem) 0;
-      background: var(--bg-surface);
-    }
-    .projects-hd {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      margin-bottom: clamp(2.5rem,5vh,4rem);
-    }
-    .proj-link {
-      font-family: var(--ff-mono);
-      font-size: .65rem;
-      font-weight: 300;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--text-3);
-      padding-bottom: 2px;
-      border-bottom: 1px solid var(--border);
-      transition: color .2s, border-color .2s;
-      align-self: flex-end;
-      margin-bottom: .4rem;
-      white-space: nowrap;
-    }
-    .proj-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
-    /* 12-col asymmetric grid */
-    .proj-grid {
-      display: grid;
-      grid-template-columns: repeat(12,1fr);
-      gap: clamp(.6rem,1.2vw,1rem);
-    }
-    .proj:nth-child(1) { grid-column: 1/8; }
-    .proj:nth-child(2) { grid-column: 8/13; }
-    .proj:nth-child(3) { grid-column: 1/5; }
-    .proj:nth-child(4) { grid-column: 5/13; }
-
-    .proj {
-      position: relative;
-      overflow: hidden;
-      background: var(--bg-card);
-      cursor: pointer;
-    }
-    .proj:nth-child(1) .proj-img { aspect-ratio: 16/10; }
-    .proj:nth-child(2) .proj-img { aspect-ratio: 3/4; }
-    .proj:nth-child(3) .proj-img { aspect-ratio: 3/4; }
-    .proj:nth-child(4) .proj-img { aspect-ratio: 16/10; }
-    .proj-img { overflow: hidden; }
-    .proj-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform .65s var(--ease);
-    }
-    .proj:hover .proj-img img { transform: scale(1.06); }
-    .proj-info {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      padding: 1.5rem;
-      background: linear-gradient(to top, rgba(13,13,11,.92) 0%, transparent 100%);
-      transform: translateY(100%);
-      transition: transform .4s var(--ease);
-    }
-    .proj:hover .proj-info { transform: translateY(0); }
-    /* always show on touch / mobile */
-    .proj-type {
-      font-family: var(--ff-mono);
-      font-size: .58rem;
-      font-weight: 300;
-      letter-spacing: .25em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: .35rem;
-    }
-    .proj-name {
-      font-size: .9rem;
-      font-weight: 400;
-      color: var(--text);
-    }
-
-    /* ===== STATS ===== */
-    #stats {
-      padding: clamp(3.5rem,7vh,6rem) 0;
-      background: var(--bg);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-    }
-    .stat {
-      padding: 2rem clamp(1rem,2.5vw,2rem);
-      border-right: 1px solid var(--border);
-      text-align: center;
-    }
-    .stat:first-child { border-left: 1px solid var(--border); }
-    .stat-val {
-      font-family: var(--ff-disp);
-      font-size: clamp(2.25rem,4.5vw,3.75rem);
-      font-weight: 300;
-      color: var(--accent);
-      line-height: 1;
-      margin-bottom: .5rem;
-      letter-spacing: -.02em;
-    }
-    .stat-lbl {
-      font-family: var(--ff-mono);
-      font-size: .6rem;
-      font-weight: 300;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--text-3);
-    }
-
-    /* ===== CONTACT ===== */
-    #contact {
-      padding: clamp(5rem,11vh,10rem) 0;
-      background: var(--bg-surface);
-    }
-    .contact-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(3rem,6vw,8rem);
-      align-items: start;
-    }
-    .contact-title {
-      font-family: var(--ff-disp);
-      font-size: clamp(2rem,4.5vw,3.75rem);
-      font-weight: 300;
-      line-height: 1.1;
-      color: var(--text);
-      margin-bottom: 1.5rem;
-    }
-    .contact-title em { font-style: italic; color: var(--accent); }
-    .contact-body {
-      font-size: .9rem;
-      font-weight: 300;
-      color: var(--text-2);
-      line-height: 1.8;
-      margin-bottom: 2.5rem;
-    }
-    .contact-deets {
-      display: flex;
-      flex-direction: column;
-      gap: .9rem;
-    }
-    .c-row {
-      display: flex;
-      align-items: baseline;
-      gap: 1rem;
-    }
-    .c-lbl {
-      font-family: var(--ff-mono);
-      font-size: .58rem;
-      font-weight: 300;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--text-3);
-      min-width: 56px;
-      flex-shrink: 0;
-    }
-    .c-val {
-      font-size: .875rem;
-      font-weight: 400;
-      color: var(--text);
-      transition: color .2s;
-    }
-    a.c-val:hover { color: var(--accent); }
-
-    /* form */
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.15rem;
-    }
-    .fg {
-      display: flex;
-      flex-direction: column;
-      gap: .45rem;
-    }
-    .fg label {
-      font-family: var(--ff-mono);
-      font-size: .6rem;
-      font-weight: 300;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--text-2);
-    }
-    .fg input,
-    .fg select,
-    .fg textarea {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      color: var(--text);
-      font-size: .875rem;
-      font-weight: 300;
-      padding: .8rem 1rem;
-      border-radius: 2px;
-      outline: none;
-      transition: border-color .2s;
-      width: 100%;
-      -webkit-appearance: none;
-    }
-    .fg input::placeholder,
-    .fg textarea::placeholder { color: var(--text-3); }
-    .fg input:focus,
-    .fg select:focus,
-    .fg textarea:focus { border-color: var(--accent); }
-    .fg select { cursor: pointer; }
-    .fg select option { background: var(--bg-card); color: var(--text); }
-    .fg textarea { resize: vertical; min-height: 110px; line-height: 1.65; }
-    .form-2col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-    .form-submit {
-      font-family: var(--ff-mono);
-      font-size: .7rem;
-      font-weight: 400;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--bg);
-      background: var(--accent);
-      padding: .9rem 1.75rem;
-      border-radius: 2px;
-      border: none;
-      cursor: pointer;
-      transition: background .2s, transform .1s;
-      align-self: flex-start;
-    }
-    .form-submit:hover { background: var(--accent-h); }
-    .form-submit:active { transform: scale(.98) translateY(1px); }
-
-    /* ===== FOOTER ===== */
-    #footer {
-      background: var(--bg);
-      border-top: 1px solid var(--border);
-      padding: clamp(3rem,6vh,5rem) 0 clamp(1.5rem,3vh,2.5rem);
-    }
-    .footer-top {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1.5fr;
-      gap: clamp(2rem,4vw,4rem);
-      margin-bottom: clamp(2.5rem,5vh,4rem);
-      padding-bottom: clamp(2.5rem,5vh,4rem);
-      border-bottom: 1px solid var(--border);
-    }
-    .footer-logo {
-      font-family: var(--ff-disp);
-      font-size: 1.4rem;
-      font-weight: 300;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--text);
-      line-height: 1;
-    }
-    .footer-logo-sub {
-      font-family: var(--ff-mono);
-      font-size: .55rem;
-      letter-spacing: .28em;
-      text-transform: uppercase;
-      color: var(--text-3);
-      display: block;
-      margin-top: 4px;
-    }
-    .footer-tagline {
-      margin-top: 1.25rem;
-      font-size: .82rem;
-      font-weight: 300;
-      color: var(--text-2);
-      line-height: 1.75;
-      max-width: 240px;
-    }
-    .footer-col-h {
-      font-family: var(--ff-mono);
-      font-size: .58rem;
-      font-weight: 300;
-      letter-spacing: .24em;
-      text-transform: uppercase;
-      color: var(--text-3);
-      margin-bottom: 1.25rem;
-    }
-    .footer-links {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: .6rem;
-    }
-    .footer-links a {
-      font-size: .82rem;
-      font-weight: 300;
-      color: var(--text-2);
-      transition: color .2s;
-    }
-    .footer-links a:hover { color: var(--text); }
-    .footer-addr {
-      font-size: .82rem;
-      font-weight: 300;
-      color: var(--text-2);
-      line-height: 1.85;
-      font-style: normal;
-    }
-    .footer-clink {
-      display: block;
-      font-size: .82rem;
-      font-weight: 300;
-      color: var(--text-2);
-      margin-top: .6rem;
-      transition: color .2s;
-    }
-    .footer-clink:hover { color: var(--accent); }
-    .footer-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .footer-copy {
-      font-family: var(--ff-mono);
-      font-size: .58rem;
-      font-weight: 300;
-      letter-spacing: .1em;
-      color: var(--text-3);
-    }
-    .footer-soc {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-    }
-    .footer-soc a {
-      font-family: var(--ff-mono);
-      font-size: .58rem;
-      font-weight: 300;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      color: var(--text-3);
-      transition: color .2s;
-    }
-    .footer-soc a:hover { color: var(--accent); }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 1024px) {
-      .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
-    }
-    @media (max-width: 768px) {
-      :root { --gut: 1.25rem; }
-      .nav-links, .nav-cta { display: none; }
-      .nav-ham { display: flex; }
-      .services-grid { grid-template-columns: 1fr; }
-      .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-      .about-img-col { order: -1; }
-      .about-img-wrap { aspect-ratio: 4/3; }
-      .about-img-wrap::after { display: none; }
-      .process-grid { grid-template-columns: 1fr 1fr; }
-      .step { border-bottom: 1px solid var(--border); }
-      .step:nth-child(even) { border-right: none; }
-      .step:nth-last-child(-n+2) { border-bottom: none; }
-      .projects-hd { flex-direction: column; align-items: flex-start; gap: 1rem; }
-      .proj-grid { grid-template-columns: 1fr; gap: .75rem; }
-      .proj:nth-child(1),.proj:nth-child(2),.proj:nth-child(3),.proj:nth-child(4) {
-        grid-column: 1;
-      }
-      .proj:nth-child(1) .proj-img,.proj:nth-child(2) .proj-img,
-      .proj:nth-child(3) .proj-img,.proj:nth-child(4) .proj-img { aspect-ratio: 4/3; }
-      .proj-info { transform: translateY(0); }
-      .stats-row { grid-template-columns: repeat(2,1fr); }
-      .stat:nth-child(2) { border-right: none; }
-      .stat:nth-child(3) { border-top: 1px solid var(--border); border-left: 1px solid var(--border); }
-      .stat:nth-child(4) { border-top: 1px solid var(--border); border-right: none; }
-      .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
-      .form-2col { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
-      .footer-bottom { flex-direction: column; align-items: flex-start; }
-      .intro-sep { display: none; }
-      .intro-pills { gap: 1.5rem; }
-    }
-    @media (max-width: 540px) {
-      .process-grid { grid-template-columns: 1fr; }
-      .step { border-right: none; }
-      .step:nth-last-child(1) { border-bottom: none; }
-      .hero-btns { flex-direction: column; align-items: flex-start; }
-      .btn-p, .btn-o { width: 100%; text-align: center; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
   <!-- NAVIGATION -->
-  <nav id="nav">
-    <div class="wrap nav-inner">
-      <a href="#hero" class="nav-logo" aria-label="Peak Architecture Ltd home">
-        <span class="nav-logo-peak">Peak</span>
-        <span class="nav-logo-sub">Architecture Ltd</span>
-      </a>
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">PEAK <span>Architecture</span></a>
       <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
-      <a href="#contact" class="nav-cta">Get in Touch</a>
-      <button class="nav-ham" id="ham" aria-label="Open menu" aria-expanded="false">
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-primary">Get a Quote</a>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
-  <!-- MOBILE OVERLAY -->
-  <nav class="nav-mob" id="mob-menu" aria-hidden="true">
-    <a href="#services" class="mob-nav-link">Services</a>
-    <a href="#about"    class="mob-nav-link">About</a>
-    <a href="#projects" class="mob-nav-link">Projects</a>
-    <a href="#contact"  class="mob-cta">Get in Touch</a>
-  </nav>
+  <!-- MOBILE MENU -->
+  <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+    <div class="mobile-cta">
+      <a href="contact.html" class="btn btn-primary">Get a Quote</a>
+    </div>
+  </div>
 
-  <!-- HERO -->
-  <section id="hero" aria-label="Hero">
-    <div class="hero-bg">
+  <!-- HOME HERO -->
+  <section class="home-hero">
+    <div class="home-hero-content">
+      <p class="home-hero-kicker">Peak Architecture, Burnley</p>
+      <h1>Architecture<br>Built to Last</h1>
+      <p class="home-hero-sub">Planning and architectural design services for residential and commercial projects across Lancashire. From initial concept through to completion.</p>
+      <div class="home-hero-actions">
+        <a href="projects.html" class="btn btn-primary btn-arrow">View Our Work</a>
+        <a href="contact.html" class="btn btn-outline">Get a Quote</a>
+      </div>
+      <div class="home-hero-meta">
+        <div class="home-hero-stat">
+          <strong>80+</strong>
+          <span>Projects completed</span>
+        </div>
+        <div class="home-hero-stat">
+          <strong>5+</strong>
+          <span>Years experience</span>
+        </div>
+        <div class="home-hero-stat">
+          <strong>Free</strong>
+          <span>Initial consultation</span>
+        </div>
+      </div>
+    </div>
+    <div class="home-hero-image">
+      <!-- Replace src with an Instagram photo from @peakarchitectureltd -->
       <img
-        src="https://picsum.photos/seed/architecture-exterior-dramatic-facade/1920/1080"
-        alt="Contemporary architecture exterior"
-        fetchpriority="high"
+        src="https://picsum.photos/seed/modern-house-uk-exterior/1600/1100"
+        alt="A recently completed residential project by Peak Architecture Ltd"
+        loading="eager"
       >
     </div>
-    <div class="hero-veil" aria-hidden="true"></div>
-    <div class="wrap hero-content">
-      <span class="hero-tag">Planning &amp; Architectural Design, Burnley</span>
-      <h1 class="hero-h1">
-        Architecture<br>
-        That <em>Endures.</em>
-      </h1>
-      <p class="hero-sub">
-        Full-service planning and architectural design, from first brief to final inspection. Based in Burnley, Lancashire.
-      </p>
-      <div class="hero-btns">
-        <a href="#services" class="btn-p">View Services</a>
-        <a href="#contact"  class="btn-o">Get in Touch</a>
-      </div>
-    </div>
   </section>
 
-  <!-- INTRO STATEMENT -->
-  <section id="intro">
-    <div class="wrap">
-      <p class="intro-text r">
-        We take every project from <span class="hi">initial concept</span> through to completion - planning permission, building regulations, and construction oversight, handled with care and precision.
-      </p>
-      <div class="intro-pills">
-        <div class="intro-pill-item r d1">
-          <span class="intro-pill-val">Est.</span>
-          <span class="intro-pill-lbl">2020</span>
+  <!-- SERVICES STRIP -->
+  <section class="services-strip">
+    <div class="container">
+      <div class="strip-grid">
+        <div class="strip-item reveal">
+          <p class="strip-num">01</p>
+          <h3>Residential Design</h3>
+          <p>New builds, extensions, loft conversions, garage conversions and garden rooms designed to suit your lifestyle.</p>
         </div>
-        <div class="intro-sep" aria-hidden="true"></div>
-        <div class="intro-pill-item r d2">
-          <span class="intro-pill-val">100+</span>
-          <span class="intro-pill-lbl">Projects</span>
+        <div class="strip-item reveal reveal-d1">
+          <p class="strip-num">02</p>
+          <h3>Commercial Architecture</h3>
+          <p>Office refurbishments, retail units and mixed-use developments delivered with commercial understanding.</p>
         </div>
-        <div class="intro-sep" aria-hidden="true"></div>
-        <div class="intro-pill-item r d3">
-          <span class="intro-pill-val">2</span>
-          <span class="intro-pill-lbl">Sectors</span>
+        <div class="strip-item reveal reveal-d2">
+          <p class="strip-num">03</p>
+          <h3>Planning Applications</h3>
+          <p>We prepare and submit planning applications on your behalf, navigating the process from start to decision.</p>
         </div>
-        <div class="intro-sep" aria-hidden="true"></div>
-        <div class="intro-pill-item r d4">
-          <span class="intro-pill-val">A-Z</span>
-          <span class="intro-pill-lbl">Full Service</span>
+        <div class="strip-item reveal reveal-d3">
+          <p class="strip-num">04</p>
+          <h3>Building Regulations</h3>
+          <p>Full building regulations drawings and support through building control approval for your project.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="wrap">
-      <div class="sec-hd">
-        <span class="sec-eyebrow r">Services</span>
-        <h2 class="sec-title r d1">What We Offer</h2>
+  <!-- FEATURED WORK -->
+  <section class="featured-work section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="reveal">Featured Work</h2>
+        <a href="projects.html" class="btn btn-outline btn-arrow reveal reveal-d1">All Projects</a>
       </div>
-      <div class="services-grid">
-        <div class="svc r d1">
-          <span class="svc-num">01</span>
-          <h3 class="svc-title">Planning Permission</h3>
-          <p class="svc-desc">We prepare and submit precise planning drawings to achieve consent first time. From householder applications to larger commercial submissions.</p>
-          <div class="svc-arr" aria-hidden="true">
-            <svg viewBox="0 0 12 12"><line x1="2" y1="10" x2="10" y2="2"/><polyline points="4,2 10,2 10,8"/></svg>
-          </div>
-        </div>
-        <div class="svc r d2">
-          <span class="svc-num">02</span>
-          <h3 class="svc-title">Building Regulations</h3>
-          <p class="svc-desc">Detailed technical drawings that satisfy building control requirements, bringing projects to life safely and within the rules.</p>
-          <div class="svc-arr" aria-hidden="true">
-            <svg viewBox="0 0 12 12"><line x1="2" y1="10" x2="10" y2="2"/><polyline points="4,2 10,2 10,8"/></svg>
-          </div>
-        </div>
-        <div class="svc r d3">
-          <span class="svc-num">03</span>
-          <h3 class="svc-title">Residential Design</h3>
-          <p class="svc-desc">Extensions, loft conversions, garage conversions, and new build homes, tailored to how you live and built to last.</p>
-          <div class="svc-arr" aria-hidden="true">
-            <svg viewBox="0 0 12 12"><line x1="2" y1="10" x2="10" y2="2"/><polyline points="4,2 10,2 10,8"/></svg>
-          </div>
-        </div>
-        <div class="svc r d4">
-          <span class="svc-num">04</span>
-          <h3 class="svc-title">Commercial Design</h3>
-          <p class="svc-desc">Functional, considered spaces that serve your business from the first day of occupation. Retail, offices, and mixed-use developments.</p>
-          <div class="svc-arr" aria-hidden="true">
-            <svg viewBox="0 0 12 12"><line x1="2" y1="10" x2="10" y2="2"/><polyline points="4,2 10,2 10,8"/></svg>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="wrap">
-      <div class="about-inner">
-        <div class="about-text rl">
-          <h2 class="sec-title">Thoughtful design<br>at every scale.</h2>
-          <p class="about-body">
-            Founded in 2020 by Haseeb Aslam, Peak Architecture Ltd is a planning and architectural design practice based in Burnley, Lancashire. We work across the residential and commercial sectors, taking projects from the earliest sketch through to planning consent, building regulations approval, and on-site construction oversight.
-          </p>
-          <p class="about-body" style="margin-top: -1rem;">
-            We believe good architecture does not shout. It fits its site, serves its people, and improves with age. No project is too small - we bring the same focus and care to a single-storey extension as to a full commercial development.
-          </p>
-          <div class="about-deets">
-            <div class="about-row">
-              <span class="about-lbl">Director</span>
-              <span class="about-val">Haseeb Aslam</span>
-            </div>
-            <div class="about-row">
-              <span class="about-lbl">Founded</span>
-              <span class="about-val">2020</span>
-            </div>
-            <div class="about-row">
-              <span class="about-lbl">Location</span>
-              <span class="about-val">Burnley, Lancashire</span>
-            </div>
-            <div class="about-row">
-              <span class="about-lbl">Sectors</span>
-              <span class="about-val">Residential &amp; Commercial</span>
-            </div>
-          </div>
-        </div>
-        <div class="about-img-col rr">
-          <div class="about-img-wrap">
-            <img
-              src="https://picsum.photos/seed/architectural-building-facade-detail/800/1067"
-              alt="Architectural detail of a contemporary building"
-              loading="lazy"
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESS -->
-  <section id="process">
-    <div class="wrap">
-      <div class="process-hd">
-        <h2 class="sec-title r">From Brief<br>to Build.</h2>
-      </div>
-      <div class="process-grid">
-        <div class="step r d1">
-          <span class="step-n">01</span>
-          <h3 class="step-title">Initial Brief</h3>
-          <p class="step-desc">We meet to understand your site, your goals, and your budget. No obligation, no jargon - just an honest conversation about what is possible.</p>
-        </div>
-        <div class="step r d2">
-          <span class="step-n">02</span>
-          <h3 class="step-title">Concept Design</h3>
-          <p class="step-desc">We develop concept drawings and refine them with you, working through options until the design is right before any submissions are made.</p>
-        </div>
-        <div class="step r d3">
-          <span class="step-n">03</span>
-          <h3 class="step-title">Planning Stage</h3>
-          <p class="step-desc">We prepare and submit your planning application, handle queries from the local authority, and guide you through to a decision.</p>
-        </div>
-        <div class="step r d4">
-          <span class="step-n">04</span>
-          <h3 class="step-title">Construction</h3>
-          <p class="step-desc">We produce building regulations drawings, liaise with building control, and provide site oversight to ensure the build matches the design.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="wrap">
-      <div class="projects-hd">
-        <div>
-          <span class="sec-eyebrow r">Recent Work</span>
-          <h2 class="sec-title r d1">Selected Projects</h2>
-        </div>
-        <a href="#contact" class="proj-link r d2">Discuss Your Project</a>
-      </div>
       <div class="proj-grid">
-        <article class="proj r d1">
-          <div class="proj-img">
-            <img
-              src="https://picsum.photos/seed/modern-residential-extension-garden/900/562"
-              alt="Residential extension project, Ribble Valley"
-              loading="lazy"
-            >
+        <div class="proj-card proj-card--lg reveal">
+          <!-- Replace src with Instagram photo: large residential project -->
+          <img
+            src="https://picsum.photos/seed/two-storey-extension-burnley/900/1200"
+            alt="Two-storey rear extension, Burnley"
+            loading="lazy"
+          >
+          <div class="proj-card-overlay">
+            <p class="proj-tag">Residential</p>
+            <p class="proj-title">Two-Storey Extension, Burnley</p>
           </div>
-          <div class="proj-info">
-            <p class="proj-type">Residential Extension</p>
-            <p class="proj-name">Ribble Valley, Lancashire</p>
+        </div>
+
+        <div class="proj-card reveal reveal-d1">
+          <!-- Replace src with Instagram photo: loft conversion -->
+          <img
+            src="https://picsum.photos/seed/dormer-loft-conversion/900/600"
+            alt="Dormer loft conversion, Nelson"
+            loading="lazy"
+          >
+          <div class="proj-card-overlay">
+            <p class="proj-tag">Residential</p>
+            <p class="proj-title">Dormer Loft Conversion, Nelson</p>
           </div>
-        </article>
-        <article class="proj r d2">
-          <div class="proj-img">
-            <img
-              src="https://picsum.photos/seed/loft-conversion-interior-contemporary/600/800"
-              alt="Loft conversion project, Burnley"
-              loading="lazy"
-            >
+        </div>
+
+        <div class="proj-card reveal reveal-d2">
+          <!-- Replace src with Instagram photo: commercial project -->
+          <img
+            src="https://picsum.photos/seed/commercial-unit-accrington/900/600"
+            alt="Office refurbishment, Accrington"
+            loading="lazy"
+          >
+          <div class="proj-card-overlay">
+            <p class="proj-tag">Commercial</p>
+            <p class="proj-title">Office Refurbishment, Accrington</p>
           </div>
-          <div class="proj-info">
-            <p class="proj-type">Loft Conversion</p>
-            <p class="proj-name">Burnley, Lancashire</p>
-          </div>
-        </article>
-        <article class="proj r d3">
-          <div class="proj-img">
-            <img
-              src="https://picsum.photos/seed/new-build-house-construction/500/667"
-              alt="New build dwelling project, Clitheroe"
-              loading="lazy"
-            >
-          </div>
-          <div class="proj-info">
-            <p class="proj-type">New Build Dwelling</p>
-            <p class="proj-name">Clitheroe, Lancashire</p>
-          </div>
-        </article>
-        <article class="proj r d4">
-          <div class="proj-img">
-            <img
-              src="https://picsum.photos/seed/commercial-renovation-brick-interior/1000/625"
-              alt="Commercial renovation, Accrington"
-              loading="lazy"
-            >
-          </div>
-          <div class="proj-info">
-            <p class="proj-type">Commercial Renovation</p>
-            <p class="proj-name">Accrington, Lancashire</p>
-          </div>
-        </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT TEASER -->
+  <section class="about-teaser">
+    <div class="about-split">
+      <div class="about-split-image">
+        <!-- Replace src with Instagram photo: practice or project image -->
+        <img
+          src="https://picsum.photos/seed/lancashire-architecture-practice/900/800"
+          alt="Peak Architecture project in Lancashire"
+          loading="lazy"
+        >
+      </div>
+      <div class="about-split-content">
+        <p class="about-kicker reveal">Our Story</p>
+        <h2 class="reveal reveal-d1">A Lancashire Practice Built on Quality Design</h2>
+        <p class="reveal reveal-d2">Established in 2020, Peak Architecture Ltd is a Burnley-based practice committed to bringing thoughtful, well-executed design to homeowners and businesses across Lancashire. Led by director Haseeb Aslam, we take every project from initial concept through to planning approval and beyond.</p>
+        <a href="about.html" class="btn btn-primary btn-arrow reveal reveal-d3">About Us</a>
       </div>
     </div>
   </section>
 
   <!-- STATS -->
-  <section id="stats">
-    <div class="wrap">
-      <div class="stats-row">
-        <div class="stat r d1">
-          <div class="stat-val" data-count="5" data-suffix="+">0</div>
-          <div class="stat-lbl">Years Established</div>
+  <section class="stats section-sm">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal">
+          <div class="stat-num" data-count="80" data-suffix="+">80+</div>
+          <p class="stat-label">Completed projects across Lancashire</p>
         </div>
-        <div class="stat r d2">
-          <div class="stat-val" data-count="100" data-suffix="+">0</div>
-          <div class="stat-lbl">Projects Completed</div>
+        <div class="stat-item reveal reveal-d1">
+          <div class="stat-num" data-count="5" data-suffix="+">5+</div>
+          <p class="stat-label">Years in architectural practice</p>
         </div>
-        <div class="stat r d3">
-          <div class="stat-val" data-count="2" data-suffix="">0</div>
-          <div class="stat-lbl">Service Sectors</div>
+        <div class="stat-item reveal reveal-d2">
+          <div class="stat-num" data-count="100" data-suffix="%">100%</div>
+          <p class="stat-label">Planning applications managed in-house</p>
         </div>
-        <div class="stat r d4">
-          <div class="stat-val">1</div>
-          <div class="stat-lbl">Point of Contact</div>
+        <div class="stat-item reveal reveal-d3">
+          <p class="stat-num">Free</p>
+          <p class="stat-label">Initial consultation for every project</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="wrap">
-      <div class="contact-inner">
-        <div class="contact-left rl">
-          <h2 class="contact-title">Ready to start<br>your <em>project?</em></h2>
-          <p class="contact-body">
-            Tell us about your project and we will get back to you within one working day. Whether you are at the earliest planning stages or ready to move forward, we are happy to talk it through.
-          </p>
-          <div class="contact-deets">
-            <div class="c-row">
-              <span class="c-lbl">Phone</span>
-              <a href="tel:01282450085" class="c-val">01282 450085</a>
-            </div>
-            <div class="c-row">
-              <span class="c-lbl">Email</span>
-              <a href="mailto:info@peakarchitecture.co.uk" class="c-val">info@peakarchitecture.co.uk</a>
-            </div>
-            <div class="c-row">
-              <span class="c-lbl">Address</span>
-              <address class="c-val" style="font-style:normal;">22 Hebrew Road, Burnley, BB10 1NW</address>
-            </div>
-            <div class="c-row">
-              <span class="c-lbl">Hours</span>
-              <span class="c-val">Mon-Fri, 9am-5pm</span>
-            </div>
-          </div>
-        </div>
-        <form class="contact-form rr" name="enquiry" action="mailto:info@peakarchitecture.co.uk" method="post" enctype="text/plain">
-          <div class="form-2col">
-            <div class="fg">
-              <label for="f-name">Full Name</label>
-              <input id="f-name" name="name" type="text" placeholder="Your name" required>
-            </div>
-            <div class="fg">
-              <label for="f-email">Email Address</label>
-              <input id="f-email" name="email" type="email" placeholder="your@email.com" required>
-            </div>
-          </div>
-          <div class="form-2col">
-            <div class="fg">
-              <label for="f-phone">Phone Number</label>
-              <input id="f-phone" name="phone" type="tel" placeholder="07700 000000">
-            </div>
-            <div class="fg">
-              <label for="f-type">Project Type</label>
-              <select id="f-type" name="type">
-                <option value="">Select a type</option>
-                <option>House Extension</option>
-                <option>Loft Conversion</option>
-                <option>New Build</option>
-                <option>Commercial</option>
-                <option>Planning Advice</option>
-                <option>Other</option>
-              </select>
-            </div>
-          </div>
-          <div class="fg">
-            <label for="f-msg">Project Details</label>
-            <textarea id="f-msg" name="message" placeholder="Tell us about your project, location, and any specific requirements..."></textarea>
-          </div>
-          <button type="submit" class="form-submit">Send Enquiry</button>
-        </form>
+  <!-- CTA BLOCK -->
+  <section class="cta-block">
+    <div class="container">
+      <h2>Ready to Start Your Project?</h2>
+      <p>Whether you're planning a home extension, a loft conversion or a new build, we'd love to hear about your project. Get in touch for a free initial consultation.</p>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn btn-white">Get a Quote</a>
+        <a href="services.html" class="btn btn-ghost">Our Services</a>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer id="footer">
-    <div class="wrap">
-      <div class="footer-top">
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
         <div>
-          <div class="footer-logo">
-            Peak
-            <span class="footer-logo-sub">Architecture Ltd</span>
+          <a href="index.html" class="footer-logo">PEAK Architecture</a>
+          <p class="footer-desc">Planning and architectural design services for residential and commercial projects across Lancashire and beyond.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/peakarchitectureltd/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+            <a href="https://www.facebook.com/peakarchitectureltd/" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
           </div>
-          <p class="footer-tagline">Planning and architectural design services in Burnley, Lancashire. Residential and commercial projects taken from concept to completion.</p>
         </div>
-        <div>
-          <p class="footer-col-h">Navigate</p>
-          <ul class="footer-links">
-            <li><a href="#services">Services</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#process">Our Process</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html">Residential Design</a></li>
+            <li><a href="services.html">Loft Conversions</a></li>
+            <li><a href="services.html">Extensions</a></li>
+            <li><a href="services.html">Garage Conversions</a></li>
+            <li><a href="services.html">Garden Rooms</a></li>
+            <li><a href="services.html">Commercial Architecture</a></li>
           </ul>
         </div>
-        <div>
-          <p class="footer-col-h">Services</p>
-          <ul class="footer-links">
-            <li><a href="#services">Planning Permission</a></li>
-            <li><a href="#services">Building Regulations</a></li>
-            <li><a href="#services">Residential Design</a></li>
-            <li><a href="#services">Commercial Design</a></li>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
-        <div>
-          <p class="footer-col-h">Contact</p>
+        <div class="footer-col">
+          <h4>Contact</h4>
           <address class="footer-addr">
-            22 Hebrew Road<br>
-            Burnley<br>
-            BB10 1NW
+            <span>22 Hebrew Road<br>Burnley BB10 1NW</span>
+            <a href="tel:01282450085">01282 450085</a>
+            <a href="mailto:info@peakarchitecture.co.uk">info@peakarchitecture.co.uk</a>
           </address>
-          <a href="tel:01282450085"                  class="footer-clink">01282 450085</a>
-          <a href="mailto:info@peakarchitecture.co.uk" class="footer-clink">info@peakarchitecture.co.uk</a>
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copy">
-          &copy; 2025 Peak Architecture Ltd. Company No. 12644830. Registered in England &amp; Wales.
-        </p>
-        <div class="footer-soc">
-          <a href="https://www.instagram.com/peakarchitectureltd" target="_blank" rel="noopener noreferrer">Instagram</a>
-        </div>
+        <p>&copy; 2025 Peak Architecture Ltd. Company No. 12644830. All rights reserved.</p>
+        <a href="contact.html">Privacy Policy</a>
       </div>
     </div>
   </footer>
 
   <script>
-    // ── NAV: scroll state ──────────────────────────────────────────
-    const nav  = document.getElementById('nav');
-    const ham  = document.getElementById('ham');
-    const mob  = document.getElementById('mob-menu');
+    // Nav state via IntersectionObserver
+    const nav = document.getElementById('nav');
+    const sentinel = document.createElement('div');
+    sentinel.style.cssText = 'position:absolute;top:120px;left:0;width:1px;height:1px;pointer-events:none;visibility:hidden;';
+    document.body.insertAdjacentElement('afterbegin', sentinel);
+    new IntersectionObserver(([e]) => nav.classList.toggle('scrolled', !e.isIntersecting), { threshold: 0 }).observe(sentinel);
 
-    const setNav = () => {
-      if (window.scrollY > 40) nav.classList.add('scrolled');
-      else nav.classList.remove('scrolled');
-    };
-    setNav();
-    window.addEventListener('scroll', setNav, { passive: true });
-
-    // ── MOBILE MENU ────────────────────────────────────────────────
-    ham.addEventListener('click', () => {
-      const open = mob.classList.toggle('open');
-      ham.classList.toggle('open', open);
-      ham.setAttribute('aria-expanded', String(open));
+    // Mobile toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const mob = document.getElementById('nav-mobile');
+    toggle.addEventListener('click', () => {
+      const open = toggle.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+      mob.classList.toggle('open', open);
       mob.setAttribute('aria-hidden', String(!open));
       document.body.style.overflow = open ? 'hidden' : '';
     });
+    mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      mob.classList.remove('open');
+      mob.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }));
 
-    document.querySelectorAll('.mob-nav-link, .mob-cta').forEach(el => {
-      el.addEventListener('click', () => {
-        mob.classList.remove('open');
-        ham.classList.remove('open');
-        ham.setAttribute('aria-expanded', 'false');
-        mob.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-      });
-    });
+    // Scroll reveal
+    const revObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revObs.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
 
-    // ── SCROLL REVEALS (IntersectionObserver) ────────────────────
-    const revealEls = document.querySelectorAll('.r, .rl, .rr');
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('on');
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    revealEls.forEach(el => io.observe(el));
-
-    // ── COUNTER ANIMATION ─────────────────────────────────────────
-    const counterEls = document.querySelectorAll('[data-count]');
-    const countIO = new IntersectionObserver((entries) => {
+    // Stat counters
+    const cntObs = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (!e.isIntersecting) return;
-        const el     = e.target;
-        const target = parseInt(el.dataset.count, 10);
+        const el = e.target;
+        const target = parseInt(el.dataset.count);
+        if (!target) return;
         const suffix = el.dataset.suffix || '';
-        const dur    = 1400;
-        const start  = performance.now();
-        const tick   = (now) => {
+        const dur = 1600;
+        const start = performance.now();
+        const tick = (now) => {
           const p = Math.min((now - start) / dur, 1);
-          const ease = 1 - Math.pow(1 - p, 3);
-          el.textContent = Math.round(ease * target) + suffix;
+          el.textContent = Math.floor((1 - Math.pow(1 - p, 3)) * target) + suffix;
           if (p < 1) requestAnimationFrame(tick);
         };
         requestAnimationFrame(tick);
-        countIO.unobserve(el);
+        cntObs.unobserve(el);
       });
-    }, { threshold: 0.5 });
-    counterEls.forEach(el => countIO.observe(el));
-
-    // ── SMOOTH ANCHOR LINKS ───────────────────────────────────────
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const id = a.getAttribute('href').slice(1);
-        const target = document.getElementById(id);
-        if (!target) return;
-        e.preventDefault();
-        const offset = nav.offsetHeight;
-        const top    = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
-      });
-    });
+    }, { threshold: 0.6 });
+    document.querySelectorAll('[data-count]').forEach(el => cntObs.observe(el));
   </script>
-
 </body>
 </html>
