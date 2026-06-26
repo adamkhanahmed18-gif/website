@@ -1,7 +1,7 @@
 /* ================================================
    PEAK ARCHITECTURE LTD — Shared Stylesheet
-   Color scheme: Warm linen + charcoal + terracotta
-   Typography: Space Grotesk (display) + Outfit (body)
+   Color scheme: Cool slate + deep navy
+   Typography: Syne (display) + DM Sans (body)
    ================================================ */
 
 /* 1. RESET
@@ -18,20 +18,20 @@ input, textarea, select { font: inherit; border: none; outline: none; background
    ================================================ */
 :root {
   /* Colors */
-  --bg:           #F0EAE1;
-  --bg-alt:       #E3D8CC;
-  --bg-dark:      #1A1916;
-  --text:         #1A1916;
-  --text-muted:   #7A7060;
-  --accent:       #B04A1E;
-  --accent-mid:   #C4561F;
-  --accent-pale:  #F9EDE6;
-  --border:       #CFC8BC;
+  --bg:           #F7F8FA;
+  --bg-alt:       #ECEEF2;
+  --bg-dark:      #0D1117;
+  --text:         #0D1117;
+  --text-muted:   #5C6570;
+  --accent:       #1E3D6E;
+  --accent-mid:   #255088;
+  --accent-pale:  #EBF1FA;
+  --border:       #D0D5DD;
   --white:        #FFFFFF;
 
   /* Typography */
-  --ff-disp: 'Space Grotesk', system-ui, sans-serif;
-  --ff-body: 'Outfit', system-ui, sans-serif;
+  --ff-disp: 'Syne', system-ui, sans-serif;
+  --ff-body: 'DM Sans', system-ui, sans-serif;
 
   /* Type scale */
   --fs-xs:   0.75rem;
@@ -125,11 +125,11 @@ body {
 }
 
 .nav.scrolled {
-  background: rgba(240,234,225,0.97);
+  background: rgba(247,248,250,0.97);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom-color: var(--border);
-  box-shadow: 0 1px 20px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 20px rgba(0,0,0,0.06);
 }
 
 .nav-inner {
@@ -395,7 +395,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 65% 55% at 75% 40%, rgba(176,74,30,0.22) 0%, transparent 70%);
+  background: radial-gradient(ellipse 65% 55% at 75% 40%, rgba(30,61,110,0.30) 0%, transparent 70%);
   pointer-events: none;
 }
 
