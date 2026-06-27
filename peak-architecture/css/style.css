@@ -152,12 +152,26 @@ body {
   letter-spacing: -0.01em;
   color: var(--text);
   display: flex;
-  align-items: baseline;
-  gap: 0.3rem;
+  align-items: center;
+  gap: 0.55rem;
   flex-shrink: 0;
 }
 
-.nav-logo span {
+.nav-logo-img {
+  height: 34px;
+  width: 34px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+
+.nav-logo-text {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3rem;
+}
+
+.nav-logo-text span {
   font-weight: 400;
   font-size: 0.8rem;
   letter-spacing: 0.03em;
@@ -200,7 +214,7 @@ body {
 
 /* Dark nav (inner pages with dark hero) */
 [data-dark-nav] .nav:not(.scrolled) .nav-logo { color: var(--white); }
-[data-dark-nav] .nav:not(.scrolled) .nav-logo span { color: rgba(255,255,255,0.55); }
+[data-dark-nav] .nav:not(.scrolled) .nav-logo-text span { color: rgba(255,255,255,0.55); }
 [data-dark-nav] .nav:not(.scrolled) .nav-links a { color: rgba(255,255,255,0.65); }
 [data-dark-nav] .nav:not(.scrolled) .nav-links a:hover,
 [data-dark-nav] .nav:not(.scrolled) .nav-links a.active { color: var(--white); }
