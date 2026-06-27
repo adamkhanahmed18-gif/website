@@ -104,11 +104,11 @@ body {
 .btn-primary  { background: var(--accent); color: var(--white); border-color: var(--accent); }
 .btn-primary:hover { background: var(--accent-mid); border-color: var(--accent-mid); }
 
-.btn-outline  { background: transparent; color: var(--accent); border-color: var(--accent); }
-.btn-outline:hover { background: var(--accent); color: var(--white); }
+.btn-outline  { background: transparent; color: var(--accent2); border-color: var(--accent2); }
+.btn-outline:hover { background: var(--accent2); color: var(--white); }
 
-.btn-white    { background: var(--white); color: var(--accent); border-color: var(--white); }
-.btn-white:hover { background: var(--accent-pale); border-color: var(--accent-pale); }
+.btn-white    { background: var(--white); color: var(--accent2); border-color: var(--white); }
+.btn-white:hover { background: var(--accent2-pale); border-color: var(--accent2-pale); }
 
 .btn-ghost    { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.45); }
 .btn-ghost:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
@@ -185,7 +185,7 @@ body {
   position: absolute;
   bottom: -3px; left: 0; right: 0;
   height: 1px;
-  background: var(--accent);
+  background: var(--accent2);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.25s var(--ease-out);
@@ -387,13 +387,14 @@ body {
 /* 9. INNER PAGE HERO
    ================================================ */
 .page-hero {
-  background:
-    linear-gradient(rgba(13,17,23,0.74), rgba(13,17,23,0.82)),
-    url('../images/page-banner.jpg') center 32% / cover no-repeat,
-    var(--bg-dark);
-  padding-top: calc(var(--nav-h) + 5rem);
-  padding-bottom: 5rem;
   position: relative;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  background: var(--bg-dark) center / cover no-repeat;
+  background-image: url('../images/page-banner.jpg');
+  padding-top: calc(var(--nav-h) + 4rem);
+  padding-bottom: 4rem;
   overflow: hidden;
 }
 
@@ -401,9 +402,24 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 65% 55% at 75% 40%, rgba(30,61,110,0.35) 0%, transparent 70%);
+  background:
+    linear-gradient(rgba(13,17,23,0.68), rgba(13,17,23,0.80)),
+    radial-gradient(ellipse 65% 55% at 75% 40%, rgba(30,61,110,0.32) 0%, transparent 70%);
   pointer-events: none;
 }
+
+/* Per-page hero background images */
+.page-hero--about       { background-image: url('../images/banner-about.jpg'); }
+.page-hero--services    { background-image: url('../images/banner-services.jpg'); }
+.page-hero--projects    { background-image: url('../images/banner-projects.jpg'); }
+.page-hero--faq         { background-image: url('../images/banner-faq.jpg'); }
+.page-hero--contact     { background-image: url('../images/banner-contact.jpg'); }
+.page-hero--extensions  { background-image: url('../images/banner-extensions.jpg'); }
+.page-hero--loft        { background-image: url('../images/banner-loft.jpg'); }
+.page-hero--garage      { background-image: url('../images/banner-garage.jpg'); }
+.page-hero--newbuilds   { background-image: url('../images/banner-newbuilds.jpg'); }
+.page-hero--garden      { background-image: url('../images/banner-garden.jpg'); }
+.page-hero--commercial  { background-image: url('../images/banner-commercial.jpg'); }
 
 .page-hero .container { position: relative; z-index: 1; }
 
@@ -491,7 +507,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.85);
+  color: var(--accent2-mid);
   margin-bottom: 2rem;
 }
 
@@ -500,7 +516,7 @@ body {
   display: block;
   width: 28px;
   height: 1.5px;
-  background: var(--white);
+  background: var(--accent2-mid);
 }
 
 .home-hero h1 {
@@ -653,10 +669,10 @@ body {
 
 .proj-tag {
   font-size: var(--fs-xs);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.65);
+  color: var(--accent2-mid);
   margin-bottom: 0.35rem;
 }
 
@@ -758,7 +774,7 @@ body {
 
 /* CTA block */
 .cta-block {
-  background: var(--accent);
+  background: var(--accent2);
   padding-block: 7rem;
   text-align: center;
 }
@@ -920,7 +936,7 @@ body {
   font-size: 4.5rem;
   font-weight: 700;
   letter-spacing: -0.04em;
-  color: var(--border);
+  color: var(--accent2);
   line-height: 1;
   margin-bottom: 1.5rem;
 }
@@ -1134,7 +1150,7 @@ body {
   font-size: 4rem;
   font-weight: 700;
   letter-spacing: -0.04em;
-  color: rgba(255,255,255,0.08);
+  color: rgba(17,144,142,0.45);
   line-height: 1;
   margin-bottom: 1.5rem;
 }
@@ -1574,7 +1590,7 @@ body {
 .testi-initial {
   width: 38px;
   height: 38px;
-  background: var(--accent);
+  background: var(--accent2);
   color: var(--white);
   font-family: var(--ff-disp);
   font-weight: 700;
@@ -1974,6 +1990,13 @@ body {
 }
 
 .dropdown a.active { color: var(--accent2); }
+
+/* Keep dropdown links readable even on dark-nav (transparent) pages,
+   where nav links are otherwise forced to white */
+[data-dark-nav] .nav:not(.scrolled) .nav-links .dropdown a { color: var(--text-muted); }
+[data-dark-nav] .nav:not(.scrolled) .nav-links .dropdown a:hover { color: var(--accent); }
+[data-dark-nav] .nav:not(.scrolled) .nav-links .dropdown a.active { color: var(--accent2); }
+[data-dark-nav] .nav:not(.scrolled) .nav-links .dropdown a::after { display: none; }
 
 .dropdown .dropdown-divider {
   height: 1px;
