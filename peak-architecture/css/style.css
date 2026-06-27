@@ -1,6 +1,6 @@
 /* ================================================
    PEAK ARCHITECTURE LTD — Shared Stylesheet
-   Color scheme: Cool slate + deep navy
+   Color scheme: Cool slate + deep navy + teal accent
    Typography: Archivo (display) + Inter (body)
    ================================================ */
 
@@ -26,6 +26,9 @@ input, textarea, select { font: inherit; border: none; outline: none; background
   --accent:       #1E3D6E;
   --accent-mid:   #255088;
   --accent-pale:  #EBF1FA;
+  --accent2:      #0E7C7B;
+  --accent2-mid:  #11908E;
+  --accent2-pale: #E4F1F0;
   --border:       #D0D5DD;
   --white:        #FFFFFF;
 
@@ -404,10 +407,10 @@ body {
 .page-hero-kicker {
   font-family: var(--ff-disp);
   font-size: var(--fs-xs);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--accent-mid);
+  color: var(--accent2-mid);
   margin-bottom: 1.25rem;
 }
 
@@ -572,7 +575,7 @@ body {
 .strip-num {
   font-family: var(--ff-disp);
   font-size: var(--fs-xs);
-  color: var(--accent);
+  color: var(--accent2);
   font-weight: 600;
   letter-spacing: 0.1em;
   margin-bottom: 0.75rem;
@@ -697,7 +700,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent2);
   margin-bottom: 1.25rem;
 }
 
@@ -738,7 +741,7 @@ body {
   font-size: clamp(2.5rem, 4vw, 3.75rem);
   font-weight: 700;
   letter-spacing: -0.03em;
-  color: var(--accent);
+  color: var(--accent2);
   line-height: 1;
   margin-bottom: 0.6rem;
 }
@@ -839,7 +842,7 @@ body {
   position: absolute;
   bottom: -10px; right: -10px;
   width: 70px; height: 70px;
-  background: var(--accent);
+  background: var(--accent2);
 }
 
 .director-info h2 {
@@ -855,7 +858,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent2);
   margin-bottom: 1.5rem;
 }
 
@@ -965,7 +968,7 @@ body {
   top: 5px;
   transform: translateX(-4px);
   width: 9px; height: 9px;
-  background: var(--accent);
+  background: var(--accent2);
 }
 
 .tl-year {
@@ -974,7 +977,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent2);
   margin-bottom: 0.4rem;
 }
 
@@ -1028,9 +1031,9 @@ body {
 
 .svc-icon {
   width: 44px; height: 44px;
-  border: 1.5px solid var(--accent);
+  border: 1.5px solid var(--accent2);
   display: flex; align-items: center; justify-content: center;
-  color: var(--accent);
+  color: var(--accent2);
   flex-shrink: 0;
 }
 
@@ -1074,7 +1077,7 @@ body {
   left: 0; top: 50%;
   transform: translateY(-50%);
   width: 5px; height: 1px;
-  background: var(--accent);
+  background: var(--accent2);
 }
 
 /* Process */
@@ -1352,7 +1355,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent2);
   margin-bottom: 0.35rem;
 }
 
@@ -1532,7 +1535,7 @@ body {
 }
 
 .testi-stars {
-  color: var(--accent);
+  color: var(--accent2);
   font-size: 1rem;
   letter-spacing: 0.1em;
   margin-bottom: 1rem;
@@ -1637,8 +1640,8 @@ body {
 .coverage-note {
   margin-top: 1.25rem;
   padding: 1.25rem 1.5rem;
-  background: var(--bg-alt);
-  border-left: 3px solid var(--accent);
+  background: var(--accent2-pale);
+  border-left: 3px solid var(--accent2);
 }
 
 .coverage-note p {
@@ -1688,8 +1691,8 @@ body {
 .inc-check {
   width: 32px;
   height: 32px;
-  border: 1.5px solid var(--accent);
-  color: var(--accent);
+  border: 1.5px solid var(--accent2);
+  color: var(--accent2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1784,7 +1787,7 @@ body {
   width: 22px;
   height: 22px;
   position: relative;
-  color: var(--accent);
+  color: var(--accent2);
 }
 
 .faq-icon::before,
