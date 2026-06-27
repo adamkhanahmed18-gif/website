@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body data-dark-nav>
 
   <!-- NAVIGATION -->
   <nav class="nav" id="nav">
@@ -48,13 +48,26 @@
 
   <!-- HOME HERO -->
   <section class="home-hero">
+    <div class="home-hero-media">
+      <video
+        class="home-hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        poster="video/hero-construction-poster.jpg"
+      >
+        <source src="video/hero-construction.mp4" type="video/mp4">
+      </video>
+      <div class="home-hero-scrim"></div>
+    </div>
     <div class="home-hero-content">
       <p class="home-hero-kicker">Peak Architecture, Burnley</p>
       <h1>Architecture<br>Built to Last</h1>
       <p class="home-hero-sub">Planning and architectural design services for residential and commercial projects across Lancashire. From initial concept through to completion.</p>
       <div class="home-hero-actions">
         <a href="projects.html" class="btn btn-primary btn-arrow">View Our Work</a>
-        <a href="contact.html" class="btn btn-outline">Get a Quote</a>
+        <a href="contact.html" class="btn btn-ghost">Get a Quote</a>
       </div>
       <div class="home-hero-meta">
         <div class="home-hero-stat">
@@ -70,13 +83,6 @@
           <span>Initial consultation</span>
         </div>
       </div>
-    </div>
-    <div class="home-hero-image">
-      <img
-        src="images/hero-newbuild.jpg"
-        alt="New build residential development by Peak Architecture Ltd, Lancashire"
-        loading="eager"
-      >
     </div>
   </section>
 

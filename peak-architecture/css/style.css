@@ -433,22 +433,47 @@ body {
    HOME PAGE SECTIONS
    ================================================ */
 
-/* Hero */
+/* Hero — full-bleed video background */
 .home-hero {
+  position: relative;
   min-height: 100dvh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  align-items: center;
   overflow: hidden;
 }
 
+.home-hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.home-hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-hero-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(13,17,23,0.86) 0%, rgba(13,17,23,0.62) 45%, rgba(13,17,23,0.32) 100%),
+    linear-gradient(0deg, rgba(13,17,23,0.55) 0%, transparent 45%);
+}
+
 .home-hero-content {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: calc(var(--nav-h) + 4rem) 4rem 4rem 2rem;
-  max-width: 680px;
-  margin-left: auto;
   width: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding: calc(var(--nav-h) + 4rem) 2rem 4rem;
 }
 
 .home-hero-kicker {
@@ -457,10 +482,10 @@ body {
   gap: 0.75rem;
   font-family: var(--ff-disp);
   font-size: var(--fs-xs);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: rgba(255,255,255,0.85);
   margin-bottom: 2rem;
 }
 
@@ -469,24 +494,25 @@ body {
   display: block;
   width: 28px;
   height: 1.5px;
-  background: var(--accent);
+  background: var(--white);
 }
 
 .home-hero h1 {
   font-family: var(--ff-disp);
   font-size: var(--fs-hero);
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.0;
-  color: var(--text);
+  color: var(--white);
   margin-bottom: 1.75rem;
+  max-width: 16ch;
 }
 
 .home-hero-sub {
   font-size: var(--fs-lg);
-  color: var(--text-muted);
+  color: rgba(255,255,255,0.78);
   line-height: 1.7;
-  max-width: 44ch;
+  max-width: 46ch;
   margin-bottom: 2.5rem;
 }
 
@@ -500,7 +526,7 @@ body {
 .home-hero-meta {
   margin-top: 4rem;
   padding-top: 2rem;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(255,255,255,0.18);
   display: flex;
   gap: 3rem;
 }
@@ -509,32 +535,18 @@ body {
   display: block;
   font-family: var(--ff-disp);
   font-size: var(--fs-3xl);
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: -0.03em;
-  color: var(--text);
+  color: var(--white);
   line-height: 1;
   margin-bottom: 0.25rem;
 }
 
 .home-hero-stat span {
   font-size: var(--fs-xs);
-  color: var(--text-muted);
+  color: rgba(255,255,255,0.65);
   letter-spacing: 0.06em;
   text-transform: uppercase;
-}
-
-.home-hero-image {
-  position: relative;
-  overflow: hidden;
-}
-
-.home-hero-image img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 8s ease;
 }
 
 /* Services strip */
@@ -1384,27 +1396,8 @@ body {
    ================================================ */
 
 @media (max-width: 1024px) {
-  .home-hero {
-    grid-template-columns: 1fr;
-    min-height: 100dvh;
-  }
-
   .home-hero-content {
     padding: calc(var(--nav-h) + 3rem) 2rem 3rem;
-    max-width: 100%;
-    margin-left: 0;
-  }
-
-  .home-hero-image {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .home-hero-image img {
-    position: relative;
-    width: 100%;
-    height: 55vw;
-    inset: auto;
   }
 
   .strip-grid { grid-template-columns: repeat(2, 1fr); }
