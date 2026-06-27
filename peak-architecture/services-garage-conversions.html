@@ -75,7 +75,7 @@
     </div>
   </section>
 
-  <!-- SERVICE DETAIL -->
+  <!-- WHAT WE OFFER -->
   <section class="about-story section">
     <div class="container">
       <div class="story-grid">
@@ -83,6 +83,7 @@
           <h2 class="reveal">What we offer</h2>
           <p class="reveal reveal-d1">If your garage is used more for storage than for cars, converting it is one of the simplest ways to gain a genuinely useful room. Because the structure is already there, garage conversions are typically quicker and more affordable than building from scratch.</p>
           <p class="reveal reveal-d2">We design the new space to feel fully integrated with the rest of your home — resolving insulation, damp-proofing, heating, windows and floor levels so it's warm, comfortable and right for everyday use.</p>
+          <p class="reveal reveal-d3">Whether you want a home office, an extra bedroom, a utility or a self-contained annex, we'll make sure the conversion looks intentional from the street, not like a filled-in garage.</p>
           <ul class="service-check reveal reveal-d2">
             <li>Home office conversions</li>
             <li>Utility &amp; boot rooms</li>
@@ -94,6 +95,80 @@
         </div>
         <div class="story-image reveal reveal-d1">
           <img src="images/project-garage.jpg" alt="Garage conversion interior during construction, Burnley" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process-section">
+    <div class="container">
+      <h2 class="reveal">How it works</h2>
+      <p class="sub reveal reveal-d1">Every garage conversions project follows the same clear, managed path — so you always know what's happening and what comes next.</p>
+      <div class="process-steps">
+        <div class="proc-step reveal">
+          <p class="proc-num">01</p>
+          <h3>Free consultation</h3>
+          <p>We look at your garage, how you want to use it and whether any external changes are needed.</p>
+        </div>
+        <div class="proc-step reveal reveal-d1">
+          <p class="proc-num">02</p>
+          <h3>Survey &amp; design</h3>
+          <p>We design the layout and the new frontage, sorting floor levels, insulation and windows.</p>
+        </div>
+        <div class="proc-step reveal reveal-d2">
+          <p class="proc-num">03</p>
+          <h3>Planning &amp; approvals</h3>
+          <p>Most conversions are permitted development, but we'll check and handle any application needed.</p>
+        </div>
+        <div class="proc-step reveal reveal-d3">
+          <p class="proc-num">04</p>
+          <h3>Building regulations</h3>
+          <p>We prepare the drawings covering insulation, ventilation, damp-proofing and heating.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE -->
+  <section class="values-section section">
+    <div class="container">
+      <div class="values-header">
+        <h2 class="reveal">Why choose Peak Architecture</h2>
+        <p class="reveal reveal-d1">A Burnley-based practice that handles your project personally, from first idea to final approval.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-item reveal">
+          <div class="value-mark">01</div>
+          <h3>Fast &amp; cost-effective</h3>
+          <p>Uses the existing structure, making it one of the most affordable ways to add a room.</p>
+        </div>
+        <div class="value-item reveal reveal-d1">
+          <div class="value-mark">02</div>
+          <h3>Warm &amp; usable year-round</h3>
+          <p>Proper insulation, heating and damp-proofing designed in from the start.</p>
+        </div>
+        <div class="value-item reveal reveal-d2">
+          <div class="value-mark">03</div>
+          <h3>Kerb appeal kept</h3>
+          <p>A new frontage designed to look like part of the house, not an afterthought.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOOD TO KNOW -->
+  <section class="coverage-section">
+    <div class="container">
+      <div class="coverage-grid">
+        <div class="coverage-content reveal">
+          <h2>Do garage conversions need planning permission?</h2>
+          <p>Converting the inside of a garage usually falls under permitted development, as long as you're not enlarging the building. However, if you're in a conservation area, on a new-build estate where rights have been removed, or significantly changing the external appearance, permission may be needed.</p>
+        </div>
+        <div class="reveal reveal-d1">
+          <div class="coverage-note">
+            <p><strong>We'll confirm exactly what's required for your property before any work starts, so there are no surprises down the line.</strong></p>
+          </div>
         </div>
       </div>
     </div>
@@ -167,7 +242,6 @@
     sentinel.style.cssText = 'position:absolute;top:120px;left:0;width:1px;height:1px;pointer-events:none;visibility:hidden;';
     document.body.insertAdjacentElement('afterbegin', sentinel);
     new IntersectionObserver(([e]) => nav.classList.toggle('scrolled', !e.isIntersecting), { threshold: 0 }).observe(sentinel);
-
     const toggle = document.querySelector('.nav-toggle');
     const mob = document.getElementById('nav-mobile');
     toggle.addEventListener('click', () => {
@@ -178,13 +252,9 @@
       document.body.style.overflow = open ? 'hidden' : '';
     });
     mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      toggle.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-      mob.classList.remove('open');
-      mob.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
+      toggle.classList.remove('open'); toggle.setAttribute('aria-expanded','false');
+      mob.classList.remove('open'); mob.setAttribute('aria-hidden','true'); document.body.style.overflow='';
     }));
-
     const revObs = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revObs.unobserve(e.target); } });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });

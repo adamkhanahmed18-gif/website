@@ -75,7 +75,7 @@
     </div>
   </section>
 
-  <!-- SERVICE DETAIL -->
+  <!-- WHAT WE OFFER -->
   <section class="about-story section">
     <div class="container">
       <div class="story-grid">
@@ -83,6 +83,7 @@
           <h2 class="reveal">What we offer</h2>
           <p class="reveal reveal-d1">A garden room gives you dedicated space away from the main house — ideal for working from home, a gym, a studio or somewhere to unwind — without the cost or disruption of a full extension.</p>
           <p class="reveal reveal-d2">We design garden rooms that are properly insulated and built for year-round use, and we'll advise on permitted development limits so, where possible, you can avoid a full planning application altogether.</p>
+          <p class="reveal reveal-d3">From a compact home office to a larger studio or annex, we design each garden room to sit comfortably in your garden and complement the style of your home.</p>
           <ul class="service-check reveal reveal-d2">
             <li>Home office garden rooms</li>
             <li>Art studios &amp; music rooms</li>
@@ -94,6 +95,80 @@
         </div>
         <div class="story-image reveal reveal-d1">
           <img src="images/project-foundations.jpg" alt="Construction of a garden room foundation in Lancashire" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process-section">
+    <div class="container">
+      <h2 class="reveal">How it works</h2>
+      <p class="sub reveal reveal-d1">Every garden rooms & studios project follows the same clear, managed path — so you always know what's happening and what comes next.</p>
+      <div class="process-steps">
+        <div class="proc-step reveal">
+          <p class="proc-num">01</p>
+          <h3>Free consultation</h3>
+          <p>We discuss how you'll use the space, where it sits best and what size works for your garden.</p>
+        </div>
+        <div class="proc-step reveal reveal-d1">
+          <p class="proc-num">02</p>
+          <h3>Design</h3>
+          <p>We design the room and its position, considering light, access, privacy and insulation.</p>
+        </div>
+        <div class="proc-step reveal reveal-d2">
+          <p class="proc-num">03</p>
+          <h3>Permitted development</h3>
+          <p>We advise on the rules and, where needed, handle any planning or certificate application.</p>
+        </div>
+        <div class="proc-step reveal reveal-d3">
+          <p class="proc-num">04</p>
+          <h3>Technical drawings</h3>
+          <p>We provide the drawings your builder needs to deliver a warm, year-round space.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE -->
+  <section class="values-section section">
+    <div class="container">
+      <div class="values-header">
+        <h2 class="reveal">Why choose Peak Architecture</h2>
+        <p class="reveal reveal-d1">A Burnley-based practice that handles your project personally, from first idea to final approval.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-item reveal">
+          <div class="value-mark">01</div>
+          <h3>Space without disruption</h3>
+          <p>A separate room in the garden — far simpler than extending the house itself.</p>
+        </div>
+        <div class="value-item reveal reveal-d1">
+          <div class="value-mark">02</div>
+          <h3>Built for all seasons</h3>
+          <p>Insulated, heated and designed to be comfortable in winter as well as summer.</p>
+        </div>
+        <div class="value-item reveal reveal-d2">
+          <div class="value-mark">03</div>
+          <h3>Permitted development savvy</h3>
+          <p>We design within the rules to keep things simple wherever we can.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOOD TO KNOW -->
+  <section class="coverage-section">
+    <div class="container">
+      <div class="coverage-grid">
+        <div class="coverage-content reveal">
+          <h2>Will I need planning permission for a garden room?</h2>
+          <p>Many garden rooms fall under permitted development, provided they're single-storey, kept below the height limits, used for purposes incidental to the home and don't cover too much of the garden. Sleeping accommodation (a true annex) and locations in conservation areas can change this.</p>
+        </div>
+        <div class="reveal reveal-d1">
+          <div class="coverage-note">
+            <p><strong>Tell us how you plan to use it and we'll advise whether it's permitted development or needs an application — and design it to stay compliant.</strong></p>
+          </div>
         </div>
       </div>
     </div>
@@ -167,7 +242,6 @@
     sentinel.style.cssText = 'position:absolute;top:120px;left:0;width:1px;height:1px;pointer-events:none;visibility:hidden;';
     document.body.insertAdjacentElement('afterbegin', sentinel);
     new IntersectionObserver(([e]) => nav.classList.toggle('scrolled', !e.isIntersecting), { threshold: 0 }).observe(sentinel);
-
     const toggle = document.querySelector('.nav-toggle');
     const mob = document.getElementById('nav-mobile');
     toggle.addEventListener('click', () => {
@@ -178,13 +252,9 @@
       document.body.style.overflow = open ? 'hidden' : '';
     });
     mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      toggle.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-      mob.classList.remove('open');
-      mob.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
+      toggle.classList.remove('open'); toggle.setAttribute('aria-expanded','false');
+      mob.classList.remove('open'); mob.setAttribute('aria-hidden','true'); document.body.style.overflow='';
     }));
-
     const revObs = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revObs.unobserve(e.target); } });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });

@@ -75,7 +75,7 @@
     </div>
   </section>
 
-  <!-- SERVICE DETAIL -->
+  <!-- WHAT WE OFFER -->
   <section class="about-story section">
     <div class="container">
       <div class="story-grid">
@@ -83,6 +83,7 @@
           <h2 class="reveal">What we offer</h2>
           <p class="reveal reveal-d1">A well-designed extension is one of the most effective ways to get more from your home without the upheaval and cost of moving. Whether you're after a bright open-plan kitchen-diner, an extra bedroom or a larger living space, we design extensions that feel like a natural part of your home rather than a bolt-on.</p>
           <p class="reveal reveal-d2">We handle everything from the initial measured survey and concept design through to planning submission and building regulations drawings, working closely with you to balance your wishlist against your budget and the realities of your site.</p>
+          <p class="reveal reveal-d3">Every extension is designed around how you actually live — considering light, flow, sightlines to the garden and how the new space connects to the existing rooms — so the finished result works day to day, not just on paper.</p>
           <ul class="service-check reveal reveal-d2">
             <li>Kitchen &amp; dining extensions</li>
             <li>Living room extensions</li>
@@ -94,6 +95,80 @@
         </div>
         <div class="story-image reveal reveal-d1">
           <img src="images/project-extension.jpg" alt="Two-storey rear extension under construction in Burnley" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process-section">
+    <div class="container">
+      <h2 class="reveal">How it works</h2>
+      <p class="sub reveal reveal-d1">Every home extensions project follows the same clear, managed path — so you always know what's happening and what comes next.</p>
+      <div class="process-steps">
+        <div class="proc-step reveal">
+          <p class="proc-num">01</p>
+          <h3>Free consultation</h3>
+          <p>We visit your home, talk through your ideas and budget, and give you an honest view of what's achievable.</p>
+        </div>
+        <div class="proc-step reveal reveal-d1">
+          <p class="proc-num">02</p>
+          <h3>Survey &amp; design</h3>
+          <p>We carry out a measured survey and develop design options for you to react to, refining until it's right.</p>
+        </div>
+        <div class="proc-step reveal reveal-d2">
+          <p class="proc-num">03</p>
+          <h3>Planning &amp; approvals</h3>
+          <p>We prepare and submit your planning or permitted development paperwork and manage it through to decision.</p>
+        </div>
+        <div class="proc-step reveal reveal-d3">
+          <p class="proc-num">04</p>
+          <h3>Building regulations</h3>
+          <p>We produce the technical drawings your builder needs and support you through building control.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE -->
+  <section class="values-section section">
+    <div class="container">
+      <div class="values-header">
+        <h2 class="reveal">Why choose Peak Architecture</h2>
+        <p class="reveal reveal-d1">A Burnley-based practice that handles your project personally, from first idea to final approval.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-item reveal">
+          <div class="value-mark">01</div>
+          <h3>Space that adds value</h3>
+          <p>Thoughtful extensions that increase both your usable living space and your home's market value.</p>
+        </div>
+        <div class="value-item reveal reveal-d1">
+          <div class="value-mark">02</div>
+          <h3>Local planning know-how</h3>
+          <p>We understand how Burnley, Pendle, Rossendale and Ribble Valley councils assess applications.</p>
+        </div>
+        <div class="value-item reveal reveal-d2">
+          <div class="value-mark">03</div>
+          <h3>One point of contact</h3>
+          <p>Haseeb personally manages your project from the first sketch through to final approval.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOOD TO KNOW -->
+  <section class="coverage-section">
+    <div class="container">
+      <div class="coverage-grid">
+        <div class="coverage-content reveal">
+          <h2>Will my extension need planning permission?</h2>
+          <p>Many single-storey rear extensions fall under permitted development, meaning no full planning application is required — but the limits on size, height and boundaries are strict, and they're removed in conservation areas. Double-storey and side extensions usually do need permission.</p>
+        </div>
+        <div class="reveal reveal-d1">
+          <div class="coverage-note">
+            <p><strong>Not sure where your project stands? We'll tell you quickly whether it's permitted development or needs an application — and we can secure a Lawful Development Certificate for written proof.</strong></p>
+          </div>
         </div>
       </div>
     </div>
@@ -167,7 +242,6 @@
     sentinel.style.cssText = 'position:absolute;top:120px;left:0;width:1px;height:1px;pointer-events:none;visibility:hidden;';
     document.body.insertAdjacentElement('afterbegin', sentinel);
     new IntersectionObserver(([e]) => nav.classList.toggle('scrolled', !e.isIntersecting), { threshold: 0 }).observe(sentinel);
-
     const toggle = document.querySelector('.nav-toggle');
     const mob = document.getElementById('nav-mobile');
     toggle.addEventListener('click', () => {
@@ -178,13 +252,9 @@
       document.body.style.overflow = open ? 'hidden' : '';
     });
     mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      toggle.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-      mob.classList.remove('open');
-      mob.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
+      toggle.classList.remove('open'); toggle.setAttribute('aria-expanded','false');
+      mob.classList.remove('open'); mob.setAttribute('aria-hidden','true'); document.body.style.overflow='';
     }));
-
     const revObs = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revObs.unobserve(e.target); } });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });

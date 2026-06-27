@@ -75,7 +75,7 @@
     </div>
   </section>
 
-  <!-- SERVICE DETAIL -->
+  <!-- WHAT WE OFFER -->
   <section class="about-story section">
     <div class="container">
       <div class="story-grid">
@@ -83,6 +83,7 @@
           <h2 class="reveal">What we offer</h2>
           <p class="reveal reveal-d1">Building your own home is a once-in-a-lifetime project, and the design sets the tone for everything that follows. We guide you from the very first question — is this plot viable? — through to a fully detailed set of drawings your builder can work from.</p>
           <p class="reveal reveal-d2">We balance ambition with practicality: orientation and natural light, energy efficiency, local planning policy and your budget, producing a home that's individual to you and built to stand the test of time.</p>
+          <p class="reveal reveal-d3">Whether it's a single self-build, a replacement dwelling or a small development of units, we manage the planning process and the technical detail so you can focus on the exciting decisions.</p>
           <ul class="service-check reveal reveal-d2">
             <li>Site feasibility assessments</li>
             <li>Design concept &amp; planning drawings</li>
@@ -94,6 +95,80 @@
         </div>
         <div class="story-image reveal reveal-d1">
           <img src="images/hero-newbuild.jpg" alt="New build residential development by Peak Architecture, Lancashire" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process-section">
+    <div class="container">
+      <h2 class="reveal">How it works</h2>
+      <p class="sub reveal reveal-d1">Every new build homes project follows the same clear, managed path — so you always know what's happening and what comes next.</p>
+      <div class="process-steps">
+        <div class="proc-step reveal">
+          <p class="proc-num">01</p>
+          <h3>Feasibility</h3>
+          <p>We assess the plot, local planning policy and constraints to confirm what can realistically be built.</p>
+        </div>
+        <div class="proc-step reveal reveal-d1">
+          <p class="proc-num">02</p>
+          <h3>Concept design</h3>
+          <p>We develop the design with you, balancing your brief, the site and planning requirements.</p>
+        </div>
+        <div class="proc-step reveal reveal-d2">
+          <p class="proc-num">03</p>
+          <h3>Planning application</h3>
+          <p>We prepare and submit a full planning application and manage it through to decision.</p>
+        </div>
+        <div class="proc-step reveal reveal-d3">
+          <p class="proc-num">04</p>
+          <h3>Technical &amp; build</h3>
+          <p>We produce building regulations drawings and support you and your builder on site.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE -->
+  <section class="values-section section">
+    <div class="container">
+      <div class="values-header">
+        <h2 class="reveal">Why choose Peak Architecture</h2>
+        <p class="reveal reveal-d1">A Burnley-based practice that handles your project personally, from first idea to final approval.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-item reveal">
+          <div class="value-mark">01</div>
+          <h3>Designed around the site</h3>
+          <p>Homes that respond to orientation, views, daylight and the local context.</p>
+        </div>
+        <div class="value-item reveal reveal-d1">
+          <div class="value-mark">02</div>
+          <h3>Planning expertise</h3>
+          <p>Full applications prepared and negotiated with the local authority on your behalf.</p>
+        </div>
+        <div class="value-item reveal reveal-d2">
+          <div class="value-mark">03</div>
+          <h3>End-to-end delivery</h3>
+          <p>From the first feasibility sketch to the drawings your builder breaks ground with.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOOD TO KNOW -->
+  <section class="coverage-section">
+    <div class="container">
+      <div class="coverage-grid">
+        <div class="coverage-content reveal">
+          <h2>Thinking about a self-build or buying a plot?</h2>
+          <p>The earlier we're involved, the better. A quick feasibility review before you commit to a plot can save significant time and money — confirming whether your vision is likely to gain planning permission and what the site can realistically support.</p>
+        </div>
+        <div class="reveal reveal-d1">
+          <div class="coverage-note">
+            <p><strong>Already have a plot or an outline consent? Bring us the details and we'll map out the route from where you are to a home you can build.</strong></p>
+          </div>
         </div>
       </div>
     </div>
@@ -167,7 +242,6 @@
     sentinel.style.cssText = 'position:absolute;top:120px;left:0;width:1px;height:1px;pointer-events:none;visibility:hidden;';
     document.body.insertAdjacentElement('afterbegin', sentinel);
     new IntersectionObserver(([e]) => nav.classList.toggle('scrolled', !e.isIntersecting), { threshold: 0 }).observe(sentinel);
-
     const toggle = document.querySelector('.nav-toggle');
     const mob = document.getElementById('nav-mobile');
     toggle.addEventListener('click', () => {
@@ -178,13 +252,9 @@
       document.body.style.overflow = open ? 'hidden' : '';
     });
     mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      toggle.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-      mob.classList.remove('open');
-      mob.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
+      toggle.classList.remove('open'); toggle.setAttribute('aria-expanded','false');
+      mob.classList.remove('open'); mob.setAttribute('aria-hidden','true'); document.body.style.overflow='';
     }));
-
     const revObs = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revObs.unobserve(e.target); } });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
