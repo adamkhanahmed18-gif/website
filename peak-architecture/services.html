@@ -19,7 +19,18 @@
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="services.html" class="active">Services</a></li>
+        <li class="has-dropdown">
+          <a href="services.html" class="nav-drop-toggle active">Services <span class="caret"></span></a>
+          <ul class="dropdown">
+                    <li><a href="services.html" class="active">All Services</a></li>
+                        <li><a href="services-extensions.html">Home Extensions</a></li>
+                        <li><a href="services-loft-conversions.html">Loft Conversions</a></li>
+                        <li><a href="services-garage-conversions.html">Garage Conversions</a></li>
+                        <li><a href="services-new-builds.html">New Build Homes</a></li>
+                        <li><a href="services-garden-rooms.html">Garden Rooms &amp; Studios</a></li>
+                        <li><a href="services-commercial.html">Commercial Architecture</a></li>
+          </ul>
+        </li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -37,7 +48,15 @@
   <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="services.html">Services</a>
+    <a href="services.html" class="active">Services</a>
+            <div class="mobile-sub">
+              <a href="services-extensions.html">Home Extensions</a>
+              <a href="services-loft-conversions.html">Loft Conversions</a>
+              <a href="services-garage-conversions.html">Garage Conversions</a>
+              <a href="services-new-builds.html">New Build Homes</a>
+              <a href="services-garden-rooms.html">Garden Rooms &amp; Studios</a>
+              <a href="services-commercial.html">Commercial Architecture</a>
+            </div>
     <a href="projects.html">Projects</a>
     <a href="faq.html">FAQ</a>
     <a href="contact.html">Contact</a>
@@ -106,7 +125,7 @@
       <div class="svc-grid">
 
         <!-- 1: Extensions -->
-        <div class="svc-card reveal">
+        <a href="services-extensions.html" class="svc-card-link"><div class="svc-card reveal">
           <div class="svc-icon">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <rect x="3" y="3" width="18" height="18" rx="0"/>
@@ -122,10 +141,11 @@
             <li>Double-storey extensions</li>
             <li>Side return extensions</li>
           </ul>
-        </div>
+          <span class="svc-card-arrow">Learn more</span>
+        </div></a>
 
         <!-- 2: Loft Conversions -->
-        <div class="svc-card reveal reveal-d1">
+        <a href="services-loft-conversions.html" class="svc-card-link"><div class="svc-card reveal reveal-d1">
           <div class="svc-icon">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M3 18L12 6l9 12"/>
@@ -141,10 +161,11 @@
             <li>Mansard conversions</li>
             <li>En-suite and bedroom designs</li>
           </ul>
-        </div>
+          <span class="svc-card-arrow">Learn more</span>
+        </div></a>
 
         <!-- 3: Garage Conversions -->
-        <div class="svc-card reveal reveal-d2">
+        <a href="services-garage-conversions.html" class="svc-card-link"><div class="svc-card reveal reveal-d2">
           <div class="svc-icon">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <rect x="2" y="6" width="20" height="16" rx="0"/>
@@ -160,10 +181,11 @@
             <li>Playroom or family room</li>
             <li>Annex or rental studio</li>
           </ul>
-        </div>
+          <span class="svc-card-arrow">Learn more</span>
+        </div></a>
 
         <!-- 4: New Build Houses -->
-        <div class="svc-card reveal">
+        <a href="services-new-builds.html" class="svc-card-link"><div class="svc-card reveal">
           <div class="svc-icon">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M3 12L12 3l9 9"/>
@@ -180,10 +202,11 @@
             <li>Building regulations drawings</li>
             <li>Self-build support</li>
           </ul>
-        </div>
+          <span class="svc-card-arrow">Learn more</span>
+        </div></a>
 
         <!-- 5: Garden Rooms -->
-        <div class="svc-card reveal reveal-d1">
+        <a href="services-garden-rooms.html" class="svc-card-link"><div class="svc-card reveal reveal-d1">
           <div class="svc-icon">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <rect x="4" y="8" width="16" height="13" rx="0"/>
@@ -199,10 +222,11 @@
             <li>Annexes and guest accommodation</li>
             <li>Permitted development advice</li>
           </ul>
-        </div>
+          <span class="svc-card-arrow">Learn more</span>
+        </div></a>
 
         <!-- 6: Commercial Architecture -->
-        <div class="svc-card reveal reveal-d2">
+        <a href="services-commercial.html" class="svc-card-link"><div class="svc-card reveal reveal-d2">
           <div class="svc-icon">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <rect x="2" y="3" width="20" height="19" rx="0"/>
@@ -218,7 +242,8 @@
             <li>Industrial unit conversions</li>
             <li>Commercial planning advice</li>
           </ul>
-        </div>
+          <span class="svc-card-arrow">Learn more</span>
+        </div></a>
 
       </div>
     </div>
@@ -345,5 +370,6 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
   </script>
+  <script src="js/nav-dropdown.js"></script>
 </body>
 </html>

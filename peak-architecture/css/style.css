@@ -387,7 +387,10 @@ body {
 /* 9. INNER PAGE HERO
    ================================================ */
 .page-hero {
-  background: var(--bg-dark);
+  background:
+    linear-gradient(rgba(13,17,23,0.74), rgba(13,17,23,0.82)),
+    url('../images/page-banner.jpg') center 32% / cover no-repeat,
+    var(--bg-dark);
   padding-top: calc(var(--nav-h) + 5rem);
   padding-bottom: 5rem;
   position: relative;
@@ -398,7 +401,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 65% 55% at 75% 40%, rgba(30,61,110,0.30) 0%, transparent 70%);
+  background: radial-gradient(ellipse 65% 55% at 75% 40%, rgba(30,61,110,0.35) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -1894,3 +1897,165 @@ body {
   .faq-cta-strip { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
   .faq-question { font-size: var(--fs-base); }
 }
+
+/* ================================================
+   SERVICES DROPDOWN (desktop nav)
+   ================================================ */
+
+.nav-links .has-dropdown {
+  position: relative;
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+}
+
+.nav-drop-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.caret {
+  width: 7px; height: 7px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-1px);
+  transition: transform 0.25s var(--ease-out);
+  opacity: 0.7;
+}
+
+.has-dropdown:hover .caret,
+.has-dropdown.open .caret { transform: rotate(225deg) translateY(-1px); }
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  min-width: 250px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  box-shadow: 0 18px 50px rgba(13,17,23,0.16);
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.22s var(--ease-out), transform 0.22s var(--ease-out);
+  z-index: calc(var(--z-nav) + 1);
+}
+
+.has-dropdown:hover .dropdown,
+.has-dropdown:focus-within .dropdown,
+.has-dropdown.open .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown li { width: 100%; }
+
+.dropdown a {
+  display: block;
+  padding: 0.7rem 1.4rem;
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
+  transition: color 0.18s ease, background 0.18s ease;
+}
+
+.dropdown a::after { display: none; }
+
+.dropdown a:hover {
+  color: var(--accent);
+  background: var(--accent-pale);
+}
+
+.dropdown a.active { color: var(--accent2); }
+
+.dropdown .dropdown-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0.4rem 0;
+}
+
+/* Mobile sub-menu (inside slide-out menu) */
+.mobile-sub {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0 0.5rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.mobile-sub a {
+  font-family: var(--ff-body) !important;
+  font-size: 1.1rem !important;
+  font-weight: 500 !important;
+  color: var(--text-muted) !important;
+  padding-block: 0.6rem !important;
+  border-bottom: none !important;
+  letter-spacing: 0 !important;
+}
+
+.mobile-sub a:hover { color: var(--accent) !important; }
+
+/* ================================================
+   SERVICE DETAIL PAGES
+   ================================================ */
+
+.service-check {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin: 1.75rem 0 2.25rem;
+}
+
+.service-check li {
+  position: relative;
+  padding-left: 1.9rem;
+  font-size: var(--fs-base);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.service-check li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent2-pale);
+  border: 1.5px solid var(--accent2);
+}
+
+.service-check li::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 0.4em;
+  width: 4px;
+  height: 8px;
+  border-right: 2px solid var(--accent2);
+  border-bottom: 2px solid var(--accent2);
+  transform: rotate(45deg);
+}
+
+.svc-card-link { display: block; color: inherit; }
+.svc-card-link .svc-card { height: 100%; }
+.svc-card-arrow {
+  margin-top: auto;
+  padding-top: 1rem;
+  font-family: var(--ff-disp);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--accent2);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.svc-card-arrow::after { content: '\2192'; transition: transform 0.22s var(--ease-out); }
+.svc-card-link:hover .svc-card-arrow::after { transform: translateX(4px); }

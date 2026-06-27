@@ -19,7 +19,18 @@
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html" class="active">About</a></li>
-        <li><a href="services.html">Services</a></li>
+        <li class="has-dropdown">
+          <a href="services.html" class="nav-drop-toggle">Services <span class="caret"></span></a>
+          <ul class="dropdown">
+                    <li><a href="services.html">All Services</a></li>
+                        <li><a href="services-extensions.html">Home Extensions</a></li>
+                        <li><a href="services-loft-conversions.html">Loft Conversions</a></li>
+                        <li><a href="services-garage-conversions.html">Garage Conversions</a></li>
+                        <li><a href="services-new-builds.html">New Build Homes</a></li>
+                        <li><a href="services-garden-rooms.html">Garden Rooms &amp; Studios</a></li>
+                        <li><a href="services-commercial.html">Commercial Architecture</a></li>
+          </ul>
+        </li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -38,6 +49,14 @@
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
+            <div class="mobile-sub">
+              <a href="services-extensions.html">Home Extensions</a>
+              <a href="services-loft-conversions.html">Loft Conversions</a>
+              <a href="services-garage-conversions.html">Garage Conversions</a>
+              <a href="services-new-builds.html">New Build Homes</a>
+              <a href="services-garden-rooms.html">Garden Rooms &amp; Studios</a>
+              <a href="services-commercial.html">Commercial Architecture</a>
+            </div>
     <a href="projects.html">Projects</a>
     <a href="faq.html">FAQ</a>
     <a href="contact.html">Contact</a>
@@ -290,5 +309,6 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
   </script>
+  <script src="js/nav-dropdown.js"></script>
 </body>
 </html>
