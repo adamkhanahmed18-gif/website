@@ -1,7 +1,7 @@
 /* ================================================
    PEAK ARCHITECTURE LTD — Shared Stylesheet
    Color scheme: Cool slate + deep navy
-   Typography: Syne (display) + DM Sans (body)
+   Typography: Archivo (display) + Inter (body)
    ================================================ */
 
 /* 1. RESET
@@ -30,8 +30,8 @@ input, textarea, select { font: inherit; border: none; outline: none; background
   --white:        #FFFFFF;
 
   /* Typography */
-  --ff-disp: 'Syne', system-ui, sans-serif;
-  --ff-body: 'DM Sans', system-ui, sans-serif;
+  --ff-disp: 'Archivo', system-ui, sans-serif;
+  --ff-body: 'Inter', system-ui, sans-serif;
 
   /* Type scale */
   --fs-xs:   0.75rem;
