@@ -409,7 +409,7 @@ body {
    ================================================ */
 .page-hero {
   position: relative;
-  background: var(--bg-dark) center 55% / cover no-repeat;
+  background: var(--bg-dark) center / cover no-repeat;
   background-image: url('../images/hero-construction-site.jpg');
   padding-top: calc(var(--nav-h) + 5rem);
   padding-bottom: 5rem;
@@ -421,10 +421,23 @@ body {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(rgba(13,17,23,0.70), rgba(13,17,23,0.82)),
-    radial-gradient(ellipse 65% 55% at 75% 40%, rgba(30,61,110,0.32) 0%, transparent 70%);
+    linear-gradient(rgba(13,17,23,0.62), rgba(13,17,23,0.80)),
+    radial-gradient(ellipse 65% 55% at 75% 40%, rgba(30,61,110,0.30) 0%, transparent 70%);
   pointer-events: none;
 }
+
+/* Per-page hero images — specific to each page's topic */
+.page-hero--about       { background-image: url('../images/pb-about.jpg'); }
+.page-hero--services    { background-image: url('../images/pb-services.jpg'); }
+.page-hero--projects    { background-image: url('../images/project-commercial-exterior.jpg'); background-position: center 35%; }
+.page-hero--faq         { background-image: url('../images/plans-approved.jpg'); background-position: center 28%; }
+.page-hero--contact     { background-image: url('../images/pb-contact.jpg'); }
+.page-hero--extensions  { background-image: url('../images/project-extension.jpg'); background-position: center 40%; }
+.page-hero--loft        { background-image: url('../images/floor-plans.jpg'); background-position: center 28%; }
+.page-hero--garage      { background-image: url('../images/project-garage.jpg'); background-position: center 45%; }
+.page-hero--newbuilds   { background-image: url('../images/hero-newbuild.jpg'); background-position: center 40%; }
+.page-hero--garden      { background-image: url('../images/project-foundations.jpg'); }
+.page-hero--commercial  { background-image: url('../images/project-commercial-interior.jpg'); background-position: center 40%; }
 
 .page-hero .container { position: relative; z-index: 1; }
 
