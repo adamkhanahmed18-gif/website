@@ -86,6 +86,11 @@
           <p class="sub">Tell us about your project and we'll get back to you within one working day with information about how we can help.</p>
 
           <form id="contact-form" class="form-row" novalidate>
+            <!-- Web3Forms: replace the access_key value with your own free key from https://web3forms.com (uses info@peakarchitecture.co.uk) -->
+            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+            <input type="hidden" name="subject" value="New enquiry from the Peak Architecture website">
+            <input type="hidden" name="from_name" value="Peak Architecture Website">
+            <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;">
             <div class="field">
               <label for="first-name">First name</label>
               <input type="text" id="first-name" name="first_name" placeholder="John" required autocomplete="given-name">
@@ -126,6 +131,9 @@
             </div>
             <div class="form-success" id="form-success" role="alert" style="grid-column: 1 / -1;">
               Thank you for your enquiry. We'll be in touch within one working day.
+            </div>
+            <div class="form-error" id="form-error" role="alert" style="grid-column: 1 / -1; display:none; margin-top:1rem; padding:1rem 1.25rem; background:#FDECEC; border:1px solid #E0726A; color:#B23A30; font-size:var(--fs-sm);">
+              Sorry, something went wrong sending your message. Please email us directly at <a href="mailto:info@peakarchitecture.co.uk" style="color:#B23A30; text-decoration:underline;">info@peakarchitecture.co.uk</a> or call 01282 450085.
             </div>
           </form>
         </div>
@@ -264,22 +272,39 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
 
-    // Form submission (replace with real backend, Formspree or Netlify Forms)
+    // Form submission via Web3Forms -> emails info@peakarchitecture.co.uk
     const form = document.getElementById('contact-form');
     const successMsg = document.getElementById('form-success');
+    const errorMsg = document.getElementById('form-error');
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const btn = form.querySelector('[type="submit"]');
+      errorMsg.style.display = 'none';
       btn.disabled = true;
+      const originalText = btn.textContent;
       btn.textContent = 'Sending...';
-      // Simulate network delay - replace this block with your actual submission logic
-      setTimeout(() => {
-        form.querySelectorAll('input, select, textarea, button').forEach(el => { el.style.display = 'none'; });
-        form.querySelector('.form-footer').style.display = 'none';
-        form.querySelector('.form-note').style.display = 'none';
-        successMsg.classList.add('show');
-      }, 800);
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+        const data = await res.json();
+        if (data.success) {
+          form.querySelectorAll('input, select, textarea, button').forEach(el => { el.style.display = 'none'; });
+          form.querySelector('.form-footer').style.display = 'none';
+          form.querySelector('.form-note').style.display = 'none';
+          successMsg.classList.add('show');
+        } else {
+          throw new Error(data.message || 'submission failed');
+        }
+      } catch (err) {
+        errorMsg.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = originalText;
+      }
     });
   </script>
   <script src="js/nav-dropdown.js"></script>
