@@ -409,7 +409,7 @@ body {
    ================================================ */
 .page-hero {
   position: relative;
-  background: var(--bg-dark) center / cover no-repeat;
+  background: var(--bg-dark) center 78% / cover no-repeat;
   background-image: url('../images/hero-bg.jpg');
   padding-top: calc(var(--nav-h) + 5rem);
   padding-bottom: 5rem;
