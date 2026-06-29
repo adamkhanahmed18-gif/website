@@ -426,18 +426,18 @@ body {
   pointer-events: none;
 }
 
-/* Per-page hero images — specific to each page's topic */
+/* Per-page hero images — wide construction/architecture shots, page-themed */
 .page-hero--about       { background-image: url('../images/pb-about.jpg'); }
 .page-hero--services    { background-image: url('../images/pb-services.jpg'); }
-.page-hero--projects    { background-image: url('../images/project-commercial-exterior.jpg'); background-position: center 35%; }
-.page-hero--faq         { background-image: url('../images/plans-approved.jpg'); background-position: center 28%; }
+.page-hero--projects    { background-image: url('../images/pb-projects.jpg'); }
+.page-hero--faq         { background-image: url('../images/pb-faq.jpg'); }
 .page-hero--contact     { background-image: url('../images/pb-contact.jpg'); }
-.page-hero--extensions  { background-image: url('../images/project-extension.jpg'); background-position: center 40%; }
-.page-hero--loft        { background-image: url('../images/floor-plans.jpg'); background-position: center 28%; }
-.page-hero--garage      { background-image: url('../images/project-garage.jpg'); background-position: center 45%; }
-.page-hero--newbuilds   { background-image: url('../images/hero-newbuild.jpg'); background-position: center 40%; }
-.page-hero--garden      { background-image: url('../images/project-foundations.jpg'); }
-.page-hero--commercial  { background-image: url('../images/project-commercial-interior.jpg'); background-position: center 40%; }
+.page-hero--extensions  { background-image: url('../images/pb-extensions.jpg'); }
+.page-hero--loft        { background-image: url('../images/pb-loft.jpg'); }
+.page-hero--garage      { background-image: url('../images/pb-garage.jpg'); }
+.page-hero--newbuilds   { background-image: url('../images/pb-newbuilds.jpg'); }
+.page-hero--garden      { background-image: url('../images/pb-garden.jpg'); }
+.page-hero--commercial  { background-image: url('../images/pb-commercial.jpg'); }
 
 .page-hero .container { position: relative; z-index: 1; }
 
