@@ -426,18 +426,19 @@ body {
   pointer-events: none;
 }
 
-/* Per-page hero images — wide construction/architecture shots, page-themed */
-.page-hero--about       { background-image: url('../images/pb-about.jpg'); }
-.page-hero--services    { background-image: url('../images/pb-services.jpg'); }
-.page-hero--projects    { background-image: url('../images/pb-projects.jpg'); }
+/* Per-page hero images — wide construction/architecture shots, page-themed.
+   Skyline shots are anchored lower so the buildings show, not just sky. */
+.page-hero--about       { background-image: url('../images/pb-about.jpg'); background-position: center 55%; }
+.page-hero--services    { background-image: url('../images/pb-services.jpg'); background-position: center 55%; }
+.page-hero--projects    { background-image: url('../images/pb-projects.jpg'); background-position: center 78%; }
 .page-hero--faq         { background-image: url('../images/pb-faq.jpg'); }
-.page-hero--contact     { background-image: url('../images/pb-contact.jpg'); }
-.page-hero--extensions  { background-image: url('../images/pb-extensions.jpg'); }
+.page-hero--contact     { background-image: url('../images/pb-contact.jpg'); background-position: center 88%; }
+.page-hero--extensions  { background-image: url('../images/pb-extensions.jpg'); background-position: center; }
 .page-hero--loft        { background-image: url('../images/pb-loft.jpg'); }
-.page-hero--garage      { background-image: url('../images/pb-garage.jpg'); }
-.page-hero--newbuilds   { background-image: url('../images/pb-newbuilds.jpg'); }
-.page-hero--garden      { background-image: url('../images/pb-garden.jpg'); }
-.page-hero--commercial  { background-image: url('../images/pb-commercial.jpg'); }
+.page-hero--garage      { background-image: url('../images/pb-garage.jpg'); background-position: center 60%; }
+.page-hero--newbuilds   { background-image: url('../images/pb-newbuilds.jpg'); background-position: center 72%; }
+.page-hero--garden      { background-image: url('../images/pb-garden.jpg'); background-position: center 60%; }
+.page-hero--commercial  { background-image: url('../images/pb-commercial.jpg'); background-position: center 82%; }
 
 .page-hero .container { position: relative; z-index: 1; }
 
