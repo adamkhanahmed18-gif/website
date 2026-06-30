@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Peak Architecture Ltd, Burnley</title>
+  <meta name="description" content="Contact Peak Architecture Ltd for a free initial consultation. Call 01282 450085, email info@peakarchitecture.co.uk or fill in our enquiry form. Based at 22 Hebrew Road, Burnley.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-dark-nav>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Peak Architecture logo" class="nav-logo-img"><span class="nav-logo-text">PEAK <span>Architecture</span></span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="has-dropdown">
+          <a href="services.html" class="nav-drop-toggle">Services <span class="caret"></span></a>
+          <ul class="dropdown">
+                    <li><a href="services.html">All Services</a></li>
+                        <li><a href="services-extensions.html">Home Extensions</a></li>
+                        <li><a href="services-loft-conversions.html">Loft Conversions</a></li>
+                        <li><a href="services-new-builds.html">New Build Homes</a></li>
+                        <li><a href="services-commercial.html">Commercial Architecture</a></li>
+          </ul>
+        </li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-primary">Get a Quote</a>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+            <div class="mobile-sub">
+              <a href="services-extensions.html">Home Extensions</a>
+              <a href="services-loft-conversions.html">Loft Conversions</a>
+              <a href="services-new-builds.html">New Build Homes</a>
+              <a href="services-commercial.html">Commercial Architecture</a>
+            </div>
+    <a href="projects.html">Projects</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <div class="mobile-cta">
+      <a href="contact.html" class="btn btn-primary">Get a Quote</a>
+    </div>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero page-hero--contact">
+    <div class="container">
+      <p class="page-hero-kicker">Get in Touch</p>
+      <h1>Let's Talk About Your Project</h1>
+      <p>We offer a free initial consultation on every project. Fill in the form and we'll get back to you within one working day.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- FORM -->
+        <div class="contact-form reveal">
+          <h2>Send an Enquiry</h2>
+          <p class="sub">Tell us about your project and we'll get back to you within one working day with information about how we can help.</p>
+
+          <form id="contact-form" class="form-row" novalidate>
+            <!-- Web3Forms: replace the access_key value with your own free key from https://web3forms.com (uses info@peakarchitecture.co.uk) -->
+            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+            <input type="hidden" name="subject" value="New enquiry from the Peak Architecture website">
+            <input type="hidden" name="from_name" value="Peak Architecture Website">
+            <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;">
+            <div class="field">
+              <label for="first-name">First name</label>
+              <input type="text" id="first-name" name="first_name" placeholder="John" required autocomplete="given-name">
+            </div>
+            <div class="field">
+              <label for="last-name">Last name</label>
+              <input type="text" id="last-name" name="last_name" placeholder="Smith" required autocomplete="family-name">
+            </div>
+            <div class="field full">
+              <label for="email">Email address</label>
+              <input type="email" id="email" name="email" placeholder="john@example.com" required autocomplete="email">
+            </div>
+            <div class="field full">
+              <label for="phone">Phone number</label>
+              <input type="tel" id="phone" name="phone" placeholder="01282 000000" autocomplete="tel">
+            </div>
+            <div class="field full">
+              <label for="service">Type of project</label>
+              <select id="service" name="service" required>
+                <option value="" disabled selected>Select project type</option>
+                <option value="extension">Home Extension</option>
+                <option value="loft">Loft Conversion</option>
+                <option value="new-build">New Build Home</option>
+                <option value="commercial">Commercial Project</option>
+                <option value="planning">Planning Application Only</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="message">Tell us about your project</label>
+              <textarea id="message" name="message" placeholder="Briefly describe what you're looking to achieve - even a rough idea is a great starting point." required></textarea>
+            </div>
+            <div class="form-footer" style="grid-column: 1 / -1;">
+              <button type="submit" class="btn btn-primary">Send Enquiry</button>
+              <p class="form-note">We'll respond within one working day.</p>
+            </div>
+            <div class="form-success" id="form-success" role="alert" style="grid-column: 1 / -1;">
+              Thank you for your enquiry. We'll be in touch within one working day.
+            </div>
+            <div class="form-error" id="form-error" role="alert" style="grid-column: 1 / -1; display:none; margin-top:1rem; padding:1rem 1.25rem; background:#FDECEC; border:1px solid #E0726A; color:#B23A30; font-size:var(--fs-sm);">
+              Sorry, something went wrong sending your message. Please email us directly at <a href="mailto:info@peakarchitecture.co.uk" style="color:#B23A30; text-decoration:underline;">info@peakarchitecture.co.uk</a> or call 01282 450085.
+            </div>
+          </form>
+        </div>
+
+        <!-- CONTACT INFO -->
+        <div class="contact-info reveal reveal-d1">
+          <h3>Contact Details</h3>
+
+          <div class="cinfo-item">
+            <p class="cinfo-label">Address</p>
+            <p class="cinfo-value">
+              22 Hebrew Road<br>
+              Burnley<br>
+              BB10 1NW
+            </p>
+          </div>
+
+          <div class="cinfo-item">
+            <p class="cinfo-label">Phone</p>
+            <p class="cinfo-value">
+              <a href="tel:01282450085">01282 450085</a>
+            </p>
+          </div>
+
+          <div class="cinfo-item">
+            <p class="cinfo-label">Email</p>
+            <p class="cinfo-value">
+              <a href="mailto:info@peakarchitecture.co.uk">info@peakarchitecture.co.uk</a>
+            </p>
+          </div>
+
+          <div class="cinfo-item">
+            <p class="cinfo-label">Instagram</p>
+            <p class="cinfo-value">
+              <a href="https://www.instagram.com/peakarchitectureltd/" target="_blank" rel="noopener">@peakarchitectureltd</a>
+            </p>
+          </div>
+
+          <div class="hours-block">
+            <h4>Office Hours</h4>
+            <div class="hours-row">
+              <span class="hours-day">Monday - Friday</span>
+              <span>9:00am - 5:30pm</span>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Saturday</span>
+              <span>By appointment</span>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Sunday</span>
+              <span>Closed</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="footer-logo">PEAK Architecture</a>
+          <p class="footer-desc">Planning and architectural design services for residential and commercial projects across Lancashire and beyond.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/peakarchitectureltd/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://www.facebook.com/peakarchitectureltd/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.3h2.5l.4-2.9h-2.9V8.9c0-.8.2-1.4 1.4-1.4h1.6V4.9c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.2H7.9v2.9h2.6V21h3z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html">Residential Design</a></li>
+            <li><a href="services.html">Loft Conversions</a></li>
+            <li><a href="services.html">Extensions</a></li>
+            <li><a href="services.html">Commercial Architecture</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <address class="footer-addr">
+            <span>22 Hebrew Road<br>Burnley BB10 1NW</span>
+            <a href="tel:01282450085">01282 450085</a>
+            <a href="mailto:info@peakarchitecture.co.uk">info@peakarchitecture.co.uk</a>
+          </address>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Peak Architecture Ltd. Company No. 12644830. All rights reserved.</p>
+        <a href="contact.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    const sentinel = document.createElement('div');
+    sentinel.style.cssText = 'position:absolute;top:120px;left:0;width:1px;height:1px;pointer-events:none;visibility:hidden;';
+    document.body.insertAdjacentElement('afterbegin', sentinel);
+    new IntersectionObserver(([e]) => nav.classList.toggle('scrolled', !e.isIntersecting), { threshold: 0 }).observe(sentinel);
+
+    const toggle = document.querySelector('.nav-toggle');
+    const mob = document.getElementById('nav-mobile');
+    toggle.addEventListener('click', () => {
+      const open = toggle.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+      mob.classList.toggle('open', open);
+      mob.setAttribute('aria-hidden', String(!open));
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      mob.classList.remove('open');
+      mob.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }));
+
+    const revObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revObs.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+
+    // Form submission via Web3Forms -> emails info@peakarchitecture.co.uk
+    const form = document.getElementById('contact-form');
+    const successMsg = document.getElementById('form-success');
+    const errorMsg = document.getElementById('form-error');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('[type="submit"]');
+      errorMsg.style.display = 'none';
+      btn.disabled = true;
+      const originalText = btn.textContent;
+      btn.textContent = 'Sending...';
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+        const data = await res.json();
+        if (data.success) {
+          form.querySelectorAll('input, select, textarea, button').forEach(el => { el.style.display = 'none'; });
+          form.querySelector('.form-footer').style.display = 'none';
+          form.querySelector('.form-note').style.display = 'none';
+          successMsg.classList.add('show');
+        } else {
+          throw new Error(data.message || 'submission failed');
+        }
+      } catch (err) {
+        errorMsg.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = originalText;
+      }
+    });
+  </script>
+  <script src="js/nav-dropdown.js"></script>
+</body>
+</html>
