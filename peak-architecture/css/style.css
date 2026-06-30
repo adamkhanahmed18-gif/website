@@ -1571,8 +1571,9 @@ body {
 }
 
 .testi-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.25rem;
 }
 
@@ -1581,6 +1582,8 @@ body {
   padding: 2.25rem 2rem;
   display: flex;
   flex-direction: column;
+  flex: 1 1 300px;
+  max-width: 380px;
 }
 
 .testi-stars {
@@ -1921,7 +1924,7 @@ body {
    ================================================ */
 
 @media (max-width: 1024px) {
-  .testi-grid { grid-template-columns: 1fr; max-width: 540px; }
+  .testi-grid { max-width: 720px; margin-inline: auto; }
   .coverage-grid { grid-template-columns: 1fr; gap: 3rem; }
   .includes-grid { grid-template-columns: repeat(2, 1fr); }
 }
